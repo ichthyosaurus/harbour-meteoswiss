@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 
 
 Column {
+    id: forecast
     property var dataRain
     property var dataTemp
     property string title
@@ -44,8 +45,16 @@ Column {
         }
     }
 
-    ForecastGraphItem {
-        rain: dataRain
-        temp: dataTemp
+    Component.onCompleted: {
+        var component;
+        var sprite;
+
+        if (active) {
+            component = Qt.createComponent("ForecastGraphActive.qml");
+        } else {
+            component = Qt.createComponent("ForecastGraphInactive.qml");
+        }
+
+        sprite = component.createObject(forecast);
     }
 }
