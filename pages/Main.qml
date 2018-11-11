@@ -1,8 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "components"
 
-import "../qchart/"
-import "../qchart/QChart.js" as Charts
 import "../data/forecast.js" as ForecastData
 
 
@@ -28,101 +27,22 @@ Page {
                 title: "MeteoSwiss"
             }
 
-            Item {
-                height: chart.height
-                width: parent.width - (Theme.horizontalPageMargin * 2)
-                x: Theme.horizontalPageMargin
-                clip: true
+            ForecastItem {
+                title: "Today"
+                dataTemp: ForecastData.forecastTemp
+                dataRain: ForecastData.forecastRain
+            }
 
-                SilicaFlickable {
-                    anchors.fill: parent
-                    flickableDirection: Flickable.HorizontalFlick
+            ForecastItem {
+                title: "Montag, 12. 11. 2018"
+                dataTemp: ForecastData.forecastTemp
+                dataRain: ForecastData.forecastRain
+            }
 
-                    contentHeight: row.height
-                    contentWidth: row.width
-
-                    Row {
-                        id: row
-                        width: chart.width + (2 * spacing)
-                        height: chart.height
-                        spacing: Theme.paddingLarge
-
-                        Column {
-                            id: chart
-                            height: 1500
-                            width: 2000
-                            spacing: Theme.paddingLarge
-
-                            Column {
-                                width: mainPage.width
-
-                                BackgroundItem {
-                                    width: parent.width
-                                    height: Theme.itemSizeSmall
-
-                                    onClicked: pageStack.push(Qt.resolvedUrl("Table.qml"), {})
-
-                                    Label {
-                                        id: titleLabel
-                                        anchors {
-                                            rightMargin: Theme.paddingMedium
-                                            verticalCenter: parent.verticalCenter
-                                        }
-                                        text: "Today"
-                                        color: Theme.highlightColor
-                                        font.pixelSize: Theme.fontSizeLarge
-                                    }
-
-                                    Image {
-                                        id: moreImage
-                                        anchors {
-                                            left: titleLabel.right
-                                            rightMargin: Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium
-                                            verticalCenter: parent.verticalCenter
-                                        }
-                                        source: "image://theme/icon-m-right?" + Theme.highlightColor
-                                    }
-                                }
-                            }
-
-                            QChart {
-                                id: tempChart
-                                property int minValue: Math.min.apply(Math, ForecastData.forecastTemp.datasets[0].data)
-                                width: parent.width
-                                height: 500
-                                chartAnimated: false
-                                chartData: ForecastData.forecastTemp
-                                chartType: Charts.ChartType.LINE
-                                chartOptions: ({
-                                    scaleFontSize: Theme.fontSizeExtraSmall,
-                                    scaleFontFamily: 'Sail Sans Pro',
-                                    scaleFontColor: Theme.secondaryColor,
-                                    scaleLineColor: Theme.secondaryColor,
-                                    scaleStepWidth: 0.5,
-                                    bezierCurve: true,
-                                    scaleStartValue: (minValue == 0) ? 0 : minValue - 1,
-                                })
-                            }
-
-                            QChart {
-                                id: rainChart
-                                width: parent.width
-                                height: 290
-                                chartAnimated: false
-                                chartData: ForecastData.forecastRain
-                                chartType: Charts.ChartType.BAR
-                                chartOptions: ({
-                                    scaleFontSize: Theme.fontSizeExtraSmall,
-                                    scaleFontFamily: 'Sail Sans Pro',
-                                    scaleFontColor: Theme.secondaryColor,
-                                    scaleLineColor: Theme.secondaryColor,
-                                    scaleShowLabels: true,
-                                    scaleStartValue: 0.0,
-                                })
-                            }
-                        }
-                    }
-                }
+            ForecastItem {
+                title: "Dienstag, 13. 11. 2018"
+                dataTemp: ForecastData.forecastTemp
+                dataRain: ForecastData.forecastRain
             }
 
             VerticalScrollDecorator {}
