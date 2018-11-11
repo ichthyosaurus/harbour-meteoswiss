@@ -101,7 +101,6 @@ Page {
                                     scaleStepWidth: 0.5,
                                     bezierCurve: true,
                                     scaleStartValue: (minValue == 0) ? 0 : minValue - 1,
-                                    scaleOverride: true,
                                 })
                             }
 

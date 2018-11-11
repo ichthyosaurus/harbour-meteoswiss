@@ -12,6 +12,8 @@
 //
 //
 
+// ADAPTED FOR METEOSWISS
+
 var ChartType = {
          BAR: 1,
     DOUGHNUT: 2,
@@ -804,7 +806,14 @@ var Chart = function(canvas, context) {
             labelTemplateString = (config.scaleShowLabels)? config.scaleLabel : "";
 
             if (!config.scaleOverride) {
-                calculatedScale = calculateScale(scaleHeight,valueBounds.maxSteps,valueBounds.minSteps,valueBounds.maxValue,valueBounds.minValue,labelTemplateString);
+                calculatedScale = calculateScale(
+                    scaleHeight,
+                    valueBounds.maxSteps,
+                    valueBounds.minSteps,
+                    valueBounds.maxValue,
+                    (config.scaleStartValue === null) ? valueBounds.minValue : config.scaleStartValue,
+                    labelTemplateString
+                );
             } else {
                 calculatedScale = {
                     steps: config.scaleSteps,
