@@ -20,7 +20,7 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), {}) : pageStack.replace(Qt.resolvedUrl("../Main.qml"), { activeDay: dayId })
+            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), {}) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel
@@ -45,16 +45,9 @@ Column {
         }
     }
 
-    Component.onCompleted: {
-        var component;
-        var sprite;
-
-        if (active) {
-            component = Qt.createComponent("ForecastGraphActive.qml");
-        } else {
-            component = Qt.createComponent("ForecastGraphInactive.qml");
-        }
-
-        sprite = component.createObject(forecast);
+    ForecastGraphItem {
+        visible: active
+        rain: dataRain
+        temp: dataTemp
     }
 }
