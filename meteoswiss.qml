@@ -9,7 +9,7 @@ import "data/forecast.js" as ForecastData
 
 ApplicationWindow {
     id: main
-    initialPage: Component { Main { } }
+    initialPage: Component { Main { activeDay: 0 } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
 //     Python {
@@ -25,7 +25,7 @@ ApplicationWindow {
 
     Component {
         id: mainPage
-        Main { }
+        Main { activeDay: 0 }
     }
 
     Component.onCompleted: {
