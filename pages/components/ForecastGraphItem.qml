@@ -81,5 +81,6 @@ Item {
 
     Component.onCompleted: {
         main.dataLoaded.connect(loadCharts)
+        main.dataIsLoading.connect(function(){ forecast.loaded = false })
     }
 }
