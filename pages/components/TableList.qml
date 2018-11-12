@@ -9,7 +9,7 @@ SilicaListView {
 
     property var data
 
-    Behavior on opacity { NumberAnimation {} }
+    Behavior on opacity { NumberAnimation { duration: 500 } }
     opacity: tablePage.loaded ? 1 : 0
     visible: tablePage.loaded ? true : false
 
