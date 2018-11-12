@@ -1,4 +1,76 @@
 
+function date_diff(a, b) {
+    var d1 = new Date()
+    var d2 = new Date()
+
+    d1.setTime(a)
+    d2.setTime(b)
+
+    return d1-d2
+}
+
+function convert_raw(raw) {
+    var data = []
+
+    raw.sort(function(a, b) {
+        return date_diff(a.max_date, b.max_date)
+    })
+
+    for (var day = 0; day < raw.length; day++) {
+        var dayData = {
+            date: '',
+            date_string: '',
+            temperature: {
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [{
+                    fillColor: "rgba(0,0,0,0)",
+                    strokeColor: "rgba(234,77,79,1)",
+                    pointColor: "rgba(234,77,79,1)",
+                    data: [],
+                    symbols: []
+                }]
+            },
+            rainfall: {
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [{
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    data: [],
+                }]
+            }
+        }
+
+        dayData.date = new Date()
+        dayData.date.setTime(raw[day].max_date)
+        dayData.date_string = dayData.date.toLocaleDateString()
+
+        raw[day].rainfall.sort(function(a, b) {
+            return date_diff(a[0], b[0])
+        })
+
+        raw[day].temperature.sort(function(a, b) {
+            return date_diff(a[0], b[0])
+        })
+
+        for (var rain = 0; rain < raw[day].rainfall.length; rain++) {
+            dayData.rainfall.datasets[0].data.push(raw[day].rainfall[rain][1])
+        }
+
+        for (var temp = 0; temp < raw[day].temperature.length; temp++) {
+            dayData.temperature.datasets[0].data.push(raw[day].temperature[temp][1])
+            dayData.temperature.datasets[0].symbols.push(1)
+        }
+
+        print(dayData.rainfall.datasets[0].data)
+
+        data.push(dayData)
+    }
+
+    return data
+}
+
+
 var ChartLineData = {
       labels: ["January","February","March","April","May","June","July"],
     datasets: [{
