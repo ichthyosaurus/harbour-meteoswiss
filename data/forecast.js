@@ -73,6 +73,10 @@ function convert_raw(raw) {
             return date_diff(a[0], b[0])
         })
 
+        raw[day].symbols.sort(function(a, b) {
+            return date_diff(a.timestamp, b.timestamp)
+        })
+
         for (var rain = 0; rain < raw[day].rainfall.length; rain++) {
             dayData.rainfall.datasets[0].data.push(raw[day].rainfall[rain][1])
             dayData.rainfall.datasets[0].tableData.push(raw[day].rainfall[rain][1])
@@ -90,7 +94,11 @@ function convert_raw(raw) {
 
         for (var temp = 0; temp < raw[day].temperature.length; temp++) {
             dayData.temperature.datasets[0].data.push(raw[day].temperature[temp][1])
-            dayData.temperature.datasets[0].symbols.push(1)
+            dayData.temperature.datasets[0].symbols.push(0)
+        }
+
+        for (var sym = 0; sym < raw[day].symbols.length; sym++) {
+            dayData.temperature.datasets[0].symbols[(sym*3)+2] = raw[day].symbols[sym].weather_symbol_id
         }
 
         print("rain", dayData.rainfall.datasets[0].tableData)
