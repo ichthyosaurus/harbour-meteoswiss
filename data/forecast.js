@@ -1,10 +1,4 @@
 
-
-function sleep(ms) {
-    var unixtime_ms = new Date().getTime();
-    while(new Date().getTime() < unixtime_ms + ms) {}
-}
-
 function date_diff(a, b) {
     var d1 = new Date()
     var d2 = new Date()
@@ -16,8 +10,6 @@ function date_diff(a, b) {
 }
 
 function convert_raw(raw) {
-//     sleep(1000)
-
     var data = []
 
     raw.sort(function(a, b) {
