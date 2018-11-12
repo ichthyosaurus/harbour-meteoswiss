@@ -4,8 +4,6 @@ import Sailfish.Silica 1.0
 
 Column {
     id: forecast
-    property var dataRain
-    property var dataTemp
     property string title
     property bool active
     property int dayId
@@ -14,13 +12,13 @@ Column {
     x: Theme.horizontalPageMargin
 
     Column {
-        width: parent.width
+        width: 1000
 
         BackgroundItem {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, rainData: dataRain, tempData: dataTemp }) : mainPage.activateGraph(dayId)
+            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, day: dayId }) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel
@@ -47,7 +45,6 @@ Column {
 
     ForecastGraphItem {
         visible: active
-        rain: dataRain
-        temp: dataTemp
+        day: dayId
     }
 }

@@ -2,15 +2,15 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
 
-import "qchart/"
-import "qchart/QChart.js" as Charts
-import "data/forecast.js" as ForecastData
+import "data/forecast.js" as Forecast
 
 
 ApplicationWindow {
     id: main
-    initialPage: Component { Main { activeDay: 0 } }
+    initialPage: mainPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    property var data: Forecast.convert_raw(Forecast.raw_meteo_forecast)
 
 //     Python {
 //         id: py
@@ -29,7 +29,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        // pageStack.push(main)
-        console.log("ready!")
+        // Forecast.theData = Forecast.convert_raw(Forecast.raw_meteo_forecast)
     }
 }

@@ -6,8 +6,9 @@ import "../../qchart/QChart.js" as Charts
 
 
 Item {
-    property var rain
-    property var temp
+    property int day
+    property var rain: main.data[day].rainfall
+    property var temp: main.data[day].temperature
 
     height: chart.height
     width: parent.width
