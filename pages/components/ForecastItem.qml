@@ -20,7 +20,7 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), {}) : mainPage.activateGraph(dayId)
+            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, rainData: dataRain, tempData: dataTemp }) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel
