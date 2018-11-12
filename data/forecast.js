@@ -16,7 +16,7 @@ function date_diff(a, b) {
 }
 
 function convert_raw(raw) {
-    sleep(5000)
+//     sleep(1000)
 
     var data = []
 

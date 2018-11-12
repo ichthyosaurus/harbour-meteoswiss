@@ -22,8 +22,4 @@ QChart {
         datasetStrokeWidth: 2,
         pointDotRadius: 6,
     })
-
-    Component.onCompleted: {
-        console.log("loaded: temp", height, width)
-    }
 }
