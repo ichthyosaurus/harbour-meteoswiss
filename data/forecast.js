@@ -103,6 +103,7 @@ function convert_raw(raw) {
 
         print("rain", dayData.rainfall.datasets[0].tableData)
 
+        dayData.isSane = true
         data.push(dayData)
     }
 
@@ -110,6 +111,7 @@ function convert_raw(raw) {
 }
 
 var emptyDummyDay = {
+    isSane: false,
     date: '',
     dateString: '',
     temperature: {

@@ -28,6 +28,7 @@ Page {
         Column {
             id: column
             width: parent.width
+            visible: main.data[0].isSane ? true : false
 
             PageHeader {
                 title: "MeteoSwiss"
@@ -67,6 +68,27 @@ Page {
                 id: d5
                 dayId: 5
                 active: (activeDay == dayId)
+            }
+
+            VerticalScrollDecorator {}
+        }
+
+        Column {
+            id: failedColumn
+            width: parent.width
+            visible: !column.visible
+
+            PageHeader {
+                title: "MeteoSwiss"
+            }
+
+            Label {
+                id: failed
+                x: Theme.horizontalPageMargin
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: 'Failed to load data!' // TODO center etc.
+                color: Theme.highlightColor
+                font.pixelSize: Theme.fontSizeLarge
             }
 
             VerticalScrollDecorator {}
