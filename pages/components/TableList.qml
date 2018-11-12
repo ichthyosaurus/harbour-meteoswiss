@@ -3,11 +3,18 @@ import Sailfish.Silica 1.0
 
 
 SilicaListView {
+    id: table
     width: parent.width
-    height: 24*Theme.itemSizeSmall
+    height: (showAll ? 24 : 8) * Theme.itemSizeSmall
     x: Theme.horizontalPageMargin
 
     property var data
+    property bool showAll: false
+    signal toggleShowAll
+
+    onToggleShowAll: {
+        showAll = !showAll
+    }
 
     Behavior on opacity { NumberAnimation { duration: 500 } }
     opacity: tablePage.loaded ? 1 : 0
@@ -17,7 +24,16 @@ SilicaListView {
 
     delegate: Item {
         width: ListView.view.width
-        height: Theme.itemSizeSmall
+        height: visible ? Theme.itemSizeSmall : 0
+        visible: (   hour == 2
+                  || hour == 5
+                  || hour == 8
+                  || hour == 11
+                  || hour == 14
+                  || hour == 17
+                  || hour == 20
+                  || hour == 23
+                  || showAll)
 
         Label {
             id: hourLabel
@@ -50,6 +66,15 @@ SilicaListView {
             width: 250
             text: (rain > 0) ? rain + " mm" : ''
             font.pixelSize: Theme.fontSizeMedium
+        }
+
+        MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+
+            onClicked: {
+                toggleShowAll()
+            }
         }
     }
 
