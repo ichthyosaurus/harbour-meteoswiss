@@ -10,7 +10,8 @@ ApplicationWindow {
     initialPage: mainPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
-    property var data: Forecast.convert_raw(Forecast.raw_meteo_forecast)
+    signal dataLoaded
+    property var data
 
 //     Python {
 //         id: py
@@ -28,7 +29,16 @@ ApplicationWindow {
         Main { activeDay: 0 }
     }
 
+    WorkerScript {
+        id: dataLoader
+        source: "data/forecast.js"
+        onMessage: {
+            main.data = messageObject.data
+            dataLoaded()
+        }
+    }
+
     Component.onCompleted: {
-        // Forecast.theData = Forecast.convert_raw(Forecast.raw_meteo_forecast)
+        dataLoader.sendMessage()
     }
 }

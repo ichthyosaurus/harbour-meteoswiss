@@ -1,4 +1,10 @@
 
+
+function sleep(ms) {
+    var unixtime_ms = new Date().getTime();
+    while(new Date().getTime() < unixtime_ms + ms) {}
+}
+
 function date_diff(a, b) {
     var d1 = new Date()
     var d2 = new Date()
@@ -10,6 +16,8 @@ function date_diff(a, b) {
 }
 
 function convert_raw(raw) {
+    sleep(5000)
+
     var data = []
 
     raw.sort(function(a, b) {
@@ -3900,3 +3908,11 @@ var raw_meteo_forecast =
         }
     }
 ]
+
+
+
+WorkerScript.onMessage = function(message) {
+    var data = convert_raw(raw_meteo_forecast)
+    WorkerScript.sendMessage({ 'data': data })
+}
+
