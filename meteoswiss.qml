@@ -10,8 +10,12 @@ ApplicationWindow {
     initialPage: mainPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
-    signal dataLoaded
+    signal dataLoaded(var data)
+    signal dataIsLoading()
+    signal refreshData()
+
     property var data
+    property bool dataIsReady: false
 
 //     Python {
 //         id: py
@@ -34,11 +38,20 @@ ApplicationWindow {
         source: "data/forecast.js"
         onMessage: {
             main.data = messageObject.data
-            dataLoaded()
+            main.dataIsReady = true
+            dataLoaded(messageObject.data)
         }
     }
 
-    Component.onCompleted: {
+    function doRefreshData(message) {
+        console.log("refreshing...")
+        main.dataIsReady = false
+        dataIsLoading()
         dataLoader.sendMessage()
+    }
+
+    Component.onCompleted: {
+        doRefreshData()
+        refreshData.connect(doRefreshData)
     }
 }
