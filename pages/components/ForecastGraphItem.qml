@@ -31,6 +31,7 @@ Item {
 
             Column {
                 id: chart
+
                 visible: forecast.loaded
                 Behavior on opacity { NumberAnimation {} }
                 opacity: forecast.loaded ? 1 : 0
