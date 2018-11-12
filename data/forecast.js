@@ -3941,7 +3941,33 @@ var raw_meteo_forecast =
 ]
 
 
-var fullData
+var emptyDummyDay = {
+    date: '',
+    dateString: '',
+    temperature: {
+        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+        datasets: [{
+            fillColor: "rgba(0,0,0,0)",
+            strokeColor: "rgba(234,77,79,1)",
+            pointColor: "rgba(234,77,79,1)",
+            data: [],
+            symbols: []
+        }]
+    },
+    rainfall: {
+        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+        datasets: [{
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            data: [],
+            tableData: [],
+        }]
+    }
+}
+
+var fullData = [emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay]
+
 
 WorkerScript.onMessage = function(message) {
     fullData = convert_raw(raw_meteo_forecast)
