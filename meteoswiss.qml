@@ -14,7 +14,7 @@ ApplicationWindow {
     signal dataIsLoading()
     signal refreshData()
 
-    property var data
+    property var data: Forecast.fullData
     property bool dataIsReady: false
 
 //     Python {
