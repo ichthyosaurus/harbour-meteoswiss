@@ -18,17 +18,6 @@ ApplicationWindow {
     property var data: Forecast.fullData
     property bool dataIsReady: false
 
-//     Python {
-//         id: py
-//         Component.onCompleted: {
-//             importModule('os', function() {});
-//             importModule('urllib.request', function() {});
-//             setHandler('download_finished', function (Id) {
-//                 console.log('New entries from ' + Id);
-//             });
-//         }
-//     }
-
     Component {
         id: mainPage
         Main { activeDay: 0 }
