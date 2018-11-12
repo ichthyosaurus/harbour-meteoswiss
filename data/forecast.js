@@ -137,7 +137,42 @@ var emptyDummyDay = {
 var fullData = [emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay]
 
 
+function httpGet(url) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, false); // false for synchronous request
+    xmlHttp.send(null);
+    return xmlHttp;
+}
+
+function fail(error) {
+    console.log("error: " + error)
+    WorkerScript.sendMessage({ 'data': fullData })
+}
+
 WorkerScript.onMessage = function(message) {
-    fullData = convert_raw(raw_meteo_forecast)
+    if (message.data) {
+        fullData = convert_raw(message.data)
+    } else {
+        var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText
+        var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
+        var res = chartReg.exec(xml);
+        console.log(res)
+
+        if (!res) {
+            fail("could not extract JSON path");
+            return;
+        }
+
+        var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/414300.json')
+        var raw_data = JSON.parse(json.responseText);
+
+        if (!raw_data) {
+            fail("could not parse JSON");
+            return;
+        }
+
+        fullData = convert_raw(raw_data)
+    }
+
     WorkerScript.sendMessage({ 'data': fullData })
 }
