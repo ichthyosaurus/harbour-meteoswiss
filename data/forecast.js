@@ -45,6 +45,7 @@ function convert_raw(raw) {
                     strokeColor: "rgba(151,187,205,1)",
                     pointColor: "rgba(151,187,205,1)",
                     data: [],
+                    tableData: [],
                 }]
             }
         }
@@ -63,6 +64,17 @@ function convert_raw(raw) {
 
         for (var rain = 0; rain < raw[day].rainfall.length; rain++) {
             dayData.rainfall.datasets[0].data.push(raw[day].rainfall[rain][1])
+            dayData.rainfall.datasets[0].tableData.push(raw[day].rainfall[rain][1])
+        }
+
+        var minR = Math.min.apply(Math, dayData.rainfall.datasets[0].data)
+        var maxR = Math.max.apply(Math, dayData.rainfall.datasets[0].data)
+
+        if ((minR == maxR) && minR == 0.0) { // WARNING ugly hack: set dummy data to force scale being shown
+            dayData.rainfall.datasets[0].fillColor = "rgba(151,187,205,0.0)"
+            dayData.rainfall.datasets[0].strokeColor = "rgba(151,187,205,0.0)"
+            dayData.rainfall.datasets[0].pointColor = "rgba(151,187,205,0.0)"
+            dayData.rainfall.datasets[0].data[0] = 0.3
         }
 
         for (var temp = 0; temp < raw[day].temperature.length; temp++) {
@@ -70,7 +82,7 @@ function convert_raw(raw) {
             dayData.temperature.datasets[0].symbols.push(1)
         }
 
-        print(dayData.rainfall.datasets[0].data)
+        print("rain", dayData.rainfall.datasets[0].tableData)
 
         data.push(dayData)
     }

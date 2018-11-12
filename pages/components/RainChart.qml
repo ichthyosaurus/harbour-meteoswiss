@@ -7,8 +7,6 @@ import "../../qchart/QChart.js" as Charts
 
 QChart {
     id: rainChart
-    width: parent.width
-    height: chart.rainHeight
     chartAnimated: false
     chartData: rain
     chartType: Charts.ChartType.BAR
