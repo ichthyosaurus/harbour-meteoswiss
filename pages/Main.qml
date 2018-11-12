@@ -36,42 +36,36 @@ Page {
             ForecastItem {
                 id: d0
                 dayId: 0
-                title: "Today"
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d1
                 dayId: 1
-                title: "Montag, 12. 11. 2018"
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d2
                 dayId: 2
-                title: "Dienstag, 13. 11. 2018"
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d3
                 dayId: 3
-                title: "Mittwoch, 14. 11. 2018"
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d4
                 dayId: 4
-                title: "Donnerstag, 15. 11. 2018"
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d5
                 dayId: 5
-                title: "Freitag, 16. 11. 2018"
                 active: (activeDay == dayId)
             }
 

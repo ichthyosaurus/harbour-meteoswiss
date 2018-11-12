@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Column {
     id: forecast
-    property string title
+    property string title: main.dataIsReady ? main.data[dayId].dateString : 'Loading...'
     property bool active
     property int dayId
 
@@ -48,5 +48,15 @@ Column {
         Behavior on opacity { NumberAnimation { duration: 500 } }
         opacity: active ? 1 : 0
         day: dayId
+    }
+
+    function refreshTitle(data) {
+        title = main.data[dayId].dateString ? main.data[dayId].dateString : 'Failed...'
+        console.log("refreshing title")
+    }
+
+    Component.onCompleted: {
+        main.dataLoaded.connect(refreshTitle)
+        main.dataIsLoading.connect(function(){ title = "Loading..." })
     }
 }
