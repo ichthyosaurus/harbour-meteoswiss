@@ -29,47 +29,36 @@ Item {
 
             Column {
                 id: chart
-                height: tempChart.height + spacing + rainChart.height
+
+                property int tempHeight: 500
+                property int rainHeight: 290
+
+                height: tempHeight + spacing + rainHeight
                 width: 2000
                 spacing: Theme.paddingLarge
 
-                QChart {
-                    id: tempChart
-                    property int minValue: Math.min.apply(Math, temp.datasets[0].data)
-                    width: parent.width
-                    height: 500
-                    chartAnimated: false
-                    chartData: temp
-                    chartType: Charts.ChartType.LINE
-                    chartOptions: ({
-                        scaleFontSize: Theme.fontSizeExtraSmall,
-                        scaleFontFamily: 'Sail Sans Pro',
-                        scaleFontColor: Theme.secondaryColor,
-                        scaleLineColor: Theme.secondaryColor,
-                        bezierCurve: true,
-                        scaleStartValue: (minValue == 0) ? 0 : minValue - 1,
-                        datasetStrokeWidth: 2,
-                        pointDotRadius: 6,
-                    })
+                Loader {
+                    id: tempLoader
+                    asynchronous: true
+                    visible: status == Loader.Ready
                 }
 
-                QChart {
-                    id: rainChart
-                    width: parent.width
-                    height: 290
-                    chartAnimated: false
-                    chartData: rain
-                    chartType: Charts.ChartType.BAR
-                    chartOptions: ({
-                        scaleFontSize: Theme.fontSizeExtraSmall,
-                        scaleFontFamily: 'Sail Sans Pro',
-                        scaleFontColor: Theme.secondaryColor,
-                        scaleLineColor: Theme.secondaryColor,
-                        scaleShowLabels: true,
-                        scaleStartValue: 0.0,
-                    })
+                Loader {
+                    id: rainLoader
+                    asynchronous: true
+                    visible: status == Loader.Ready
                 }
             }
         }
+    }
+
+    function loadCharts() {
+        console.log("loading charts...")
+        tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
+        rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
+    }
+
+    Component.onCompleted: {
+        main.dataLoaded.connect(loadCharts)
     }
 }
