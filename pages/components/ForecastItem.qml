@@ -45,6 +45,8 @@ Column {
 
     ForecastGraphItem {
         visible: active
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: active ? 1 : 0
         day: dayId
     }
 }
