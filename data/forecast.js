@@ -110,45 +110,6 @@ function convert_raw(raw) {
 }
 
 
-var ChartLineData = {
-      labels: ["January","February","March","April","May","June","July"],
-    datasets: [{
-               fillColor: "rgba(220,220,220,0.5)",
-             strokeColor: "rgba(220,220,220,1)",
-              pointColor: "rgba(220,220,220,1)",
-        pointStrokeColor: "#ffffff",
-                    data: [65,59,90,81,56,55,40]
-    }, {
-               fillColor: "rgba(151,187,205,0.5)",
-             strokeColor: "rgba(151,187,205,1)",
-              pointColor: "rgba(151,187,205,1)",
-        pointStrokeColor: "#ffffff",
-                    data: [28,48,40,19,96,27,100]
-    }]
-}
-
-var forecastTemp = {
-    labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-    datasets: [{
-        fillColor: "rgba(0,0,0,0)",
-        strokeColor: "rgba(234,77,79,1)",
-        pointColor: "rgba(234,77,79,1)",
-        data: [11,12,13,14,14,14.5,15,14,13,12,11,11,11,11,11,11,11,11,11,11,11,11,11,11], // temperature
-        symbols: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
-    }]
-}
-
-var forecastRain = {
-    labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-    datasets: [{
-        fillColor: "rgba(151,187,205,0.5)",
-        strokeColor: "rgba(151,187,205,1)",
-        pointColor: "rgba(151,187,205,1)",
-        data: [0.2,0,0,0,0.1,0,0.5,0.4,0,0,0,0,0,0.1,0.2,0.1,0,0,0,0,0,0,0,0] // rainfall
-    }]
-}
-
-
 var raw_meteo_forecast =
 [
     {
