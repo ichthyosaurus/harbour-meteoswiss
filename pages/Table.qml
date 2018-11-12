@@ -3,10 +3,12 @@ import Sailfish.Silica 1.0
 
 
 Page {
+    id: tablePage
     property string name
     property int day
     property var rain: main.data[day].rainfall
     property var temp: main.data[day].temperature
+    property bool loaded: main.dataIsReady
 
     SilicaFlickable {
         anchors.fill: parent
@@ -61,10 +63,29 @@ Page {
                 }
             }
 
+            Column {
+                id: waitingForData
+                width: tablePage.width
+
+                Behavior on opacity { NumberAnimation {} }
+                opacity: tablePage.loaded ? 0 : 1
+                visible: tablePage.loaded ? false : true
+
+                BusyIndicator {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    running: !tablePage.loaded
+                    size: BusyIndicatorSize.Medium
+                }
+            }
+
             SilicaListView {
                 width: parent.width
                 height: 24*Theme.itemSizeSmall
                 x: Theme.horizontalPageMargin
+
+                Behavior on opacity { NumberAnimation {} }
+                opacity: tablePage.loaded ? 1 : 0
+                visible: tablePage.loaded ? true : false
 
                 model: ListModel { }
 
@@ -106,7 +127,8 @@ Page {
                     }
                 }
 
-                Component.onCompleted: {
+                function refreshModel() {
+                    model.clear()
                     model.append({"hour": 0 , "image": temp.datasets[0].symbols[0 ], "temp": temp.datasets[0].data[0 ], "rain": rain.datasets[0].data[0 ] })
                     model.append({"hour": 1 , "image": temp.datasets[0].symbols[1 ], "temp": temp.datasets[0].data[1 ], "rain": rain.datasets[0].data[1 ] })
                     model.append({"hour": 2 , "image": temp.datasets[0].symbols[2 ], "temp": temp.datasets[0].data[2 ], "rain": rain.datasets[0].data[2 ] })
@@ -131,6 +153,14 @@ Page {
                     model.append({"hour": 21, "image": temp.datasets[0].symbols[21], "temp": temp.datasets[0].data[21], "rain": rain.datasets[0].data[21] })
                     model.append({"hour": 22, "image": temp.datasets[0].symbols[22], "temp": temp.datasets[0].data[22], "rain": rain.datasets[0].data[22] })
                     model.append({"hour": 23, "image": temp.datasets[0].symbols[23], "temp": temp.datasets[0].data[23], "rain": rain.datasets[0].data[23] })
+                }
+
+                Component.onCompleted: {
+                    main.dataLoaded.connect(refreshModel)
+
+                    if (main.dataIsReady) {
+                        refreshModel()
+                    }
                 }
             }
 
