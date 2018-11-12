@@ -3910,9 +3910,9 @@ var raw_meteo_forecast =
 ]
 
 
+var fullData
 
 WorkerScript.onMessage = function(message) {
-    var data = convert_raw(raw_meteo_forecast)
-    WorkerScript.sendMessage({ 'data': data })
+    fullData = convert_raw(raw_meteo_forecast)
+    WorkerScript.sendMessage({ 'data': fullData })
 }
-
