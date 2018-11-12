@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import "pages"
 
 import "data/forecast.js" as Forecast
+import "data/dummy.js" as DummyData
 
 
 ApplicationWindow {
@@ -47,7 +48,7 @@ ApplicationWindow {
         console.log("refreshing...")
         main.dataIsReady = false
         dataIsLoading()
-        dataLoader.sendMessage()
+        dataLoader.sendMessage({ data: DummyData.raw_meteo_forecast, })
     }
 
     Component.onCompleted: {
