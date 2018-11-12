@@ -67,7 +67,7 @@ Page {
                 id: waitingForData
                 width: tablePage.width
 
-                Behavior on opacity { NumberAnimation {} }
+                Behavior on opacity { NumberAnimation { duration: 500 } }
                 opacity: tablePage.loaded ? 0 : 1
                 visible: tablePage.loaded ? false : true
 

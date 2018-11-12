@@ -33,7 +33,7 @@ Item {
                 id: chart
 
                 visible: forecast.loaded
-                Behavior on opacity { NumberAnimation {} }
+                Behavior on opacity { NumberAnimation { duration: 500 } }
                 opacity: forecast.loaded ? 1 : 0
 
                 property int tempHeight: 500
@@ -60,7 +60,7 @@ Item {
                 height: 700
                 anchors.verticalCenter: parent.verticalCenter
 
-                Behavior on opacity { NumberAnimation {} }
+                Behavior on opacity { NumberAnimation { duration: 500 } }
                 opacity: forecast.loaded ? 0 : 1
                 visible: forecast.loaded ? false : true
 
