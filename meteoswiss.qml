@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 import "pages"
 
 import "data/forecast.js" as Forecast
+import "data/storage.js" as Storage
 import "data/dummy.js" as DummyData
 
 
@@ -30,6 +32,9 @@ ApplicationWindow {
             main.data = messageObject.data
             main.dataIsReady = true
             dataLoaded(messageObject.data)
+
+            Storage.init()
+            Storage.setData(messageObject.timestamp, messageObject.zip, JSON.stringify(messageObject.data), JSON.stringify(messageObject.raw))
         }
     }
 
@@ -37,7 +42,11 @@ ApplicationWindow {
         console.log("refreshing...")
         main.dataIsReady = false
         dataIsLoading()
-        dataLoader.sendMessage({ data: DummyData.raw_meteo_forecast, })
+        var archived = Storage.getData(4143, true)
+        dataLoader.sendMessage({
+            data: archived.length > 0 ? archived[0] : null,
+            // dummy: DummyData.archived_forecast,
+        })
     }
 
     Component.onCompleted: {

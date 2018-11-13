@@ -42,10 +42,10 @@ function convert_raw(raw) {
             }
         }
 
-        dayData.date = new Date()
-        dayData.date.setTime(raw[day].max_date)
+        var date = new Date()
+        date.setTime(raw[day].max_date)
 
-        var weekday = dayData.date.getDay()
+        var weekday = date.getDay()
 
         if (weekday == 0) {
             weekday = "So"
@@ -63,7 +63,8 @@ function convert_raw(raw) {
             weekday = "Sa"
         }
 
-        dayData.dateString = weekday + "., " + dayData.date.getDate() + ". " + (dayData.date.getMonth()+1) + ". " + dayData.date.getFullYear()
+        dayData.dateString = weekday + "., " + date.getDate() + ". " + (date.getMonth()+1) + ". " + date.getFullYear()
+        dayData.date = date.toJSON()
 
         raw[day].rainfall.sort(function(a, b) {
             return date_diff(a[0], b[0])
@@ -100,8 +101,6 @@ function convert_raw(raw) {
         for (var sym = 0; sym < raw[day].symbols.length; sym++) {
             dayData.temperature.datasets[0].symbols[(sym*3)+2] = raw[day].symbols[sym].weather_symbol_id
         }
-
-        print("rain", dayData.rainfall.datasets[0].tableData)
 
         dayData.isSane = true
         data.push(dayData)
@@ -146,35 +145,60 @@ function httpGet(url) {
     return xmlHttp;
 }
 
-function fail(error) {
-    console.log("error: " + error)
-    WorkerScript.sendMessage({ 'data': fullData })
+function fallbackToArchive(archived, errorMessage) {
+    console.log("warning: " + errorMessage)
+    fullData = JSON.parse(archived.converted)
+    WorkerScript.sendMessage({
+        'zip': archived.zip,
+        'timestamp': archived.timestamp,
+        'data': fullData,
+        'raw': JSON.parse(archived.raw),
+    })
 }
 
 WorkerScript.onMessage = function(message) {
-    if (message.data) {
-        fullData = convert_raw(message.data)
-    } else {
-        var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText
-        var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
-        var res = chartReg.exec(xml);
-        console.log(res)
+    var raw_data
+    var zip = 4143
+    var archived = null
 
-        if (!res) {
-            fail("could not extract JSON path");
-            return;
-        }
-
-        var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/414300.json')
-        var raw_data = JSON.parse(json.responseText);
-
-        if (!raw_data) {
-            fail("could not parse JSON");
-            return;
-        }
-
-        fullData = convert_raw(raw_data)
+    if (message && message.data) {
+        archived = message.data
     }
 
-    WorkerScript.sendMessage({ 'data': fullData })
+    if (message && message.dummy) {
+        fallbackToArchive(message.dummy, "using dummy archive")
+        return
+    }
+
+    if (archived) {
+        var ts = new Date(archived.timestamp)
+        var now = new Date()
+
+        if (ts.toDateString() == now.toDateString() && ts.getHours() == now.getHours()) {
+            fallbackToArchive(archived, "already refreshed in this hour")
+            return
+        }
+    }
+
+    var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText
+    var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
+    var res = chartReg.exec(xml);
+    console.log(res)
+
+    if (!res) {
+        fallbackToArchive(archived, "could not extract JSON path");
+        return;
+    }
+
+    var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/' + zip + '00.json')
+    raw_data = JSON.parse(json.responseText);
+
+    if (!raw_data) {
+        fallbackToArchive(archived, "could not parse JSON");
+        return;
+    }
+
+    fullData = convert_raw(raw_data)
+
+    WorkerScript.sendMessage({ 'zip': zip, 'timestamp': raw_data[0].current_time, 'data': fullData, 'raw': raw_data })
 }

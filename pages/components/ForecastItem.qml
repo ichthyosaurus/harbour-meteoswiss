@@ -52,7 +52,6 @@ Column {
 
     function refreshTitle(data) {
         title = main.data[dayId].dateString ? main.data[dayId].dateString : 'Failed...'
-        console.log("refreshing title")
     }
 
     Component.onCompleted: {
