@@ -6,6 +6,7 @@ import "components"
 Page {
     id: mainPage
     property int activeDay: 0
+    allowedOrientations: Orientation.All
 
     signal activateGraph(int dayId)
 
