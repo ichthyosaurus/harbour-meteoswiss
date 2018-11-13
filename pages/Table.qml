@@ -9,6 +9,7 @@ Page {
     property var rain
     property var temp
     property bool loaded: false
+    allowedOrientations: Orientation.All
 
     SilicaFlickable {
         anchors.fill: parent

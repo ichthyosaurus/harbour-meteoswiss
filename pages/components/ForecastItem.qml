@@ -12,7 +12,7 @@ Column {
     x: Theme.horizontalPageMargin
 
     Column {
-        width: 1000
+        width: forecast.width
 
         BackgroundItem {
             width: parent.width

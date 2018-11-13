@@ -31,6 +31,9 @@ Item {
 
             Column {
                 id: chart
+                height: tempHeight + spacing + rainHeight
+                width: 1740
+                spacing: Theme.paddingLarge
 
                 visible: forecast.loaded
                 Behavior on opacity { NumberAnimation { duration: 500 } }
@@ -38,10 +41,6 @@ Item {
 
                 property int tempHeight: 500
                 property int rainHeight: 290
-
-                height: tempHeight + spacing + rainHeight
-                width: 2000
-                spacing: Theme.paddingLarge
 
                 Loader {
                     id: tempLoader
