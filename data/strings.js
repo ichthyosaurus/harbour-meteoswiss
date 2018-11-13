@@ -1,4 +1,4 @@
-MeteoLang = {
+var MeteoLang = {
     noLocation: "Kein Ort gefunden",
     temperature: "Temperatur in °C",
     temperatureSuffix: "°C",
@@ -64,6 +64,7 @@ MeteoLang = {
     summaryMeasurementSunshineTable: "Messwerte Sonnenscheindauer",
     summaryMeasurementWindTable: "Messwerte Wind",
     weatherSymbolDescription: {
+        "0": "",
         "1": "sonnig",
         "2": "ziemlich sonnig",
         "3": "teilweise sonnig",

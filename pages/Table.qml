@@ -57,10 +57,20 @@ Page {
 
                 Label {
                     id: rainTitle
-                    width: 400
+                    width: 250
                     text: "Precip."
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
+                }
+
+                Label {
+                    id: descriptionTitle
+                    width: 700
+                    text: "Description"
+                    color: Theme.highlightColor
+                    font.pixelSize: Theme.fontSizeMedium
+                    truncationMode: TruncationMode.Fade
+                    visible: isLandscape
                 }
             }
 
