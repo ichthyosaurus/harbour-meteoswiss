@@ -82,4 +82,15 @@ Item {
         main.dataLoaded.connect(loadCharts)
         main.dataIsLoading.connect(function(){ forecast.loaded = false })
     }
+
+    property var appState: Qt.application.state
+
+    onAppStateChanged: {
+        if (Qt.application.state == Qt.ApplicationActive) {
+            loadCharts()
+            console.log("state changed - charts reloaded (day " + day + ")")
+        } else {
+            console.log("state changed - nothing done (day " + day + ")")
+        }
+    }
 }
