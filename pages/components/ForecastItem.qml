@@ -18,7 +18,7 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, day: dayId }) : mainPage.activateGraph(dayId)
+            onClicked: active ? (main.dataIsReady ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel
