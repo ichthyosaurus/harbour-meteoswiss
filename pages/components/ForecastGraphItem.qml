@@ -73,7 +73,7 @@ Item {
     }
 
     function loadCharts() {
-        console.log("loading charts...")
+        console.log("loading charts for day " + day + "...")
         tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
         rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
     }
