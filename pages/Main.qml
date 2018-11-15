@@ -29,7 +29,7 @@ Page {
         Column {
             id: column
             width: parent.width
-            visible: main.data[0].isSane ? true : false
+            visible: (main.dataIsReady && !main.data[0].isSane) ? false : true
 
             PageHeader {
                 title: "MeteoSwiss"
