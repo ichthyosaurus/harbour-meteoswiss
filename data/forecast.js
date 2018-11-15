@@ -156,7 +156,14 @@ function fallbackToArchive(archived, errorMessage) {
     })
 }
 
+function sleep(ms) { // NOTE for debugging the loading display
+    var unixtime_ms = new Date().getTime();
+    while(new Date().getTime() < unixtime_ms + ms) {}
+}
+
 WorkerScript.onMessage = function(message) {
+    // sleep(2000) // DEBUG
+
     var raw_data
     var zip = 4143
     var archived = null
