@@ -1,15 +1,29 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
-CoverBackground {
+
+Cover {
+    width: Theme.coverSizeLarge.width
+    height: Theme.coverSizeLarge.height
+    allowResize: true
+
     Label {
         id: label
         anchors.centerIn: parent
-        text: "Dornach (4143)"
-        width: parent.width - 2*Theme.paddingLarge
-        horizontalAlignment: Text.AlignHCenter
+        text: "Weather"
+        x: Theme.paddingSmall
+        width: parent.width
+        // horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
+        truncationMode: TruncationMode.Fade
     }
+
+    Rectangle {
+        anchors.fill: parent
+        color: Theme.highlightBackgroundColor
+        opacity: Theme.highlightBackgroundOpacity
+    }
+
     Image {
         id: background_image
         z: -1
@@ -20,12 +34,12 @@ CoverBackground {
         height: sourceSize.height * width / sourceSize.width
     }
 
-    CoverActionList {
-        id: coverAction
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-search"
-            onTriggered: console.log("trigger cover action")
-        }
-    }
+//     CoverActionList {
+//         id: coverAction
+//
+//         CoverAction {
+//             iconSource: "image://theme/icon-cover-search"
+//             onTriggered: console.log("trigger cover action")
+//         }
+//     }
 }
