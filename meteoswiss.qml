@@ -3,9 +3,9 @@ import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 import "pages"
 
-import "data/forecast.js" as Forecast
-import "data/storage.js" as Storage
-import "data/dummy.js" as DummyData
+import "js/forecast.js" as Forecast
+import "js/storage.js" as Storage
+import "js/dummy.js" as DummyData
 
 
 ApplicationWindow {
@@ -27,7 +27,7 @@ ApplicationWindow {
 
     WorkerScript {
         id: dataLoader
-        source: "data/forecast.js"
+        source: "js/forecast.js"
         onMessage: {
             main.data = messageObject.data
             main.dataIsReady = true
