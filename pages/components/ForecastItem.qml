@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Column {
     id: forecast
-    property string title: main.dataIsReady ? main.data[dayId].dateString : 'Loading...'
+    property string title: meteoApp.dataIsReady ? meteoApp.data[dayId].dateString : 'Loading...'
     property bool active
     property int dayId
 
@@ -18,7 +18,7 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? (main.dataIsReady ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
+            onClicked: active ? (meteoApp.dataIsReady ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel
@@ -51,11 +51,11 @@ Column {
     }
 
     function refreshTitle(data) {
-        title = main.data[dayId].dateString ? main.data[dayId].dateString : 'Failed...'
+        title = meteoApp.data[dayId].dateString ? meteoApp.data[dayId].dateString : 'Failed...'
     }
 
     Component.onCompleted: {
-        main.dataLoaded.connect(refreshTitle)
-        main.dataIsLoading.connect(function(){ title = "Loading..." })
+        meteoApp.dataLoaded.connect(refreshTitle)
+        meteoApp.dataIsLoading.connect(function(){ title = "Loading..." })
     }
 }

@@ -105,15 +105,15 @@ Page {
         console.log("loading table for day " + day + "...")
         tableLoader.setSource("components/TableList.qml", {
             width: parent.width,
-            data: msgData != null ? msgData : main.data
+            data: msgData != null ? msgData : meteoApp.data
         })
     }
 
     Component.onCompleted: {
-        main.dataLoaded.connect(loadTable)
-        main.dataIsLoading.connect(function(){ if (tablePage) tablePage.loaded = false })
+        meteoApp.dataLoaded.connect(loadTable)
+        meteoApp.dataIsLoading.connect(function(){ if (tablePage) tablePage.loaded = false })
 
-        if (main.dataIsReady) {
+        if (meteoApp.dataIsReady) {
             loadTable()
         }
     }
