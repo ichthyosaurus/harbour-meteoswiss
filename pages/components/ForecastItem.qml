@@ -18,7 +18,7 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? (meteoApp.dataIsReady ? pageStack.push(Qt.resolvedUrl("../Table.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
+            onClicked: active ? (meteoApp.dataIsReady ? pageStack.push(Qt.resolvedUrl("../TablePage.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel
