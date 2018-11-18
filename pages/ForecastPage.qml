@@ -6,6 +6,7 @@ import "components"
 Page {
     id: mainPage
     property int activeDay: 0
+    property alias title: pageTitle.title
     allowedOrientations: Orientation.All
 
     signal activateGraph(int dayId)
@@ -22,17 +23,17 @@ Page {
 
             MenuItem {
                 text: qsTr("Refresh")
-                onClicked: main.refreshData()
+                onClicked: meteoApp.refreshData()
             }
         }
 
         Column {
             id: column
             width: parent.width
-            visible: (main.dataIsReady && !main.data[0].isSane) ? false : true
+            visible: (meteoApp.dataIsReady && !meteoApp.data[0].isSane) ? false : true
 
             PageHeader {
-                title: "MeteoSwiss"
+                id: pageTitle
             }
 
             ForecastItem {
