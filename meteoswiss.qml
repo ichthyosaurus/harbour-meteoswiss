@@ -9,7 +9,7 @@ import "js/dummy.js" as DummyData
 
 
 ApplicationWindow {
-    id: main
+    id: meteoApp
     initialPage: mainPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
@@ -29,8 +29,8 @@ ApplicationWindow {
         id: dataLoader
         source: "js/forecast.js"
         onMessage: {
-            main.data = messageObject.data
-            main.dataIsReady = true
+            meteoApp.data = messageObject.data
+            meteoApp.dataIsReady = true
             dataLoaded(messageObject.data)
 
             Storage.init()
@@ -40,7 +40,7 @@ ApplicationWindow {
 
     function doRefreshData(message) {
         console.log("refreshing...")
-        main.dataIsReady = false
+        meteoApp.dataIsReady = false
         dataIsLoading()
         var archived = Storage.getData(4143, true)
         dataLoader.sendMessage({

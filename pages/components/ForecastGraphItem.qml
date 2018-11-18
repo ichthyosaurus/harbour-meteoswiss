@@ -8,8 +8,8 @@ import "../../qchart/QChart.js" as Charts
 Item {
     id: forecast
     property int day
-    property var rain: main.dataIsReady ? main.data[day].rainfall : null
-    property var temp: main.dataIsReady ? main.data[day].temperature : null
+    property var rain: meteoApp.dataIsReady ? meteoApp.data[day].rainfall : null
+    property var temp: meteoApp.dataIsReady ? meteoApp.data[day].temperature : null
     property bool loaded: false
 
     height: chart.height
@@ -79,8 +79,8 @@ Item {
     }
 
     Component.onCompleted: {
-        main.dataLoaded.connect(loadCharts)
-        main.dataIsLoading.connect(function(){ forecast.loaded = false })
+        meteoApp.dataLoaded.connect(loadCharts)
+        meteoApp.dataIsLoading.connect(function(){ forecast.loaded = false })
     }
 
     property var appState: Qt.application.state
