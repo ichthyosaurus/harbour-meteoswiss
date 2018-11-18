@@ -10,7 +10,7 @@ import "js/dummy.js" as DummyData
 
 ApplicationWindow {
     id: meteoApp
-    initialPage: mainPage
+    initialPage: entryPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
     signal dataLoaded(var data)
@@ -21,8 +21,8 @@ ApplicationWindow {
     property bool dataIsReady: false
 
     Component {
-        id: mainPage
-        Main { activeDay: 0 }
+        id: entryPage
+        OverviewPage { }
     }
 
     WorkerScript {
