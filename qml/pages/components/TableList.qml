@@ -50,7 +50,7 @@ SilicaListView {
             width: 100
             height: Theme.itemSizeSmall
             fillMode: Image.PreserveAspectFit
-            source: "../../icons/" + image + ".svg"
+            source: "../../weather-icons/" + image + ".svg"
             verticalAlignment: Image.AlignVCenter
             anchors.verticalCenter: hourLabel.verticalCenter
             opacity: 1
