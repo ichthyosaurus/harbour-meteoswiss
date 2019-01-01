@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-meteoswiss
+Exec=sailfish-qml harbour-meteoswiss
+Name=harbour-meteoswiss
+
+Name[de]=MeteoSchweiz
+Name[fr]=MeteoSuisse
+Name[it]=MeteoSvizzera
+Name[en]=MeteoSwiss
