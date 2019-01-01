@@ -38,15 +38,21 @@ ApplicationWindow {
         }
     }
 
-    function doRefreshData(message) {
-        console.log("refreshing...")
-        meteoApp.dataIsReady = false
-        dataIsLoading()
-        var archived = Storage.getData(4143, true)
-        dataLoader.sendMessage({
-            data: archived.length > 0 ? archived[0] : null,
-            // dummy: DummyData.archived_forecast,
-        })
+    function doRefreshData(location) {
+        if (location !== null) {
+            console.log("refreshing... " + location)
+            meteoApp.dataIsReady = false
+            dataIsLoading()
+            var archived = Storage.getData(location, true)
+            dataLoader.sendMessage({
+                data: archived.length > 0 ? archived[0] : null,
+                // dummy: DummyData.archived_forecast,
+            })
+        } else {
+            console.log("failed to refresh: no location given")
+            console.log("DEBUG refreshing for 4143:")
+            doRefreshData(4143)
+        }
     }
 
     Component.onCompleted: {

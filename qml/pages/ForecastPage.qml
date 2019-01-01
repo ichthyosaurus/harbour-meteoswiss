@@ -5,6 +5,7 @@ import "components"
 
 Page {
     id: mainPage
+    property int location
     property int activeDay: 0
     property alias title: pageTitle.title
     allowedOrientations: Orientation.All
@@ -23,7 +24,7 @@ Page {
 
             MenuItem {
                 text: qsTr("Refresh")
-                onClicked: meteoApp.refreshData()
+                onClicked: meteoApp.refreshData(location)
             }
         }
 
