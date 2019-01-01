@@ -73,6 +73,7 @@ Page {
             contentHeight: labelColumn.implicitHeight + 2*Theme.paddingMedium
 
             onClicked: {
+                meteoApp.refreshData(locationId)
                 pageStack.animatorPush("ForecastPage.qml", {
                     "activeDay": 0,
                     "location": locationId,

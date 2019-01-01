@@ -15,7 +15,7 @@ ApplicationWindow {
 
     signal dataLoaded(var data)
     signal dataIsLoading()
-    signal refreshData()
+    signal refreshData(var location)
 
     property var forecastData: Forecast.fullData
     property bool dataIsReady: false
@@ -46,6 +46,7 @@ ApplicationWindow {
             var archived = Storage.getData(location, true)
             dataLoader.sendMessage({
                 data: archived.length > 0 ? archived[0] : null,
+                zip: location,
                 // dummy: DummyData.archived_forecast,
             })
         } else {
