@@ -73,14 +73,15 @@ Item {
     }
 
     function loadCharts() {
+        if (day === null) return
         console.log("loading charts for day " + day + "...")
-        tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
-        rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
+        if (chart && temp) tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
+        if (chart && rain) rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
     }
 
     Component.onCompleted: {
         meteoApp.dataLoaded.connect(loadCharts)
-        meteoApp.dataIsLoading.connect(function(){ forecast.loaded = false })
+        meteoApp.dataIsLoading.connect(function(){ if (forecast) forecast.loaded = false })
     }
 
     property var appState: Qt.application.state

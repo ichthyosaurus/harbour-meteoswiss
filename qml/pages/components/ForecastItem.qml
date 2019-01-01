@@ -51,7 +51,7 @@ Column {
     }
 
     function refreshTitle(data) {
-        title = meteoApp.forecastData[dayId].dateString ? meteoApp.forecastData[dayId].dateString : 'Failed...'
+        title = meteoApp ? (meteoApp.forecastData[dayId].dateString ? meteoApp.forecastData[dayId].dateString : 'Failed...') : 'Failed...'
     }
 
     Component.onCompleted: {
