@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
-import Sailfish.Weather 1.0
 import "components"
 
 Page {
@@ -87,7 +86,7 @@ Page {
                 anchors.verticalCenter: labelColumn.verticalCenter
                 width: 2.5*Theme.horizontalPageMargin
                 height: width
-                source: "../icons/" + model.symbol + ".svg"
+                source: "../weather-icons/" + model.symbol + ".svg"
             }
 
             Column {
