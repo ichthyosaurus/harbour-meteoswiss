@@ -27,7 +27,7 @@ Page {
         anchors.fill: parent
 
         header: PageHeader {
-            title: "MeteoSwiss"
+            title: qsTrId("MeteoSwiss")
         }
 
         model: ListModel { id: locationsModel }
