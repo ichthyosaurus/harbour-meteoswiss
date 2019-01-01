@@ -164,8 +164,17 @@ function sleep(ms) { // NOTE for debugging the loading display
 WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
 
+    var zip = 0
+
+    if (message && message.zip) {
+        zip = message.zip
+    } else {
+        console.log("failed to load data: missing location id")
+        console.log("DEBUG using 4143 as location")
+        zip = 4143
+    }
+
     var raw_data
-    var zip = 4143
     var archived = null
 
     if (message && message.data) {
