@@ -10,7 +10,7 @@ SilicaListView {
     height: (showAll ? 24 : 8) * Theme.itemSizeSmall
     x: Theme.horizontalPageMargin
 
-    property var data
+    property var forecastData
     property bool showAll: false
     signal toggleShowAll
 
@@ -91,8 +91,8 @@ SilicaListView {
     }
 
     function refreshModel() {
-        rain = data[day].rainfall
-        temp = data[day].temperature
+        rain = forecastData[day].rainfall
+        temp = forecastData[day].temperature
 
         model.clear()
 

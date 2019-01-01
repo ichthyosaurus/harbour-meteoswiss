@@ -30,7 +30,7 @@ Page {
         Column {
             id: column
             width: parent.width
-            visible: (meteoApp.dataIsReady && !meteoApp.data[0].isSane) ? false : true
+            visible: (meteoApp.dataIsReady && !meteoApp.forecastData[0].isSane) ? false : true
 
             PageHeader {
                 id: pageTitle

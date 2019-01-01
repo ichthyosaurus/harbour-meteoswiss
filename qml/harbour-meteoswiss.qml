@@ -17,7 +17,7 @@ ApplicationWindow {
     signal dataIsLoading()
     signal refreshData()
 
-    property var data: Forecast.fullData
+    property var forecastData: Forecast.fullData
     property bool dataIsReady: false
 
     Component {
@@ -29,7 +29,7 @@ ApplicationWindow {
         id: dataLoader
         source: "js/forecast.js"
         onMessage: {
-            meteoApp.data = messageObject.data
+            meteoApp.forecastData = messageObject.data
             meteoApp.dataIsReady = true
             dataLoaded(messageObject.data)
 

@@ -8,8 +8,8 @@ import "../../qchart/QChart.js" as Charts
 Item {
     id: forecast
     property int day
-    property var rain: meteoApp.dataIsReady ? meteoApp.data[day].rainfall : null
-    property var temp: meteoApp.dataIsReady ? meteoApp.data[day].temperature : null
+    property var rain: meteoApp.dataIsReady ? meteoApp.forecastData[day].rainfall : null
+    property var temp: meteoApp.dataIsReady ? meteoApp.forecastData[day].temperature : null
     property bool loaded: false
 
     height: chart.height
