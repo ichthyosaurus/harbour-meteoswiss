@@ -18,6 +18,9 @@ function setData(timestamp, zip, converted, raw) {
     db.transaction(function(tx) {
         var rs = tx.executeSql('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, zip, converted, raw]);
         console.log(rs.rowsAffected)
+    db.transaction(function(tx) {
+        var rs = tx.executeSql('INSERT OR REPLACE INTO zipcodes VALUES (?,?,?,?);', [zip, "unknown", "unknown", "??"]);
+        console.log("save location: " + rs.rowsAffected)
 
         if (rs.rowsAffected > 0) {
             res = "ok";
