@@ -58,7 +58,7 @@ Page {
                     }
 
                     MenuItem {
-                        text: "Remove"
+                        text: qsTrId("Remove")
                         onClicked: remove()
                     }
 

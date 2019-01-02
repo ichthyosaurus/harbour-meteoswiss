@@ -82,14 +82,14 @@ Page {
             visible: !column.visible
 
             PageHeader {
-                title: "MeteoSwiss"
+                title: qsTrId("MeteoSwiss")
             }
 
             Label {
                 id: failed
                 x: Theme.horizontalPageMargin
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: 'Failed to load data!' // TODO center etc.
+                text: qsTrId("Failed to load data!") // TODO center etc.
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
