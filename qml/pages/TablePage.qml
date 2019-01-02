@@ -105,7 +105,7 @@ Page {
         console.log("loading table for day " + day + "...")
         tableLoader.setSource("components/TableList.qml", {
             width: parent.width,
-            data: msgData !== null ? msgData : meteoApp.forecastData
+            forecastData: msgData ? msgData : meteoApp.forecastData
         })
     }
 
