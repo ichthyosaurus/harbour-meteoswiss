@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 
 import "../js/storage.js" as Storage
+import "../js/strings.js" as Strings
 
 CoverBackground {
     id: coverPage
@@ -12,14 +13,18 @@ CoverBackground {
 
     Label {
         id: label
+        visible: location == 0
         anchors.centerIn: parent
         text: qsTr("MeteoSwiss")
     }
 
     Item {
+        visible: location != 0
+        width: parent.width - 2*Theme.paddingLarge
+
         Column {
             x: Theme.paddingLarge
-            width: parent.width - 2*x
+            width: parent.width
 
             Item {
                 width: parent.width
@@ -34,22 +39,24 @@ CoverBackground {
 
             Label {
                 width: parent.width
-                truncationMode: TruncationMode.Fade
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.secondaryColor
-                text: ''  // weather string
+                text: Strings.MeteoLang.weatherSymbolDescription[summary.symbol]  // weather string
+                truncationMode: TruncationMode.Fade
             }
-        }
 
-        Image {
-            height: width
-            width: parent.width - Theme.paddingLarge
-            sourceSize.width: width
-            sourceSize.height: width
-            source: "../weather-icons/" + (summary.symbol ? summary.symbol : "0") + ".svg"
-            anchors {
-                centerIn: parent
-                verticalCenterOffset: Theme.paddingSmall
+            Item {
+                width: parent.width
+                height: Theme.paddingLarge
+            }
+
+            Image {
+                x: Theme.paddingLarge
+                width: parent.width - 2*x
+                height: width
+                sourceSize.width: width
+                sourceSize.height: height
+                source: "../weather-icons/" + (summary.symbol ? summary.symbol : "0") + ".svg"
             }
         }
     }
