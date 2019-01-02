@@ -39,7 +39,7 @@ ApplicationWindow {
     }
 
     function doRefreshData(location) {
-        if (location !== null) {
+        if (location) {
             console.log("refreshing... " + location)
             meteoApp.dataIsReady = false
             dataIsLoading()
