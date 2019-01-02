@@ -91,11 +91,12 @@ Page {
 
             Image {
                 id: icon
+                visible: model.symbol ? true : false
                 x: Theme.horizontalPageMargin
                 anchors.verticalCenter: labelColumn.verticalCenter
                 width: 2.5*Theme.horizontalPageMargin
                 height: width
-                source: "../weather-icons/" + model.symbol + ".svg"
+                source: "../weather-icons/" + (model.symbol ? model.symbol : "0") + ".svg"
             }
 
             Column {
@@ -134,7 +135,7 @@ Page {
 
             Label {
                 id: temperatureLabel
-                text: model.savedTemperature + " °C"
+                text: model.savedTemperature ? model.savedTemperature + " °C" : ''
                 color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeHuge
 
