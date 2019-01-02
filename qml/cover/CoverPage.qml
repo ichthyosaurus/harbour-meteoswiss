@@ -13,7 +13,7 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTrId("MeteoSwiss")
+        text: qsTr("MeteoSwiss")
     }
 
     Item {

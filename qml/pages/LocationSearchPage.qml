@@ -10,7 +10,7 @@ Page {
             id: column
 
             PageHeader {
-                title: qsTrId("Add Location")
+                title: qsTr("Add Location")
             }
 
             width: parent.width
