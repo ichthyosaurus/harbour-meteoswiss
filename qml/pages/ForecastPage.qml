@@ -19,7 +19,10 @@ Page {
         PullDownMenu {
             MenuItem {
                 text: qsTrId("Refresh")
-                onClicked: meteoApp.refreshData(location)
+                onClicked: {
+                    meteoApp.dataIsReady = false
+                    meteoApp.refreshData(location, true)
+                }
             }
         }
 
