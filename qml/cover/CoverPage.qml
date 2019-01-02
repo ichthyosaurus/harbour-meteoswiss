@@ -97,5 +97,6 @@ CoverBackground {
         location = Storage.getCoverZip()
         location = location > 0 ? location : Storage.getNextCoverZip()
         updateData()
+        meteoApp.dataLoaded.connect(updateData)
     }
 }
