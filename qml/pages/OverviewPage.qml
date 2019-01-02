@@ -155,6 +155,14 @@ Page {
                 "savedTemperature": 7,
                 "symbol": 14,
             })
+            locationsModel.append({
+                "locationId": 8001,
+                "name": "Zürich",
+                "canton": "Zürich",
+                "cantonId": "ZH",
+                "savedTemperature": 0,
+                "symbol": 1,
+            })
         }
 
         VerticalScrollDecorator {}
