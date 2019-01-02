@@ -75,9 +75,7 @@ Page {
                             for (var i = 0; i < locationsModel.count; i++) {
                                 pairs.push({ zip: locationsModel.get(i).locationId, position: i })
                             }
-                            console.log("ICIIII", locationsModel.count, locationsModel.get(0).locationId)
                             Storage.setOverviewPositions(pairs)
-                            console.log(pairs)
                         }
                     }
 
