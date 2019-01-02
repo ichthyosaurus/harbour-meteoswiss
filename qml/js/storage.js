@@ -6,7 +6,7 @@ function getDatabase() {
 function init() {
     var db = getDatabase();
     db.transaction(function(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS zipcodes(zip INTEGER PRIMARY KEY, name TEXT, canton TEXT, cantonId TEXT)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS locations(zip INTEGER PRIMARY KEY, name TEXT, canton TEXT, cantonId TEXT)');
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(timestamp INTEGER, zip INTEGER, converted TEXT, raw TEXT, PRIMARY KEY(timestamp, zip))');
     });
 }
@@ -17,7 +17,6 @@ function setData(timestamp, zip, converted, raw) {
 
     db.transaction(function(tx) {
         var rs = tx.executeSql('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, zip, converted, raw]);
-        console.log("save dataset: " + rs.rowsAffected)
 
         if (rs.rowsAffected > 0) {
             res = "ok";
@@ -26,9 +25,15 @@ function setData(timestamp, zip, converted, raw) {
         }
     });
 
+    return res; // 'ok' or 'error'
+}
+
+function addLocation(zip, name, canton, cantonId) {
+    var db = getDatabase();
+    var res = "";
+
     db.transaction(function(tx) {
-        var rs = tx.executeSql('INSERT OR REPLACE INTO zipcodes VALUES (?,?,?,?);', [zip, "unknown", "unknown", "??"]);
-        console.log("save location: " + rs.rowsAffected)
+        var rs = tx.executeSql('INSERT OR REPLACE INTO locations VALUES (?,?,?,?);', [zip, name, canton, cantonId]);
 
         if (rs.rowsAffected > 0) {
             res = "ok";
