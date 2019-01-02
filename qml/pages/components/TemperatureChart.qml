@@ -7,10 +7,10 @@ import "../../qchart/QChart.js" as Charts
 
 QChart {
     id: tempChart
-    property int minValue: Math.min.apply(Math, temp.datasets[0].data)
+    property int minValue: Math.min.apply(Math, temp ? temp.datasets[0].data : [0])
 
     chartAnimated: false
-    chartData: temp
+    chartData: temp ? temp : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.LINE
     chartOptions: ({
         scaleFontSize: Theme.fontSizeExtraSmall,
