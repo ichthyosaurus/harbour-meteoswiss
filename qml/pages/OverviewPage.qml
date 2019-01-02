@@ -6,6 +6,8 @@ import "components"
 import "../js/storage.js" as Storage
 
 Page {
+    id: overviewPage
+
     SilicaListView {
         id: locationsListView
 
@@ -178,5 +180,27 @@ Page {
         }
 
         VerticalScrollDecorator {}
+    }
+
+    function updateSummaries() {
+        console.log("DEBUG updating overview summaries")
+        for (var i = 0; i < locationsModel.count; i++) {
+            var loc = locationsModel.get(i).locationId
+            var summary = Storage.getDataSummary(loc)
+            locationsModel.get(i).savedTemperature = summary.temp
+            locationsModel.get(i).symbol = summary.symbol
+        }
+    }
+
+    Timer {
+        id: updateSummariesTimer
+        interval: 60*15*1000  // every 15 minutes
+        onTriggered: updateSummaries()
+    }
+
+    onStatusChanged: {
+        if (overviewPage.status == PageStatus.Active) {
+            updateSummaries()
+        }
     }
 }
