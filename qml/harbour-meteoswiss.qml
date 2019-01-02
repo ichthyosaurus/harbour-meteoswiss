@@ -50,9 +50,11 @@ ApplicationWindow {
                 // dummy: DummyData.archived_forecast,
             })
         } else {
-            console.log("failed to refresh: no location given")
-            console.log("DEBUG refreshing for 4143:")
-            doRefreshData(4143)
+            console.log("refreshing all known locations...")
+            var locs = Storage.getLocationData()
+            for (var i = 0; i < locs.length; i++) {
+                doRefreshData(locs[i].zip)
+            }
         }
     }
 
