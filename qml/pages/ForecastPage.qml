@@ -18,11 +18,6 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("About")
-                onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
-            }
-
-            MenuItem {
                 text: qsTr("Refresh")
                 onClicked: meteoApp.refreshData(location)
             }

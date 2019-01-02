@@ -8,6 +8,11 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("About")
+                onClicked: pageStack.animatorPush(Qt.resolvedUrl("AboutPage.qml"))
+            }
+
+            MenuItem {
                 text: qsTrId("New location")
                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("LocationSearchPage.qml"))
             }
