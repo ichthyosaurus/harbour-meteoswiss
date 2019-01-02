@@ -76,3 +76,32 @@ function getData(zip, mostRecent, newerThan) {
 
     return res
 }
+
+function getLocationData(zip) {
+    var db = getDatabase();
+    var res = [];
+
+    try {
+        db.transaction(function(tx) {
+            if (zip) {
+                var rs = tx.executeSql('SELECT * FROM locations WHERE zip=?;', [zip]);
+            } else {
+                var rs = tx.executeSql('SELECT * FROM locations ORDER BY zip DESC;');
+            }
+
+            for (var i = 0; i < rs.rows.length; i++) {
+                res.push({
+                    zip: rs.rows.item(i).zip,
+                    name: rs.rows.item(i).name,
+                    canton: rs.rows.item(i).canton,
+                    cantonId: rs.rows.item(i).cantonId,
+                })
+            }
+        })
+    } catch(e) {
+        console.log("error while loading locations data: zip=" + zip)
+        return [];
+    }
+
+    return res
+}
