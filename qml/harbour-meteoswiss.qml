@@ -15,7 +15,7 @@ ApplicationWindow {
 
     signal dataLoaded(var data)
     signal dataIsLoading()
-    signal refreshData(var location)
+    signal refreshData(var location, var force)
 
     property var forecastData: Forecast.fullData
     property bool dataIsReady: false
@@ -38,12 +38,18 @@ ApplicationWindow {
         }
     }
 
-    function doRefreshData(location) {
+    function doRefreshData(location, force) {
         if (location) {
             console.log("refreshing... " + location)
             meteoApp.dataIsReady = false
             dataIsLoading()
-            var archived = Storage.getData(location, true)
+
+            if (force) {
+                var archived = []
+            } else {
+                var archived = Storage.getData(location, true)
+            }
+
             dataLoader.sendMessage({
                 data: archived.length > 0 ? archived[0] : null,
                 zip: location,

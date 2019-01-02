@@ -22,12 +22,16 @@ Page {
 
             MenuItem {
                 text: qsTrId("Refresh")
-                onClicked: reloadTimer.restart()
+                onClicked: {
+                    meteoApp.refreshData(undefined, false)
+                    reloadTimer.restart()
+                }
 
                 Timer {
                     id: reloadTimer
                     interval: 60*60*1000
-                    onTriggered: meteoApp.refreshData()
+                    // refresh all locations, use cache if applicable
+                    onTriggered: meteoApp.refreshData(undefined, false)
                 }
             }
         }
@@ -86,7 +90,7 @@ Page {
             contentHeight: labelColumn.implicitHeight + 2*Theme.paddingMedium
 
             onClicked: {
-                meteoApp.refreshData(locationId)
+                meteoApp.refreshData(locationId, false)
                 pageStack.animatorPush("ForecastPage.qml", {
                     "activeDay": 0,
                     "location": locationId,
