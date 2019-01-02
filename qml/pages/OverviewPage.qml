@@ -1,6 +1,9 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 import "components"
+
+import "../js/storage.js" as Storage
 
 Page {
     SilicaListView {
@@ -144,30 +147,22 @@ Page {
         }
 
         Component.onCompleted: {
-            locationsModel.append({
-                "locationId": 4143,
-                "name": "Dornach",
-                "canton": "Solothurn",
-                "cantonId": "SO",
-                "savedTemperature": 10,
-                "symbol": 3,
-            })
-            locationsModel.append({
-                "locationId": 4001,
-                "name": "Basel",
-                "canton": "Basel-Stadt",
-                "cantonId": "BS",
-                "savedTemperature": 7,
-                "symbol": 14,
-            })
-            locationsModel.append({
-                "locationId": 8001,
-                "name": "Zürich",
-                "canton": "Zürich",
-                "cantonId": "ZH",
-                "savedTemperature": 0,
-                "symbol": 1,
-            })
+            Storage.addLocation(4143, "Dornach", "Solothurn", "SO")
+            Storage.addLocation(4001, "Basel", "Basel-Stadt", "BS")
+            Storage.addLocation(8001, "Zürich", "Zürich", "ZH")
+
+            console.log("loading all known locations...")
+            var locs = Storage.getLocationData()
+            for (var i = 0; i < locs.length; i++) {
+                locationsModel.append({
+                    "locationId": locs[i].zip,
+                    "name": locs[i].name,
+                    "canton": locs[i].canton,
+                    "cantonId": locs[i].cantonId,
+                    "savedTemperature": null,
+                    "symbol": null,
+                })
+            }
         }
 
         VerticalScrollDecorator {}
