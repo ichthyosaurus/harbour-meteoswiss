@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="en_US">
 <context>
     <name>AboutPage</name>
     <message>
         <source>About MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>About MeteoSwiss</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Author</translation>
     </message>
     <message>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Website</translation>
     </message>
     <message>
         <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.meteoswiss.admin.ch/</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
 </context>
 <context>
     <name>ForecastItem</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Loading...</translation>
     </message>
     <message>
         <source>Failed...</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed...</translation>
     </message>
 </context>
 <context>
     <name>ForecastPage</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Refresh</translation>
     </message>
     <message>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <source>Failed to load data!</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed to load data!</translation>
     </message>
 </context>
 <context>
     <name>LocationSearchPage</name>
     <message>
         <source>Add Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Location</translation>
     </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>About</translation>
     </message>
     <message>
         <source>New location</source>
-        <translation type="unfinished"></translation>
+        <translation>New location</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Refresh</translation>
     </message>
     <message>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove</translation>
     </message>
 </context>
 <context>
     <name>TablePage</name>
     <message>
         <source>Detailed Forecast</source>
-        <translation type="unfinished"></translation>
+        <translation>Detailed Forecast</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Hour</translation>
     </message>
     <message>
         <source>Temp.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp.</translation>
     </message>
     <message>
         <source>Precip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Precip.</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Description</translation>
     </message>
 </context>
 </TS>
