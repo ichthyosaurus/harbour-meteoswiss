@@ -102,6 +102,7 @@ Page {
     }
 
     function loadTable(msgData) {
+        if (day === null) return
         console.log("loading table for day " + day + "...")
         tableLoader.setSource("components/TableList.qml", {
             width: parent.width,
