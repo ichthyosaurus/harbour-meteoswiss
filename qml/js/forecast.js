@@ -190,8 +190,8 @@ WorkerScript.onMessage = function(message) {
         var ts = new Date(archived.timestamp)
         var now = new Date()
 
-        if (ts.toDateString() == now.toDateString() && ts.getHours() == now.getHours()) {
-            fallbackToArchive(archived, "already refreshed in this hour")
+        if (ts.toDateString() == now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
+            fallbackToArchive(archived, "already refreshed less than an hour ago")
             return
         }
     }
