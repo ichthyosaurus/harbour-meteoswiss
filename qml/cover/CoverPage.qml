@@ -17,6 +17,10 @@ CoverBackground {
 
         CoverAction {
             iconSource: "image://theme/icon-cover-search"
+            onTriggered: {
+                pageStack.push(Qt.resolvedUrl("../pages/LocationSearchPage.qml"))
+                meteoApp.activate()
+            }
         }
     }
 }
