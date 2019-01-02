@@ -5,7 +5,7 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTr("MeteoSwiss")
+        text: qsTrId("MeteoSwiss")
     }
 
     CoverActionList {
