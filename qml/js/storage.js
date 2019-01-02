@@ -13,43 +13,48 @@ function init() {
     });
 }
 
-function addLocation(zip, name, canton, cantonId) {
+function simpleQuery(query, values) {
     var db = getDatabase();
-    var res = "";
+    var res = null
+    values = defaultFor(values, [])
 
-    db.transaction(function(tx) {
-        var rs = tx.executeSql('INSERT OR REPLACE INTO locations VALUES (?,?,?,?);', [zip, name, canton, cantonId]);
-
-        if (rs.rowsAffected > 0) {
-            res = "ok";
-        } else {
-            res = "error";
-        }
-    });
-
-    return res; // 'ok' or 'error'
-}
-
-function removeLocation(zip) {
-    var db = getDatabase();
-    var res = ""
+    if (!query) {
+        console.log("error: empty query")
+        return null
+    }
 
     try {
         db.transaction(function(tx) {
-            var rs = tx.executeSql('DELETE FROM locations WHERE zip=?;', [zip]);
+            var rs = tx.executeSql(query, values);
 
             if (rs.rowsAffected > 0) {
-                res = "ok";
+                res = rs.rowsAffected;
             } else {
-                res = "error";
+                res = 0;
             }
         })
     } catch(e) {
-        console.log("error while removing location: zip=" + zip)
-        res = "error"
+        console.log("error in query:", values)
+        res = null
     }
 
     return res
+}
+
+function addLocation(zip, name, canton, cantonId) {
+    var res = simpleQuery('INSERT OR REPLACE INTO locations VALUES (?,?,?,?);', [zip, name, canton, cantonId])
+
+    if (!res) {
+        console.log("error: failed to save location to db")
+    }
+}
+
+function removeLocation(zip) {
+    var res = simpleQuery('DELETE FROM locations WHERE zip=?;', [zip])
+
+    if (!res) {
+        console.log("error: failed to remove location from db")
+    }
 }
 
 function getLocationData(zip) {
@@ -130,20 +135,11 @@ function getDataSummary(zip) {
 }
 
 function setData(timestamp, zip, converted, raw) {
-    var db = getDatabase();
-    var res = "";
+    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, zip, converted, raw])
 
-    db.transaction(function(tx) {
-        var rs = tx.executeSql('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, zip, converted, raw]);
-
-        if (rs.rowsAffected > 0) {
-            res = "ok";
-        } else {
-            res = "error";
-        }
-    });
-
-    return res; // 'ok' or 'error'
+    if (!res) {
+        console.log("error: failed to save data to db")
+    }
 }
 
 function getData(zip, mostRecent, newerThan) {
