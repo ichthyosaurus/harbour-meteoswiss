@@ -160,13 +160,15 @@ Page {
             console.log("loading all known locations...")
             var locs = Storage.getLocationData()
             for (var i = 0; i < locs.length; i++) {
+                var summary = Storage.getDataSummary(locs[i].zip)
+
                 locationsModel.append({
                     "locationId": locs[i].zip,
                     "name": locs[i].name,
                     "canton": locs[i].canton,
                     "cantonId": locs[i].cantonId,
-                    "savedTemperature": null,
-                    "symbol": null,
+                    "savedTemperature": summary.temp,
+                    "symbol": summary.symbol,
                 })
             }
         }
