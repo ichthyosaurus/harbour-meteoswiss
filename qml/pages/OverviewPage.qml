@@ -26,14 +26,7 @@ Page {
                 text: qsTr("Refresh")
                 onClicked: {
                     meteoApp.refreshData(undefined, false)
-                    reloadTimer.restart()
-                }
-
-                Timer {
-                    id: reloadTimer
-                    interval: 60*60*1000
-                    // refresh all locations, use cache if applicable
-                    onTriggered: meteoApp.refreshData(undefined, false)
+                    refreshTimer.restart()
                 }
             }
         }
@@ -199,14 +192,18 @@ Page {
     }
 
     Timer {
-        id: updateSummariesTimer
-        interval: 60*15*1000  // every 15 minutes
-        onTriggered: updateSummaries()
+        id: refreshTimer
+        interval: 60*60*1000  // every hour
+        onTriggered: meteoApp.refreshData(undefined, false)
     }
 
     onStatusChanged: {
         if (overviewPage.status == PageStatus.Active) {
             updateSummaries()
         }
+    }
+
+    Component.onCompleted: {
+        meteoApp.dataLoaded.connect(updateSummaries)
     }
 }
