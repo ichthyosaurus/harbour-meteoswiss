@@ -21,6 +21,7 @@ function doInit(db) {
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(timestamp INTEGER, zip INTEGER, converted TEXT, raw TEXT, PRIMARY KEY(timestamp, zip))');
         tx.executeSql('CREATE TABLE IF NOT EXISTS locations(zip INTEGER PRIMARY KEY, name TEXT, canton TEXT, cantonId TEXT, position INTEGER)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS view(zip_on_cover INTEGER PRIMARY KEY)');
     });
 }
 
@@ -65,6 +66,80 @@ function removeLocation(zip) {
 
     if (!res) {
         console.log("error: failed to remove location from db")
+    }
+}
+
+function getCoverZip() {
+    var db = getDatabase();
+    var res = 0;
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM view ORDER BY zip_on_cover LIMIT 1;');
+
+            if (rs.rows.length > 0) {
+                res = rs.rows.item(0).zip_on_cover
+            } else {
+                res = 0
+            }
+        })
+    } catch(e) {
+        console.log("error while loading view settings data")
+        return 0;
+    }
+
+    return res
+}
+
+function getNextCoverZip(zip) {
+    var db = getDatabase();
+    var res = 0;
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM locations WHERE zip > ? ORDER BY zip LIMIT 1', [zip]);
+
+            if (rs.rows.length == 0) {
+                rs = tx.executeSql('SELECT * FROM locations ORDER BY zip LIMIT 1');
+
+                if (rs.rows.length == 0) {
+                    res = 0
+                    console.log("error: failed to get next cover location")
+                }
+            }
+
+            res = rs.rows.item(0).zip
+        })
+    } catch(e) {
+        console.log("error while loading next cover location")
+        return 0;
+    }
+
+    return res
+}
+
+function setCoverZip(zip) {
+    var db = getDatabase();
+    var res = null
+
+    try {
+        db.transaction(function(tx) {
+            tx.executeSql('UPDATE view SET zip_on_cover=?;', [zip]);
+            var rs = tx.executeSql('INSERT OR REPLACE INTO view (zip_on_cover) VALUES (?); ', [zip]);
+
+            if (rs.rowsAffected > 0) {
+                res = rs.rowsAffected;
+            } else {
+                res = 0;
+            }
+        })
+    } catch(e) {
+        console.log("error in query:", values)
+        res = null
+    }
+
+    if (res != 0 && !res) {
+        console.log("error: failed to save cover view settings")
     }
 }
 
