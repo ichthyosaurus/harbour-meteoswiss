@@ -54,9 +54,11 @@ Page {
 
             Component {
                 id: contextMenuComp
+
                 ContextMenu {
                     property bool moveItemsWhenClosed
                     property bool menuOpen: height > 0
+                    property int locationId: model.locationId
 
                     onMenuOpenChanged: {
                         if (!menuOpen && moveItemsWhenClosed) {
@@ -67,7 +69,10 @@ Page {
 
                     MenuItem {
                         text: qsTrId("Remove")
-                        onClicked: remove()
+                        onClicked: {
+                            remove()
+                            Storage.removeLocation(locationId)
+                        }
                     }
 
                     // MenuItem {

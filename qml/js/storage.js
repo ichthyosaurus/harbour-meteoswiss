@@ -45,6 +45,11 @@ function addLocation(zip, name, canton, cantonId) {
     return res; // 'ok' or 'error'
 }
 
+function removeLocation(zip) {
+    console.log("remove location ", zip)
+    return
+}
+
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
 function getData(zip, mostRecent, newerThan) {
