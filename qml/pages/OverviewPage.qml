@@ -193,7 +193,9 @@ Page {
 
     Timer {
         id: refreshTimer
-        interval: 60*60*1000  // every hour
+        interval: 60*30*1000 // every 1/2 hour
+        repeat: true
+        running: true
         onTriggered: meteoApp.refreshData(undefined, false)
     }
 
