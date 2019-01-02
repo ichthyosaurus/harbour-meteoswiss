@@ -46,8 +46,25 @@ function addLocation(zip, name, canton, cantonId) {
 }
 
 function removeLocation(zip) {
-    console.log("remove location ", zip)
-    return
+    var db = getDatabase();
+    var res = ""
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('DELETE FROM locations WHERE zip=?;', [zip]);
+
+            if (rs.rowsAffected > 0) {
+                res = "ok";
+            } else {
+                res = "error";
+            }
+        })
+    } catch(e) {
+        console.log("error while removing location: zip=" + zip)
+        res = "error"
+    }
+
+    return res
 }
 
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
