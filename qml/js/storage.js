@@ -1,12 +1,23 @@
 
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
+var initialized = false
+
 function getDatabase() {
-    return LocalStorage.openDatabaseSync("meteoswiss", "1.0", "MeteoSwiss Offline Cache", 1000000)
+    var db = LocalStorage.openDatabaseSync("meteoswiss", "1.0", "MeteoSwiss Offline Cache", 1000000)
+    if (!initialized) {
+        doInit(db)
+        initialized = true
+    }
+    return db;
 }
 
 function init() {
-    var db = getDatabase();
+    initialized = false
+    getDatabase();
+}
+
+function doInit(db) {
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS locations(zip INTEGER PRIMARY KEY, name TEXT, canton TEXT, cantonId TEXT)');
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(timestamp INTEGER, zip INTEGER, converted TEXT, raw TEXT, PRIMARY KEY(timestamp, zip))');
