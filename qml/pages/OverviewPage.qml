@@ -68,8 +68,16 @@ Page {
 
                     onMenuOpenChanged: {
                         if (!menuOpen && moveItemsWhenClosed) {
-                            locationsModel.moveToTop(model.index)
+                            locationsModel.move(model.index, 0, 1)
                             moveItemsWhenClosed = false
+
+                            var pairs = []
+                            for (var i = 0; i < locationsModel.count; i++) {
+                                pairs.push({ zip: locationsModel.get(i).locationId, position: i })
+                            }
+                            console.log("ICIIII", locationsModel.count, locationsModel.get(0).locationId)
+                            Storage.setOverviewPositions(pairs)
+                            console.log(pairs)
                         }
                     }
 
@@ -81,11 +89,11 @@ Page {
                         }
                     }
 
-                    // MenuItem {
-                    //     text: "Move to top"
-                    //     visible: model.index !== 0
-                    //     onClicked: moveItemsWhenClosed = true
-                    // }
+                    MenuItem {
+                        text: "Move to top"
+                        visible: model.index !== 0
+                        onClicked: moveItemsWhenClosed = true
+                    }
                 }
             }
 
@@ -159,9 +167,9 @@ Page {
         }
 
         Component.onCompleted: {
-            Storage.addLocation(4143, "Dornach", "Solothurn", "SO")
-            Storage.addLocation(4001, "Basel", "Basel-Stadt", "BS")
-            Storage.addLocation(8001, "Zürich", "Zürich", "ZH")
+            Storage.addLocation(4143, "Dornach", "Solothurn", "SO", 0)
+            Storage.addLocation(4001, "Basel", "Basel-Stadt", "BS", 1)
+            Storage.addLocation(8001, "Zürich", "Zürich", "ZH", 2)
 
             console.log("loading all known locations...")
             var locs = Storage.getLocationData()

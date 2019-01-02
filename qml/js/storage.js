@@ -19,8 +19,8 @@ function init() {
 
 function doInit(db) {
     db.transaction(function(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS locations(zip INTEGER PRIMARY KEY, name TEXT, canton TEXT, cantonId TEXT)');
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(timestamp INTEGER, zip INTEGER, converted TEXT, raw TEXT, PRIMARY KEY(timestamp, zip))');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS locations(zip INTEGER PRIMARY KEY, name TEXT, canton TEXT, cantonId TEXT, position INTEGER)');
     });
 }
 
@@ -52,8 +52,8 @@ function simpleQuery(query, values) {
     return res
 }
 
-function addLocation(zip, name, canton, cantonId) {
-    var res = simpleQuery('INSERT OR REPLACE INTO locations VALUES (?,?,?,?);', [zip, name, canton, cantonId])
+function addLocation(zip, name, canton, cantonId, position) {
+    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?);', [zip, name, canton, cantonId, position])
 
     if (!res) {
         console.log("error: failed to save location to db")
@@ -77,7 +77,7 @@ function getLocationData(zip) {
             if (zip) {
                 var rs = tx.executeSql('SELECT * FROM locations WHERE zip=?;', [zip]);
             } else {
-                var rs = tx.executeSql('SELECT * FROM locations ORDER BY zip DESC;');
+                var rs = tx.executeSql('SELECT * FROM locations ORDER BY position ASC;');
             }
 
             for (var i = 0; i < rs.rows.length; i++) {
@@ -86,6 +86,7 @@ function getLocationData(zip) {
                     name: rs.rows.item(i).name,
                     canton: rs.rows.item(i).canton,
                     cantonId: rs.rows.item(i).cantonId,
+                    position: rs.rows.item(i).position,
                 })
             }
         })
@@ -95,6 +96,33 @@ function getLocationData(zip) {
     }
 
     return res
+}
+
+function setOverviewPositions(dataPairs) {
+    var db = getDatabase();
+    var res = 0
+    dataPairs = defaultFor(dataPairs, [])
+
+    try {
+        db.transaction(function(tx) {
+            for (var i = 0; i < dataPairs.length; i++) {
+                var rs = tx.executeSql('UPDATE locations SET position=? WHERE zip=?;', [dataPairs[i].position, dataPairs[i].zip]);
+
+                if (rs.rowsAffected != 1) {
+                    console.log("error: failed to update position for zip=" + dataPairs[i].zip)
+                }
+
+                res += rs.rowsAffected
+            }
+        })
+    } catch(e) {
+        console.log("error in query:", values)
+        res = null
+    }
+
+    if (res != dataPairs.length) {
+        console.log("error: failed to save overview order")
+    }
 }
 
 function getDataSummary(zip) {
