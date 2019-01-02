@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Column {
     id: forecast
-    property string title: meteoApp.dataIsReady ? meteoApp.forecastData[dayId].dateString : 'Loading...'
+    property string title: meteoApp.dataIsReady ? meteoApp.forecastData[dayId].dateString : qsTrId('Loading...')
     property bool active
     property int dayId
 
@@ -51,11 +51,11 @@ Column {
     }
 
     function refreshTitle(data) {
-        title = meteoApp ? (meteoApp.forecastData[dayId].dateString ? meteoApp.forecastData[dayId].dateString : 'Failed...') : 'Failed...'
+        title = meteoApp ? (meteoApp.forecastData[dayId].dateString ? meteoApp.forecastData[dayId].dateString : qsTrId('Failed...')) : qsTrId('Failed...')
     }
 
     Component.onCompleted: {
         meteoApp.dataLoaded.connect(refreshTitle)
-        meteoApp.dataIsLoading.connect(function(){ title = "Loading..." })
+        meteoApp.dataIsLoading.connect(function(){ title = qsTrId("Loading...") })
     }
 }
