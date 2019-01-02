@@ -55,7 +55,7 @@ function simpleQuery(query, values) {
 function addLocation(zip, name, canton, cantonId, position) {
     var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?);', [zip, name, canton, cantonId, position])
 
-    if (!res) {
+    if (res != 0 && !res) {
         console.log("error: failed to save location to db")
     }
 }
