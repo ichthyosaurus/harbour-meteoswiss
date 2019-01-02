@@ -18,7 +18,7 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTrId("Refresh")
+                text: qsTr("Refresh")
                 onClicked: {
                     meteoApp.dataIsReady = false
                     meteoApp.refreshData(location, true)
@@ -80,14 +80,14 @@ Page {
             visible: !column.visible
 
             PageHeader {
-                title: qsTrId("MeteoSwiss")
+                title: qsTr("MeteoSwiss")
             }
 
             Label {
                 id: failed
                 x: Theme.horizontalPageMargin
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTrId("Failed to load data!") // TODO center etc.
+                text: qsTr("Failed to load data!") // TODO center etc.
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }

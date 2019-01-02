@@ -10,7 +10,7 @@ Page {
             id: column
 
             PageHeader {
-                title: qsTrId("About MeteoSwiss")
+                title: qsTr("About MeteoSwiss")
             }
 
             width: parent.width
@@ -26,7 +26,7 @@ Page {
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTrId("Author")
+                text: qsTr("Author")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
@@ -40,7 +40,7 @@ Page {
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTrId("Data")
+                text: qsTr("Data")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
@@ -49,7 +49,7 @@ Page {
                 x: Theme.paddingLarge
                 width: parent.width - 2*Theme.paddingLarge
                 wrapMode: Text.Wrap
-                text: qsTrId("Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.")
+                text: qsTr("Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.")
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.primaryColor
                 horizontalAlignment: Text.AlignHCenter
@@ -57,8 +57,8 @@ Page {
 
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTrId("Website")
-                onClicked: { Qt.openUrlExternally(qsTrId('https://www.meteoschweiz.admin.ch/')) }
+                text: qsTr("Website")
+                onClicked: { Qt.openUrlExternally(qsTr('https://www.meteoschweiz.admin.ch/')) }
             }
         }
     }

@@ -13,17 +13,17 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTrId("About")
+                text: qsTr("About")
                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("AboutPage.qml"))
             }
 
             MenuItem {
-                text: qsTrId("New location")
+                text: qsTr("New location")
                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("LocationSearchPage.qml"))
             }
 
             MenuItem {
-                text: qsTrId("Refresh")
+                text: qsTr("Refresh")
                 onClicked: {
                     meteoApp.refreshData(undefined, false)
                     reloadTimer.restart()
@@ -41,7 +41,7 @@ Page {
         anchors.fill: parent
 
         header: PageHeader {
-            title: qsTrId("MeteoSwiss")
+            title: qsTr("MeteoSwiss")
         }
 
         model: ListModel { id: locationsModel }
@@ -80,7 +80,7 @@ Page {
                     }
 
                     MenuItem {
-                        text: qsTrId("Remove")
+                        text: qsTr("Remove")
                         onClicked: {
                             remove()
                             Storage.removeLocation(locationId)

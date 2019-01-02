@@ -21,7 +21,7 @@ Page {
             spacing: Theme.paddingLarge
 
             PageHeader {
-                title: qsTrId("Detailed Forecast")
+                title: qsTr("Detailed Forecast")
             }
 
             Label {
@@ -42,7 +42,7 @@ Page {
                 Label {
                     id: hourTitle
                     width: 150+Theme.paddingLarge+100+Theme.paddingLarge
-                    text: qsTrId("Hour")
+                    text: qsTr("Hour")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
                 }
@@ -50,7 +50,7 @@ Page {
                 Label {
                     id: tempTitle
                     width: 300
-                    text: qsTrId("Temp.")
+                    text: qsTr("Temp.")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
                 }
@@ -58,7 +58,7 @@ Page {
                 Label {
                     id: rainTitle
                     width: 250
-                    text: qsTrId("Precip.")
+                    text: qsTr("Precip.")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
                 }
@@ -66,7 +66,7 @@ Page {
                 Label {
                     id: descriptionTitle
                     width: 700
-                    text: qsTrId("Description")
+                    text: qsTr("Description")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
                     truncationMode: TruncationMode.Fade
