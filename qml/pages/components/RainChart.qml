@@ -8,7 +8,7 @@ import "../../qchart/QChart.js" as Charts
 QChart {
     id: rainChart
     chartAnimated: false
-    chartData: rain
+    chartData: rain ? rain : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.BAR
     chartOptions: ({
         scaleFontSize: Theme.fontSizeExtraSmall,
