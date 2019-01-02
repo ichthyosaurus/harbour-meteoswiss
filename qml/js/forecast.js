@@ -169,9 +169,8 @@ WorkerScript.onMessage = function(message) {
     if (message && message.zip) {
         zip = message.zip
     } else {
-        console.log("failed to load data: missing location id")
-        console.log("DEBUG using 4143 as location")
-        zip = 4143
+        console.log("error: failed to load data: missing location id")
+        return
     }
 
     var raw_data
