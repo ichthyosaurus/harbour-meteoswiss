@@ -38,36 +38,42 @@ Page {
             ForecastItem {
                 id: d0
                 dayId: 0
+                visible: meteoApp.forecastData[dayId] ? true : false
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d1
                 dayId: 1
+                visible: meteoApp.forecastData[dayId] ? true : false
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d2
                 dayId: 2
+                visible: meteoApp.forecastData[dayId] ? true : false
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d3
                 dayId: 3
+                visible: meteoApp.forecastData[dayId] ? true : false
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d4
                 dayId: 4
+                visible: meteoApp.forecastData[dayId] ? true : false
                 active: (activeDay == dayId)
             }
 
             ForecastItem {
                 id: d5
                 dayId: 5
+                visible: meteoApp.forecastData[dayId] ? true : false
                 active: (activeDay == dayId)
             }
 
