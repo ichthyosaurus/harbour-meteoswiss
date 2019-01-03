@@ -205,6 +205,8 @@ WorkerScript.onMessage = function(message) {
         return;
     }
 
+    // TODO refactor everything to use searchId instead of zip code
+    //      replace 'zip + 00.json' with 'searchId.json'
     var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/' + zip + '00.json')
     raw_data = JSON.parse(json.responseText);
 
