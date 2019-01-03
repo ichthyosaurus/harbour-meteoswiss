@@ -67,16 +67,40 @@
         <source>Add Location</source>
         <translation>Add Location</translation>
     </message>
+    <message>
+        <source>Zip Code</source>
+        <translation>Zip Code</translation>
+    </message>
+    <message>
+        <source>Name of the location</source>
+        <translation>Name of the location</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>Name of the canton</source>
+        <translation>Name of the canton</translation>
+    </message>
+    <message>
+        <source>Canton</source>
+        <translation>Canton</translation>
+    </message>
+    <message>
+        <source>Short name of the canton</source>
+        <translation>Short name of the canton</translation>
+    </message>
+    <message>
+        <source>Canton&apos;s Abbreviation</source>
+        <translation>Canton&apos;s Abbreviation</translation>
+    </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>About</source>
         <translation>About</translation>
-    </message>
-    <message>
-        <source>New location</source>
-        <translation>New location</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -89,6 +113,18 @@
     <message>
         <source>Remove</source>
         <translation>Remove</translation>
+    </message>
+    <message>
+        <source>Add location</source>
+        <translation>Add Location</translation>
+    </message>
+    <message>
+        <source>Add a location first</source>
+        <translation>Add a location first</translation>
+    </message>
+    <message>
+        <source>Pull down to add items</source>
+        <translation>Pull down to add items</translation>
     </message>
 </context>
 <context>

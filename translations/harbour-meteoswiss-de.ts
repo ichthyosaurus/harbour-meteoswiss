@@ -67,16 +67,40 @@
         <source>Add Location</source>
         <translation>Ort hinzufügen</translation>
     </message>
+    <message>
+        <source>Zip Code</source>
+        <translation>Postleitzahl</translation>
+    </message>
+    <message>
+        <source>Name of the location</source>
+        <translation>Name des Ortes</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>Name of the canton</source>
+        <translation>Name des Kantons</translation>
+    </message>
+    <message>
+        <source>Canton</source>
+        <translation>Kanton</translation>
+    </message>
+    <message>
+        <source>Short name of the canton</source>
+        <translation>Abgekürzter Kantonsname</translation>
+    </message>
+    <message>
+        <source>Canton&apos;s Abbreviation</source>
+        <translation>Kanton (Abkürzung)</translation>
+    </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>About</source>
         <translation>Über</translation>
-    </message>
-    <message>
-        <source>New location</source>
-        <translation>Ort hinzufügen</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -89,6 +113,18 @@
     <message>
         <source>Remove</source>
         <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Add location</source>
+        <translation>Ort hinzufügen</translation>
+    </message>
+    <message>
+        <source>Add a location first</source>
+        <translation>Fügen Sie zuerst einen Ort hinzu</translation>
+    </message>
+    <message>
+        <source>Pull down to add items</source>
+        <translation>Herunterziehen, um neue Orte hinzuzufügen</translation>
     </message>
 </context>
 <context>
