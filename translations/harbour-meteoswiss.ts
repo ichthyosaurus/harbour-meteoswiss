@@ -68,32 +68,8 @@
         <translation>Add Location</translation>
     </message>
     <message>
-        <source>Zip Code</source>
-        <translation>Zip Code</translation>
-    </message>
-    <message>
-        <source>Name of the location</source>
-        <translation>Name of the location</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Name</translation>
-    </message>
-    <message>
-        <source>Name of the canton</source>
-        <translation>Name of the canton</translation>
-    </message>
-    <message>
-        <source>Canton</source>
-        <translation>Canton</translation>
-    </message>
-    <message>
-        <source>Short name of the canton</source>
-        <translation>Short name of the canton</translation>
-    </message>
-    <message>
-        <source>Canton&apos;s Abbreviation</source>
-        <translation>Canton&apos;s Abbreviation</translation>
+        <source>Search</source>
+        <translation>Search</translation>
     </message>
 </context>
 <context>

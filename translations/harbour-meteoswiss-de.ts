@@ -68,32 +68,8 @@
         <translation>Ort hinzufügen</translation>
     </message>
     <message>
-        <source>Zip Code</source>
-        <translation>Postleitzahl</translation>
-    </message>
-    <message>
-        <source>Name of the location</source>
-        <translation>Name des Ortes</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Name</translation>
-    </message>
-    <message>
-        <source>Name of the canton</source>
-        <translation>Name des Kantons</translation>
-    </message>
-    <message>
-        <source>Canton</source>
-        <translation>Kanton</translation>
-    </message>
-    <message>
-        <source>Short name of the canton</source>
-        <translation>Abgekürzter Kantonsname</translation>
-    </message>
-    <message>
-        <source>Canton&apos;s Abbreviation</source>
-        <translation>Kanton (Abkürzung)</translation>
+        <source>Search</source>
+        <translation>Suchen</translation>
     </message>
 </context>
 <context>
