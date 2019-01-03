@@ -138,7 +138,7 @@ Page {
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     text: model.locationId + " - " + model.canton + " (" + model.cantonId + ")"
                     font.pixelSize: Theme.fontSizeSmall
-                    elide: Text.ElideRight
+                    truncationMode: TruncationMode.Fade
                     wrapMode: Text.Wrap
                 }
             }
