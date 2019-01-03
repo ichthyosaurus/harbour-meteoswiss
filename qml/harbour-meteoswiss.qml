@@ -16,6 +16,7 @@ ApplicationWindow {
     signal dataLoaded(var data)
     signal dataIsLoading()
     signal refreshData(var location, var force)
+    signal locationAdded(var locationData)
 
     property var forecastData: Forecast.fullData
     property bool dataIsReady: false
