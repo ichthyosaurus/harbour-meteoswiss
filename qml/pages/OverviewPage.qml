@@ -19,7 +19,29 @@ Page {
 
             MenuItem {
                 text: qsTr("New location")
-                onClicked: pageStack.animatorPush(Qt.resolvedUrl("LocationSearchPage.qml"))
+                onClicked: {
+                    var dialog = pageStack.push(Qt.resolvedUrl("LocationSearchPage.qml"))
+                    dialog.accepted.connect(function() {
+                        if (   dialog.locationId
+                            && dialog.name
+                            && dialog.canton
+                            && dialog.cantonId
+                        ) {
+                            Storage.addLocation(dialog.locationId, dialog.name, dialog.canton, dialog.cantonId, locationsModel.count)
+                            locationsModel.append({
+                                "locationId": dialog.locationId,
+                                "name": dialog.name,
+                                "canton": dialog.canton,
+                                "cantonId": dialog.cantonId,
+                                "savedTemperature": undefined,
+                                "symbol": undefined,
+                            })
+                            meteoApp.refreshData(dialog.locationId, false)
+                        } else {
+                            console.log("error: failed to add location (invalid info given)")
+                        }
+                    })
+                }
             }
 
             MenuItem {
