@@ -4205,6 +4205,6 @@ function get(token) {
         searchId: Locations[token],
         cantonId: token.substr(token.length-3, 2),
         canton: token.substr(token.length-3, 2),
-        name: token.substr(5, token.length-5),
+        name: token.substr(5, token.length-10),
     }
 }
