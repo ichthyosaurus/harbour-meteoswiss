@@ -46,6 +46,7 @@ Page {
 
             MenuItem {
                 text: qsTr("Refresh")
+                visible: locationsModel.count > 0
                 onClicked: {
                     meteoApp.refreshData(undefined, false)
                     refreshTimer.restart()
