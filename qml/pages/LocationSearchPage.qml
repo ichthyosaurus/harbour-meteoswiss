@@ -26,8 +26,8 @@ Dialog {
                 id: locationField
                 focus: true
                 width: parent.width
-                placeholderText: "Zip Code"
-                label: "Zip Code"
+                placeholderText: qsTr("Zip Code")
+                label: qsTr("Zip Code")
                 validator: RegExpValidator { regExp: /^[1-9][0-9]{3}$/ }
                 color: errorHighlight ? Theme.highlightColor : Theme.primaryColor
                 inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhDigitsOnly
@@ -36,22 +36,22 @@ Dialog {
             TextField {
                 id: nameField
                 width: parent.width
-                placeholderText: "Name of the location"
-                label: "Name"
+                placeholderText: qsTr("Name of the location")
+                label: qsTr("Name")
             }
 
             TextField {
                 id: cantonField
                 width: parent.width
-                placeholderText: "Name of the canton"
-                label: "Canton"
+                placeholderText: qsTr("Name of the canton")
+                label: qsTr("Canton")
             }
 
             TextField {
                 id: cantonIdField
                 width: parent.width
-                placeholderText: "Short name of the canton"
-                label: "Canton's Abbreviation"
+                placeholderText: qsTr("Short name of the canton")
+                label: qsTr("Canton's Abbreviation")
             }
         }
     }
