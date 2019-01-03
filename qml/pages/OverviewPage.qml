@@ -171,7 +171,7 @@ Page {
 
             Label {
                 id: temperatureLabel
-                text: model.savedTemperature ? model.savedTemperature + " °C" : ''
+                text: (model.savedTemperature || model.savedTemperature == 0) ? model.savedTemperature + " °C" : ''
                 color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeHuge
 
