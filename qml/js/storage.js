@@ -59,6 +59,8 @@ function addLocation(zip, name, canton, cantonId, position) {
     if (res != 0 && !res) {
         console.log("error: failed to save location to db")
     }
+
+    return res
 }
 
 function removeLocation(zip) {
