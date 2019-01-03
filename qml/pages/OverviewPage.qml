@@ -59,6 +59,12 @@ Page {
             title: qsTr("MeteoSwiss")
         }
 
+        ViewPlaceholder {
+            enabled: (locationsModel.count == 0)
+            text: qsTr("Add a location first")
+            hintText: qsTr("Pull down to add items")
+        }
+
         model: ListModel { id: locationsModel }
 
         delegate: ListItem {
