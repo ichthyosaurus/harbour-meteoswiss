@@ -8,6 +8,25 @@ import "../js/storage.js" as Storage
 Page {
     id: overviewPage
 
+    function addLocation(locationData) {
+        console.log("add location", locationData.zip, locationData.name)
+
+        var res = Storage.addLocation(locationData.zip, locationData.name, locationData.canton, locationData.cantonId, locationsModel.count)
+
+        if (res > 0) {
+            locationsModel.append({
+                "locationId": locationData.zip,
+                "name": locationData.name,
+                "canton": locationData.canton,
+                "cantonId": locationData.cantonId,
+                "savedTemperature": undefined,
+                "symbol": undefined,
+            })
+        }
+
+        meteoApp.refreshData(locationData.zip, false)
+    }
+
     SilicaListView {
         id: locationsListView
 
@@ -19,29 +38,7 @@ Page {
 
             MenuItem {
                 text: qsTr("Add location")
-                onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("LocationSearchPage.qml"))
-                    dialog.accepted.connect(function() {
-                        if (   dialog.locationId
-                            && dialog.name
-                            && dialog.canton
-                            && dialog.cantonId
-                        ) {
-                            Storage.addLocation(dialog.locationId, dialog.name, dialog.canton, dialog.cantonId, locationsModel.count)
-                            locationsModel.append({
-                                "locationId": dialog.locationId,
-                                "name": dialog.name,
-                                "canton": dialog.canton,
-                                "cantonId": dialog.cantonId,
-                                "savedTemperature": undefined,
-                                "symbol": undefined,
-                            })
-                            meteoApp.refreshData(dialog.locationId, false)
-                        } else {
-                            console.log("error: failed to add location (invalid info given)")
-                        }
-                    })
-                }
+                onClicked: pageStack.push(Qt.resolvedUrl("LocationSearchPage.qml"))
             }
 
             MenuItem {
@@ -232,5 +229,6 @@ Page {
 
     Component.onCompleted: {
         meteoApp.dataLoaded.connect(updateSummaries)
+        meteoApp.locationAdded.connect(addLocation)
     }
 }
