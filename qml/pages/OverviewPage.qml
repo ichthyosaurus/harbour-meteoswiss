@@ -186,10 +186,6 @@ Page {
         }
 
         Component.onCompleted: {
-            Storage.addLocation(4143, "Dornach", "Solothurn", "SO", 0)
-            Storage.addLocation(4001, "Basel", "Basel-Stadt", "BS", 1)
-            Storage.addLocation(8001, "Zürich", "Zürich", "ZH", 2)
-
             console.log("loading all known locations...")
             var locs = Storage.getLocationData()
             for (var i = 0; i < locs.length; i++) {
