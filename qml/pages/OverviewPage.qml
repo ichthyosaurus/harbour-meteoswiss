@@ -18,7 +18,7 @@ Page {
             }
 
             MenuItem {
-                text: qsTr("New location")
+                text: qsTr("Add location")
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("LocationSearchPage.qml"))
                     dialog.accepted.connect(function() {
