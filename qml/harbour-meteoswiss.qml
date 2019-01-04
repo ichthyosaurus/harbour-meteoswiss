@@ -12,13 +12,13 @@ ApplicationWindow {
     initialPage: entryPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
-    signal dataLoaded(var data)
+    signal dataLoaded(var data, var locationId)
     signal dataIsLoading()
     signal refreshData(var location, var force)
     signal locationAdded(var locationData)
 
     property var forecastData: Forecast.fullData
-    property bool dataIsReady: false
+    property var dataIsReady: ({})
 
     Component {
         id: entryPage
@@ -30,10 +30,9 @@ ApplicationWindow {
         source: "js/forecast.js"
         onMessage: {
             meteoApp.forecastData = messageObject.data
-            meteoApp.dataIsReady = true
-            dataLoaded(messageObject.data)
-
-            Storage.setData(messageObject.timestamp, messageObject.zip, JSON.stringify(messageObject.data), JSON.stringify(messageObject.raw))
+            Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data), JSON.stringify(messageObject.raw))
+            meteoApp.dataIsReady[messageObject.locationId] = true
+            dataLoaded(messageObject.data, messageObject.locationId)
         }
     }
 
