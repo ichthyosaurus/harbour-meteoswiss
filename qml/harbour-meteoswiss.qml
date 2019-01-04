@@ -5,7 +5,6 @@ import "pages"
 
 import "js/forecast.js" as Forecast
 import "js/storage.js" as Storage
-import "js/dummy.js" as DummyData
 
 
 ApplicationWindow {
@@ -54,7 +53,6 @@ ApplicationWindow {
             dataLoader.sendMessage({
                 data: archived.length > 0 ? archived[0] : null,
                 zip: location,
-                // dummy: DummyData.archived_forecast,
             })
         } else {
             console.log("refreshing all known locations...")
