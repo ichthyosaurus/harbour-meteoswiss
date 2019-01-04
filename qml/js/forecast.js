@@ -148,10 +148,11 @@ function httpGet(url) {
 }
 
 function fallbackToArchive(archived, errorMessage) {
-    console.log("warning: " + errorMessage);
+    console.log("warning (" + archived.locationId + "): " + errorMessage);
     fullData = JSON.parse(archived.converted);
+
     WorkerScript.sendMessage({
-        'zip': archived.zip,
+        'locationId': archived.locationId,
         'timestamp': archived.timestamp,
         'data': fullData,
         'raw': JSON.parse(archived.raw),
@@ -166,17 +167,16 @@ function fallbackToArchive(archived, errorMessage) {
 WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
 
-    var zip = 0
+    var locationId;
+    var raw_data;
+    var archived = null;
 
-    if (message && message.zip) {
-        zip = message.zip
+    if (message && message.locationId) {
+        locationId = message.locationId;
     } else {
-        console.log("error: failed to load data: missing location id")
-        return
+        console.log("error: failed to load data: missing location id");
+        return;
     }
-
-    var raw_data
-    var archived = null
 
     if (message && message.data) {
         archived = message.data;
@@ -188,36 +188,35 @@ WorkerScript.onMessage = function(message) {
     // }
 
     if (archived) {
-        var ts = new Date(archived.timestamp)
-        var now = new Date()
+        var ts = new Date(archived.timestamp);
+        var now = new Date();
 
         if (ts.toDateString() == now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
-            fallbackToArchive(archived, "already refreshed less than an hour ago")
-            return
+            fallbackToArchive(archived, "already refreshed less than an hour ago");
+            return;
         }
     }
 
-    var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText
+    var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText;
     var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
     var res = chartReg.exec(xml);
-    console.log(res)
 
     if (!res) {
-        fallbackToArchive(archived, "could not extract JSON path");
+        fallbackToArchive(archived, "could not extract JSON data path");
         return;
+    } else {
+        console.log("extracted data path:", res);
     }
 
-    // TODO refactor everything to use searchId instead of zip code
-    //      replace 'zip + 00.json' with 'searchId.json'
-    var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/' + zip + '00.json')
+    var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/' + locationId + '.json');
     raw_data = JSON.parse(json.responseText);
 
     if (!raw_data) {
-        fallbackToArchive(archived, "could not parse JSON");
+        fallbackToArchive(archived, "could not parse data JSON");
         return;
     }
 
-    fullData = convert_raw(raw_data)
+    fullData = convert_raw(raw_data);
 
-    WorkerScript.sendMessage({ 'zip': zip, 'timestamp': raw_data[0].current_time, 'data': fullData, 'raw': raw_data })
+    WorkerScript.sendMessage({ 'locationId': locationId, 'timestamp': raw_data[0].current_time, 'data': fullData, 'raw': raw_data });
 }
