@@ -19,7 +19,7 @@ Page {
                 "name": locationData.name,
                 "canton": locationData.canton,
                 "cantonId": locationData.cantonId,
-                "savedTemperature": undefined,
+                "temperature": undefined,
                 "symbol": undefined,
             })
         }
@@ -171,7 +171,7 @@ Page {
 
             Label {
                 id: temperatureLabel
-                text: (model.savedTemperature || model.savedTemperature == 0) ? model.savedTemperature + " °C" : ''
+                text: (model.temperature === undefined) ? '' : model.temperature + " °C"
                 color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeHuge
 
@@ -194,7 +194,7 @@ Page {
                     "name": locs[i].name,
                     "canton": locs[i].canton,
                     "cantonId": locs[i].cantonId,
-                    "savedTemperature": summary.temp,
+                    "temperature": summary.temp,
                     "symbol": summary.symbol,
                 })
             }
@@ -208,7 +208,7 @@ Page {
         for (var i = 0; i < locationsModel.count; i++) {
             var loc = locationsModel.get(i).locationId
             var summary = Storage.getDataSummary(loc)
-            locationsModel.get(i).savedTemperature = summary.temp
+            locationsModel.get(i).temperature = summary.temp
             locationsModel.get(i).symbol = summary.symbol
         }
     }
