@@ -14,11 +14,6 @@ function getDatabase() {
     return db;
 }
 
-function init() {
-    initialized = false
-    getDatabase();
-}
-
 function doInit(db) {
     // Database tables: (primary key in all-caps)
     // data: TIMESTAMP, LOCATION_ID, converted, raw
