@@ -4201,8 +4201,8 @@ var Locations = {
 
 function get(token) {
     return {
+        locationId: Locations[token],
         zip: parseInt(token.substr(0, 4), 10),
-        searchId: Locations[token],
         cantonId: token.substr(token.length-3, 2),
         canton: token.substr(token.length-3, 2),
         name: token.substr(5, token.length-10),

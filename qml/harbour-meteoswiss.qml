@@ -38,27 +38,26 @@ ApplicationWindow {
         }
     }
 
-    function doRefreshData(location, force) {
-        if (location) {
-            console.log("refreshing... " + location)
-            meteoApp.dataIsReady = false
+    function doRefreshData(locationId, force) {
+        if (locationId) {
+            console.log("refreshing " + locationId + "...")
+            meteoApp.dataIsReady[locationId] = false
             dataIsLoading()
 
-            if (force) {
-                var archived = []
-            } else {
-                var archived = Storage.getData(location, true)
+            var archived = [];
+            if (!force) {
+                archived = Storage.getData(locationId, true)
             }
 
             dataLoader.sendMessage({
                 data: archived.length > 0 ? archived[0] : null,
-                zip: location,
+                locationId: locationId,
             })
         } else {
             console.log("refreshing all known locations...")
             var locs = Storage.getLocationData()
             for (var i = 0; i < locs.length; i++) {
-                doRefreshData(locs[i].zip)
+                doRefreshData(locs[i].locationId)
             }
         }
     }

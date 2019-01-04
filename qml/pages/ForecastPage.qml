@@ -5,7 +5,7 @@ import "components"
 
 Page {
     id: mainPage
-    property int location
+    property int locationId
     property int activeDay: 0
     property alias title: pageTitle.title
     allowedOrientations: Orientation.All
@@ -20,8 +20,7 @@ Page {
             MenuItem {
                 text: qsTr("Reload Data")
                 onClicked: {
-                    meteoApp.dataIsReady = false
-                    meteoApp.refreshData(location, true)
+                    meteoApp.refreshData(locationId, true)
                 }
             }
         }

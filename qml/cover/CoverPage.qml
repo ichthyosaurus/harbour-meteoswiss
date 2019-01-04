@@ -7,19 +7,19 @@ import "../js/strings.js" as Strings
 
 CoverBackground {
     id: coverPage
-    property int location: 0
+    property int locationId: undefined
     property var summary: undefined
     property var locationData: undefined
 
     Label {
         id: label
-        visible: location == 0
+        visible: !locationId
         anchors.centerIn: parent
         text: qsTr("MeteoSwiss")
     }
 
     Item {
-        visible: location != 0
+        visible: (locationId ? true : false)
         width: parent.width - 2*Theme.paddingLarge
 
         Column {
@@ -32,7 +32,7 @@ CoverBackground {
             }
 
             Label {
-                text: (summary.temp === undefined) ? locationData.name : summary.temp + " °C " + locationData.name
+                text: (locationData ? (locationData.name ? (summary.temp ? summary.temp + " °C " + locationData.name : locationData.name) : '') : '')
                 width: parent.width
                 truncationMode: TruncationMode.Fade
             }
@@ -67,7 +67,7 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
             onTriggered: {
-                location = Storage.getNextCoverZip(location)
+                locationId = Storage.getNextCoverLocation(locationId)
                 updateData()
             }
         }
@@ -82,20 +82,25 @@ CoverBackground {
     }
 
     function updateData() {
-        Storage.setCoverZip(location)
-        summary = Storage.getDataSummary(location)
-        locationData = Storage.getLocationData(location)
+        Storage.setCoverLocation(locationId)
+        summary = Storage.getDataSummary(locationId)
+        locationData = Storage.getLocationData(locationId)
 
         if (locationData) {
             locationData = locationData[0]
         } else {
-            console.log("error: failed to load location metadata")
+            console.log("error: failed to load location metadata for", locationId)
         }
     }
 
     Component.onCompleted: {
-        location = Storage.getCoverZip()
-        location = location > 0 ? location : Storage.getNextCoverZip()
+        var loc = Storage.getCoverLocation()
+        if (!loc) {
+            loc = Storage.getNextCoverLocation()
+        }
+
+        locationId = loc
+
         updateData()
         meteoApp.dataLoaded.connect(updateData)
     }

@@ -8,23 +8,33 @@ import "../js/storage.js" as Storage
 Page {
     id: overviewPage
 
-    function addLocation(locationData) {
-        console.log("add location", locationData.zip, locationData.name)
-
-        var res = Storage.addLocation(locationData.zip, locationData.name, locationData.canton, locationData.cantonId, locationsModel.count)
-
-        if (res > 0) {
-            locationsModel.append({
-                "locationId": locationData.zip,
-                "name": locationData.name,
-                "canton": locationData.canton,
-                "cantonId": locationData.cantonId,
-                "temperature": undefined,
-                "symbol": undefined,
-            })
+    function addLocationToModel(locationData, temperature, symbol) {
+        if (!locationData) {
+            console.log("error: failed to add location to model: invalid data")
+            return
         }
 
-        meteoApp.refreshData(locationData.zip, false)
+        locationsModel.append({
+            "locationId": locationData.locationId,
+            "zip": locationData.zip,
+            "name": locationData.name,
+            "canton": locationData.canton,
+            "cantonId": locationData.cantonId,
+            "temperature": temperature,
+            "symbol": symbol,
+        })
+    }
+
+    function addLocation(locationData) {
+        console.log("add location", locationData.locationId, locationData.name);
+
+        var res = Storage.addLocation(locationData.locationId, locationData.zip, locationData.name, locationData.cantonId, locationData.canton, locationsModel.count);
+
+        if (res > 0) {
+            addLocationToModel(locationData, undefined, undefined)
+        }
+
+        meteoApp.refreshData(locationData.locationId, false)
     }
 
     SilicaListView {
@@ -92,7 +102,7 @@ Page {
 
                             var pairs = []
                             for (var i = 0; i < locationsModel.count; i++) {
-                                pairs.push({ zip: locationsModel.get(i).locationId, position: i })
+                                pairs.push({ locationId: locationsModel.get(i).locationId, position: i })
                             }
                             Storage.setOverviewPositions(pairs)
                         }
@@ -120,9 +130,9 @@ Page {
                 meteoApp.refreshData(locationId, false)
                 pageStack.animatorPush("ForecastPage.qml", {
                     "activeDay": 0,
-                    "location": locationId,
-                    "title": model.locationId + " " + model.name + " (" + model.cantonId + ")",
-                })
+                    "locationId": locationId,
+                    "title": descriptionLabel.text,
+                });
             }
 
             Image {
@@ -162,7 +172,7 @@ Page {
 
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    text: model.locationId + " - " + model.canton + " (" + model.cantonId + ")"
+                    text: model.zip + " - " + model.canton + " (" + model.cantonId + ")"
                     font.pixelSize: Theme.fontSizeSmall
                     truncationMode: TruncationMode.Fade
                     wrapMode: Text.Wrap
@@ -187,38 +197,50 @@ Page {
             console.log("loading all known locations...")
             var locs = Storage.getLocationData()
             for (var i = 0; i < locs.length; i++) {
-                var summary = Storage.getDataSummary(locs[i].zip)
-
-                locationsModel.append({
-                    "locationId": locs[i].zip,
-                    "name": locs[i].name,
-                    "canton": locs[i].canton,
-                    "cantonId": locs[i].cantonId,
-                    "temperature": summary.temp,
-                    "symbol": summary.symbol,
-                })
+                var summary = Storage.getDataSummary(locs[i].locationId)
+                addLocationToModel(locs[i], summary.temperature, summary.symbol)
             }
         }
 
         VerticalScrollDecorator {}
     }
 
-    function updateSummaries() {
-        console.log("DEBUG updating overview summaries")
-        for (var i = 0; i < locationsModel.count; i++) {
-            var loc = locationsModel.get(i).locationId
-            var summary = Storage.getDataSummary(loc)
-            locationsModel.get(i).temperature = summary.temp
-            locationsModel.get(i).symbol = summary.symbol
+    function updateSummaries(newData, locationId) {
+        if (locationId && !meteoApp.dataIsReady[locationId]) {
+            console.log("summaries not updated: data is not ready yet", meteoApp.dataIsReady[locationId], locationId);
+            return;
+        } else {
+            console.log("updating overview summaries...");
+        }
+
+        if (newData) {
+            for (var i = 0; i < locationsModel.count; i++) {
+                var loc = locationsModel.get(i).locationId
+
+                if (loc === locationId) {
+                    var summary = Storage.getDataSummary(loc)
+                    locationsModel.set(i, {temperature: summary.temp, symbol: summary.symbol})
+                }
+            }
+        } else {
+            for (var j = 0; j < locationsModel.count; j++) {
+                var loc = locationsModel.get(j).locationId // @disable-check M107
+                var summary = Storage.getDataSummary(loc) // @disable-check M107
+                locationsModel.set(j, {temperature: summary.temp, symbol: summary.symbol})
+            }
         }
     }
 
     Timer {
         id: refreshTimer
-        interval: 60*30*1000 // every 1/2 hour
+        interval: 60*15*1000 // every 15 minutes
         repeat: true
         running: true
-        onTriggered: meteoApp.refreshData(undefined, false)
+        onTriggered: {
+            if (overviewPage.status === PageStatus.Active) {
+                meteoApp.refreshData(undefined, false);
+            }
+        }
     }
 
     onStatusChanged: {
