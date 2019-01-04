@@ -49,16 +49,16 @@
 <context>
     <name>ForecastPage</name>
     <message>
-        <source>Refresh</source>
-        <translation>Aktualisieren</translation>
-    </message>
-    <message>
         <source>MeteoSwiss</source>
         <translation>MeteoSchweiz</translation>
     </message>
     <message>
         <source>Failed to load data!</source>
         <translation>Fehler beim Laden!</translation>
+    </message>
+    <message>
+        <source>Reload Data</source>
+        <translation>Daten neu laden</translation>
     </message>
 </context>
 <context>
@@ -101,6 +101,10 @@
     <message>
         <source>Pull down to add items</source>
         <translation>Herunterziehen, um neue Orte hinzuzufügen</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation>Wird gelöscht</translation>
     </message>
 </context>
 <context>

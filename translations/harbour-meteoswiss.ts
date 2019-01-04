@@ -49,16 +49,16 @@
 <context>
     <name>ForecastPage</name>
     <message>
-        <source>Refresh</source>
-        <translation>Refresh</translation>
-    </message>
-    <message>
         <source>MeteoSwiss</source>
         <translation>MeteoSwiss</translation>
     </message>
     <message>
         <source>Failed to load data!</source>
         <translation>Failed to load data!</translation>
+    </message>
+    <message>
+        <source>Reload Data</source>
+        <translation>Reload Data</translation>
     </message>
 </context>
 <context>
@@ -101,6 +101,10 @@
     <message>
         <source>Pull down to add items</source>
         <translation>Pull down to add items</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation>Deleting</translation>
     </message>
 </context>
 <context>

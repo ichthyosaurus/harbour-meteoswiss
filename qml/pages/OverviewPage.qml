@@ -82,7 +82,7 @@ Page {
                 var idx = index
                 var loc = locationId
 
-                remorse.execute(locationItem, "Deleting", function() {
+                remorse.execute(locationItem, qsTr("Deleting"), function() {
                     locationsModel.remove(idx)
                     Storage.removeLocation(loc)
                 }, 3000);
