@@ -156,10 +156,10 @@ function fallbackToArchive(archived, errorMessage) {
     })
 }
 
-function sleep(ms) { // NOTE for debugging the loading display
-    var unixtime_ms = new Date().getTime();
-    while(new Date().getTime() < unixtime_ms + ms) {}
-}
+// function sleep(ms) { // NOTE for debugging the loading display
+//     var unixtime_ms = new Date().getTime();
+//     while(new Date().getTime() < unixtime_ms + ms) {}
+// }
 
 WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
@@ -180,10 +180,10 @@ WorkerScript.onMessage = function(message) {
         archived = message.data
     }
 
-    if (message && message.dummy) {
-        fallbackToArchive(message.dummy, "using dummy archive")
-        return
-    }
+    // if (message && message.dummy) {
+    //     fallbackToArchive(message.dummy, "using dummy archive")
+    //     return
+    // }
 
     if (archived) {
         var ts = new Date(archived.timestamp)
