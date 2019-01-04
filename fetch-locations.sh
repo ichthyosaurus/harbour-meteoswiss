@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE="qml/js/locations"
+BASE="raw/locations"
 
 fetch() { # 1: two digit code
     if [[ -z "$1" ]]; then
@@ -50,24 +50,12 @@ for i in "${lines[@]}"; do
 
     name="${name% $cantonId}"
 
-    # echo "\
-    # \"$zip $name ($cantonId)\": {
-    #     \"name\": \"$name\",
-    #     \"zip\": $zip,
-    #     \"searchId\": $searchId,
-    #     \"cantonId\": \"$cantonId\",
-    # }," >> "$details"
-
     echo "    \"$zip $name ($cantonId)\": $searchId," >> "$details"
     echo "    \"$zip $name ($cantonId)\"," >> "$overview"
 done
 
 echo "}" >> "$details"
 echo "]" >> "$overview"
-
-# cat "$details" > "$locations"
-# echo >> "$locations"
-# cat "$overview" >> "$locations"
 
 echo "
 function get(token) {
