@@ -210,6 +210,12 @@ Page {
         VerticalScrollDecorator {}
     }
 
+    function updateSingleSummary(locationId, index) {
+        if (!locationId || index === undefined) return;
+        var summary = Storage.getDataSummary(locationId);
+        locationsModel.set(index, {temperature: summary.temp, symbol: summary.symbol});
+    }
+
     function updateSummaries(newData, locationId) {
         if (locationId && !meteoApp.dataIsReady[locationId]) {
             console.log("summaries not updated: data is not ready yet", meteoApp.dataIsReady[locationId], locationId);
@@ -218,20 +224,15 @@ Page {
             console.log("updating overview summaries...");
         }
 
-        if (newData) {
+        if (locationId) {
             for (var i = 0; i < locationsModel.count; i++) {
-                var loc = locationsModel.get(i).locationId
-
-                if (loc === locationId) {
-                    var summary = Storage.getDataSummary(loc)
-                    locationsModel.set(i, {temperature: summary.temp, symbol: summary.symbol})
+                if (locationsModel.get(i).locationId === locationId) {
+                    updateSingleSummary(locationId, i);
                 }
             }
         } else {
             for (var j = 0; j < locationsModel.count; j++) {
-                var loc = locationsModel.get(j).locationId // @disable-check M107
-                var summary = Storage.getDataSummary(loc) // @disable-check M107
-                locationsModel.set(j, {temperature: summary.temp, symbol: summary.symbol})
+                updateSingleSummary(locationsModel.get(j).locationId, j)
             }
         }
     }
