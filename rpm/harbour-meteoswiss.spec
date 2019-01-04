@@ -12,13 +12,12 @@ Name:       harbour-meteoswiss
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
-Summary:    Inofficial client to the Swiss Meteorological Service (MeteoSwiss)
-Version:    0.1
+Summary:    Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
+Version:    1.0
 Release:    1
-Group:      Qt/Qt
+Group:      Applications/Internet
 License:    LICENSE
 BuildArch:  noarch
-URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-meteoswiss.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -30,10 +29,8 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  desktop-file-utils
 
 %description
-MeteoSwiss is an inofficial client to the Swiss Meteorological Service
-(MeteoSwiss). It uses a combination of undocumented API features and
-web-scraping to gather the information. Downloaded datasets are cached every
-hour and are available offline.
+MeteoSwiss is an unofficial client to the Federal Office of Meteorology and Climatology
+(MeteoSwiss). Downloaded datasets are available offline and updated hourly.
 
 
 %prep
