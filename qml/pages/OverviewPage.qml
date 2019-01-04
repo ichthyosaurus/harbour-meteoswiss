@@ -68,7 +68,7 @@ Page {
         }
 
         ViewPlaceholder {
-            enabled: (locationsModel.count == 0)
+            enabled: (locationsModel.count === 0)
             text: qsTr("Add a location first")
             hintText: qsTr("Pull down to add items")
         }
@@ -244,8 +244,8 @@ Page {
     }
 
     onStatusChanged: {
-        if (overviewPage.status == PageStatus.Active) {
-            updateSummaries()
+        if (overviewPage.status === PageStatus.Active) {
+            updateSummaries();
         }
     }
 
