@@ -33,7 +33,6 @@ ApplicationWindow {
             meteoApp.dataIsReady = true
             dataLoaded(messageObject.data)
 
-            Storage.init()
             Storage.setData(messageObject.timestamp, messageObject.zip, JSON.stringify(messageObject.data), JSON.stringify(messageObject.raw))
         }
     }
