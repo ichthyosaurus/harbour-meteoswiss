@@ -34,7 +34,7 @@ Page {
             addLocationToModel(locationData, undefined, undefined)
         }
 
-        meteoApp.refreshData(locationData.locationId, false)
+        meteoApp.refreshData(locationData.locationId, true)
     }
 
     SilicaListView {
