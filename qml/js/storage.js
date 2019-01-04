@@ -27,12 +27,12 @@ function doInit(db) {
 
 function simpleQuery(query, values) {
     var db = getDatabase();
-    var res = null
+    var res = undefined
     values = defaultFor(values, [])
 
     if (!query) {
         console.log("error: empty query")
-        return null
+        return undefined
     }
 
     try {
@@ -47,7 +47,7 @@ function simpleQuery(query, values) {
         })
     } catch(e) {
         console.log("error in query:", values)
-        res = null
+        res = undefined
     }
 
     return res
@@ -122,7 +122,7 @@ function getNextCoverZip(zip) {
 
 function setCoverZip(zip) {
     var db = getDatabase();
-    var res = null
+    var res = undefined
 
     try {
         db.transaction(function(tx) {
@@ -137,7 +137,7 @@ function setCoverZip(zip) {
         })
     } catch(e) {
         console.log("error in query:", values)
-        res = null
+        res = undefined
     }
 
     if (res != 0 && !res) {
@@ -194,7 +194,7 @@ function setOverviewPositions(dataPairs) {
         })
     } catch(e) {
         console.log("error in query:", values)
-        res = null
+        res = undefined
     }
 
     if (res != dataPairs.length) {
@@ -204,7 +204,7 @@ function setOverviewPositions(dataPairs) {
 
 function getDataSummary(zip) {
     var data = getData(zip, true)
-    data = data.length > 0 ? data[0] : null
+    data = data.length > 0 ? data[0] : undefined
 
     var ts = new Date(data.timestamp)
     var now = new Date()
@@ -214,8 +214,8 @@ function getDataSummary(zip) {
         return {
             zip: zip,
             symbol: 0,
-            temp: null,
-            rain: null,
+            temp: undefined,
+            rain: undefined,
         }
     }
 
