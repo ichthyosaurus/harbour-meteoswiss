@@ -8,8 +8,8 @@ import "../js/strings.js" as Strings
 CoverBackground {
     id: coverPage
     property int location: 0
-    property var summary: null
-    property var locationData: null
+    property var summary: undefined
+    property var locationData: undefined
 
     Label {
         id: label
@@ -32,7 +32,7 @@ CoverBackground {
             }
 
             Label {
-                text: summary.temp + " °C " + locationData.name
+                text: (summary.temp === undefined) ? locationData.name : summary.temp + " °C " + locationData.name
                 width: parent.width
                 truncationMode: TruncationMode.Fade
             }
