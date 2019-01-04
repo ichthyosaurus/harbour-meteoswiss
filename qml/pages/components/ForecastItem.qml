@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Column {
     id: forecast
-    property string title: meteoApp.dataIsReady ? meteoApp.forecastData[dayId].dateString : qsTr('Loading...')
+    property string title: meteoApp.dataIsReady[locationId] ? meteoApp.forecastData[dayId].dateString : qsTr('Loading...')
     property bool active
     property int dayId
 
@@ -18,7 +18,7 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? (meteoApp.dataIsReady ? pageStack.push(Qt.resolvedUrl("../TablePage.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
+            onClicked: active ? (meteoApp.dataIsReady[locationId] ? pageStack.push(Qt.resolvedUrl("../TablePage.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
 
             Label {
                 id: titleLabel

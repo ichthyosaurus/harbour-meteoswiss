@@ -8,8 +8,8 @@ import "../../qchart/QChart.js" as Charts
 Item {
     id: forecast
     property int day
-    property var rain: meteoApp.dataIsReady ? meteoApp.forecastData[day].rainfall : null
-    property var temp: meteoApp.dataIsReady ? meteoApp.forecastData[day].temperature : null
+    property var rain
+    property var temp
     property bool loaded: false
 
     height: chart.height
@@ -74,9 +74,16 @@ Item {
 
     function loadCharts() {
         if (day === null) return
-        console.log("loading charts for day " + day + "...")
-        if (chart && temp) tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
-        if (chart && rain) rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
+
+        if (meteoApp.dataIsReady[locationId]) {
+            console.log("loading charts for day " + day + "...")
+            temp = meteoApp.forecastData[day].temperature
+            rain = meteoApp.forecastData[day].rainfall
+            tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
+            rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
+        } else {
+            console.log("chart for day", day, "(" + locationId + ") not updated: data is not ready")
+        }
     }
 
     Component.onCompleted: {
@@ -87,11 +94,8 @@ Item {
     property var appState: Qt.application.state
 
     onAppStateChanged: {
-        if (Qt.application.state == Qt.ApplicationActive) {
-            loadCharts()
-            console.log("state changed - charts reloaded (day " + day + ")")
-        } else {
-            console.log("state changed - nothing done (day " + day + ")")
+        if (Qt.application.state === Qt.ApplicationActive) {
+            loadCharts();
         }
     }
 }

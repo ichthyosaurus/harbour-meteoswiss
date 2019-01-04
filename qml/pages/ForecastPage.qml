@@ -28,7 +28,7 @@ Page {
         Column {
             id: column
             width: parent.width
-            visible: (meteoApp.dataIsReady && !meteoApp.forecastData[0].isSane) ? false : true
+            visible: (meteoApp.dataIsReady[locationId] && !meteoApp.forecastData[0].isSane) ? false : true
 
             PageHeader {
                 id: pageTitle
