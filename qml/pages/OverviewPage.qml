@@ -78,9 +78,17 @@ Page {
         delegate: ListItem {
             id: locationItem
 
-            function remove() {
-                locationsModel.remove(model.index)
+            function showRemoveRemorser() {
+                var idx = index
+                var loc = locationId
+
+                remorse.execute(locationItem, "Deleting", function() {
+                    locationsModel.remove(idx)
+                    Storage.removeLocation(loc)
+                }, 3000);
             }
+
+            RemorseItem { id: remorse }
 
             ListView.onAdd: AddAnimation { target: locationItem }
             ListView.onRemove: animateRemoval()
@@ -110,10 +118,7 @@ Page {
 
                     MenuItem {
                         text: qsTr("Remove")
-                        onClicked: {
-                            remove()
-                            Storage.removeLocation(locationId)
-                        }
+                        onClicked: showRemoveRemorser()
                     }
 
                     MenuItem {
