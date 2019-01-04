@@ -18,7 +18,7 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Refresh")
+                text: qsTr("Reload Data")
                 onClicked: {
                     meteoApp.dataIsReady = false
                     meteoApp.refreshData(location, true)
