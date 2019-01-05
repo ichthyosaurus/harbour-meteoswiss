@@ -185,6 +185,16 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                     truncationMode: TruncationMode.Fade
                     wrapMode: Text.Wrap
+
+                    onTextChanged:
+                        NumberAnimation {
+                            target: descriptionLabel
+                            property: "opacity"
+                            duration: 500
+                            easing.type: Easing.InOutQuad
+                            from: 0.0
+                            to: 1.0
+                        }
                 }
             }
 
@@ -193,6 +203,16 @@ Page {
                 text: temperatureString
                 color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeHuge
+
+                onTextChanged:
+                    NumberAnimation {
+                        target: temperatureLabel
+                        property: "opacity"
+                        duration: 500
+                        easing.type: Easing.InOutQuad
+                        from: 0.0
+                        to: 1.0
+                    }
 
                 anchors {
                     verticalCenter: labelColumn.verticalCenter
