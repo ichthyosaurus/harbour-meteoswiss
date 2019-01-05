@@ -4,6 +4,7 @@ import QtQuick.LocalStorage 2.0
 import "components"
 
 import "../js/storage.js" as Storage
+import "../js/strings.js" as Strings
 
 Page {
     id: overviewPage
@@ -167,7 +168,7 @@ Page {
                     id: locationLabel
                     width: parent.width
                     color: highlighted ? Theme.highlightColor : Theme.primaryColor
-                    text: model.name
+                    text: model.name + " (" + model.cantonId + ")"
                     truncationMode: TruncationMode.Fade
                 }
 
@@ -177,7 +178,7 @@ Page {
 
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    text: model.zip + " - " + model.canton + " (" + model.cantonId + ")"
+                    text: Strings.MeteoLang.weatherSymbolDescription[model.symbol]  // weather string
                     font.pixelSize: Theme.fontSizeSmall
                     truncationMode: TruncationMode.Fade
                     wrapMode: Text.Wrap
