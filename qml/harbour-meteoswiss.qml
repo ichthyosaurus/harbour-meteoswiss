@@ -55,7 +55,7 @@ ApplicationWindow {
             console.log("refreshing all known locations...")
             var locs = Storage.getLocationData()
             for (var i = 0; i < locs.length; i++) {
-                doRefreshData(locs[i].locationId)
+                doRefreshData(locs[i].locationId, force)
             }
         }
     }
