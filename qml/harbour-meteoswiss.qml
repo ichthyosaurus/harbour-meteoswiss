@@ -13,7 +13,7 @@ ApplicationWindow {
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
     signal dataLoaded(var data, var locationId)
-    signal dataIsLoading()
+    signal dataIsLoading(var locationId)
     signal refreshData(var location, var force)
     signal locationAdded(var locationData)
 
@@ -40,7 +40,7 @@ ApplicationWindow {
         if (locationId) {
             console.log("refreshing " + locationId + "...")
             meteoApp.dataIsReady[locationId] = false
-            dataIsLoading()
+            dataIsLoading(locationId)
 
             var archived = [];
             if (!force) {
