@@ -148,6 +148,11 @@ function httpGet(url) {
 }
 
 function fallbackToArchive(archived, errorMessage) {
+    if (!archived) {
+        console.log("warning: got invalid archive");
+        return;
+    }
+
     console.log("warning (" + archived.locationId + "): " + errorMessage);
     fullData = JSON.parse(archived.converted);
 
