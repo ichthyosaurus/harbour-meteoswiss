@@ -46,6 +46,19 @@ Page {
         id: locationsListView
 
         PullDownMenu {
+            id: pulley
+            busy: false
+
+            Component.onCompleted: {
+                overviewPage.dataUpdated.connect(function(newData, locationId) {
+                    var readyList = Object.keys(meteoApp.dataIsReady).map(function(k) { return meteoApp.dataIsReady[k]; });
+                    if (readyList.every(function(k) { return k ? true : false; })) {
+                        busy = false
+                    }
+                });
+                meteoApp.dataIsLoading.connect(function() { busy = true; });
+            }
+
             MenuItem {
                 text: qsTr("About")
                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("AboutPage.qml"))
@@ -146,12 +159,20 @@ Page {
 
             Image {
                 id: icon
-                visible: model.symbol ? true : false
+                visible: model.symbol > 0 ? true : false
                 x: Theme.horizontalPageMargin
                 anchors.verticalCenter: labelColumn.verticalCenter
                 width: 2.5*Theme.horizontalPageMargin
                 height: width
+                opacity: isLoading ? 0.2 : 1.0
                 source: "../weather-icons/" + (model.symbol ? model.symbol : "0") + ".svg"
+                Behavior on opacity { NumberAnimation { duration: 200 } }
+            }
+
+            BusyIndicator {
+                anchors.centerIn: icon
+                visible: isLoading ? true : false
+                running: visible
             }
 
             Column {
