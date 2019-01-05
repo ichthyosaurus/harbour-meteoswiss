@@ -3,6 +3,7 @@
 # - Summary of changes
 
 * Sat Jan 5 2019 Mirian Margiani <mirian@margiani.ch> 1.0.1-1
+- refactor visuals of forecast page
 - show weather string instead of zip and canton in overview
 - fix temperature sometimes not being shown in overview
 - don't restart refresh timer when data is manually refreshed
