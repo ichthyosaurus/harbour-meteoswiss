@@ -9,6 +9,9 @@ import "../js/strings.js" as Strings
 Page {
     id: overviewPage
 
+    function getTemperatureString(temperature) {
+        return (temperature === undefined) ? "" : temperature + " °C";
+    }
     function addLocationToModel(locationData, temperature, symbol) {
         if (!locationData) {
             console.log("error: failed to add location to model: invalid data")
@@ -22,6 +25,7 @@ Page {
             "canton": locationData.canton,
             "cantonId": locationData.cantonId,
             "temperature": temperature,
+            "temperatureString": getTemperatureString(temperature),
             "symbol": symbol,
         })
     }
@@ -187,7 +191,7 @@ Page {
 
             Label {
                 id: temperatureLabel
-                text: (model.temperature === undefined) ? '' : model.temperature + " °C"
+                text: temperatureString
                 color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeHuge
 
