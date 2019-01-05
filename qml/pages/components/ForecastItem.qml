@@ -8,19 +8,24 @@ Column {
     property bool active
     property int dayId
 
-    width: parent.width - (Theme.horizontalPageMargin * 2)
-    x: Theme.horizontalPageMargin
+    width: parent.width
 
     Column {
-        width: forecast.width
+        width: parent.width
 
         BackgroundItem {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? (meteoApp.dataIsReady[locationId] ? pageStack.push(Qt.resolvedUrl("../TablePage.qml"), { name: title, day: dayId }) : console.log("table locked")) : mainPage.activateGraph(dayId)
+            onClicked: active ? (
+                meteoApp.dataIsReady[locationId] ? pageStack.push(
+                    Qt.resolvedUrl("../TablePage.qml"), { name: title, day: dayId }
+                ) : console.log("table locked")
+            ) : mainPage.activateGraph(dayId)
 
             Label {
+                x: Theme.horizontalPageMargin
+                width: parent.width-x-moreImage.width-moreImage.anchors.rightMargin
                 id: titleLabel
                 anchors {
                     rightMargin: Theme.paddingMedium
@@ -40,7 +45,22 @@ Column {
                 }
                 source: "image://theme/icon-m-right?" + Theme.highlightColor
             }
+
+            Rectangle {
+                anchors.fill: parent
+                z: -1
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: Theme.rgba(Theme.highlightBackgroundColor, 0.15) }
+                    GradientStop { position: 1.0; color: "transparent" }
+                }
+            }
         }
+    }
+
+    Item { // vertical spacing
+        height: Theme.paddingMedium
+        width: parent.width
+        visible: active
     }
 
     ForecastGraphItem {
@@ -48,6 +68,12 @@ Column {
         Behavior on opacity { NumberAnimation { duration: 500 } }
         opacity: active ? 1 : 0
         day: dayId
+    }
+
+    Item { // vertical spacing
+        height: Theme.paddingMedium
+        width: parent.width
+        visible: active
     }
 
     function refreshTitle(data) {
