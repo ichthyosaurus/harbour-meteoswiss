@@ -136,7 +136,7 @@ Page {
                 pageStack.animatorPush("ForecastPage.qml", {
                     "activeDay": 0,
                     "locationId": locationId,
-                    "title": descriptionLabel.text,
+                    "title": zip + " " + name + " (" + cantonId + ")",
                 });
             }
 
