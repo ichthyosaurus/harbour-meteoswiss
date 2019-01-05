@@ -60,8 +60,7 @@ Page {
                 text: qsTr("Refresh")
                 visible: locationsModel.count > 0
                 onClicked: {
-                    meteoApp.refreshData(undefined, false)
-                    refreshTimer.restart()
+                    meteoApp.refreshData(undefined, false);
                 }
             }
         }
