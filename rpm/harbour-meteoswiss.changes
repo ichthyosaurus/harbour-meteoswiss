@@ -2,5 +2,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Jan 5 2019 Mirian Margiani <mirian@margiani.ch> 1.0.1-1
+- show weather string instead of zip and canton in overview
+- fix temperature sometimes not being shown in overview
+- don't restart refresh timer when data is manually refreshed
+- add some busy indicators and animations
+- performance changes
+
 * Fri Jan 4 2019 Mirian Margiani <mirian@margiani.ch> 1.0.0-1
 - initial release
