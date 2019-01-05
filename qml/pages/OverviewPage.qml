@@ -9,9 +9,13 @@ import "../js/strings.js" as Strings
 Page {
     id: overviewPage
 
+    signal loadingFinished(var locationId)
+    signal dataUpdated(var newData, var locationId)
+
     function getTemperatureString(temperature) {
         return (temperature === undefined) ? "" : temperature + " °C";
     }
+
     function addLocationToModel(locationData, temperature, symbol) {
         if (!locationData) {
             console.log("error: failed to add location to model: invalid data")
@@ -94,6 +98,21 @@ Page {
 
         delegate: ListItem {
             id: locationItem
+            property bool isLoading: false
+
+            Component.onCompleted: {
+                var idx = index;
+                meteoApp.dataIsLoading.connect(function(loc) {
+                    var locationId = locationsModel.get(idx).locationId;
+                    if (locationId !== loc) return;
+                    locationsModel.setProperty(idx, 'isLoading', true);
+                });
+                overviewPage.loadingFinished.connect(function(loc) {
+                    var locationId = locationsModel.get(idx).locationId;
+                    if (locationId !== loc) return;
+                    locationsModel.setProperty(idx, 'isLoading', false);
+                });
+            }
 
             function showRemoveRemorser() {
                 var idx = index
@@ -255,33 +274,6 @@ Page {
         VerticalScrollDecorator {}
     }
 
-    function updateSingleSummary(locationId, index) {
-        if (!locationId || index === undefined) return;
-        var summary = Storage.getDataSummary(locationId);
-        locationsModel.set(index, {temperature: summary.temp, symbol: summary.symbol});
-    }
-
-    function updateSummaries(newData, locationId) {
-        if (locationId && !meteoApp.dataIsReady[locationId]) {
-            console.log("summaries not updated: data is not ready yet", meteoApp.dataIsReady[locationId], locationId);
-            return;
-        } else {
-            console.log("updating overview summaries...");
-        }
-
-        if (locationId) {
-            for (var i = 0; i < locationsModel.count; i++) {
-                if (locationsModel.get(i).locationId === locationId) {
-                    updateSingleSummary(locationId, i);
-                }
-            }
-        } else {
-            for (var j = 0; j < locationsModel.count; j++) {
-                updateSingleSummary(locationsModel.get(j).locationId, j)
-            }
-        }
-    }
-
     Timer {
         id: refreshTimer
         interval: 60*15*1000 // every 15 minutes
@@ -296,12 +288,32 @@ Page {
 
     onStatusChanged: {
         if (overviewPage.status === PageStatus.Active) {
-            updateSummaries();
+            dataUpdated(undefined, undefined);
+        }
+    }
+
+    onDataUpdated: {
+        if (locationId && !meteoApp.dataIsReady[locationId]) {
+            console.log("summary not updated: data is not ready yet", meteoApp.dataIsReady[locationId], locationId);
+            return;
+        }
+
+        console.log("updating overview summaries...");
+
+        for (var i = 0; i < locationsModel.count; i++) {
+            if (!locationId || (locationId === locationsModel.get(i).locationId)) {
+                var loc = locationsModel.get(i).locationId;
+                var summary = Storage.getDataSummary(loc);
+                locationsModel.setProperty(i, 'temperature', summary.temp);
+                locationsModel.setProperty(i, 'temperatureString', getTemperatureString(summary.temp));
+                locationsModel.setProperty(i, 'symbol', summary.symbol);
+                loadingFinished(loc);
+            }
         }
     }
 
     Component.onCompleted: {
-        meteoApp.dataLoaded.connect(updateSummaries)
+        meteoApp.dataLoaded.connect(dataUpdated)
         meteoApp.locationAdded.connect(addLocation)
     }
 }
