@@ -12,6 +12,13 @@
  *
  */
 
+// ADAPTED FOR HARBOUR-METEOSWISS
+//
+// Changes:
+// - remove all chart types except line and bar
+//
+
+
 import QtQuick 2.0
 
 import "QChart.js" as Charts
@@ -45,20 +52,8 @@ Canvas {
       case Charts.ChartType.BAR:
           chart = new Charts.Chart(canvas, ctx).Bar(chartData, chartOptions);
           break;
-      case Charts.ChartType.DOUGHNUT:
-          chart = new Charts.Chart(canvas, ctx).Doughnut(chartData, chartOptions);
-          break;
       case Charts.ChartType.LINE:
           chart = new Charts.Chart(canvas, ctx).Line(chartData, chartOptions);
-          break;
-      case Charts.ChartType.PIE:
-          chart = new Charts.Chart(canvas, ctx).Pie(chartData, chartOptions);
-          break;
-      case Charts.ChartType.POLAR:
-          chart = new Charts.Chart(canvas, ctx).PolarArea(chartData, chartOptions);
-          break;
-      case Charts.ChartType.RADAR:
-          chart = new Charts.Chart(canvas, ctx).Radar(chartData, chartOptions);
           break;
       default:
           console.log('Chart type should be specified.');
