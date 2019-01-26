@@ -63,6 +63,27 @@ Column {
         visible: active
     }
 
+    Row {
+        width: parent.width - 2*x
+        x: Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium
+        visible: active
+
+        ForecastSummaryItem { hour: 2; day: dayId }
+        ForecastSummaryItem { hour: 5; day: dayId }
+        ForecastSummaryItem { hour: 8; day: dayId }
+        ForecastSummaryItem { hour: 11; day: dayId }
+        ForecastSummaryItem { hour: 14; day: dayId }
+        ForecastSummaryItem { hour: 17; day: dayId }
+        ForecastSummaryItem { hour: 20; day: dayId }
+        ForecastSummaryItem { hour: 23; day: dayId }
+    }
+
+    Item { // vertical spacing
+        height: Theme.paddingMedium
+        width: parent.width
+        visible: active
+    }
+
     ForecastGraphItem {
         visible: active
         Behavior on opacity { NumberAnimation { duration: 500 } }
