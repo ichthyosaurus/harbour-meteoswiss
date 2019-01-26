@@ -31,8 +31,9 @@ Item {
 
             Column {
                 id: chart
+                property int calcWidth: (Screen.height - 4*(Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium))
                 height: tempHeight + spacing + rainHeight
-                width: 1740
+                width: calcWidth < 1840 ? 1840 : calcWidth
                 spacing: Theme.paddingLarge
 
                 visible: forecast.loaded
