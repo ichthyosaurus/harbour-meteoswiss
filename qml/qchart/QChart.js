@@ -17,6 +17,7 @@
 // Changes:
 // - allow setting a minimum value in line graphs
 // - remove all chart types except line and bar
+// - use computed fixed width for y scale
 
 var ChartType = {
          BAR: 1,
@@ -306,11 +307,7 @@ var Chart = function(canvas, context) {
 
             if (config.scaleShowLabels) {
                 ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
-                for (var i=0; i<calculatedScale.labels.length; i++) {
-                    var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
-                    longestText = (measuredText > longestText)? measuredText : longestText;
-                }
-                longestText +=10;
+                longestText = ctx.measureText("9.99").width + 10;
             }
 
             xAxisLength = width - longestText - widestXLabel;
@@ -543,15 +540,8 @@ var Chart = function(canvas, context) {
             var longestText = 1;
 
             if (config.scaleShowLabels) {
-
                 ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
-
-                for (var i=0; i<calculatedScale.labels.length; i++) {
-                    var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
-                    longestText = (measuredText > longestText)? measuredText : longestText;
-                }
-
-                longestText +=10;
+                longestText = ctx.measureText("9.99").width + 10;
             }
 
             xAxisLength = width - longestText - widestXLabel;
