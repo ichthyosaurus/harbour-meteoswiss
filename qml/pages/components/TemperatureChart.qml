@@ -17,7 +17,7 @@ QChart {
         scaleFontFamily: 'Sail Sans Pro',
         scaleFontColor: Theme.secondaryColor,
         scaleLineColor: Theme.secondaryColor,
-        bezierCurve: true,
+        bezierCurve: false,
         scaleStartValue: (minValue == 0) ? 0 : minValue - 1,
         datasetStrokeWidth: 2,
         pointDotRadius: 6,
