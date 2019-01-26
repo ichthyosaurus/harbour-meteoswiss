@@ -18,6 +18,8 @@
 // - allow setting a minimum value in line graphs
 // - remove all chart types except line and bar
 // - use computed fixed width for y scale
+// - align line chart dots and bar chart bars
+//
 
 var ChartType = {
          BAR: 1,
@@ -188,7 +190,7 @@ var Chart = function(canvas, context) {
                 ctx.strokeStyle = data.datasets[i].strokeColor;
                 ctx.lineWidth = config.datasetStrokeWidth;
                 ctx.beginPath();
-                ctx.moveTo(yAxisPosX, xAxisPosY - animPc*(calculateOffset(data.datasets[i].data[0],calculatedScale,scaleHop)))
+                ctx.moveTo(xPos(0), yPos(i, 0))
 
                 for (var j=1; j<data.datasets[i].data.length; j++) {
                     if (config.bezierCurve) {
@@ -201,8 +203,8 @@ var Chart = function(canvas, context) {
                 ctx.stroke();
 
                 if (config.datasetFill) {
-                    ctx.lineTo(yAxisPosX + (valueHop*(data.datasets[i].data.length-1)),xAxisPosY);
-                    ctx.lineTo(yAxisPosX,xAxisPosY);
+                    ctx.lineTo(xPos(data.datasets[i].data.length-1),xAxisPosY);
+                    ctx.lineTo(xPos(0),xAxisPosY);
                     ctx.closePath();
                     ctx.fillStyle = data.datasets[i].fillColor;
                     ctx.fill();
@@ -216,7 +218,7 @@ var Chart = function(canvas, context) {
                     ctx.lineWidth = config.pointDotStrokeWidth;
                     for (var k=0; k<data.datasets[i].data.length; k++) {
                         ctx.beginPath();
-                        ctx.arc(yAxisPosX + (valueHop *k),xAxisPosY - animPc*(calculateOffset(data.datasets[i].data[k],calculatedScale,scaleHop)),config.pointDotRadius,0,Math.PI*2,true);
+                        ctx.arc(xPos(k),yPos(i, k),config.pointDotRadius,0,Math.PI*2,true);
                         ctx.fill();
                         ctx.stroke();
                     }
@@ -228,7 +230,7 @@ var Chart = function(canvas, context) {
             }
 
             function xPos(iteration) {
-                return yAxisPosX + (valueHop * iteration);
+                return yAxisPosX + (valueHop * iteration) + valueHop/2;
             }
         }
 
@@ -259,7 +261,7 @@ var Chart = function(canvas, context) {
                     ctx.fillText(data.labels[i], 0,0);
                     ctx.restore();
                 } else {
-                    ctx.fillText(data.labels[i], yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize+3);
+                    ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
                 }
 
                 ctx.beginPath();
@@ -311,7 +313,7 @@ var Chart = function(canvas, context) {
             }
 
             xAxisLength = width - longestText - widestXLabel;
-            valueHop = Math.floor(xAxisLength/(data.labels.length-1));
+            valueHop = Math.floor(xAxisLength/(data.labels.length));
 
             yAxisPosX = width-widestXLabel/2-xAxisLength;
             xAxisPosY = scaleHeight + config.scaleFontSize/2;
