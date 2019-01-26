@@ -217,6 +217,33 @@ function setOverviewPositions(dataPairs) {
     return res;
 }
 
+function getCurrentSymbolHour() {
+    // find nearest available symbol:
+    // There are symbols every 3 hours, starting at 2am and ending at 11pm.
+    // If the current hour is 0 (= 12pm), set it to 11pm for the symbol (= 23).
+    // Else if the current hour modulus 3 is 1, set it to the previous hour.
+    // If it is 2, get the symbol of the next hour.
+
+    var now = new Date();
+    var hour = now.getHours();
+
+    if (now.getMinutes() > 30) {
+        hour += 1;
+    }
+
+    if (hour == 0) {
+        hour = 23;
+    } else {
+        if ((hour+1) % 3 == 1) {
+            hour -= 1;
+        } else if ((hour+1) % 3 == 2) {
+            hour += 1;
+        }
+    }
+
+    return hour;
+}
+
 function getDataSummary(locationId) {
     var res = {
         locationId: locationId,
@@ -252,23 +279,7 @@ function getDataSummary(locationId) {
     var temp = full[0].temperature.datasets[0].data[hour];
     var rain = full[0].rainfall.datasets[0].data[hour];
 
-    // find nearest available symbol:
-    // There are symbols every 3 hours, starting at 2am and ending at 11pm.
-    // If the current hour is 0 (= 12pm), set it to 11pm for the symbol (= 23).
-    // Else if the current hour modulus 3 is 1, set it to the previous hour.
-    // If it is 2, get the symbol of the next hour.
-
-    if (hour == 0) {
-        hour = 23;
-    } else {
-        if ((hour+1) % 3 == 1) {
-            hour -= 1;
-        } else if ((hour+1) % 3 == 2) {
-            hour += 1;
-        }
-    }
-
-    var symbol = full[0].temperature.datasets[0].symbols[hour];
+    var symbol = full[0].temperature.datasets[0].symbols[getCurrentSymbolHour()];
 
     res.symbol = symbol;
     res.temp = temp;
