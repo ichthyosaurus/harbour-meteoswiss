@@ -97,6 +97,22 @@ Column {
         visible: active
     }
 
+    Label {
+        id: statusLabel
+        x: titleLabel.x
+        visible: active
+        property var now: new Date()
+        text: "Stand: unbekannt – aktuell: " + now.getDate() + ". " + (now.getMonth()+1) + ". " + now.getFullYear() + " (" + now.getHours() + ":" + now.getMinutes() + " Uhr)" // TODO improve, translate, add status, make dynamic, etc.
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeTiny
+    }
+
+    Item { // vertical spacing
+        height: Theme.paddingMedium
+        width: parent.width
+        visible: active
+    }
+
     function refreshTitle(data) {
         title = meteoApp ? (meteoApp.forecastData[dayId].dateString ? meteoApp.forecastData[dayId].dateString : qsTr('Failed...')) : qsTr('Failed...')
     }
