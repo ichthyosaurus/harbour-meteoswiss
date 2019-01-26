@@ -20,6 +20,7 @@
 // - use computed fixed width for y scale
 // - align line chart dots and bar chart bars
 // - add config option to draw a vertical indicator line based on the current time
+// - use 'scaleOverlay' option to draw only the vertical scale
 //
 
 var ChartType = {
@@ -177,7 +178,6 @@ var Chart = function(canvas, context) {
             clear(ctx);
 
             if(config.scaleOverlay) {
-                drawLines(progress);
                 drawScale();
             } else {
                 drawScale();
@@ -241,12 +241,15 @@ var Chart = function(canvas, context) {
 
             ctx.lineWidth = config.scaleLineWidth;
             ctx.strokeStyle = config.scaleLineColor;
-            ctx.beginPath();
-            ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
-            ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
-            ctx.stroke();
 
-            if (config.currentHourLine) {
+            if (!config.scaleOverlay) {
+                ctx.beginPath();
+                ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
+                ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+                ctx.stroke();
+            }
+
+            if (config.currentHourLine && !config.scaleOverlay) {
                 var now = new Date();
                 var hour = now.getHours();
                 hour += now.getMinutes()/60;
@@ -265,30 +268,32 @@ var Chart = function(canvas, context) {
             }
             ctx.fillStyle = config.scaleFontColor;
 
-            for (var i=0; i<data.labels.length; i++) {
+            if (!config.scaleOverlay) {
+                for (var i=0; i<data.labels.length; i++) {
 
-                ctx.save();
+                    ctx.save();
 
-                if (rotateLabels > 0) {
-                    ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
-                    ctx.rotate(-(rotateLabels * (Math.PI/180)));
-                    ctx.fillText(data.labels[i], 0,0);
-                    ctx.restore();
-                } else {
-                    ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
+                    if (rotateLabels > 0) {
+                        ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
+                        ctx.rotate(-(rotateLabels * (Math.PI/180)));
+                        ctx.fillText(data.labels[i], 0,0);
+                        ctx.restore();
+                    } else {
+                        ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
+                    }
+
+                    ctx.beginPath();
+                    ctx.moveTo(yAxisPosX + i * valueHop, xAxisPosY+3);
+
+                    if(config.scaleShowGridLines && i>0) {
+                        ctx.lineWidth = config.scaleGridLineWidth;
+                        ctx.strokeStyle = config.scaleGridLineColor;
+                        ctx.lineTo(yAxisPosX + i * valueHop, 5);
+                    } else{
+                        ctx.lineTo(yAxisPosX + i * valueHop, xAxisPosY+3);
+                    }
+                    ctx.stroke();
                 }
-
-                ctx.beginPath();
-                ctx.moveTo(yAxisPosX + i * valueHop, xAxisPosY+3);
-
-                if(config.scaleShowGridLines && i>0) {
-                    ctx.lineWidth = config.scaleGridLineWidth;
-                    ctx.strokeStyle = config.scaleGridLineColor;
-                    ctx.lineTo(yAxisPosX + i * valueHop, 5);
-                } else{
-                    ctx.lineTo(yAxisPosX + i * valueHop, xAxisPosY+3);
-                }
-                ctx.stroke();
             }
 
             ctx.lineWidth = config.scaleLineWidth;
@@ -452,7 +457,6 @@ var Chart = function(canvas, context) {
             clear(ctx);
 
             if(config.scaleOverlay) {
-                drawBars(progress);
                 drawScale();
             } else {
                 drawScale();
@@ -492,12 +496,15 @@ var Chart = function(canvas, context) {
 
             ctx.lineWidth = config.scaleLineWidth;
             ctx.strokeStyle = config.scaleLineColor;
-            ctx.beginPath();
-            ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
-            ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
-            ctx.stroke();
 
-            if (config.currentHourLine) {
+            if (!config.scaleOverlay) {
+                ctx.beginPath();
+                ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
+                ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+                ctx.stroke();
+            }
+
+            if (config.currentHourLine && !config.scaleOverlay) {
                 var now = new Date();
                 var hour = now.getHours();
                 hour += now.getMinutes()/60;
@@ -517,23 +524,25 @@ var Chart = function(canvas, context) {
 
             ctx.fillStyle = config.scaleFontColor;
 
-            for (var i=0; i<data.labels.length; i++) {
-                ctx.save();
-                if (rotateLabels > 0) {
-                    ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
-                    ctx.rotate(-(rotateLabels * (Math.PI/180)));
-                    ctx.fillText(data.labels[i], 0,0);
-                    ctx.restore();
-                } else {
-                    ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
-                }
+            if (!config.scaleOverlay) {
+                for (var i=0; i<data.labels.length; i++) {
+                    ctx.save();
+                    if (rotateLabels > 0) {
+                        ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
+                        ctx.rotate(-(rotateLabels * (Math.PI/180)));
+                        ctx.fillText(data.labels[i], 0,0);
+                        ctx.restore();
+                    } else {
+                        ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
+                    }
 
-                ctx.beginPath();
-                ctx.moveTo(yAxisPosX + (i+1) * valueHop, xAxisPosY+3);
-                ctx.lineWidth = config.scaleGridLineWidth;
-                ctx.strokeStyle = config.scaleGridLineColor;
-                ctx.lineTo(yAxisPosX + (i+1) * valueHop, 5);
-                ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(yAxisPosX + (i+1) * valueHop, xAxisPosY+3);
+                    ctx.lineWidth = config.scaleGridLineWidth;
+                    ctx.strokeStyle = config.scaleGridLineColor;
+                    ctx.lineTo(yAxisPosX + (i+1) * valueHop, 5);
+                    ctx.stroke();
+                }
             }
 
             ctx.lineWidth = config.scaleLineWidth;
