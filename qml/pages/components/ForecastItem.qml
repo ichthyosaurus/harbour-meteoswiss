@@ -101,8 +101,7 @@ Column {
         id: statusLabel
         x: titleLabel.x
         visible: active
-        property var now: new Date()
-        text: "Stand: unbekannt – aktuell: " + now.getDate() + ". " + (now.getMonth()+1) + ". " + now.getFullYear() + " (" + now.getHours() + ":" + now.getMinutes() + " Uhr)" // TODO improve, translate, add status, make dynamic, etc.
+        text: qsTr("status: ") + meteoApp.dataTimestamp.toLocaleString(Qt.locale(), Locale.ShortFormat) + " – " + qsTr("current: ") + new Date().toLocaleString(Qt.locale(), Locale.ShortFormat) // TODO improve, translate, add status, make dynamic, etc.
         color: Theme.highlightColor
         font.pixelSize: Theme.fontSizeTiny
     }

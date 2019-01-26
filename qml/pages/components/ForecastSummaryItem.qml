@@ -1,12 +1,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import "../../js/storage.js" as Storage
+
 
 Column {
     id: summaryItem
 
     property int hour
     property int day
+    property var textColor: (meteoApp.dataTimestamp.toDateString() == new Date().toDateString() && day == 0) ? (hour >= Storage.getCurrentSymbolHour() ? Theme.primaryColor : Theme.highlightColor) : Theme.highlightColor
 
     width: parent.width/8
 
@@ -16,7 +19,7 @@ Column {
         text: hour
         font.pixelSize: Theme.fontSizeSmall
         horizontalAlignment: Text.AlignHCenter
-        color: Theme.highlightColor
+        color: textColor
     }
 
     Image {
@@ -36,15 +39,16 @@ Column {
         text: forecastData[day].temperature.datasets[0].data[hour] + " °C"
         font.pixelSize: Theme.fontSizeTiny
         horizontalAlignment: Text.AlignHCenter
-        color: Theme.highlightColor
+        color: textColor
     }
 
     Text {
         id: rainLabel
         width: parent.width
-        text: forecastData[day].rainfall.datasets[0].tableData[hour] + " mm"
+        property var rain: forecastData[day].rainfall.datasets[0].tableData[hour]
+        text: rain > 0 ? rain + " mm" : "—"
         font.pixelSize: Theme.fontSizeTiny
         horizontalAlignment: Text.AlignHCenter
-        color: Theme.highlightColor
+        color: textColor
     }
 }

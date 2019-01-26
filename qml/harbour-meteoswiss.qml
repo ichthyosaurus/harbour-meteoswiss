@@ -19,6 +19,7 @@ ApplicationWindow {
 
     property var forecastData: Forecast.fullData
     property var dataIsReady: ({})
+    property var dataTimestamp
 
     Component {
         id: entryPage
@@ -29,6 +30,7 @@ ApplicationWindow {
         id: dataLoader
         source: "js/forecast.js"
         onMessage: {
+            dataTimestamp = new Date(messageObject.timestamp)
             meteoApp.forecastData = messageObject.data
             Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data), JSON.stringify(messageObject.raw))
             meteoApp.dataIsReady[messageObject.locationId] = true
