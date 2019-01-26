@@ -73,6 +73,18 @@ Item {
         }
     }
 
+    Loader {
+        id: tempScaleLoader
+        x: tempLoader.x
+        y: tempLoader.y
+    }
+
+    Loader {
+        id: rainScaleLoader
+        x: rainLoader.x
+        y: rainLoader.y
+    }
+
     function loadCharts() {
         if (day === null) return
 
@@ -80,8 +92,10 @@ Item {
             console.log("loading charts for day " + day + "...")
             temp = meteoApp.forecastData[day].temperature
             rain = meteoApp.forecastData[day].rainfall
-            tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width })
-            rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width })
+            tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width, scaleOnly: false })
+            tempScaleLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: Screen.width, scaleOnly: true })
+            rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width, scaleOnly: false })
+            rainScaleLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: Screen.width, scaleOnly: true })
         } else {
             console.log("chart for day", day, "(" + locationId + ") not updated: data is not ready")
         }
