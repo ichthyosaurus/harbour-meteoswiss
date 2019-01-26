@@ -185,6 +185,7 @@ Page {
                 height: width
                 opacity: isLoading ? 0.2 : 1.0
                 source: "../weather-icons/" + (model.symbol ? model.symbol : "0") + ".svg"
+                fillMode: Image.PreserveAspectFit
                 Behavior on opacity { NumberAnimation { duration: 200 } }
             }
 
