@@ -21,5 +21,6 @@ QChart {
         scaleStartValue: (minValue == 0) ? 0 : minValue - 1,
         datasetStrokeWidth: 2,
         pointDotRadius: 6,
+        currentHourLine: true,
     })
 }
