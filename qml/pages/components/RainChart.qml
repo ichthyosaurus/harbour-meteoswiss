@@ -17,5 +17,6 @@ QChart {
         scaleLineColor: Theme.secondaryColor,
         scaleShowLabels: true,
         scaleStartValue: 0.0,
+        currentHourLine: true,
     })
 }

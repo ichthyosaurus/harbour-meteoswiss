@@ -19,6 +19,7 @@
 // - remove all chart types except line and bar
 // - use computed fixed width for y scale
 // - align line chart dots and bar chart bars
+// - add config option to draw a vertical indicator line based on the current time
 //
 
 var ChartType = {
@@ -53,6 +54,7 @@ var Chart = function(canvas, context) {
             scaleShowGridLines: true,
             scaleGridLineColor: "rgba(0,0,0,.05)",
             scaleGridLineWidth: 1,
+            currentHourLine: false,
             bezierCurve: true,
             pointDot: true,
             pointDotRadius: 4,
@@ -94,6 +96,7 @@ var Chart = function(canvas, context) {
             scaleShowGridLines: true,
             scaleGridLineColor: "rgba(0,0,0,.05)",
             scaleGridLineWidth: 1,
+            currentHourLine: false,
             barShowStroke: true,
             barStrokeWidth: 2,
             barValueSpacing: 5,
@@ -242,6 +245,17 @@ var Chart = function(canvas, context) {
             ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
             ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
             ctx.stroke();
+
+            if (config.currentHourLine) {
+                var now = new Date();
+                var hour = now.getHours();
+                hour += now.getMinutes()/60;
+
+                ctx.beginPath();
+                ctx.moveTo(yAxisPosX + hour*valueHop + valueHop/2,xAxisPosY);
+                ctx.lineTo(yAxisPosX + hour*valueHop + valueHop/2,5);
+                ctx.stroke();
+            }
 
             if (rotateLabels > 0) {
                 ctx.save();
@@ -482,6 +496,17 @@ var Chart = function(canvas, context) {
             ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
             ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
             ctx.stroke();
+
+            if (config.currentHourLine) {
+                var now = new Date();
+                var hour = now.getHours();
+                hour += now.getMinutes()/60;
+
+                ctx.beginPath();
+                ctx.moveTo(yAxisPosX + hour*valueHop + valueHop/2, xAxisPosY);
+                ctx.lineTo(yAxisPosX + hour*valueHop + valueHop/2, 5);
+                ctx.stroke();
+            }
 
             if (rotateLabels > 0) {
                 ctx.save();
