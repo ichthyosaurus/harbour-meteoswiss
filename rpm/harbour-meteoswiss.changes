@@ -2,6 +2,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Jan 26 2019 Mirian Margiani <mirian@margiani.ch> 1.0.2-1
+- use straight lines in temperature chart
+- add forecast summaries with symbols to the main forecast page
+- fix issues with graph width
+- visually align temperature and precipitation graphs
+
 * Sat Jan 5 2019 Mirian Margiani <mirian@margiani.ch> 1.0.1-1
 - refactor visuals of forecast page
 - show weather string instead of zip and canton in overview
