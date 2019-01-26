@@ -45,6 +45,14 @@
         <source>Failed...</source>
         <translation>Fehlgeschlagen ...</translation>
     </message>
+    <message>
+        <source>status: </source>
+        <translation>Stand: </translation>
+    </message>
+    <message>
+        <source>current: </source>
+        <translation>aktuell: </translation>
+    </message>
 </context>
 <context>
     <name>ForecastPage</name>
