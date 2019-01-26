@@ -7,6 +7,8 @@ import "../../qchart/QChart.js" as Charts
 
 QChart {
     id: rainChart
+    property bool scaleOnly: false
+
     chartAnimated: false
     chartData: rain ? rain : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.BAR
@@ -17,6 +19,7 @@ QChart {
         scaleLineColor: Theme.secondaryColor,
         scaleShowLabels: true,
         scaleStartValue: 0.0,
+        scaleOverlay: scaleOnly,
         currentHourLine: true,
     })
 }
