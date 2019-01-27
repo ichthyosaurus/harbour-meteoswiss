@@ -101,13 +101,35 @@ Column {
         visible: active
     }
 
-    Label {
-        id: statusLabel
+    Row {
         x: titleLabel.x
-        visible: active
-        text: qsTr("status: ") + meteoApp.dataTimestamp.toLocaleString(Qt.locale(), Locale.ShortFormat) + " – " + qsTr("current: ") + new Date().toLocaleString(Qt.locale(), Locale.ShortFormat) // TODO improve, translate, add status, make dynamic, etc.
-        color: Theme.highlightColor
-        font.pixelSize: Theme.fontSizeTiny
+        visible: active ? (meteoApp.dataIsReady[locationId] ? true : false) : false
+
+        Label {
+            text: qsTr("status: ")
+            color: Theme.highlightColor
+            font.pixelSize: Theme.fontSizeTiny
+        }
+
+        Label {
+            id: statusLabel
+            text: meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
+            color: Theme.highlightColor
+            font.pixelSize: Theme.fontSizeTiny
+        }
+
+        Label {
+            text: " – " + qsTr("now: ")
+            color: Theme.highlightColor
+            font.pixelSize: Theme.fontSizeTiny
+        }
+
+        Label {
+            id: clockLabel
+            text: new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
+            color: Theme.highlightColor
+            font.pixelSize: Theme.fontSizeTiny
+        }
     }
 
     Item { // vertical spacing
@@ -122,10 +144,24 @@ Column {
 
     function refreshTitle(data) {
         title = meteoApp ? (meteoApp.forecastData[dayId].date ? formatTitleDate() : qsTr('Failed...')) : qsTr('Failed...')
+        statusLabel.text = meteoApp ? (meteoApp.forecastData[dayId].date ? meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat) : qsTr('unknown')) : qsTr('unknown')
     }
 
     Component.onCompleted: {
         meteoApp.dataLoaded.connect(refreshTitle)
-        meteoApp.dataIsLoading.connect(function(){ title = qsTr("Loading...") })
+        meteoApp.dataIsLoading.connect(function(){
+            title = qsTr("Loading...");
+            statusLabel.text = qsTr("unknown")
+        })
+    }
+
+    Timer {
+        id: clockTimer
+        interval: 15*1000
+        repeat: true
+        running: true
+        onTriggered: {
+            clockLabel.text = new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
+        }
     }
 }
