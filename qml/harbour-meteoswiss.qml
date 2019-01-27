@@ -21,6 +21,10 @@ ApplicationWindow {
     property var dataIsReady: ({})
     property var dataTimestamp
 
+    property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
+    property string fullDateFormat: qsTr("ddd'.,' d MMM yyyy")
+
+
     Component {
         id: entryPage
         OverviewPage { }
