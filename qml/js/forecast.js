@@ -19,7 +19,6 @@ function convert_raw(raw) {
     for (var day = 0; day < raw.length; day++) {
         var dayData = {
             date: '',
-            dateString: '',
             temperature: {
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{
@@ -45,26 +44,6 @@ function convert_raw(raw) {
 
         var date = new Date();
         date.setTime(raw[day].max_date);
-
-        var weekday = date.getDay();
-
-        if (weekday == 0) {
-            weekday = "So";
-        } else if (weekday == 1) {
-            weekday = "Mo";
-        } else if (weekday == 2) {
-            weekday = "Di";
-        } else if (weekday == 3) {
-            weekday = "Mi";
-        } else if (weekday == 4) {
-            weekday = "Do";
-        } else if (weekday == 5) {
-            weekday = "Fr";
-        } else if (weekday == 6) {
-            weekday = "Sa";
-        }
-
-        dayData.dateString = weekday + "., " + date.getDate() + ". " + (date.getMonth()+1) + ". " + date.getFullYear();
         dayData.date = date.toJSON();
 
         raw[day].rainfall.sort(function(a, b) {
@@ -114,7 +93,6 @@ function convert_raw(raw) {
 var emptyDummyDay = {
     isSane: false,
     date: '',
-    dateString: '',
     temperature: {
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{
