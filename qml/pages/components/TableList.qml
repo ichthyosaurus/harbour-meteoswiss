@@ -25,7 +25,7 @@ SilicaListView {
     model: ListModel { }
 
     delegate: Item {
-        width: ListView.view.width
+        width: Screen.height
         height: visible ? Theme.itemSizeSmall : 0
         visible: (   hour == 2
                   || hour == 5
