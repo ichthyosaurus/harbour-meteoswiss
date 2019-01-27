@@ -53,23 +53,23 @@ Item {
                     onLoaded: forecast.loaded = true
                 }
             }
+        }
+    }
 
-            Column {
-                id: waitingForData
-                width: forecast.width
-                height: 700
-                anchors.verticalCenter: parent.verticalCenter
+    Column {
+        id: waitingForData
+        width: forecast.width
+        height: 700
+        anchors.verticalCenter: parent.verticalCenter
 
-                Behavior on opacity { NumberAnimation { duration: 500 } }
-                opacity: forecast.loaded ? 0 : 1
-                visible: forecast.loaded ? false : true
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 0 : 1
+        visible: forecast.loaded ? false : true
 
-                BusyIndicator {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    running: !forecast.loaded
-                    size: BusyIndicatorSize.Medium
-                }
-            }
+        BusyIndicator {
+            anchors.horizontalCenter: parent.horizontalCenter
+            running: !forecast.loaded
+            size: BusyIndicatorSize.Medium
         }
     }
 
