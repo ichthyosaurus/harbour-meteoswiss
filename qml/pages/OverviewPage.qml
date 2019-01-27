@@ -228,7 +228,7 @@ Page {
 
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    text: Strings.MeteoLang.weatherSymbolDescription[model.symbol]  // weather string
+                    text: zip + " – " + Strings.MeteoLang.weatherSymbolDescription[model.symbol]  // weather string
                     font.pixelSize: Theme.fontSizeSmall
                     truncationMode: TruncationMode.Fade
                     wrapMode: Text.Wrap
