@@ -8,6 +8,7 @@ Page {
     property int day
     property var rain
     property var temp
+    property var wind
     property bool loaded: false
     allowedOrientations: Orientation.All
 
@@ -67,6 +68,20 @@ Page {
                     text: qsTr("Precip.")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
+                }
+
+                Label {
+                    id: windTitle
+                    width: 250
+                    text: qsTr("Wind")
+                    color: Theme.highlightColor
+                    font.pixelSize: Theme.fontSizeMedium
+                }
+
+                Label {
+                    id: windSymTitle
+                    visible: isLandscape
+                    width: 100
                 }
 
                 Label {
