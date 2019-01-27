@@ -22,7 +22,7 @@ ApplicationWindow {
     property var dataTimestamp
 
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
-    property string fullDateFormat: qsTr("ddd'.,' d MMM yyyy")
+    property string fullDateFormat: qsTr("ddd d MMM yyyy")
 
 
     Component {
