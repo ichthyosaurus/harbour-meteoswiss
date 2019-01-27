@@ -73,6 +73,19 @@ SilicaListView {
             }
 
             Label {
+                width: windTitle.width
+                text: wind + " m/s"
+                font.pixelSize: Theme.fontSizeMedium
+            }
+
+            Label {
+                visible: isLandscape
+                width: windSymTitle.width
+                text: windSym
+                font.pixelSize: Theme.fontSizeMedium
+            }
+
+            Label {
                 visible: isLandscape
                 width: descriptionTitle.width
                 text: description
@@ -96,6 +109,7 @@ SilicaListView {
     function refreshModel() {
         rain = forecastData[day].rainfall
         temp = forecastData[day].temperature
+        wind = forecastData[day].wind
 
         model.clear()
 
@@ -105,6 +119,8 @@ SilicaListView {
                 "image": temp.datasets[0].symbols[i],
                 "temp": temp.datasets[0].data[i],
                 "rain": rain.datasets[0].tableData[i],
+                "wind": wind.datasets[0].data[i],
+                "windSym": wind.datasets[0].symbols[i],
                 "description": Strings.MeteoLang.weatherSymbolDescription[temp.datasets[0].symbols[i]],
             })
         }
