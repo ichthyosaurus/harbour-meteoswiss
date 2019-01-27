@@ -158,7 +158,7 @@ Page {
                     }
 
                     MenuItem {
-                        text: "Move to top"
+                        text: qsTr("Move to top")
                         visible: model.index !== 0
                         onClicked: moveItemsWhenClosed = true
                     }
