@@ -26,6 +26,13 @@ Page {
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Version") + " " + "1.0.3"
+                color: Theme.secondaryHighlightColor
+                font.pixelSize: Theme.fontSizeMedium
+            }
+
+            Label {
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Author")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeLarge
