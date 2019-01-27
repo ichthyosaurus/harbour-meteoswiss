@@ -77,12 +77,20 @@ Item {
         id: tempScaleLoader
         x: tempLoader.x
         y: tempLoader.y
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 1 : 0
     }
 
     Loader {
         id: rainScaleLoader
         x: rainLoader.x
         y: rainLoader.y
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 1 : 0
     }
 
     function loadCharts() {
