@@ -13,7 +13,7 @@ Name:       harbour-meteoswiss
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
-Version:    1.0.2
+Version:    1.0.3
 Release:    1
 Group:      Applications/Internet
 License:    LICENSE
