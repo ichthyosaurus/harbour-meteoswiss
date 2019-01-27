@@ -36,6 +36,21 @@
     </message>
 </context>
 <context>
+    <name>ForecastGraphItem</name>
+    <message>
+        <source>Temperature (°C)</source>
+        <translation>Temperature (°C)</translation>
+    </message>
+    <message>
+        <source>Precipitation (mm)</source>
+        <translation>Precipitation (mm)</translation>
+    </message>
+    <message>
+        <source>Wind (m/s)</source>
+        <translation>Wind (m/s)</translation>
+    </message>
+</context>
+<context>
     <name>ForecastItem</name>
     <message>
         <source>Loading...</source>
@@ -144,6 +159,10 @@
     <message>
         <source>Description</source>
         <translation>Description</translation>
+    </message>
+    <message>
+        <source>Wind</source>
+        <translation>Wind</translation>
     </message>
 </context>
 <context>
