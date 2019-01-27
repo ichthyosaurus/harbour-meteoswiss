@@ -352,7 +352,7 @@ var Chart = function(canvas, context) {
                 widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
             }
 
-            if (width/data.labels.length < widestXLabel) {
+            if (!config.scaleOverlay && width/data.labels.length < widestXLabel) {
 
                 rotateLabels = 45;
 
@@ -600,7 +600,7 @@ var Chart = function(canvas, context) {
                 widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
             }
 
-            if (width/data.labels.length < widestXLabel) {
+            if (!config.scaleOverlay && width/data.labels.length < widestXLabel) {
                 rotateLabels = 45;
                 if (width/data.labels.length < Math.cos(rotateLabels) * widestXLabel) {
                     rotateLabels = 90;
