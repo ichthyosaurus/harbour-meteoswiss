@@ -66,16 +66,19 @@ Column {
     Row {
         width: parent.width - 2*x
         x: Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium
+        height: summary.height
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: graph.loaded ? 1 : 0
         visible: active
 
-        ForecastSummaryItem { hour: 2; day: dayId }
-        ForecastSummaryItem { hour: 5; day: dayId }
-        ForecastSummaryItem { hour: 8; day: dayId }
-        ForecastSummaryItem { hour: 11; day: dayId }
-        ForecastSummaryItem { hour: 14; day: dayId }
-        ForecastSummaryItem { hour: 17; day: dayId }
-        ForecastSummaryItem { hour: 20; day: dayId }
-        ForecastSummaryItem { hour: 23; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; id: summary; hour: 2; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 5; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 8; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 11; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 14; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 17; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 20; day: dayId }
+        ForecastSummaryItem { visible: graph.loaded; hour: 23; day: dayId }
     }
 
     Item { // vertical spacing
@@ -85,6 +88,7 @@ Column {
     }
 
     ForecastGraphItem {
+        id: graph
         visible: active
         Behavior on opacity { NumberAnimation { duration: 500 } }
         opacity: active ? 1 : 0
