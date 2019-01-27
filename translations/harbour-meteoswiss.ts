@@ -50,8 +50,12 @@
         <translation>status: </translation>
     </message>
     <message>
-        <source>current: </source>
-        <translation>current: </translation>
+        <source>now: </source>
+        <translation>now: </translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>unknown</translation>
     </message>
 </context>
 <context>
@@ -114,6 +118,10 @@
         <source>Deleting</source>
         <translation>Deleting</translation>
     </message>
+    <message>
+        <source>Move to top</source>
+        <translation>Move to top</translation>
+    </message>
 </context>
 <context>
     <name>TablePage</name>
@@ -136,6 +144,17 @@
     <message>
         <source>Description</source>
         <translation>Description</translation>
+    </message>
+</context>
+<context>
+    <name>harbour-meteoswiss</name>
+    <message>
+        <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
+        <translation>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</translation>
+    </message>
+    <message>
+        <source>ddd d MMM yyyy</source>
+        <translation>ddd d MMM yyyy</translation>
     </message>
 </context>
 </TS>
