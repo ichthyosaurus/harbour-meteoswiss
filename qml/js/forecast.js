@@ -39,7 +39,17 @@ function convert_raw(raw) {
                     tableData: [],
                 }]
             },
-            // TODO add variance_rain, variance_range, wind
+            wind: {
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [{
+                    fillColor: "rgba(0,0,0,0)",
+                    strokeColor: "rgba(255,255,0,1)",
+                    pointColor: "rgba(255,255,0,1)",
+                    data: [],
+                    symbols: [],
+                }],
+            },
+            // TODO add variance_rain, variance_range
         };
 
         var date = new Date();
@@ -52,6 +62,14 @@ function convert_raw(raw) {
 
         raw[day].temperature.sort(function(a, b) {
             return date_diff(a[0], b[0]);
+        });
+
+        raw[day].wind.data.sort(function(a, b) {
+            return date_diff(a[0], b[0]);
+        });
+
+        raw[day].wind.symbols.sort(function(a, b) {
+            return date_diff(a.timestamp, b.timestamp);
         });
 
         raw[day].symbols.sort(function(a, b) {
@@ -77,6 +95,15 @@ function convert_raw(raw) {
         for (var temp = 0; temp < raw[day].temperature.length; temp++) {
             dayData.temperature.datasets[0].data.push(raw[day].temperature[temp][1]);
             dayData.temperature.datasets[0].symbols.push(0);
+        }
+
+        for (var wind = 0; wind < raw[day].wind.data.length; wind++) {
+            dayData.wind.datasets[0].data.push(raw[day].wind.data[wind][1]);
+            dayData.wind.datasets[0].symbols.push("");
+        }
+
+        for (var wind_sym = 0; wind_sym < raw[day].wind.symbols.length; wind_sym++) {
+            dayData.wind.datasets[0].symbols[wind_sym*2] = raw[day].wind.symbols[wind_sym].symbol_id;
         }
 
         for (var sym = 0; sym < raw[day].symbols.length; sym++) {
@@ -111,6 +138,16 @@ var emptyDummyDay = {
             pointColor: "rgba(151,187,205,1)",
             data: [],
             tableData: [],
+        }],
+    },
+    wind: {
+        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+        datasets: [{
+            fillColor: "rgba(0,0,0,0)",
+            strokeColor: "rgba(255,255,0,1)",
+            pointColor: "rgba(255,255,0,1)",
+            data: [],
+            symbols: [],
         }],
     },
 };
