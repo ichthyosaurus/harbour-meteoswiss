@@ -10,6 +10,7 @@ Item {
     property int day
     property var rain
     property var temp
+    property var wind
     property bool loaded: false
 
     height: chart.height
@@ -32,7 +33,7 @@ Item {
             Column {
                 id: chart
                 property int calcWidth: (Screen.height - 4*(Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium))
-                height: tempHeight + spacing + rainHeight
+                height: tempHeight + spacing + rainHeight + spacing + windHeight
                 width: calcWidth < 1840 ? 1840 : calcWidth
                 spacing: Theme.paddingLarge
 
@@ -42,14 +43,20 @@ Item {
 
                 property int tempHeight: 500
                 property int rainHeight: 290
+                property int windHeight: 200
 
                 Loader {
                     id: tempLoader
-                    // onLoaded: forecast.loaded = true // ignore because rainfall has to be finished first
+                    // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
                 }
 
                 Loader {
                     id: rainLoader
+                    // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
+                }
+
+                Loader {
+                    id: windLoader
                     onLoaded: forecast.loaded = true
                 }
             }
@@ -93,17 +100,34 @@ Item {
         opacity: forecast.loaded ? 1 : 0
     }
 
+    Loader {
+        id: windScaleLoader
+        x: windLoader.x
+        y: windLoader.y
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 1 : 0
+    }
+
     function loadCharts() {
         if (day === null) return
 
         if (meteoApp.dataIsReady[locationId]) {
             console.log("loading charts for day " + day + "...")
+
             temp = meteoApp.forecastData[day].temperature
             rain = meteoApp.forecastData[day].rainfall
+            wind = meteoApp.forecastData[day].wind
+
             tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width, scaleOnly: false })
             tempScaleLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: Screen.width, scaleOnly: true })
+
             rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width, scaleOnly: false })
             rainScaleLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: Screen.width, scaleOnly: true })
+
+            windLoader.setSource("WindChart.qml", { height: chart.windHeight, width: chart.width, scaleOnly: false })
+            windScaleLoader.setSource("WindChart.qml", { height: chart.windHeight, width: Screen.width, scaleOnly: true })
         } else {
             console.log("chart for day", day, "(" + locationId + ") not updated: data is not ready")
         }
