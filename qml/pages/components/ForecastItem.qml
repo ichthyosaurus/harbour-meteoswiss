@@ -102,6 +102,7 @@ Column {
     }
 
     Row {
+        id: statusRow
         x: titleLabel.x
         visible: active ? (meteoApp.dataIsReady[locationId] ? true : false) : false
 
@@ -144,14 +145,22 @@ Column {
 
     function refreshTitle(data) {
         title = meteoApp ? (meteoApp.forecastData[dayId].date ? formatTitleDate() : qsTr('Failed...')) : qsTr('Failed...')
-        statusLabel.text = meteoApp ? (meteoApp.forecastData[dayId].date ? meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat) : qsTr('unknown')) : qsTr('unknown')
+
+        if (statusRow) {
+            statusLabel.text = (meteoApp ?
+                (meteoApp.forecastData[dayId].date ?
+                    meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat) : qsTr('unknown')) : qsTr('unknown'))
+        }
     }
 
     Component.onCompleted: {
         meteoApp.dataLoaded.connect(refreshTitle)
         meteoApp.dataIsLoading.connect(function(){
             title = qsTr("Loading...");
-            statusLabel.text = qsTr("unknown")
+
+            if (statusRow) {
+                statusLabel.text = qsTr("unknown")
+            }
         })
     }
 
