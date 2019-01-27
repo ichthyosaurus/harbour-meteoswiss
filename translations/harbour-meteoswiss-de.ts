@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>ddd d MMM yyyy</source>
-        <translation>ddd&apos;.,&apos; d&apos;.&apos; M&apos;.&apos; yyyy</translation>
+        <translation>ddd&apos;,&apos; d&apos;.&apos; M&apos;.&apos; yyyy</translation>
     </message>
 </context>
 </TS>
