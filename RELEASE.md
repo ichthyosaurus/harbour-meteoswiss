@@ -1,0 +1,5 @@
+- update translations
+- update changelog
+- update version in qml/pages/AboutPage.qml
+- make release commit
+- tag commit
