@@ -80,6 +80,12 @@ Page {
                     meteoApp.refreshData(undefined, false);
                 }
             }
+
+            MenuItem {
+                id: clockLabel
+                text: new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
+                visible: locationsModel.count > 0
+            }
         }
 
         anchors.fill: parent
@@ -273,6 +279,16 @@ Page {
         }
 
         VerticalScrollDecorator {}
+    }
+
+    Timer {
+        id: clockTimer
+        interval: 15*1000
+        repeat: true
+        running: true
+        onTriggered: {
+            clockLabel.text = new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
+        }
     }
 
     Timer {
