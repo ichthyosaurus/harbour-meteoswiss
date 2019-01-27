@@ -35,21 +35,27 @@ Page {
             Row {
                 id: headers
                 width: parent.width
-                anchors.horizontalCenter: parent.horizontalCenter
+                x: parent.x
+
                 spacing: Theme.paddingLarge
                 padding: Theme.horizontalPageMargin
 
                 Label {
                     id: hourTitle
-                    width: 150+Theme.paddingLarge+100+Theme.paddingLarge
+                    width: 70
                     text: qsTr("Hour")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
                 }
 
                 Label {
+                    id: symbolTitle
+                    width: 100
+                }
+
+                Label {
                     id: tempTitle
-                    width: 300
+                    width: 200
                     text: qsTr("Temp.")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
@@ -65,12 +71,12 @@ Page {
 
                 Label {
                     id: descriptionTitle
-                    width: 700
+                    visible: isLandscape
+                    width: 500
                     text: qsTr("Description")
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeMedium
                     truncationMode: TruncationMode.Fade
-                    visible: isLandscape
                 }
             }
 
