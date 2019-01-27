@@ -27,6 +27,10 @@
         <source>https://www.meteoschweiz.admin.ch/</source>
         <translation>https://www.meteoschweiz.admin.ch/</translation>
     </message>
+    <message>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
