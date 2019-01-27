@@ -33,8 +33,9 @@ Item {
             Column {
                 id: chart
                 property int calcWidth: (Screen.height - 4*(Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium))
-                height: tempHeight + spacing + rainHeight + spacing + windHeight
+                height: 5*spacing + tempTitle.height + tempHeight + rainTitle.height + rainHeight + windTitle.height + windHeight
                 width: calcWidth < 1840 ? 1840 : calcWidth
+
                 spacing: Theme.paddingLarge
 
                 visible: forecast.loaded
@@ -45,14 +46,32 @@ Item {
                 property int rainHeight: 290
                 property int windHeight: 200
 
+                Item { // placeholder
+                    id: tempTitlePlace
+                    height: tempTitle.height
+                    width: parent.width
+                }
+
                 Loader {
                     id: tempLoader
                     // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
                 }
 
+                Item { // placeholder
+                    id: rainTitlePlace
+                    height: rainTitle.height
+                    width: parent.width
+                }
+
                 Loader {
                     id: rainLoader
                     // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
+                }
+
+                Item { // placeholder
+                    id: windTitlePlace
+                    height: windTitle.height
+                    width: parent.width
                 }
 
                 Loader {
@@ -78,6 +97,48 @@ Item {
             running: !forecast.loaded
             size: BusyIndicatorSize.Medium
         }
+    }
+
+    Label {
+        id: tempTitle
+        x: Theme.horizontalPageMargin
+        y: tempTitlePlace.y
+
+        text: qsTr("Temperature (°C)")
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeMedium
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 1 : 0
+    }
+
+    Label {
+        id: rainTitle
+        x: Theme.horizontalPageMargin
+        y: rainTitlePlace.y
+
+        text: qsTr("Precipitation (mm)")
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeMedium
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 1 : 0
+    }
+
+    Label {
+        id: windTitle
+        x: Theme.horizontalPageMargin
+        y: windTitlePlace.y
+
+        text: qsTr("Wind (m/s)")
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeMedium
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 500 } }
+        opacity: forecast.loaded ? 1 : 0
     }
 
     Loader {
