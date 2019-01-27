@@ -37,47 +37,50 @@ SilicaListView {
                   || hour == 23
                   || showAll)
 
-        Label {
-            id: hourLabel
-            x: hourTitle.x
-            width: 70
-            text: hour
-            font.pixelSize: Theme.fontSizeSmall
-        }
+        Row {
+            width: parent.width
+            x: parent.x
 
-        Image {
-            x: hourLabel.x + hourLabel.width + Theme.paddingMedium
-            width: 100
-            height: Theme.itemSizeSmall
-            fillMode: Image.PreserveAspectFit
-            source: "../../weather-icons/" + image + ".svg"
-            verticalAlignment: Image.AlignVCenter
-            anchors.verticalCenter: hourLabel.verticalCenter
-            opacity: 1
-        }
+            spacing: Theme.paddingLarge
 
-        Label {
-            x: tempTitle.x - Theme.paddingLarge
-            width: 250
-            text: temp + " °C"
-            font.pixelSize: Theme.fontSizeMedium
-        }
+            Label {
+                id: hourLabel
+                width: hourTitle.width
+                text: hour
+                font.pixelSize: Theme.fontSizeSmall
+            }
 
-        Label {
-            x: rainTitle.x - Theme.paddingLarge
-            width: 250
-            text: (rain > 0) ? rain + " mm" : ''
-            font.pixelSize: Theme.fontSizeMedium
-        }
+            Image {
+                width: symbolTitle.width
+                height: Theme.itemSizeSmall
+                fillMode: Image.PreserveAspectFit
+                source: "../../weather-icons/" + image + ".svg"
+                verticalAlignment: Image.AlignVCenter
+                anchors.verticalCenter: hourLabel.verticalCenter
+                opacity: 1
+            }
 
-        Label {
-            visible: isLandscape
-            x: descriptionTitle.x - Theme.paddingLarge
-            width: 800
-            text: description
-            anchors.verticalCenter: hourLabel.verticalCenter
-            truncationMode: TruncationMode.Fade
-            font.pixelSize: Theme.fontSizeExtraSmall
+            Label {
+                width: tempTitle.width
+                text: temp + " °C"
+                font.pixelSize: Theme.fontSizeMedium
+            }
+
+            Label {
+                width: rainTitle.width
+                text: (rain > 0) ? rain + " mm" : ''
+                font.pixelSize: Theme.fontSizeMedium
+            }
+
+            Label {
+                visible: isLandscape
+                width: descriptionTitle.width
+                text: description
+                anchors.verticalCenter: hourLabel.verticalCenter
+                truncationMode: TruncationMode.Fade
+                wrapMode: Text.Wrap
+                font.pixelSize: Theme.fontSizeExtraSmall
+            }
         }
 
         MouseArea {
