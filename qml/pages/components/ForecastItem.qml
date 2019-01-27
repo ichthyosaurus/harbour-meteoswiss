@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 Column {
     id: forecast
-    property string title: meteoApp.dataIsReady[locationId] ? meteoApp.forecastData[dayId].dateString : qsTr('Loading...')
+    property string title: meteoApp.dataIsReady[locationId] ? formatTitleDate() : qsTr('Loading...')
     property bool active
     property int dayId
 
@@ -116,8 +116,12 @@ Column {
         visible: active
     }
 
+    function formatTitleDate() {
+        return new Date(meteoApp.forecastData[dayId].date).toLocaleString(Qt.locale(), meteoApp.fullDateFormat);
+    }
+
     function refreshTitle(data) {
-        title = meteoApp ? (meteoApp.forecastData[dayId].dateString ? meteoApp.forecastData[dayId].dateString : qsTr('Failed...')) : qsTr('Failed...')
+        title = meteoApp ? (meteoApp.forecastData[dayId].date ? formatTitleDate() : qsTr('Failed...')) : qsTr('Failed...')
     }
 
     Component.onCompleted: {
