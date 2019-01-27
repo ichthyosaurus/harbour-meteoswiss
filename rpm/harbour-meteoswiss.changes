@@ -2,6 +2,14 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Jan 27 2019 Mirian Margiani <mirian@margiani.ch> 1.0.3-1
+- improve translations
+- hide scales and overview on forecast page while loading
+- make status line dynamic
+- show zip code on overview page
+- add clock on overview page
+- small performance improvement while loading
+
 * Sat Jan 26 2019 Mirian Margiani <mirian@margiani.ch> 1.0.2-1
 - use straight lines in temperature chart
 - add forecast summaries with symbols to the main forecast page
