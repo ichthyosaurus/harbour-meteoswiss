@@ -9,6 +9,10 @@
 - show zip code on overview page
 - add clock on overview page
 - small performance improvement while loading
+- add wind graph (with details in the table)
+- detect clicks everywhere on table list entries
+- add descriptions to graphs
+- fix slight difference in size of main scale and overlay scale
 
 * Sat Jan 26 2019 Mirian Margiani <mirian@margiani.ch> 1.0.2-1
 - use straight lines in temperature chart
