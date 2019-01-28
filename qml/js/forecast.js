@@ -14,30 +14,31 @@ var emptyDummyDay = {
     date: '',
     temperature: {
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-        datasets: [{
-            fillColor: "rgba(0,0,0,0)",
-            strokeColor: "rgba(234,77,79,1)",
-            pointColor: "rgba(234,77,79,1)",
-            data: [],
-            symbols: []
-        }],
+        datasets: [{ // estimate
+                data: [],
+                symbols: []
+            },{ // minimum
+                data: [],
+            },{ // maximum
+                data: [],
+            },
+        ],
     },
     rainfall: {
+        haveData: false,
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-        datasets: [{
-            fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            data: [],
-            tableData: [],
-        }],
+        datasets: [{ // estimate
+                data: [],
+            },{ // minimum
+                data: [],
+            },{ // maximum
+                data: [],
+            },
+        ],
     },
     wind: {
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{
-            fillColor: "rgba(0,0,0,0)",
-            strokeColor: "rgba(255,255,0,1)",
-            pointColor: "rgba(255,255,0,1)",
             data: [],
             symbols: [],
         }],
