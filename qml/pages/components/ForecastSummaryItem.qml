@@ -45,7 +45,7 @@ Column {
     Text {
         id: rainLabel
         width: parent.width
-        property var rain: forecastData[day].rainfall.datasets[0].tableData[hour]
+        property var rain: forecastData[day].rainfall.haveData ? forecastData[day].rainfall.datasets[0].data[hour] : 0
         text: rain > 0 ? rain + " mm" : ""
         font.pixelSize: Theme.fontSizeTiny
         horizontalAlignment: Text.AlignHCenter
