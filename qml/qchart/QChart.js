@@ -110,6 +110,7 @@ var Chart = function(canvas, context) {
             barStrokeWidth: 2,
             barValueSpacing: 5,
             barDatasetSpacing: 1,
+            barOverlay: false,
             animation: true,
             animationSteps: 60,
             animationEasing: "easeOutQuart",
@@ -498,7 +499,11 @@ var Chart = function(canvas, context) {
 
                 for (var j=0; j<data.datasets[i].data.length; j++) {
 
-                    var barOffset = yAxisPosX + config.barValueSpacing + valueHop*j + barWidth*i + config.barDatasetSpacing*i + config.barStrokeWidth*i;
+                    if (config.barOverlay) {
+                        var barOffset = yAxisPosX + config.barValueSpacing + valueHop*j + config.barStrokeWidth;
+                    } else {
+                        var barOffset = yAxisPosX + config.barValueSpacing + valueHop*j + barWidth*i + config.barDatasetSpacing*i + config.barStrokeWidth*i;
+                    }
 
                     ctx.beginPath();
                     ctx.moveTo(barOffset, xAxisPosY);
@@ -605,7 +610,11 @@ var Chart = function(canvas, context) {
             xAxisLength = width - longestText - widestXLabel;
             valueHop = Math.floor(xAxisLength/(data.labels.length));
 
-            barWidth = (valueHop - config.scaleGridLineWidth*2 - (config.barValueSpacing*2) - (config.barDatasetSpacing*data.datasets.length-1) - ((config.barStrokeWidth/2)*data.datasets.length-1))/data.datasets.length;
+            if (config.barOverlay) {
+                barWidth = (valueHop - config.scaleGridLineWidth*2 - (config.barValueSpacing*2));
+            } else {
+                barWidth = (valueHop - config.scaleGridLineWidth*2 - (config.barValueSpacing*2) - (config.barDatasetSpacing*data.datasets.length-1) - ((config.barStrokeWidth/2)*data.datasets.length-1))/data.datasets.length;
+            }
 
             yAxisPosX = width-widestXLabel/2-xAxisLength;
             xAxisPosY = scaleHeight + config.scaleFontSize/2;
