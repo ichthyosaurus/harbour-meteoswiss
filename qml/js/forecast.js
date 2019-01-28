@@ -173,13 +173,12 @@ function fallbackToArchive(archived, errorMessage) {
     }
 
     console.log("warning (" + archived.locationId + "): " + errorMessage);
-    fullData = JSON.parse(archived.converted);
+    fullData = JSON.parse(archived.data);
 
     WorkerScript.sendMessage({
         'locationId': archived.locationId,
         'timestamp': archived.timestamp,
         'data': fullData,
-        'raw': JSON.parse(archived.raw),
     });
 }
 
@@ -242,5 +241,5 @@ WorkerScript.onMessage = function(message) {
 
     fullData = convert_raw(raw_data);
 
-    WorkerScript.sendMessage({ 'locationId': locationId, 'timestamp': raw_data[0].current_time, 'data': fullData, 'raw': raw_data });
+    WorkerScript.sendMessage({ 'locationId': locationId, 'timestamp': raw_data[0].current_time, 'data': fullData });
 }

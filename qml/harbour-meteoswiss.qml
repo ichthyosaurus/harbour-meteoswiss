@@ -36,7 +36,7 @@ ApplicationWindow {
         onMessage: {
             dataTimestamp = new Date(messageObject.timestamp)
             meteoApp.forecastData = messageObject.data
-            Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data), JSON.stringify(messageObject.raw))
+            Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data))
             meteoApp.dataIsReady[messageObject.locationId] = true
             dataLoaded(messageObject.data, messageObject.locationId)
         }

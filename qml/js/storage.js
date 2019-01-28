@@ -16,13 +16,13 @@ function getDatabase() {
 
 function doInit(db) {
     // Database tables: (primary key in all-caps)
-    // data: TIMESTAMP, LOCATION_ID, converted, raw
+    // data: TIMESTAMP, LOCATION_ID, data (converted)
     // locations: LOCATION_ID, zip, name, cantonId, canton, view_position
     // settings: SETTING, value
 
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(\
-            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, converted TEXT NOT NULL, raw TEXT, PRIMARY KEY(timestamp, location_id))');
+            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, data TEXT NOT NULL, PRIMARY KEY(timestamp, location_id))');
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS locations(\
             location_id INTEGER NOT NULL PRIMARY KEY, zip INTEGER NOT NULL, name TEXT NOT NULL,\
@@ -275,7 +275,7 @@ function getDataSummary(locationId) {
         hour += 1;
     }
 
-    var full = JSON.parse(data.converted);
+    var full = JSON.parse(data.data);
     var temp = full[0].temperature.datasets[0].data[hour];
     var rain = full[0].rainfall.datasets[0].data[hour];
 
@@ -288,8 +288,8 @@ function getDataSummary(locationId) {
     return res;
 }
 
-function setData(timestamp, locationId, converted, raw) {
-    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, locationId, converted, raw]);
+function setData(timestamp, locationId, data) {
+    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?);', [timestamp, locationId, data]);
 
     if (!res) {
         console.log("error: failed to save data for " + locationId + " to db");
@@ -313,8 +313,7 @@ function getData(locationId, mostRecent, newerThan) {
                 res.push({
                     locationId: rs.rows.item(i).location_id,
                     timestamp: rs.rows.item(i).timestamp,
-                    converted: rs.rows.item(i).converted,
-                    raw: rs.rows.item(i).raw,
+                    data: rs.rows.item(i).data,
                 });
 
                 if (mostRecent) break;
