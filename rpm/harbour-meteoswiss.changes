@@ -2,6 +2,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Jan 28 2019 Mirian Margiani <mirian@margiani.ch> 1.1.0-1
+- backwards incompatible: store less data in database
+- show variance data in graphs (temperature and rain)
+- improve data loading performance
+
 * Sun Jan 27 2019 Mirian Margiani <mirian@margiani.ch> 1.0.3-1
 - improve translations
 - hide scales and overview on forecast page while loading
