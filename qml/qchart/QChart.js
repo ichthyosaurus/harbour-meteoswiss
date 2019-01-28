@@ -113,7 +113,10 @@ var Chart = function(canvas, context) {
             animation: true,
             animationSteps: 60,
             animationEasing: "easeOutQuart",
-            onAnimationComplete: null
+            onAnimationComplete: null,
+
+            fillColor: [],
+            strokeColor: [],
         };
 
         var config = (options) ? mergeChartConfig(chart.Bar.defaults,options) : chart.Bar.defaults;
@@ -490,8 +493,8 @@ var Chart = function(canvas, context) {
             ctx.lineWidth = config.barStrokeWidth;
 
             for (var i=0; i<data.datasets.length; i++) {
-                ctx.fillStyle = data.datasets[i].fillColor;
-                ctx.strokeStyle = data.datasets[i].strokeColor;
+                ctx.fillStyle = (config.fillColor[i] ? config.fillColor[i] : data.datasets[i].fillColor);
+                ctx.strokeStyle = (config.strokeColor[i] ? config.strokeColor[i] : data.datasets[i].strokeColor);
 
                 for (var j=0; j<data.datasets[i].data.length; j++) {
 
