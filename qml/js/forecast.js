@@ -137,15 +137,16 @@ function convert_raw(raw) {
         }
 
         // check if there is any precipitation
-        var minR = Math.min.apply(Math, dayData.rainfall.datasets[0].data);
-        var maxR = Math.max.apply(Math, dayData.rainfall.datasets[0].data);
+        var minR = Math.min.apply(Math, dayData.rainfall.datasets[1].data); // minimum of minimum
+        var maxR = Math.max.apply(Math, dayData.rainfall.datasets[2].data); // maximum of maximum
 
         // @disable-check M126
-        if ((minR === maxR) && minR == 0.0) { // WARNING ugly hack: set dummy data to force scale being shown
-            dayData.rainfall.datasets[0].fillColor = "rgba(151,187,205,0.0)";
-            dayData.rainfall.datasets[0].strokeColor = "rgba(151,187,205,0.0)";
-            dayData.rainfall.datasets[0].pointColor = "rgba(151,187,205,0.0)";
+        if ((minR === maxR) && minR == 0.0) {
+            // workaround to make sure chart scale is being shown
+            dayData.rainfall.haveData = false;
             dayData.rainfall.datasets[0].data[0] = 0.3;
+        } else {
+            dayData.rainfall.haveData = true;
         }
 
         dayData.isSane = true;
