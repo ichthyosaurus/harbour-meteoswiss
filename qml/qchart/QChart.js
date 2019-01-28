@@ -23,6 +23,7 @@
 // - use 'scaleOverlay' option to draw only the vertical scale
 // - add option to line graph to only fill difference between second and third dataset
 // - support setting colors when building the graph instead of inside the datasets
+// - add options to overlay bars instead of plotting them side by side
 //
 
 var ChartType = {
