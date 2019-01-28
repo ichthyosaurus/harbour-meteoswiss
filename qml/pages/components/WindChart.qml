@@ -23,5 +23,10 @@ QChart {
         datasetStrokeWidth: 2,
         pointDot: false,
         currentHourLine: true,
+
+        fillColor: ["rgba(0,0,0,0)"],
+        strokeColor: ["rgba(255,255,0,1)"],
+        pointColor: ["rgba(255,255,0,1)"],
+        pointStrokeColor: ["rgba(255,255,0,1)"],
     })
 }
