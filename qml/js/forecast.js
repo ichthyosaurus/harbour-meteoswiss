@@ -70,20 +70,11 @@ function convert_raw(raw) {
             rainfall: {
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{ // estimate
-                        fillColor: "rgba(151,187,205,0.5)",
-                        strokeColor: "rgba(151,187,205,1)",
-                        pointColor: "rgba(151,187,205,1)",
                         data: [],
                         tableData: [],
                     },{ // minimum
-                        fillColor: "rgba(151,187,205,0)",
-                        strokeColor: "rgba(151,187,205,0.6)",
-                        pointColor: "rgba(151,187,205,0.3)",
                         data: [],
                     },{ // maximum
-                        fillColor: "rgba(151,187,205,0)",
-                        strokeColor: "rgba(151,187,205,0.6)",
-                        pointColor: "rgba(151,187,205,0.3)",
                         data: [],
                     },
                 ],
@@ -91,14 +82,10 @@ function convert_raw(raw) {
             wind: {
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{
-                    fillColor: "rgba(0,0,0,0)",
-                    strokeColor: "rgba(255,255,0,1)",
-                    pointColor: "rgba(255,255,0,1)",
                     data: [],
                     symbols: [],
                 }],
             },
-            // TODO add variance_rain, variance_range
         };
 
         if (   raw[day].rainfall.length != raw[day].temperature.length
