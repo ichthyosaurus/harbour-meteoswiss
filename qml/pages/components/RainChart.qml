@@ -23,7 +23,7 @@ QChart {
         currentHourLine: true,
         barOverlay: true,
 
-        fillColor: ["rgba(151,187,205,0.5)", "rgba(151,187,205,0)", "rgba(151,187,205,0)"],
+        fillColor: ["rgba(151,187,205,0.5)", "rgba(151,187,205,0.1)", "rgba(151,187,205,0.1)"],
         strokeColor: ["rgba(151,187,205,1)", "rgba(151,187,205,0.6)", "rgba(151,187,205,0.6)"],
     })
 }
