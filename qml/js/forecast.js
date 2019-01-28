@@ -58,20 +58,11 @@ function convert_raw(raw) {
             temperature: {
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{ // estimate
-                        fillColor: "rgba(234,77,79,0)",
-                        strokeColor: "rgba(234,77,79,1)",
-                        pointColor: "rgba(234,77,79,1)",
                         data: [],
                         symbols: []
                     },{ // minimum
-                        fillColor: "rgba(234,77,79,0.6)",
-                        strokeColor: "rgba(234,77,79,0.6)",
-                        pointColor: "rgba(234,77,79,0.3)",
                         data: [],
                     },{ // maximum
-                        fillColor: "rgba(234,77,79,0.6)",
-                        strokeColor: "rgba(234,77,79,0.6)",
-                        pointColor: "rgba(234,77,79,0.3)",
                         data: [],
                     },
                 ],
