@@ -26,5 +26,10 @@ QChart {
         datasetFillDiff23: true,
         pointDotRadius: 6,
         currentHourLine: true,
+
+        fillColor: ["rgba(234,77,79,0)", "rgba(234,77,79,0.6)", "rgba(234,77,79,0.6)"],
+        strokeColor: ["rgba(234,77,79,1)", "rgba(234,77,79,0.6)", "rgba(234,77,79,0.6)"],
+        pointColor: ["rgba(234,77,79,1)", "rgba(234,77,79,0.3)", "rgba(234,77,79,0.3)"],
+        pointStrokeColor: ["rgba(234,77,79,1)", "rgba(234,77,79,0.3)", "rgba(234,77,79,0.3)"],
     })
 }
