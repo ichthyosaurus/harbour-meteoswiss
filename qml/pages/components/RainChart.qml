@@ -21,6 +21,7 @@ QChart {
         scaleStartValue: 0.0,
         scaleOverlay: scaleOnly,
         currentHourLine: true,
+        barOverlay: true,
 
         fillColor: ["rgba(151,187,205,0.5)", "rgba(151,187,205,0)", "rgba(151,187,205,0)"],
         strokeColor: ["rgba(151,187,205,1)", "rgba(151,187,205,0.6)", "rgba(151,187,205,0.6)"],
