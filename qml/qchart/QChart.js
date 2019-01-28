@@ -22,6 +22,7 @@
 // - add config option to draw a vertical indicator line based on the current time
 // - use 'scaleOverlay' option to draw only the vertical scale
 // - add option to line graph to only fill difference between second and third dataset
+// - support setting colors when building the graph instead of inside the datasets
 //
 
 var ChartType = {
@@ -68,7 +69,12 @@ var Chart = function(canvas, context) {
             animation: true,
             animationSteps: 60,
             animationEasing: "easeOutQuart",
-            onAnimationComplete: null
+            onAnimationComplete: null,
+
+            fillColor: [],
+            strokeColor: [],
+            pointColor: [],
+            pointStrokeColor: [],
         };
 
         var config = (options) ? mergeChartConfig(chart.Line.defaults,options) : chart.Line.defaults;
@@ -195,7 +201,7 @@ var Chart = function(canvas, context) {
         function drawLines(animPc) {
 
             for (var i=0; i<data.datasets.length; i++) {
-                ctx.strokeStyle = data.datasets[i].strokeColor;
+                ctx.strokeStyle = (config.strokeColor[i] ? config.strokeColor[i] : data.datasets[i].strokeColor);
                 ctx.lineWidth = config.datasetStrokeWidth;
                 ctx.beginPath();
                 ctx.moveTo(xPos(0), yPos(i, 0))
@@ -214,7 +220,7 @@ var Chart = function(canvas, context) {
                     ctx.lineTo(xPos(data.datasets[i].data.length-1),xAxisPosY);
                     ctx.lineTo(xPos(0),xAxisPosY);
                     ctx.closePath();
-                    ctx.fillStyle = data.datasets[i].fillColor;
+                    ctx.fillStyle = (config.fillColor[i] ? config.fillColor[i] : data.datasets[i].fillColor);
                     ctx.fill();
                 } else if (i == 2 && config.datasetFillDiff23) {
                     for (var k=data.datasets[1].data.length; k>=0; k--) {
@@ -228,9 +234,9 @@ var Chart = function(canvas, context) {
                     ctx.closePath();
                 }
 
-                if (config.pointDot) {
-                    ctx.fillStyle = data.datasets[i].pointColor;
-                    ctx.strokeStyle = data.datasets[i].pointStrokeColor;
+                if (config.pointDot && (i == 0 || !config.datasetFillDiff23)) {
+                    ctx.fillStyle = (config.pointColor[i] ? config.pointColor[i] : data.datasets[i].pointColor);
+                    ctx.strokeStyle = (config.pointStrokeColor[i] ? config.pointStrokeColor[i] : data.datasets[i].pointStrokeColor);
                     ctx.lineWidth = config.pointDotStrokeWidth;
                     for (var k=0; k<data.datasets[i].data.length; k++) {
                         ctx.beginPath();
