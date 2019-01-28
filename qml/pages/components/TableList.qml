@@ -118,7 +118,7 @@ SilicaListView {
                 "hour": i,
                 "image": temp.datasets[0].symbols[i],
                 "temp": temp.datasets[0].data[i],
-                "rain": rain.datasets[0].tableData[i],
+                "rain": (rain.haveData ? rain.datasets[0].data[i] : []),
                 "wind": wind.datasets[0].data[i],
                 "windSym": wind.datasets[0].symbols[i],
                 "description": Strings.MeteoLang.weatherSymbolDescription[temp.datasets[0].symbols[i]],

@@ -68,10 +68,10 @@ function convert_raw(raw) {
                 ],
             },
             rainfall: {
+                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{ // estimate
                         data: [],
-                        tableData: [],
                     },{ // minimum
                         data: [],
                     },{ // maximum
@@ -115,7 +115,6 @@ function convert_raw(raw) {
         // convert data
         for (var hour = 0; hour < raw[day].rainfall.length; hour++) {
             dayData.rainfall.datasets[0].data.push(raw[day].rainfall[hour][1]);         // estimate
-            dayData.rainfall.datasets[0].tableData.push(raw[day].rainfall[hour][1]);
             dayData.rainfall.datasets[1].data.push(raw[day].variance_rain[hour][1]);    // minimum
             dayData.rainfall.datasets[2].data.push(raw[day].variance_rain[hour][2]);    // maximum
 
