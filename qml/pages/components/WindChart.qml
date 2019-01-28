@@ -21,7 +21,7 @@ QChart {
         bezierCurve: true,
         scaleStartValue: 0,
         datasetStrokeWidth: 2,
-        pointDotRadius: 0,
+        pointDot: false,
         currentHourLine: true,
     })
 }
