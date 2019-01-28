@@ -22,6 +22,8 @@ QChart {
         bezierCurve: false,
         scaleStartValue: (minValue == 0) ? 0 : minValue - 1,
         datasetStrokeWidth: 2,
+        datasetFill: false,
+        datasetFillDiff23: true,
         pointDotRadius: 6,
         currentHourLine: true,
     })

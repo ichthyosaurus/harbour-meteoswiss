@@ -21,6 +21,7 @@
 // - align line chart dots and bar chart bars
 // - add config option to draw a vertical indicator line based on the current time
 // - use 'scaleOverlay' option to draw only the vertical scale
+// - add option to line graph to only fill difference between second and third dataset
 //
 
 var ChartType = {
@@ -63,6 +64,7 @@ var Chart = function(canvas, context) {
             datasetStroke: true,
             datasetStrokeWidth: 2,
             datasetFill: true,
+            datasetFillDiff23: true,
             animation: true,
             animationSteps: 60,
             animationEasing: "easeOutQuart",
@@ -138,6 +140,9 @@ var Chart = function(canvas, context) {
         // /////////////////////////////////////////////////////////////////
 
         this.init = function () {
+            if (config.datasetFillDiff23 && data.datasets.length != 3) {
+                config.datasetFillDiff23 = false;
+            }
 
             calculateDrawingSizes();
 
@@ -205,13 +210,21 @@ var Chart = function(canvas, context) {
 
                 ctx.stroke();
 
-                if (config.datasetFill) {
+                if (config.datasetFill && (i == 0 || !config.datasetFillDiff23)) {
                     ctx.lineTo(xPos(data.datasets[i].data.length-1),xAxisPosY);
                     ctx.lineTo(xPos(0),xAxisPosY);
                     ctx.closePath();
                     ctx.fillStyle = data.datasets[i].fillColor;
                     ctx.fill();
-                } else {
+                } else if (i == 2 && config.datasetFillDiff23) {
+                    for (var k=data.datasets[1].data.length; k>=0; k--) {
+                        ctx.lineTo(xPos(k),yPos(1,k));
+                    }
+
+                    ctx.closePath();
+                    ctx.fillStyle = (config.fillColor[i] ? config.fillColor[i] : data.datasets[i].fillColor);
+                    ctx.fill();
+                }else {
                     ctx.closePath();
                 }
 
