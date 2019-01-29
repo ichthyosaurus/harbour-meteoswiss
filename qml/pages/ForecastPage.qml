@@ -52,53 +52,27 @@ Page {
                                 activateGraph(newDay);
                             })
                             mainPage.activateGraph.connect(function(newDay) {
-                                selected = (newDay == day)
+                                selected = (newDay == day);
                             })
                         }
                     }
                 }
             }
 
-            ForecastItem {
-                id: d0
-                dayId: 0
-                visible: meteoApp.forecastData[dayId] ? true : false
-                active: (activeDay == dayId)
-            }
+            Repeater {
+                model: meteoApp.forecastData.length
 
-            ForecastItem {
-                id: d1
-                dayId: 1
-                visible: meteoApp.forecastData[dayId] ? true : false
-                active: (activeDay == dayId)
-            }
+                ForecastItem {
+                    dayId: index
+                    visible: meteoApp.forecastData[index] ? true : false
+                    active: (activeDay == index)
 
-            ForecastItem {
-                id: d2
-                dayId: 2
-                visible: meteoApp.forecastData[dayId] ? true : false
-                active: (activeDay == dayId)
-            }
-
-            ForecastItem {
-                id: d3
-                dayId: 3
-                visible: meteoApp.forecastData[dayId] ? true : false
-                active: (activeDay == dayId)
-            }
-
-            ForecastItem {
-                id: d4
-                dayId: 4
-                visible: meteoApp.forecastData[dayId] ? true : false
-                active: (activeDay == dayId)
-            }
-
-            ForecastItem {
-                id: d5
-                dayId: 5
-                visible: meteoApp.forecastData[dayId] ? true : false
-                active: (activeDay == dayId)
+                    Component.onCompleted: {
+                        mainPage.activateGraph.connect(function(newDay) {
+                            active = (dayId == newDay);
+                        })
+                    }
+                }
             }
 
             VerticalScrollDecorator {}
@@ -123,52 +97,6 @@ Page {
             }
 
             VerticalScrollDecorator {}
-        }
-    }
-
-    onActivateGraph: {
-        if (dayId == 0) {
-            d0.active = true
-            d1.active = false
-            d2.active = false
-            d3.active = false
-            d4.active = false
-            d5.active = false
-        } else if (dayId == 1) {
-            d0.active = false
-            d1.active = true
-            d2.active = false
-            d3.active = false
-            d4.active = false
-            d5.active = false
-        } else if (dayId == 2) {
-            d0.active = false
-            d1.active = false
-            d2.active = true
-            d3.active = false
-            d4.active = false
-            d5.active = false
-        } else if (dayId == 3) {
-            d0.active = false
-            d1.active = false
-            d2.active = false
-            d3.active = true
-            d4.active = false
-            d5.active = false
-        } else if (dayId == 4) {
-            d0.active = false
-            d1.active = false
-            d2.active = false
-            d3.active = false
-            d4.active = true
-            d5.active = false
-        } else if (dayId == 5) {
-            d0.active = false
-            d1.active = false
-            d2.active = false
-            d3.active = false
-            d4.active = false
-            d5.active = true
         }
     }
 }
