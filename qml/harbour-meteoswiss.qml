@@ -27,7 +27,7 @@ ApplicationWindow {
     property string tempUnit: "°C"
     property string rainUnit: "mm/h"
     property string rainUnitShort: "mm"
-    property string windUnit: "m/s"
+    property string windUnit: "km/h"
 
 
     Component {
