@@ -78,21 +78,19 @@ SilicaListView {
                 unit: meteoApp.windUnit
             }
 
-            Label {
+            TableListValueElement {
                 visible: isLandscape
-                width: windSymTitle.width
+                base: windSymTitle
                 text: windSym
-                font.pixelSize: Theme.fontSizeMedium
             }
 
             Label {
                 visible: isLandscape
-                width: descriptionTitle.width
-                text: description
-                anchors.verticalCenter: hourLabel.verticalCenter
-                truncationMode: TruncationMode.Fade
-                wrapMode: Text.Wrap
+                x: descriptionTitle.x - Theme.paddingLarge
+                width: descriptionTitle.width - Theme.paddingLarge
                 font.pixelSize: Theme.fontSizeExtraSmall
+                wrapMode: Text.Wrap
+                text: description
             }
         }
 
