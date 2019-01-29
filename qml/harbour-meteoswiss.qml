@@ -29,6 +29,8 @@ ApplicationWindow {
     property string rainUnitShort: "mm"
     property string windUnit: "km/h"
 
+    property var symbolHours: [2,5,8,11,14,17,20,23]
+    property int noonHour: symbolHours[((symbolHours.length - symbolHours.length%2)/2)-1]
 
     Component {
         id: entryPage
