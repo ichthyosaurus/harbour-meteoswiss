@@ -67,47 +67,43 @@ Column {
     Column {
         x: Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium
         width: parent.width - 2*x
-        height: summary1.height + descriptionLabel.height
+        height: summaryRow.height + descriptionLabel.height + spacing
 
         Behavior on opacity { NumberAnimation { duration: 500 } }
         opacity: graph.loaded ? 1 : 0
         visible: active
 
+        spacing: Theme.paddingSmall
+
         Row {
+            id: summaryRow
             width: parent.width
-            ForecastSummaryItem { id: summary1; visible: graph.loaded; hour: 2; day: dayId }
-            ForecastSummaryItem { id: summary2; visible: graph.loaded; hour: 5; day: dayId }
-            ForecastSummaryItem { id: summary3; visible: graph.loaded; hour: 8; day: dayId }
-            ForecastSummaryItem { id: summary4; visible: graph.loaded; hour: 11; day: dayId }
-            ForecastSummaryItem { id: summary5; visible: graph.loaded; hour: 14; day: dayId }
-            ForecastSummaryItem { id: summary6; visible: graph.loaded; hour: 17; day: dayId }
-            ForecastSummaryItem { id: summary7; visible: graph.loaded; hour: 20; day: dayId }
-            ForecastSummaryItem { id: summary8; visible: graph.loaded; hour: 23; day: dayId }
+
+            Repeater {
+                model: meteoApp.symbolHours.length
+
+                ForecastSummaryItem {
+                    visible: graph.loaded
+                    hour: meteoApp.symbolHours[index]
+                    day: dayId
+                    clickedCallback: function(hour, symbol) {
+                            descriptionLabel.text = String(
+                                qsTr("%1: %2", "time (1) with weather description (2)")).arg(hour).arg(
+                                    Strings.MeteoLang.weatherSymbolDescription[symbol]);
+                        };
+                }
+            }
         }
 
         Label {
             id: descriptionLabel
-            font.pixelSize: Theme.fontSizeSmall
-            color: Theme.primaryColor
-            horizontalAlignment: Text.AlignHCenter
-            width: parent.width - 4*parent.x
-            wrapMode: Text.WordWrap
             x: (parent.x + parent.width/2) - (width/2)
+            width: parent.width - 4*parent.x
 
-            Component.onCompleted: {
-                var callback = function(hour, symbol) {
-                    text = String(qsTr("%1: %2", "time (1) with weather description (2)")).arg(hour).arg(Strings.MeteoLang.weatherSymbolDescription[symbol])
-                }
-
-                summary1.summaryClicked.connect(callback);
-                summary2.summaryClicked.connect(callback);
-                summary3.summaryClicked.connect(callback);
-                summary4.summaryClicked.connect(callback);
-                summary5.summaryClicked.connect(callback);
-                summary6.summaryClicked.connect(callback);
-                summary7.summaryClicked.connect(callback);
-                summary8.summaryClicked.connect(callback);
-            }
+            color: Theme.primaryColor
+            font.pixelSize: Theme.fontSizeSmall
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
         }
     }
 

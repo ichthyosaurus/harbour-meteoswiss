@@ -6,12 +6,23 @@ import "../../js/storage.js" as Storage
 BackgroundItem {
     property int hour
     property int day
+    property var clickedCallback
 
-        width: parent.width/8
+    width: parent.width/8
     height: column.height
 
     signal summaryClicked(int hour, int symbol)
     onClicked: summaryClicked(hour, forecastData[day].temperature.datasets[0].symbols[hour])
+
+    Component.onCompleted: {
+        summaryClicked.connect(clickedCallback);
+
+        if (   (day == 0 && meteoApp.dataTimestamp.toDateString() == new Date().toDateString() && hour == Storage.getCurrentSymbolHour())
+            || hour == meteoApp.noonHour
+        ) {
+            summaryClicked(hour, forecastData[day].temperature.datasets[0].symbols[hour]);
+        }
+    }
 
     Column {
         id: column
