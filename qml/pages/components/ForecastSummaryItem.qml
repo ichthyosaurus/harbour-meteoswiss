@@ -13,13 +13,9 @@ Column {
 
     width: parent.width/8
 
-    Text {
-        id: hourLabel
-        width: parent.width
-        text: hour
+    ForecastSummaryItemLabel {
+        value: hour
         font.pixelSize: Theme.fontSizeSmall
-        horizontalAlignment: Text.AlignHCenter
-        color: textColor
     }
 
     Image {
@@ -33,22 +29,14 @@ Column {
         opacity: 1
     }
 
-    Text {
-        id: tempLabel
-        width: parent.width
-        text: forecastData[day].temperature.datasets[0].data[hour] + " °C"
-        font.pixelSize: Theme.fontSizeTiny
-        horizontalAlignment: Text.AlignHCenter
-        color: textColor
+    ForecastSummaryItemLabel {
+        value: forecastData[day].temperature.datasets[0].data[hour]
+        unit: meteoApp.tempUnit
     }
 
-    Text {
-        id: rainLabel
-        width: parent.width
+    ForecastSummaryItemLabel {
         property var rain: forecastData[day].rainfall.haveData ? forecastData[day].rainfall.datasets[0].data[hour] : 0
-        text: rain > 0 ? rain + " mm" : ""
-        font.pixelSize: Theme.fontSizeTiny
-        horizontalAlignment: Text.AlignHCenter
-        color: textColor
+        value: rain > 0 ? rain : ""
+        unit: meteoApp.rainUnitShort
     }
 }
