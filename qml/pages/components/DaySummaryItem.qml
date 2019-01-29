@@ -45,9 +45,8 @@ BackgroundItem {
         id: column
         width: parent.width
 
-        property var textColor: (primary ?
-            (highlighted ? Theme.highlightColor : Theme.primaryColor) :
-                (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor))
+        property var textColor: (primary ? Theme.highlightColor :
+            (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor))
 
         ForecastSummaryItemLabel {
             id: dayElem
