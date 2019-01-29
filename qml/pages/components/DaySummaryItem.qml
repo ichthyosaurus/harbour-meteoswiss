@@ -125,12 +125,12 @@ BackgroundItem {
         rainElem.valueMax = rain[1];
         rainElem.refresh();
 
-        dayElem.value = data.timestamp.toLocaleString(Qt.locale(), "ddd");
-        dayElem.refresh();
-
         if (data.timestamp.toDateString() == new Date().toDateString()) {
             isToday = true;
         }
+
+        dayElem.value = isToday ? qsTr("Today") : data.timestamp.toLocaleString(Qt.locale(), "ddd");
+        dayElem.refresh();
     }
 
     Component.onCompleted: {
