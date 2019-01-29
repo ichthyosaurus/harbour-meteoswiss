@@ -178,7 +178,7 @@ Page {
                 pageStack.animatorPush("ForecastPage.qml", {
                     "activeDay": 0,
                     "locationId": locationId,
-                    "title": zip + " " + name + " (" + cantonId + ")",
+                    "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
                 });
             }
 
@@ -190,7 +190,7 @@ Page {
                 width: 2.5*Theme.horizontalPageMargin
                 height: width
                 opacity: isLoading ? 0.2 : 1.0
-                source: "../weather-icons/" + (model.symbol ? model.symbol : "0") + ".svg"
+                source: String("../weather-icons/%1.svg").arg(model.symbol ? model.symbol : "0")
                 fillMode: Image.PreserveAspectFit
                 Behavior on opacity { NumberAnimation { duration: 200 } }
             }
@@ -218,7 +218,7 @@ Page {
                     id: locationLabel
                     width: parent.width
                     color: highlighted ? Theme.highlightColor : Theme.primaryColor
-                    text: model.name + " (" + model.cantonId + ")"
+                    text: String("%1 (%2)").arg(model.name).arg(model.cantonId)
                     truncationMode: TruncationMode.Fade
                 }
 
@@ -228,7 +228,7 @@ Page {
 
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    text: zip + " – " + Strings.MeteoLang.weatherSymbolDescription[model.symbol]  // weather string
+                    text: (!Strings.MeteoLang.weatherSymbolDescription[model.symbol] ? zip : String("%1 – %2").arg(zip).arg(Strings.MeteoLang.weatherSymbolDescription[model.symbol]))
                     font.pixelSize: Theme.fontSizeSmall
                     truncationMode: TruncationMode.Fade
                     wrapMode: Text.Wrap
