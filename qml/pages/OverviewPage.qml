@@ -171,7 +171,7 @@ Page {
                 }
             }
 
-            contentHeight: labelColumn.implicitHeight + summaryRow.height + vertSpace.height + 2*Theme.paddingLarge
+            contentHeight: labelColumn.height + summaryRow.height + vertSpace.height + labelColumn.y
 
             function showForecast(activeDay) {
                 meteoApp.refreshData(locationId, false)
@@ -209,7 +209,7 @@ Page {
                 id: labelColumn
 
                 y: Theme.paddingMedium
-                height: locationLabel.height + descriptionLabel.lineHeight
+                height: locationLabel.height + descriptionLabel.height
 
                 anchors {
                     left: icon.right
@@ -228,8 +228,6 @@ Page {
 
                 Label {
                     id: descriptionLabel
-                    property real lineHeight: height/lineCount
-
                     width: parent.width
                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     text: (!Strings.MeteoLang.weatherSymbolDescription[model.symbol] ? zip : String("%1 – %2").arg(zip).arg(Strings.MeteoLang.weatherSymbolDescription[model.symbol]))
@@ -284,10 +282,9 @@ Page {
                 id: summaryRow
                 width: parent.width
                 anchors.top: vertSpace.bottom
-                property var idx: index
 
                 Repeater {
-                    model: 6 // TODO make dynamic
+                    model: 6
 
                     DaySummaryItem {
                         location: locationId
@@ -295,6 +292,7 @@ Page {
 
                         Component.onCompleted: {
                             summaryClicked.connect(function(day, loc) { showForecast(day); })
+                            overviewPage.dataUpdated.connect(refreshData);
                         }
                     }
                 }
