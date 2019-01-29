@@ -24,6 +24,11 @@ ApplicationWindow {
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
     property string fullDateFormat: qsTr("ddd d MMM yyyy")
 
+    property string tempUnit: "°C"
+    property string rainUnit: "mm/h"
+    property string rainUnitShort: "mm"
+    property string windUnit: "km/h"
+
 
     Component {
         id: entryPage

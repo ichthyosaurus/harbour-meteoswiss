@@ -1,6 +1,6 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
-
+import "components"
 
 Page {
     id: tablePage
@@ -41,57 +41,49 @@ Page {
                 spacing: Theme.paddingLarge
                 padding: Theme.horizontalPageMargin
 
-                Label {
+                TablePageColumnTitle {
                     id: hourTitle
                     width: 70
                     text: qsTr("Hour")
-                    color: Theme.highlightColor
-                    font.pixelSize: Theme.fontSizeMedium
                 }
 
-                Label {
+                TablePageColumnTitle {
                     id: symbolTitle
                     width: 100
                 }
 
-                Label {
+                TablePageColumnTitle {
                     id: tempTitle
                     width: 200
                     text: qsTr("Temp.")
-                    color: Theme.highlightColor
-                    font.pixelSize: Theme.fontSizeMedium
+                    unit: meteoApp.tempUnit
                 }
 
-                Label {
+                TablePageColumnTitle {
                     id: rainTitle
                     width: 250
                     text: qsTr("Precip.")
-                    color: Theme.highlightColor
-                    font.pixelSize: Theme.fontSizeMedium
+                    unit: meteoApp.rainUnit
                 }
 
-                Label {
+                TablePageColumnTitle {
                     id: windTitle
-                    width: 250
+                    width: 230
                     text: qsTr("Wind")
-                    color: Theme.highlightColor
-                    font.pixelSize: Theme.fontSizeMedium
+                    unit: meteoApp.windUnit
                 }
 
-                Label {
+                TablePageColumnTitle {
                     id: windSymTitle
                     visible: isLandscape
                     width: 100
                 }
 
-                Label {
+                TablePageColumnTitle {
                     id: descriptionTitle
                     visible: isLandscape
                     width: 500
                     text: qsTr("Description")
-                    color: Theme.highlightColor
-                    font.pixelSize: Theme.fontSizeMedium
-                    truncationMode: TruncationMode.Fade
                 }
             }
 
