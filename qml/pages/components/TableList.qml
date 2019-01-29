@@ -60,22 +60,22 @@ SilicaListView {
                 opacity: 1
             }
 
-            Label {
-                width: tempTitle.width
-                text: temp + " °C"
-                font.pixelSize: Theme.fontSizeMedium
+            TableListValueElement {
+                base: tempTitle
+                text: temp
+                unit: meteoApp.tempUnit
             }
 
-            Label {
-                width: rainTitle.width
-                text: (rain > 0) ? rain + " mm" : ''
-                font.pixelSize: Theme.fontSizeMedium
+            TableListValueElement {
+                base: rainTitle
+                text: (rain > 0) ? rain : ''
+                unit: meteoApp.rainUnit
             }
 
-            Label {
-                width: windTitle.width
-                text: wind + " m/s"
-                font.pixelSize: Theme.fontSizeMedium
+            TableListValueElement {
+                base: windTitle
+                text: wind
+                unit: meteoApp.windUnit
             }
 
             Label {
