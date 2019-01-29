@@ -34,6 +34,31 @@ Page {
                 id: pageTitle
             }
 
+            Row {
+                id: summaryRow
+                width: parent.width
+
+                Repeater {
+                    model: meteoApp.forecastData.length
+
+                    DaySummaryItem {
+                        location: locationId
+                        day: index
+                        primary: true
+                        selected: (index == activeDay)
+
+                        Component.onCompleted: {
+                            summaryClicked.connect(function(newDay, loc) {
+                                activateGraph(newDay);
+                            })
+                            mainPage.activateGraph.connect(function(newDay) {
+                                selected = (newDay == day)
+                            })
+                        }
+                    }
+                }
+            }
+
             ForecastItem {
                 id: d0
                 dayId: 0
