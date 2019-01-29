@@ -171,7 +171,7 @@ Page {
                 }
             }
 
-            contentHeight: labelColumn.height + summaryRow.height + vertSpace.height + labelColumn.y
+            contentHeight: labelColumn.height + (summaryRow.visible ? summaryRow.height : 0) + vertSpace.height + labelColumn.y
 
             function showForecast(activeDay) {
                 meteoApp.refreshData(locationId, false)
@@ -275,13 +275,13 @@ Page {
                 anchors.top: labelColumn.bottom
                 height: Theme.paddingMedium
                 width: parent.width
-                visible: summaryRow.visible
             }
 
             Row {
                 id: summaryRow
                 width: parent.width
                 anchors.top: vertSpace.bottom
+                visible: index < 3 // show only first 3 locations with details
 
                 Repeater {
                     model: 6
