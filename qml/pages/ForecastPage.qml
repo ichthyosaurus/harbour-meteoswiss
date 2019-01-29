@@ -13,8 +13,16 @@ Page {
     signal activateGraph(int dayId)
 
     SilicaFlickable {
-        anchors.fill: parent
         contentHeight: column.height + Theme.horizontalPageMargin
+
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            bottom: isLandscape ? parent.bottom : summaryRow.top
+        }
+
+        clip: true
 
         PullDownMenu {
             MenuItem {
@@ -34,38 +42,13 @@ Page {
                 id: pageTitle
             }
 
-            Row {
-                id: summaryRow
-                width: parent.width
-
-                Repeater {
-                    model: meteoApp.forecastData.length
-
-                    DaySummaryItem {
-                        location: locationId
-                        day: index
-                        primary: true
-                        selected: (index == activeDay)
-
-                        Component.onCompleted: {
-                            summaryClicked.connect(function(newDay, loc) {
-                                activateGraph(newDay);
-                            })
-                            mainPage.activateGraph.connect(function(newDay) {
-                                selected = (newDay == day);
-                            })
-                        }
-                    }
-                }
-            }
-
             Repeater {
                 model: meteoApp.forecastData.length
 
                 ForecastItem {
                     dayId: index
                     active: (activeDay == index)
-                    visible: active
+                    visible: active || isLandscape
 
                     Component.onCompleted: {
                         mainPage.activateGraph.connect(function(newDay) {
@@ -97,6 +80,42 @@ Page {
             }
 
             VerticalScrollDecorator {}
+        }
+    }
+
+    Row {
+        id: summaryRow
+        width: parent.width
+        y: (Screen.height - height)
+        visible: isPortrait
+
+        Repeater {
+            model: meteoApp.forecastData.length
+
+            DaySummaryItem {
+                location: locationId
+                day: index
+                primary: true
+                selected: (index == activeDay)
+
+                Component.onCompleted: {
+                    summaryClicked.connect(function(newDay, loc) {
+                        activateGraph(newDay);
+                    })
+                    mainPage.activateGraph.connect(function(newDay) {
+                        selected = (newDay == day);
+                    })
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        anchors.fill: summaryRow
+        z: -1
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: Theme.rgba(Theme.highlightBackgroundColor, 0.3) }
+            GradientStop { position: 1.0; color: "transparent" }
         }
     }
 }
