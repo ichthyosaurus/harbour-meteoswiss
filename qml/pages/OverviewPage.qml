@@ -171,15 +171,19 @@ Page {
                 }
             }
 
-            contentHeight: labelColumn.implicitHeight + 2*Theme.paddingMedium
+            contentHeight: labelColumn.implicitHeight + summaryRow.height + vertSpace.height + 2*Theme.paddingLarge
 
-            onClicked: {
+            function showForecast(activeDay) {
                 meteoApp.refreshData(locationId, false)
                 pageStack.animatorPush("ForecastPage.qml", {
-                    "activeDay": 0,
+                    "activeDay": activeDay,
                     "locationId": locationId,
                     "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
                 });
+            }
+
+            onClicked: {
+                showForecast(0);
             }
 
             Image {
@@ -265,6 +269,34 @@ Page {
                     verticalCenter: labelColumn.verticalCenter
                     right: parent.right
                     rightMargin: Theme.horizontalPageMargin
+                }
+            }
+
+            Item { // vertical spacing
+                id: vertSpace
+                anchors.top: labelColumn.bottom
+                height: Theme.paddingMedium
+                width: parent.width
+                visible: summaryRow.visible
+            }
+
+            Row {
+                id: summaryRow
+                width: parent.width
+                anchors.top: vertSpace.bottom
+                property var idx: index
+
+                Repeater {
+                    model: 6 // TODO make dynamic
+
+                    DaySummaryItem {
+                        location: locationId
+                        day: index
+
+                        Component.onCompleted: {
+                            summaryClicked.connect(function(day, loc) { showForecast(day); })
+                        }
+                    }
                 }
             }
         }

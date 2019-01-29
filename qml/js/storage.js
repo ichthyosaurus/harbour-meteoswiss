@@ -244,6 +244,42 @@ function getCurrentSymbolHour() {
     return hour;
 }
 
+function getDaySummary(locationId, day, symbolHour) {
+    var res = {
+        timestamp: undefined,
+        symbol: 0,
+        minTemp: undefined,
+        maxTemp: undefined,
+        minRain: undefined,
+        maxRain: undefined,
+    };
+
+    var data = getData(locationId, true);
+    data = data.length > 0 ? data[0] : undefined;
+
+    if (!data) {
+        console.log("error: failed to get day data summary for", locationId)
+        return res;
+    }
+
+    var full = JSON.parse(data.data);
+
+    if (full.length <= day) {
+        console.log("error: no data for day " + day + " available", locationId);
+        return res;
+    }
+
+    res.maxTemp = Math.max.apply(Math, full[day].temperature.datasets[0].data);
+    res.minTemp = Math.min.apply(Math, full[day].temperature.datasets[0].data);
+    res.maxRain = Math.max.apply(Math, full[day].rainfall.datasets[0].data);
+    res.minRain = Math.min.apply(Math, full[day].rainfall.datasets[0].data);
+    res.symbol = full[day].temperature.datasets[0].symbols[symbolHour];
+
+    res.timestamp = new Date(full[day].date);
+
+    return res;
+}
+
 function getDataSummary(locationId) {
     var res = {
         locationId: locationId,
