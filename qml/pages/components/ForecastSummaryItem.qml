@@ -9,7 +9,7 @@ BackgroundItem {
     property var clickedCallback
 
     width: parent.width/8
-    height: column.height
+    height: column.height + Theme.paddingSmall
 
     signal summaryClicked(int hour, int symbol)
     onClicked: summaryClicked(hour, forecastData[day].temperature.datasets[0].symbols[hour])
@@ -29,7 +29,7 @@ BackgroundItem {
         width: parent.width
 
         property var textColor: ((meteoApp.dataTimestamp.toDateString() == new Date().toDateString() && day == 0) ?
-            (hour >= Storage.getCurrentSymbolHour() ? Theme.primaryColor : Theme.highlightColor) : Theme.highlightColor)
+            (hour >= Storage.getCurrentSymbolHour() ? Theme.secondaryColor : Theme.secondaryHighlightColor) : Theme.secondaryColor)
 
         ForecastSummaryItemLabel {
             value: hour
