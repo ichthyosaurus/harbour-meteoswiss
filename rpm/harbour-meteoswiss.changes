@@ -2,6 +2,18 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Jan 29 2019 Mirian Margiani <mirian@margiani.ch> 1.1.1-1
+- visually overhaul forecast page
+- show week overview for first 3 locations on overview page
+- visually polish table
+- fine-tune colors throughout
+- fix wrong wind speed unit
+- show weather description when clicking on a summary item on forecast page
+- improve code quality
+
+* Mon Jan 28 2019 Mirian Margiani <mirian@margiani.ch> 1.1.0-2
+- fix version number in About page
+
 * Mon Jan 28 2019 Mirian Margiani <mirian@margiani.ch> 1.1.0-1
 - backwards incompatible: store less data in database
 - show variance data in graphs (temperature and rain)
