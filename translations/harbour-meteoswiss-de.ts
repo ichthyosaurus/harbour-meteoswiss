@@ -28,8 +28,8 @@
         <translation>https://www.meteoschweiz.admin.ch/</translation>
     </message>
     <message>
-        <source>Version</source>
-        <translation>Version</translation>
+        <source>Version %1</source>
+        <translation>Version %1</translation>
     </message>
 </context>
 <context>
@@ -40,18 +40,25 @@
     </message>
 </context>
 <context>
+    <name>DaySummaryItem</name>
+    <message>
+        <source>Today</source>
+        <translation>Heute</translation>
+    </message>
+</context>
+<context>
     <name>ForecastGraphItem</name>
     <message>
-        <source>Temperature (°C)</source>
-        <translation>Temperatur (°C)</translation>
+        <source>Temperature</source>
+        <translation>Temperatur</translation>
     </message>
     <message>
-        <source>Precipitation (mm)</source>
-        <translation>Niederschlag (mm)</translation>
+        <source>Precipitation</source>
+        <translation>Niederschlag</translation>
     </message>
     <message>
-        <source>Wind (m/s)</source>
-        <translation>Wind (m/s)</translation>
+        <source>Wind</source>
+        <translation>Wind</translation>
     </message>
 </context>
 <context>
@@ -75,6 +82,11 @@
     <message>
         <source>unknown</source>
         <translation>unbekannt</translation>
+    </message>
+    <message>
+        <source>%1: %2</source>
+        <comment>time (1) with weather description (2)</comment>
+        <translation>%1 Uhr: %2</translation>
     </message>
 </context>
 <context>
