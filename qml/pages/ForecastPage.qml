@@ -64,8 +64,8 @@ Page {
 
                 ForecastItem {
                     dayId: index
-                    visible: meteoApp.forecastData[index] ? true : false
                     active: (activeDay == index)
+                    visible: active
 
                     Component.onCompleted: {
                         mainPage.activateGraph.connect(function(newDay) {
