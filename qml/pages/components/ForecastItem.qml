@@ -100,7 +100,7 @@ Column {
             x: (parent.x + parent.width/2) - (width/2)
             width: parent.width - 4*parent.x
 
-            color: Theme.primaryColor
+            color: Theme.secondaryColor
             font.pixelSize: Theme.fontSizeSmall
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -133,30 +133,33 @@ Column {
         x: titleLabel.x
         visible: active ? (meteoApp.dataIsReady[locationId] ? true : false) : false
 
+        property var textColor: Theme.secondaryColor
+        property var textSize: Theme.fontSizeTiny
+
         Label {
             text: qsTr("status: ")
-            color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeTiny
+            color: parent.textColor
+            font.pixelSize: parent.textSize
         }
 
         Label {
             id: statusLabel
             text: meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
-            color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeTiny
+            color: parent.textColor
+            font.pixelSize: parent.textSize
         }
 
         Label {
             text: " – " + qsTr("now: ")
-            color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeTiny
+            color: parent.textColor
+            font.pixelSize: parent.textSize
         }
 
         Label {
             id: clockLabel
             text: new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
-            color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeTiny
+            color: parent.textColor
+            font.pixelSize: parent.textSize
         }
     }
 
