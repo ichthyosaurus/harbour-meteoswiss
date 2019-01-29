@@ -99,46 +99,25 @@ Item {
         }
     }
 
-    Label {
+    ForecastGraphTitle {
         id: tempTitle
-        x: Theme.horizontalPageMargin
-        y: tempTitlePlace.y
-
-        text: qsTr("Temperature (°C)")
-        color: Theme.highlightColor
-        font.pixelSize: Theme.fontSizeMedium
-
-        visible: forecast.loaded
-        Behavior on opacity { NumberAnimation { duration: 500 } }
-        opacity: forecast.loaded ? 1 : 0
+        place: tempTitlePlace
+        text: qsTr("Temperature")
+        unit: meteoApp.tempUnit
     }
 
-    Label {
+    ForecastGraphTitle {
         id: rainTitle
-        x: Theme.horizontalPageMargin
-        y: rainTitlePlace.y
-
-        text: qsTr("Precipitation (mm)")
-        color: Theme.highlightColor
-        font.pixelSize: Theme.fontSizeMedium
-
-        visible: forecast.loaded
-        Behavior on opacity { NumberAnimation { duration: 500 } }
-        opacity: forecast.loaded ? 1 : 0
+        place: rainTitlePlace
+        text: qsTr("Precipitation")
+        unit: meteoApp.rainUnit
     }
 
-    Label {
+    ForecastGraphTitle {
         id: windTitle
-        x: Theme.horizontalPageMargin
-        y: windTitlePlace.y
-
-        text: qsTr("Wind (m/s)")
-        color: Theme.highlightColor
-        font.pixelSize: Theme.fontSizeMedium
-
-        visible: forecast.loaded
-        Behavior on opacity { NumberAnimation { duration: 500 } }
-        opacity: forecast.loaded ? 1 : 0
+        place: windTitlePlace
+        text: qsTr("Wind")
+        unit: meteoApp.windUnit
     }
 
     Loader {
