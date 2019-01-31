@@ -13,7 +13,7 @@ Page {
     signal activateGraph(int dayId)
 
     SilicaFlickable {
-        contentHeight: column.height + Theme.horizontalPageMargin
+        contentHeight: (column.visible ? column.height : Screen.width - Theme.horizontalPageMargin) + Theme.horizontalPageMargin
 
         anchors {
             top: parent.top
@@ -61,9 +61,9 @@ Page {
             VerticalScrollDecorator {}
         }
 
-        Column {
+        Item {
             id: failedColumn
-            width: parent.width
+            anchors.fill: parent
             visible: !column.visible
 
             PageHeader {
@@ -71,10 +71,10 @@ Page {
             }
 
             Label {
-                id: failed
                 x: Theme.horizontalPageMargin
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Failed to load data!") // TODO center etc.
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Failed to load data!")
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
