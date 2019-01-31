@@ -37,7 +37,7 @@ Page {
     function addLocation(locationData) {
         console.log("add location", locationData.locationId, locationData.name);
 
-        var res = Storage.addLocation(locationData.locationId, locationData.zip, locationData.name, locationData.cantonId, locationData.canton, locationsModel.count);
+        var res = Storage.addLocation(locationData, locationsModel.count);
 
         if (res > 0) {
             addLocationToModel(locationData, undefined, undefined)

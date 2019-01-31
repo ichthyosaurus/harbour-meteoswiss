@@ -17,7 +17,7 @@ function getDatabase() {
 function doInit(db) {
     // Database tables: (primary key in all-caps)
     // data: TIMESTAMP, LOCATION_ID, data (converted)
-    // locations: LOCATION_ID, zip, name, cantonId, canton, view_position
+    // locations: LOCATION_ID, zip, name, cantonId, canton, latitude, longitude, altitude, view_position
     // settings: SETTING, value
 
     db.transaction(function(tx) {
@@ -26,7 +26,8 @@ function doInit(db) {
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS locations(\
             location_id INTEGER NOT NULL PRIMARY KEY, zip INTEGER NOT NULL, name TEXT NOT NULL,\
-            cantonId TEXT NOT NULL, canton TEXT NOT NULL, view_position INTEGER NOT NULL)');
+            cantonId TEXT NOT NULL, canton TEXT NOT NULL,\
+            latitude REAL NOT NULL, longitude REAL NOT NULL, altitude INTEGER NOT NULL, view_position INTEGER NOT NULL)');
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS settings(setting TEXT NOT NULL PRIMARY KEY, value TEXT)');
     });
@@ -60,8 +61,17 @@ function simpleQuery(query, values) {
     return res;
 }
 
-function addLocation(locationId, zip, name, cantonId, canton, viewPosition) {
-    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?);', [locationId, zip, name, cantonId, canton, viewPosition]);
+function addLocation(locationData, viewPosition) {
+    var id = defaultFor(locationData.locationId, null);
+    var alt = defaultFor(locationData.altitude, 0);
+    var lat = defaultFor(locationData.latitude, 0);
+    var long = defaultFor(locationData.longitude, 0);
+    var zip = defaultFor(locationData.zip, null);
+    var canId = defaultFor(locationData.cantonId, null);
+    var can = defaultFor(locationData.canton, null);
+    var name = defaultFor(locationData.name, null);
+
+    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?,?,?,?);', [id, zip, name, canId, can, lat, long, alt, viewPosition]);
 
     if (res !== 0 && !res) {
         console.log("error: failed to save location " + locationId + " to db");
@@ -172,6 +182,9 @@ function getLocationData(locationId) {
             for (var i = 0; i < rs.rows.length; i++) {
                 res.push({
                     locationId: rs.rows.item(i).location_id,
+                    altitude: rs.rows.item(i).altitude,
+                    latitude: rs.rows.item(i).latitude,
+                    longitude: rs.rows.item(i).longitude,
                     zip: rs.rows.item(i).zip,
                     name: rs.rows.item(i).name,
                     cantonId: rs.rows.item(i).cantonId,
