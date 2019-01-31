@@ -81,10 +81,11 @@ Page {
                 }
             }
 
-            MenuItem {
+            Label {
                 id: clockLabel
                 text: new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
-                visible: locationsModel.count > 0
+                color: Theme.highlightColor
+                anchors.horizontalCenter: parent.horizontalCenter
             }
         }
 
