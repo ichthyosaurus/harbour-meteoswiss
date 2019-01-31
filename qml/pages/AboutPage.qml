@@ -26,7 +26,7 @@ Page {
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: String(qsTr("Version %1")).arg("1.1.1")
+                text: String(qsTr("Version %1")).arg(meteoApp.version)
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeMedium
             }
