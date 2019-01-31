@@ -28,6 +28,9 @@ ApplicationWindow {
     property var dataIsReady: ({})
     property var dataTimestamp
 
+    property var sourceBasePath: ""
+    property var sourcePathUpdated: new Date("1970-01-01T00:00:00.000Z")
+
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
     property string fullDateFormat: qsTr("ddd d MMM yyyy")
 
@@ -48,7 +51,11 @@ ApplicationWindow {
         id: dataLoader
         source: "js/forecast.js"
         onMessage: {
-            dataTimestamp = new Date(messageObject.timestamp)
+            meteoApp.dataTimestamp = new Date(messageObject.timestamp)
+
+            meteoApp.sourceBasePath = messageObject.source
+            meteoApp.sourcePathUpdated = messageObject.sourceAge
+
             meteoApp.forecastData = messageObject.data
             Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data))
             meteoApp.dataIsReady[messageObject.locationId] = true
@@ -70,6 +77,8 @@ ApplicationWindow {
             dataLoader.sendMessage({
                 data: archived.length > 0 ? archived[0] : null,
                 locationId: locationId,
+                source: sourceBasePath,
+                sourceAge: sourcePathUpdated,
             })
         } else {
             console.log("refreshing all known locations...")
