@@ -9,11 +9,33 @@ Page {
     id: searchPage
     Component.onCompleted: searchField.forceActiveFocus()
 
+    function addLocation(token) {
+        var details = LocationDetails.get(token)
+        details.canton = Cantons.Cantons[details.cantonId]
+        meteoApp.locationAdded(details)
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
 
         VerticalScrollDecorator {}
+
+        PullDownMenu {
+            busy: false
+            visible: meteoApp.debug
+
+            MenuItem {
+                text: qsTr("Bootstrap debug locations")
+                onClicked: {
+                    addLocation("4001 Basel (BS)");
+                    addLocation("6600 Locarno (TI)");
+                    addLocation("7450 Tiefencastel (GR)");
+                    addLocation("3975 Randogne (VS)");
+                    addLocation("1470 Bollion (FR)");
+                }
+            }
+        }
 
         Column {
             id: column
@@ -69,10 +91,7 @@ Page {
                         truncationMode: TruncationMode.Fade
                     }
                     onClicked: {
-                        var details = LocationDetails.get(model.name)
-                        details.canton = Cantons.Cantons[details.cantonId]
-
-                        meteoApp.locationAdded(details)
+                        addLocation(model.name);
                         pageStack.pop()
                     }
                 }
