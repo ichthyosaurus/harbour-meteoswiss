@@ -13,8 +13,6 @@ BackgroundItem {
     property bool selected: false
     property bool isToday: false
 
-    highlighted: selected
-
     width: parent.width/6
     height: column.height + Theme.paddingSmall
 
