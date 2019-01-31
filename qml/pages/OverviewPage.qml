@@ -303,8 +303,8 @@ Page {
                 visible: index >= 3
                 anchors.fill: parent
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: Theme.rgba(Theme.secondaryColor, 0) }
-                    GradientStop { position: 1.0; color: Theme.rgba(Theme.secondaryColor, 0.03) }
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 1.0; color: Theme.rgba(Theme.secondaryColor, 0.05) }
                 }
             }
         }
