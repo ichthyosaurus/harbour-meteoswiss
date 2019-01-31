@@ -17,6 +17,13 @@ ApplicationWindow {
     signal refreshData(var location, var force)
     signal locationAdded(var locationData)
 
+    // ===============================
+    // ATTENTION UPDATE BEFORE RELEASE
+    // -------------------------------
+    property string version: "1.1.1-1"
+    property bool debug:     true
+    // ===============================
+
     property var forecastData: Forecast.fullData
     property var dataIsReady: ({})
     property var dataTimestamp
