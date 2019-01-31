@@ -230,7 +230,7 @@ WorkerScript.onMessage = function(message) {
 
         if (!retPath) {
             fallbackToArchive(archived, "could not extract JSON data path");
-            return;
+            return [undefined, undefined];
         } else {
             console.log("extracted data path:", retPath);
         }
