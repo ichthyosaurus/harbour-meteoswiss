@@ -191,7 +191,6 @@ WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
 
     var locationId;
-    var raw_data;
     var archived = null;
 
     if (message && message.locationId) {
@@ -210,9 +209,9 @@ WorkerScript.onMessage = function(message) {
     //     return
     // }
 
+    var now = new Date();
     if (archived) {
         var ts = new Date(archived.timestamp);
-        var now = new Date();
 
         if (ts.toDateString() == now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
             fallbackToArchive(archived, "already refreshed less than an hour ago");
@@ -220,26 +219,61 @@ WorkerScript.onMessage = function(message) {
         }
     }
 
-    var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText;
-    var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
-    var res = chartReg.exec(xml);
+    var sourcePath = message.source;
+    var sourceAge = message.sourceAge;
 
-    if (!res) {
-        fallbackToArchive(archived, "could not extract JSON data path");
-        return;
-    } else {
-        console.log("extracted data path:", res);
+    function getSourcePath() {
+        var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText;
+        var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
+        var retPath = chartReg.exec(xml);
+
+        if (!retPath) {
+            fallbackToArchive(archived, "could not extract JSON data path");
+            return;
+        } else {
+            console.log("extracted data path:", retPath);
+        }
+
+        var retAge = now;
+
+        return [retPath, retAge];
     }
 
-    var json = httpGet('https://www.meteoschweiz.admin.ch' + res + '/' + locationId + '.json');
-    raw_data = JSON.parse(json.responseText);
+    if (!sourcePath || now - sourceAge > 60*10*1000) {
+        var source = getSourcePath();
+        sourcePath = source[0];
+        sourceAge = source[1];
+    } else {
+        console.log("using cached data path:", sourcePath);
+    }
+
+    function getJSON(sourcePath) {
+        var json = httpGet('https://www.meteoschweiz.admin.ch' + sourcePath + '/' + locationId + '.json');
+        return JSON.parse(json.responseText);
+    }
+
+    var raw_data = getJSON(sourcePath);
 
     if (!raw_data) {
-        fallbackToArchive(archived, "could not parse data JSON");
-        return;
+        console.log("retrying with new source path...");
+        var source = getSourcePath();
+        sourcePath = source[0];
+        sourceAge = source[1];
+        raw_data = getJSON(sourcePath);
+
+        if (!raw_data) {
+            fallbackToArchive(archived, "could not parse data JSON");
+            return;
+        }
     }
 
     fullData = convert_raw(raw_data);
 
-    WorkerScript.sendMessage({ 'locationId': locationId, 'timestamp': raw_data[0].current_time, 'data': fullData });
+    WorkerScript.sendMessage({
+        'locationId': locationId,
+        'timestamp': raw_data[0].current_time,
+        'data': fullData,
+        'source': sourcePath,
+        'sourceAge': sourceAge,
+    });
 }
