@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "WARNING: OUTDATED!"
+echo "This script is no longer usable to build the locations.js used by the app."
+echo "The resulting JS has to be postprocessed using data from this database:"
+echo "https://s3-eu-central-1.amazonaws.com/app-prod-static-fra.meteoswiss-app.ch/v1/db.sqlite"
+
 BASE="raw/locations"
 
 fetch() { # 1: two digit code
