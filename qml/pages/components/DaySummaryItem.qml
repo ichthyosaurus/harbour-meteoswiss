@@ -19,7 +19,9 @@ BackgroundItem {
     signal summaryClicked(int day, int location)
 
     onClicked: {
-        summaryClicked(day, location)
+        if (day != undefined && location != undefined) {
+            summaryClicked(day, location);
+        }
     }
 
     Item {
