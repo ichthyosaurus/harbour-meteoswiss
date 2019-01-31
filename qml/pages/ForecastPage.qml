@@ -106,6 +106,11 @@ Page {
                         selected = (newDay == day);
                     })
                 }
+
+                Binding on highlighted {
+                    when: selected || down
+                    value: true
+                }
             }
         }
     }
