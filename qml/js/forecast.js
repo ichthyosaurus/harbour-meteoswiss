@@ -176,6 +176,7 @@ function fallbackToArchive(archived, errorMessage) {
     fullData = JSON.parse(archived.data);
 
     WorkerScript.sendMessage({
+        'type': 'data',
         'locationId': archived.locationId,
         'timestamp': archived.timestamp,
         'data': fullData,
@@ -236,6 +237,8 @@ WorkerScript.onMessage = function(message) {
 
         var retAge = now;
 
+        WorkerScript.sendMessage({ type: 'path', source: retPath, age: retAge });
+
         return [retPath, retAge];
     }
 
@@ -270,10 +273,9 @@ WorkerScript.onMessage = function(message) {
     fullData = convert_raw(raw_data);
 
     WorkerScript.sendMessage({
+        'type': 'data',
         'locationId': locationId,
         'timestamp': raw_data[0].current_time,
         'data': fullData,
-        'source': sourcePath,
-        'sourceAge': sourceAge,
     });
 }
