@@ -51,15 +51,16 @@ ApplicationWindow {
         id: dataLoader
         source: "js/forecast.js"
         onMessage: {
-            meteoApp.dataTimestamp = new Date(messageObject.timestamp)
-
-            meteoApp.sourceBasePath = messageObject.source
-            meteoApp.sourcePathUpdated = messageObject.sourceAge
-
-            meteoApp.forecastData = messageObject.data
-            Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data))
-            meteoApp.dataIsReady[messageObject.locationId] = true
-            dataLoaded(messageObject.data, messageObject.locationId)
+            if (messageObject.type == 'path') {
+                meteoApp.sourceBasePath = messageObject.source
+                meteoApp.sourcePathUpdated = messageObject.age
+            } else {
+                meteoApp.dataTimestamp = new Date(messageObject.timestamp)
+                meteoApp.forecastData = messageObject.data
+                Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data))
+                meteoApp.dataIsReady[messageObject.locationId] = true
+                dataLoaded(messageObject.data, messageObject.locationId)
+            }
         }
     }
 
