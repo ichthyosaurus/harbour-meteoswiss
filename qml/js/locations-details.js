@@ -4243,11 +4243,12 @@ function hash(token) {
 }
 
 function get(token) {
-    var coords = swiss2intl(Locations[token].la, Locations[token].lo);
+    var hashstr = hash(token);
+    var coords = swiss2intl(Locations[hashstr].la, Locations[hashstr].lo);
 
     return {
-        locationId: Locations[token].i,
-        altitude: Locations[token].al,
+        locationId: Locations[hashstr].i,
+        altitude: Locations[hashstr].al,
         latitude: coords.north,
         longitude: coords.east,
         zip: parseInt(token.substr(0, 4), 10),
