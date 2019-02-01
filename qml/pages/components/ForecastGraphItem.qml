@@ -21,7 +21,7 @@ Item {
         anchors.fill: parent
         flickableDirection: Flickable.HorizontalFlick
 
-        contentHeight: row.height
+        contentHeight: waitingForData.visible ? waitingForData.height : row.height
         contentWidth: row.width
 
         Row {

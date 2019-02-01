@@ -32,7 +32,7 @@ Label {
     text: getText()
 
     width: parent.width
-    color: parent.textColor
+    color: parent.textColor ? parent.textColor : Theme.primaryColor
 
     font.pixelSize: Theme.fontSizeTiny
     horizontalAlignment: Text.AlignHCenter

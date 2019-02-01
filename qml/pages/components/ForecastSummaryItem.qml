@@ -17,7 +17,10 @@ BackgroundItem {
     Component.onCompleted: {
         summaryClicked.connect(clickedCallback);
 
-        if (   (day == 0 && meteoApp.dataTimestamp.toDateString() == new Date().toDateString() && hour == Storage.getCurrentSymbolHour())
+        if (   (   day == 0
+                && meteoApp.dataTimestamp != undefined
+                && meteoApp.dataTimestamp.toDateString() == new Date().toDateString()
+                && hour == Storage.getCurrentSymbolHour())
             || hour == meteoApp.noonHour
         ) {
             summaryClicked(hour, forecastData[day].temperature.datasets[0].symbols[hour]);
@@ -28,7 +31,7 @@ BackgroundItem {
         id: column
         width: parent.width
 
-        property var textColor: ((meteoApp.dataTimestamp.toDateString() == new Date().toDateString() && day == 0) ?
+        property var textColor: ((meteoApp.dataTimestamp && meteoApp.dataTimestamp.toDateString() == new Date().toDateString() && day == 0) ?
             (hour >= Storage.getCurrentSymbolHour() ? Theme.secondaryColor : Theme.secondaryHighlightColor) : Theme.secondaryColor)
 
         ForecastSummaryItemLabel {
@@ -40,7 +43,9 @@ BackgroundItem {
             width: 100
             height: Theme.itemSizeSmall
             fillMode: Image.PreserveAspectFit
-            source: "../../weather-icons/" + forecastData[day].temperature.datasets[0].symbols[hour] + ".svg"
+            source: "../../weather-icons/" + (
+                forecastData[day].temperature.datasets[0].symbols[hour] != undefined ? forecastData[day].temperature.datasets[0].symbols[hour] : 0
+            ) + ".svg"
             verticalAlignment: Image.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
             opacity: 1

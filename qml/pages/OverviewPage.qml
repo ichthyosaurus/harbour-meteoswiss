@@ -30,7 +30,6 @@ Page {
             "name": locationData.name,
             "canton": locationData.canton,
             "cantonId": locationData.cantonId,
-            "temperature": temperature,
             "temperatureString": getTemperatureString(temperature),
             "symbol": symbol,
         })
@@ -365,7 +364,6 @@ Page {
             if (!locationId || (locationId === locationsModel.get(i).locationId)) {
                 var loc = locationsModel.get(i).locationId;
                 var summary = Storage.getDataSummary(loc);
-                locationsModel.setProperty(i, 'temperature', summary.temp);
                 locationsModel.setProperty(i, 'temperatureString', getTemperatureString(summary.temp));
                 locationsModel.setProperty(i, 'symbol', summary.symbol);
                 loadingFinished(loc);
