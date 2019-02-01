@@ -16,13 +16,13 @@ function getDatabase() {
 
 function doInit(db) {
     // Database tables: (primary key in all-caps)
-    // data: TIMESTAMP, LOCATION_ID, data (converted)
+    // data: TIMESTAMP, LOCATION_ID, data (converted), day_count
     // locations: LOCATION_ID, zip, name, cantonId, canton, latitude, longitude, altitude, view_position
     // settings: SETTING, value
 
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(\
-            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, data TEXT NOT NULL, PRIMARY KEY(timestamp, location_id))');
+            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, data TEXT NOT NULL, day_count INTEGER NOT NULL, PRIMARY KEY(timestamp, location_id))');
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS locations(\
             location_id INTEGER NOT NULL PRIMARY KEY, zip INTEGER NOT NULL, name TEXT NOT NULL,\
@@ -338,7 +338,7 @@ function getDataSummary(locationId) {
 }
 
 function setData(timestamp, locationId, data) {
-    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?);', [timestamp, locationId, data]);
+    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, locationId, data, data.length]);
 
     if (!res) {
         console.log("error: failed to save data for " + locationId + " to db");
@@ -363,6 +363,7 @@ function getData(locationId, mostRecent, newerThan) {
                     locationId: rs.rows.item(i).location_id,
                     timestamp: rs.rows.item(i).timestamp,
                     data: rs.rows.item(i).data,
+                    dayCount: rs.rows.item(i).day_count,
                 });
 
                 if (mostRecent) break;
