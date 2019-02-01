@@ -85,7 +85,7 @@ Item {
     Column {
         id: waitingForData
         width: forecast.width
-        height: 700
+        height: Screen.width
         anchors.verticalCenter: parent.verticalCenter
 
         Behavior on opacity { NumberAnimation { duration: 500 } }
