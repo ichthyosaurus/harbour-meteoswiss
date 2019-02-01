@@ -144,7 +144,7 @@ Column {
 
         Label {
             id: statusLabel
-            text: meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
+            text: meteoApp.dataTimestamp ? meteoApp.dataTimestamp.toLocaleString(Qt.locale(), meteoApp.dateTimeFormat) : qsTr("unknown")
             color: parent.textColor
             font.pixelSize: parent.textSize
         }
