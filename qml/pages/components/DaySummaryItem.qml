@@ -6,6 +6,7 @@ import "../../js/storage.js" as Storage
 
 BackgroundItem {
     property int day
+    property var timestamp
     property int location
     property var data
     property int dayCount
@@ -83,61 +84,42 @@ BackgroundItem {
         }
     }
 
-    function getRain(data) {
-        function prep(value) {
-            if (value < 1) {
-                return Math.round(value*10)/10;
-            } else {
-                return Math.round(value);
-            }
-        }
-
-        if (   !data
-            || (data.minRain == undefined || data.maxRain == undefined)
-            || data.minRain == 0 && data.maxRain == 0
-        ) {
-            return ["", ""];
-        }
-
-        return [prep(data.minRain), prep(data.maxRain)];
-    }
-
-    function getTemp(data) {
-        if (!data || data.minTemp == undefined || data.maxTemp == undefined) {
-            return ["", ""];
-        } else {
-            return [data.minTemp, data.maxTemp];
-        }
-    }
-
     function refreshData(data, locationToUpdate) {
         if (locationToUpdate && locationToUpdate != location) return;
 
-        data = Storage.getDaySummary(location, day, meteoApp.noonHour);
-        var rain = getRain(data);
-        var temp = getTemp(data);
+        var full = Storage.getData(locationId);
+
+        if (full) {
+            dayCount = full[0].dayCount;
+            if (day < dayCount) timestamp = new Date(JSON.parse(full[0].dayDates)[day]);
+        } else {
+            console.log("error: no data to show in day overview");
+            return;
+        }
+
+        data = Storage.getDaySummary(location, timestamp);
+
+        dayElem.value = isToday ? qsTr("Today") : (timestamp != undefined ? timestamp.toLocaleString(Qt.locale(), "ddd") : "");
+        dayElem.refresh();
 
         image.source = String("../../weather-icons/%1.svg").arg(data.symbol);
 
-        tempElem.value = temp[0];
-        tempElem.valueMax = temp[1];
+        tempElem.value = (data.minTemp != undefined ? data.minTemp : "");
+        tempElem.valueMax = (data.maxTemp != undefined ? data.maxTemp : "");;
         tempElem.refresh();
 
-        rainElem.value = rain[0];
-        rainElem.valueMax = rain[1];
+        rainElem.value = (data.precipitation != undefined ? data.precipitation : "");;
         rainElem.refresh();
 
-        if (data.timestamp.toDateString() == new Date().toDateString()) {
+        if (timestamp != undefined && timestamp.toDateString() == new Date().toDateString()) {
             isToday = true;
         } else {
             isToday = false;
         }
-
-        dayElem.value = isToday ? qsTr("Today") : data.timestamp.toLocaleString(Qt.locale(), "ddd");
-        dayElem.refresh();
     }
 
     Component.onCompleted: {
         refreshData();
+        meteoApp.weekSummaryUpdated.connect(refreshData);
     }
 }
