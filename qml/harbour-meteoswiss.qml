@@ -34,6 +34,7 @@ ApplicationWindow {
     property var sourcePathUpdated: new Date("1970-01-01T00:00:00.000Z")
 
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
+    property string timeFormat: qsTr("hh':'mm")
     property string fullDateFormat: qsTr("ddd d MMM yyyy")
 
     property string tempUnit: "°C"

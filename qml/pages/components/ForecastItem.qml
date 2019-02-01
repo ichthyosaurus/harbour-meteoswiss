@@ -1,7 +1,11 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 
 import "../../js/strings.js" as Strings
+import "../../js/suncalc.js" as SunCalc
+import "../../js/storage.js" as Storage
+
 
 Column {
     id: forecast
@@ -120,6 +124,67 @@ Column {
         Behavior on opacity { NumberAnimation { duration: 500 } }
         opacity: active ? 1 : 0
         day: dayId
+    }
+
+    Item { // vertical spacing
+        height: Theme.paddingMedium
+        width: parent.width
+        visible: active
+    }
+
+    Label {
+        id: sunTitle
+        text: qsTr("Sun Times")
+        x: titleLabel.x
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeMedium
+    }
+
+    Row {
+        x: 0
+        height: col1.height + col2.height
+        width: Screen.width
+
+        Column {
+            id: col1
+            spacing: Theme.paddingSmall
+            width: parent.width/2
+
+            DetailItem {
+                id: sunrise
+                label: "Sunrise"
+                value: ""
+            }
+            DetailItem {
+                label: "..."
+                value: "tbd"
+            }
+        }
+
+        Column {
+            id: col2
+            spacing: Theme.paddingSmall
+            width: parent.width/2
+
+            DetailItem {
+                id: sunset
+                label: "Sunset"
+                value: ""
+            }
+            DetailItem {
+                label: "..."
+                value: "tbd"
+            }
+        }
+
+        Component.onCompleted: {
+            var locData = Storage.getLocationData(locationId);
+            var date = new Date(meteoApp.forecastData[dayId].date);
+            var times = SunCalc.SunCalc.getTimes(date, locData[0].latitude, locData[0].longitude);
+            console.log(locationId, locData[0].latitude, locData[0].longitude);
+            sunrise.value = times.sunrise.toLocaleString(Qt.locale(), meteoApp.timeFormat)
+            sunset.value = times.sunset.toLocaleString(Qt.locale(), meteoApp.timeFormat)
+        }
     }
 
     Item { // vertical spacing
