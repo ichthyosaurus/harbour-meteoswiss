@@ -88,6 +88,74 @@
         <comment>time (1) with weather description (2)</comment>
         <translation>%1 Uhr: %2</translation>
     </message>
+    <message>
+        <source>Sun Times</source>
+        <translation>Tageszeiten</translation>
+    </message>
+    <message>
+        <source>Sunrise</source>
+        <translation>Sonnenaufgang</translation>
+    </message>
+    <message>
+        <source>top edge of the sun appears on the horizon</source>
+        <translation>die obere Kante der Sonne erscheint am Horizont</translation>
+    </message>
+    <message>
+        <source>Dawn</source>
+        <translation>Dämmerung</translation>
+    </message>
+    <message>
+        <source>morning civil twilight starts</source>
+        <translation>die Morgendämmerung beginnt</translation>
+    </message>
+    <message>
+        <source>Golden Hour End</source>
+        <translation>Goldene Stunde (Ende)</translation>
+    </message>
+    <message>
+        <source>morning golden hour (soft light, best time for photography) ends</source>
+        <translation>die morgendliche goldene Stunde (warmes Licht, beste Zeit zum Fotografieren) endet</translation>
+    </message>
+    <message>
+        <source>Solar Noon</source>
+        <translation>Mittag</translation>
+    </message>
+    <message>
+        <source>sun is in the highest position</source>
+        <translation>die Sonne steht im höchsten Punkt</translation>
+    </message>
+    <message>
+        <source>Golden Hour</source>
+        <translation>Goldene Stunde</translation>
+    </message>
+    <message>
+        <source>evening golden hour (soft light, best time for photography) starts</source>
+        <translation>die abendliche goldene Stunde (warmes Licht, beste Zeit zum Fotografieren) beginnt</translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <translation>Sonnenuntergang</translation>
+    </message>
+    <message>
+        <source>sun disappears below the horizon, evening civil twilight starts</source>
+        <translation>die Sonne verschwindet hinter dem Horizont; die Abenddämmerung beginnt</translation>
+    </message>
+    <message>
+        <source>Night</source>
+        <translation>Nacht</translation>
+    </message>
+    <message>
+        <source>dark enough for astronomical observations</source>
+        <translation>dunkel genug für astronomische Beobachtungen</translation>
+    </message>
+    <message>
+        <source>Nadir</source>
+        <translation>Mitternacht</translation>
+    </message>
+    <message>
+        <source>darkest moment of the night, sun is in the lowest position</source>
+        <translation>dunkelster Zeitpunkt der Nacht; die Sonne ist im tiefsten Punkt angelangt</translation>
+    </message>
 </context>
 <context>
     <name>ForecastPage</name>
@@ -113,6 +181,10 @@
     <message>
         <source>Search</source>
         <translation>Suchen</translation>
+    </message>
+    <message>
+        <source>Bootstrap debug locations</source>
+        <translation>Debug-Ortschaften hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -155,6 +227,14 @@
     </message>
 </context>
 <context>
+    <name>SunTimesItem</name>
+    <message>
+        <source>%1: %2</source>
+        <comment>sun time title (1) with description (2)</comment>
+        <translation>%1: %2</translation>
+    </message>
+</context>
+<context>
     <name>TablePage</name>
     <message>
         <source>Detailed Forecast</source>
@@ -190,6 +270,10 @@
     <message>
         <source>ddd d MMM yyyy</source>
         <translation>ddd&apos;,&apos; d&apos;.&apos; M&apos;.&apos; yyyy</translation>
+    </message>
+    <message>
+        <source>hh&apos;:&apos;mm</source>
+        <translation>hh&apos;:&apos;mm &apos;Uhr&apos;</translation>
     </message>
 </context>
 </TS>
