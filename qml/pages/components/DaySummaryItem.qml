@@ -97,6 +97,12 @@ BackgroundItem {
             return;
         }
 
+        if (timestamp != undefined && timestamp.toDateString() == new Date().toDateString()) {
+            isToday = true;
+        } else {
+            isToday = false;
+        }
+
         data = Storage.getDaySummary(location, timestamp);
 
         dayElem.value = isToday ? qsTr("Today") : (timestamp != undefined ? timestamp.toLocaleString(Qt.locale(), "ddd") : "");
@@ -110,12 +116,6 @@ BackgroundItem {
 
         rainElem.value = (data.precipitation != undefined ? data.precipitation : "");;
         rainElem.refresh();
-
-        if (timestamp != undefined && timestamp.toDateString() == new Date().toDateString()) {
-            isToday = true;
-        } else {
-            isToday = false;
-        }
     }
 
     Component.onCompleted: {
