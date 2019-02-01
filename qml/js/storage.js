@@ -356,7 +356,9 @@ function getData(locationId, mostRecent, newerThan) {
 
     try {
         db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT * FROM data WHERE location_id=? AND timestamp>=? ORDER BY timestamp DESC;', [locationId, newerThan]);
+            var limit = ";"
+            if (mostRecent) limit = " LIMIT 1;"
+            var rs = tx.executeSql('SELECT * FROM data WHERE location_id=? AND timestamp>=? ORDER BY timestamp DESC' + limit, [locationId, newerThan]);
 
             for (var i = 0; i < rs.rows.length; i++) {
                 res.push({
