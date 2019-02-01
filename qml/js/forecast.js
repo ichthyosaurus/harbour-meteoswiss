@@ -192,6 +192,43 @@ function fallbackToArchive(archived, errorMessage) {
 WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
 
+    if (message && message.type == "weekOverview") {
+        if (!message.locations || message.locations.length == 0) {
+            console.log("note: no locations - week overview not updated");
+            return
+        }
+
+        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzOverview?plz=&small=' + message.locations.join(',') + '&large=');
+
+        try {
+            var week = JSON.parse(json.responseText);
+        } catch (e) {
+            console.log("error: failed to parse week overview json");
+            return;
+        }
+
+        var ret = [];
+        for (var l = 0; l < message.locations.length; l++) {
+            var days = week.forecast[message.locations[l]].forecast
+
+            for (var d = 0; d < (days.length ? days.length : 0); d++) {
+                ret.push({
+                    locationId: message.locations[l],
+                    dayString: days[d].dayDate,
+                    symbol: days[d].iconDay,
+                    precipitation: days[d].precipitation,
+                    tempMin: days[d].temperatureMin,
+                    tempMax: days[d].temperatureMax,
+                });
+            }
+        }
+
+        console.log("UPDATED updated week overviews")
+        WorkerScript.sendMessage({ type: 'weekOverview', age: new Date(), data: ret });
+        return;
+    }
+
+
     var locationId;
     var archived = null;
 
@@ -253,7 +290,13 @@ WorkerScript.onMessage = function(message) {
 
     function getJSON(sourcePath) {
         var json = httpGet('https://www.meteoschweiz.admin.ch' + sourcePath + '/' + locationId + '.json');
-        return JSON.parse(json.responseText);
+
+        try {
+            var ret = JSON.parse(json.responseText);
+            return ret;
+        } catch (e) {
+            return undefined;
+        }
     }
 
     var raw_data = getJSON(sourcePath);

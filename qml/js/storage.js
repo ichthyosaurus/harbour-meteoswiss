@@ -16,13 +16,20 @@ function getDatabase() {
 
 function doInit(db) {
     // Database tables: (primary key in all-caps)
-    // data: TIMESTAMP, LOCATION_ID, data (converted), day_count
+    // data: TIMESTAMP, LOCATION_ID, data (converted), day_count, day_dates
+    // data_overview: DATESTRING, LOCATION_ID, symbol, precipitation, temp_max, temp_min, age
     // locations: LOCATION_ID, zip, name, cantonId, canton, latitude, longitude, altitude, view_position
     // settings: SETTING, value
 
     db.transaction(function(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS data(\
-            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, data TEXT NOT NULL, day_count INTEGER NOT NULL, PRIMARY KEY(timestamp, location_id))');
+            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, data TEXT NOT NULL,\
+            day_count INTEGER NOT NULL, day_dates TEXT NOT NULL, PRIMARY KEY(timestamp, location_id))');
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS data_overview(\
+            datestring STRING NOT NULL, location_id INTEGER NOT NULL, symbol INTEGER NOT NULL,\
+            precipitation INTEGER NOT NULL, temp_max INTEGER NOT NULL, temp_min INTEGER NOT NULL,\
+            age INTEGER NOT NULL, PRIMARY KEY(datestring, location_id))');
 
         tx.executeSql('CREATE TABLE IF NOT EXISTS locations(\
             location_id INTEGER NOT NULL PRIMARY KEY, zip INTEGER NOT NULL, name TEXT NOT NULL,\
@@ -165,6 +172,25 @@ function setCoverLocation(locationId) {
     return res;
 }
 
+function getLocationsList() {
+    var db = getDatabase();
+    var res = [];
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM locations;', []);
+
+            for (var i = 0; i < rs.rows.length; i++) {
+                res.push(rs.rows.item(i).location_id);
+            }
+        });
+    } catch(e) {
+        console.log("error while loading locations list")
+    }
+
+    return res;
+}
+
 function getLocationData(locationId) {
     var db = getDatabase();
     var res = [];
@@ -257,38 +283,67 @@ function getCurrentSymbolHour() {
     return hour;
 }
 
-function getDaySummary(locationId, day, symbolHour) {
+function setDaySummary(locationId, dayString, symbol, precipitation, tempMin, tempMax) {
+    var res = simpleQuery('INSERT OR REPLACE INTO data_overview VALUES (?,?,?,?,?,?,?);', [
+        dayString, locationId, symbol, precipitation, tempMax, tempMin, Date.now()
+    ]);
+
+    if (!res) {
+        console.log("error: failed to save day summary data for " + locationId + " to db");
+    }
+
+    return res;
+}
+
+function getDaySummaryAge() {
+    var db = getDatabase();
+    var res = new Date(0);
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM data_overview ORDER BY age DESC LIMIT 1;', []);
+
+            if (rs.rows.length > 0) {
+                res.setTime(rs.rows.item(0).age);
+            } else {
+                res.setTime(0);
+            }
+        });
+    } catch(e) {
+        console.log("error while loading day summary age");
+    }
+
+    return res;
+}
+
+function getDaySummary(locationId, dayDate) {
     var res = {
-        timestamp: undefined,
         symbol: 0,
         minTemp: undefined,
         maxTemp: undefined,
-        minRain: undefined,
-        maxRain: undefined,
+        precipitation: undefined,
     };
 
-    var data = getData(locationId, true);
-    data = data.length > 0 ? data[0] : undefined;
+    if (locationId == undefined || dayDate == undefined) return res;
 
-    if (!data) {
-        console.log("error: failed to get day data summary for", locationId)
-        return res;
+    var db = getDatabase();
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM data_overview WHERE location_id=? AND datestring=? LIMIT 1;', [locationId, dayDate.toISOString().split("T")[0]]);
+
+            if (rs.rows.length > 0) {
+                res.symbol = rs.rows.item(0).symbol;
+                res.precipitation = rs.rows.item(0).precipitation;
+                res.maxTemp = rs.rows.item(0).temp_max;
+                res.minTemp = rs.rows.item(0).temp_min;
+            } else {
+                console.log("error while loading day overview: no data");
+            }
+        });
+    } catch(e) {
+        console.log("error while loading day summary data: locationId=" + locationId + " date=" + dayDate.toISOString());
     }
-
-    var full = JSON.parse(data.data);
-
-    if (full.length <= day) {
-        console.log("error: no data for day " + day + " available", locationId);
-        return res;
-    }
-
-    res.maxTemp = Math.max.apply(Math, full[day].temperature.datasets[0].data);
-    res.minTemp = Math.min.apply(Math, full[day].temperature.datasets[0].data);
-    res.maxRain = Math.max.apply(Math, full[day].rainfall.datasets[0].data);
-    res.minRain = Math.min.apply(Math, full[day].rainfall.datasets[0].data);
-    res.symbol = full[day].temperature.datasets[0].symbols[symbolHour];
-
-    res.timestamp = new Date(full[day].date);
 
     return res;
 }
@@ -338,7 +393,15 @@ function getDataSummary(locationId) {
 }
 
 function setData(timestamp, locationId, data) {
-    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?);', [timestamp, locationId, data, data.length]);
+    var times = [];
+    for (var i = 0; i < data.length; i++) {
+        times.push(data[i].date);
+    }
+
+    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?,?);', [
+        timestamp, locationId, JSON.stringify(data),
+        data.length, JSON.stringify(times)
+    ]);
 
     if (!res) {
         console.log("error: failed to save data for " + locationId + " to db");
@@ -366,6 +429,7 @@ function getData(locationId, mostRecent, newerThan) {
                     timestamp: rs.rows.item(i).timestamp,
                     data: rs.rows.item(i).data,
                     dayCount: rs.rows.item(i).day_count,
+                    dayDates: rs.rows.item(i).day_dates,
                 });
 
                 if (mostRecent) break;

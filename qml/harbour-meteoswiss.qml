@@ -16,6 +16,7 @@ ApplicationWindow {
     signal dataIsLoading(var locationId)
     signal refreshData(var location, var force)
     signal locationAdded(var locationData)
+    signal weekSummaryUpdated()
 
     // ===============================
     // ATTENTION UPDATE BEFORE RELEASE
@@ -27,6 +28,7 @@ ApplicationWindow {
     property var forecastData: Forecast.fullData
     property var dataIsReady: ({})
     property var dataTimestamp
+    property var overviewTimestamp
 
     property var sourceBasePath: ""
     property var sourcePathUpdated: new Date("1970-01-01T00:00:00.000Z")
@@ -54,10 +56,19 @@ ApplicationWindow {
             if (messageObject.type == 'path') {
                 meteoApp.sourceBasePath = messageObject.source
                 meteoApp.sourcePathUpdated = messageObject.age
+            } else if (messageObject.type == 'weekOverview') {
+                meteoApp.overviewTimestamp = messageObject.age;
+
+                for (var i = 0; i < messageObject.data.length; i++) {
+                    var d = messageObject.data[i];
+                    Storage.setDaySummary(d.locationId, d.dayString, d.symbol, d.precipitation, d.tempMin, d.tempMax);
+                }
+
+                weekSummaryUpdated();
             } else {
                 meteoApp.dataTimestamp = new Date(messageObject.timestamp)
                 meteoApp.forecastData = messageObject.data
-                Storage.setData(messageObject.timestamp, messageObject.locationId, JSON.stringify(messageObject.data))
+                Storage.setData(messageObject.timestamp, messageObject.locationId, messageObject.data)
                 meteoApp.dataIsReady[messageObject.locationId] = true
                 dataLoaded(messageObject.data, messageObject.locationId)
             }
@@ -65,6 +76,19 @@ ApplicationWindow {
     }
 
     function doRefreshData(locationId, force) {
+        if (!overviewTimestamp) {
+            overviewTimestamp = Storage.getDaySummaryAge();
+        }
+
+        if (Date.now() - overviewTimestamp.getTime() > 60*60*1000) {
+            overviewTimestamp = new Date()
+            var locs = Storage.getLocationsList();
+            dataLoader.sendMessage({
+                type: "weekOverview",
+                locations: locs,
+            });
+        }
+
         if (locationId) {
             console.log("refreshing " + locationId + "...")
             meteoApp.dataIsReady[locationId] = false
@@ -76,10 +100,11 @@ ApplicationWindow {
             }
 
             dataLoader.sendMessage({
+                type: "forecast",
                 data: archived.length > 0 ? archived[0] : null,
                 locationId: locationId,
-                source: sourceBasePath,
-                sourceAge: sourcePathUpdated,
+                source: meteoApp.sourceBasePath,
+                sourceAge: meteoApp.sourcePathUpdated,
             })
         } else {
             console.log("refreshing all known locations...")

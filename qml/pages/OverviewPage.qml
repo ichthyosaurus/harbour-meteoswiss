@@ -284,26 +284,27 @@ Page {
                 id: summaryRow
                 width: parent.width
                 anchors.top: vertSpace.bottom
+                property var full: defaultFor(Storage.getData(locationId), [{date: Date.now(), dayCount: 0}])
+
                 visible: index < 3 // show only first 3 locations with details
 
                 Repeater {
-                    model: defaultFor(Storage.getData(locationId)[0], {dayCount: 0}).dayCount
+                    model: summaryRow.full[0] && summaryRow.full[0].dayCount
 
                     DaySummaryItem {
                         location: locationId
                         day: index
-                        dayCount: model
+                        dayCount: summaryRow.full[0] && summaryRow.full[0].dayCount
 
                         Component.onCompleted: {
                             summaryClicked.connect(function(day, loc) { showForecast(day); })
-                            overviewPage.dataUpdated.connect(refreshData);
                         }
                     }
                 }
             }
 
             Rectangle {
-                visible: index >= 3
+                visible: index >= 3 || summaryRow.height == 0
                 anchors.fill: parent
                 gradient: Gradient {
                     GradientStop { position: 0.0; color: "transparent" }
