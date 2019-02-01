@@ -12,6 +12,8 @@ Page {
     signal loadingFinished(var locationId)
     signal dataUpdated(var newData, var locationId)
 
+    function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
+
     function getTemperatureString(temperature) {
         return (temperature === undefined) ? "" : temperature + " °C";
     }
@@ -285,11 +287,12 @@ Page {
                 visible: index < 3 // show only first 3 locations with details
 
                 Repeater {
-                    model: 6
+                    model: defaultFor(Storage.getData(locationId)[0], {dayCount: 0}).dayCount
 
                     DaySummaryItem {
                         location: locationId
                         day: index
+                        dayCount: model
 
                         Component.onCompleted: {
                             summaryClicked.connect(function(day, loc) { showForecast(day); })

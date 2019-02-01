@@ -8,13 +8,16 @@ BackgroundItem {
     property int day
     property int location
     property var data
+    property int dayCount
 
     property bool primary: false
     property bool selected: false
     property bool isToday: false
 
-    width: parent.width/6
+    width: dayCount > 0 ? parent.width/dayCount : 0
     height: column.height + Theme.paddingSmall
+
+    visible: day < dayCount
 
     signal summaryClicked(int day, int location)
 
