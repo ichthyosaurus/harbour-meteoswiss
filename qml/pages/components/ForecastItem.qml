@@ -142,38 +142,57 @@ Column {
 
     Row {
         x: 0
-        height: col1.height + col2.height
         width: Screen.width
 
         Column {
-            id: col1
             spacing: Theme.paddingSmall
             width: parent.width/2
 
             DetailItem {
                 id: sunrise
-                label: "Sunrise"
+                label: qsTr("Sunrise")
                 value: ""
             }
             DetailItem {
-                label: "..."
-                value: "tbd"
+                id: dawn
+                label: qsTr("Dawn")
+                value: ""
+            }
+            DetailItem {
+                id: morningGoldenHourEnd
+                label: qsTr("Golden Hour End")
+                value: ""
+            }
+            DetailItem {
+                id: solarNoon
+                label: qsTr("Solar Noon")
+                value: ""
             }
         }
 
         Column {
-            id: col2
             spacing: Theme.paddingSmall
             width: parent.width/2
 
             DetailItem {
-                id: sunset
-                label: "Sunset"
+                id: eveningGoldenHour
+                label: qsTr("Golden Hour")
                 value: ""
             }
             DetailItem {
-                label: "..."
-                value: "tbd"
+                id: sunset
+                label: qsTr("Sunset")
+                value: ""
+            }
+            DetailItem {
+                id: night
+                label: qsTr("Night")
+                value: ""
+            }
+            DetailItem {
+                id: nadir
+                label: qsTr("Nadir")
+                value: ""
             }
         }
 
@@ -181,9 +200,19 @@ Column {
             var locData = Storage.getLocationData(locationId);
             var date = new Date(meteoApp.forecastData[dayId].date);
             var times = SunCalc.SunCalc.getTimes(date, locData[0].latitude, locData[0].longitude);
-            console.log(locationId, locData[0].latitude, locData[0].longitude);
-            sunrise.value = times.sunrise.toLocaleString(Qt.locale(), meteoApp.timeFormat)
-            sunset.value = times.sunset.toLocaleString(Qt.locale(), meteoApp.timeFormat)
+
+            function set(target, value) {
+                target.value = value.toLocaleString(Qt.locale(), meteoApp.timeFormat);
+            }
+
+            set(sunrise, times.sunrise);
+            set(dawn, times.dawn);
+            set(morningGoldenHourEnd, times.goldenHourEnd);
+            set(solarNoon, times.solarNoon);
+            set(eveningGoldenHour, times.goldenHour);
+            set(sunset, times.sunset);
+            set(night, times.night);
+            set(nadir, times.nadir);
         }
     }
 
