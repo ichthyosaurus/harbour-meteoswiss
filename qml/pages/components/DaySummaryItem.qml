@@ -126,6 +126,8 @@ BackgroundItem {
 
         if (data.timestamp.toDateString() == new Date().toDateString()) {
             isToday = true;
+        } else {
+            isToday = false;
         }
 
         dayElem.value = isToday ? qsTr("Today") : data.timestamp.toLocaleString(Qt.locale(), "ddd");
