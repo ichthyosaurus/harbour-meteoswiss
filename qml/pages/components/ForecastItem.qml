@@ -145,54 +145,60 @@ Column {
         width: Screen.width
 
         Column {
-            spacing: Theme.paddingSmall
             width: parent.width/2
 
-            DetailItem {
+            SunTimesItem {
                 id: sunrise
                 label: qsTr("Sunrise")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("top edge of the sun appears on the horizon")
             }
-            DetailItem {
+            SunTimesItem {
                 id: dawn
                 label: qsTr("Dawn")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("morning civil twilight starts")
             }
-            DetailItem {
+            SunTimesItem {
                 id: morningGoldenHourEnd
                 label: qsTr("Golden Hour End")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("morning golden hour (soft light, best time for photography) ends")
             }
-            DetailItem {
+            SunTimesItem {
                 id: solarNoon
                 label: qsTr("Solar Noon")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("sun is in the highest position")
             }
         }
 
         Column {
-            spacing: Theme.paddingSmall
             width: parent.width/2
 
-            DetailItem {
+            SunTimesItem {
                 id: eveningGoldenHour
                 label: qsTr("Golden Hour")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("evening golden hour (soft light, best time for photography) starts")
             }
-            DetailItem {
+            SunTimesItem {
                 id: sunset
                 label: qsTr("Sunset")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("sun disappears below the horizon, evening civil twilight starts")
             }
-            DetailItem {
+            SunTimesItem {
                 id: night
                 label: qsTr("Night")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("dark enough for astronomical observations")
             }
-            DetailItem {
+            SunTimesItem {
                 id: nadir
                 label: qsTr("Nadir")
-                value: ""
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("darkest moment of the night, sun is in the lowest position")
             }
         }
 
@@ -218,6 +224,24 @@ Column {
 
     Item { // vertical spacing
         height: Theme.paddingMedium
+        width: parent.width
+        visible: active
+    }
+
+    Label {
+        id: sunDescriptionLabel
+        x: (parent.x + parent.width/2) - (width/2)
+        width: parent.width - 4*parent.x
+        text: " "
+
+        color: Theme.secondaryColor
+        font.pixelSize: Theme.fontSizeSmall
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+    }
+
+    Item { // vertical spacing
+        height: Theme.paddingLarge
         width: parent.width
         visible: active
     }
