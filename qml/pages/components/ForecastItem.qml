@@ -138,11 +138,13 @@ Column {
         x: titleLabel.x
         color: Theme.highlightColor
         font.pixelSize: Theme.fontSizeMedium
+        visible: active
     }
 
     Row {
         x: 0
-        width: Screen.width
+        width: isPortrait ? Screen.width : Screen.height
+        visible: active
 
         Column {
             width: parent.width/2
@@ -238,6 +240,7 @@ Column {
         font.pixelSize: Theme.fontSizeSmall
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
+        visible: active
     }
 
     Item { // vertical spacing
