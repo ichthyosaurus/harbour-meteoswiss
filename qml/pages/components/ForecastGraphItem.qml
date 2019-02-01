@@ -160,14 +160,16 @@ Item {
             rain = meteoApp.forecastData[day].rainfall
             wind = meteoApp.forecastData[day].wind
 
-            tempLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: chart.width, scaleOnly: false })
-            tempScaleLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: Screen.width, scaleOnly: true })
+            var isToday = (new Date(meteoApp.forecastData[day].date).toDateString() == new Date().toDateString());
 
-            rainLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: chart.width, scaleOnly: false })
-            rainScaleLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: Screen.width, scaleOnly: true })
+            tempLoader.setSource("TemperatureChart.qml",      { height: chart.tempHeight, width: chart.width,  scaleOnly: false, isToday: isToday })
+            tempScaleLoader.setSource("TemperatureChart.qml", { height: chart.tempHeight, width: Screen.width, scaleOnly: true,  isToday: isToday })
 
-            windLoader.setSource("WindChart.qml", { height: chart.windHeight, width: chart.width, scaleOnly: false })
-            windScaleLoader.setSource("WindChart.qml", { height: chart.windHeight, width: Screen.width, scaleOnly: true })
+            rainLoader.setSource("RainChart.qml",      { height: chart.rainHeight, width: chart.width,  scaleOnly: false, isToday: isToday })
+            rainScaleLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: Screen.width, scaleOnly: true,  isToday: isToday })
+
+            windLoader.setSource("WindChart.qml",      { height: chart.windHeight, width: chart.width,  scaleOnly: false, isToday: isToday })
+            windScaleLoader.setSource("WindChart.qml", { height: chart.windHeight, width: Screen.width, scaleOnly: true,  isToday: isToday })
         } else {
             console.log("chart for day", day, "(" + locationId + ") not updated: data is not ready")
         }

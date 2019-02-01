@@ -8,6 +8,7 @@ import "../../qchart/QChart.js" as Charts
 QChart {
     id: rainChart
     property bool scaleOnly: false
+    property bool isToday: false
 
     chartAnimated: false
     chartData: rain ? rain : { labels: [], datasets: [{ fillColor: getFillColor(), strokeColor: getStrokeColor(), pointColor: "rgba(0,0,0,0)", data: [] }]}
@@ -20,7 +21,7 @@ QChart {
         scaleShowLabels: true,
         scaleStartValue: 0.0,
         scaleOverlay: scaleOnly,
-        currentHourLine: true,
+        currentHourLine: isToday,
         barOverlay: true,
 
         fillColor: [getFillColor(), "rgba(151,187,205,0.1)", "rgba(151,187,205,0.1)"],

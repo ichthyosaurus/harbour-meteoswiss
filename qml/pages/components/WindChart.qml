@@ -8,6 +8,7 @@ import "../../qchart/QChart.js" as Charts
 QChart {
     id: windChart
     property bool scaleOnly: false
+    property bool isToday: false
 
     chartAnimated: false
     chartData: wind ? wind : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
@@ -22,7 +23,7 @@ QChart {
         scaleStartValue: 0,
         datasetStrokeWidth: 2,
         pointDot: false,
-        currentHourLine: true,
+        currentHourLine: isToday,
 
         fillColor: ["rgba(0,0,0,0)"],
         strokeColor: ["rgba(255,255,0,1)"],
