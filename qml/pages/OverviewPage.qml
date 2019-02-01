@@ -154,7 +154,7 @@ Page {
 
                             var pairs = []
                             for (var i = 0; i < locationsModel.count; i++) {
-                                pairs.push({ locationId: locationsModel.get(i).locationId, position: i })
+                                pairs.push({ locationId: locationsModel.get(i).locationId, viewPosition: i })
                             }
                             Storage.setOverviewPositions(pairs)
                         }

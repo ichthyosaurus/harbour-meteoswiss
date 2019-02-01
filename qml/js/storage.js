@@ -229,28 +229,29 @@ function getLocationData(locationId) {
 
 function setOverviewPositions(dataPairs) {
     var db = getDatabase();
-    var res = undefined;
+    var res = 0;
     dataPairs = defaultFor(dataPairs, []);
 
     try {
         db.transaction(function(tx) {
             for (var i = 0; i < dataPairs.length; i++) {
+                console.log(dataPairs[i].viewPosition, dataPairs[i].locationId)
                 var rs = tx.executeSql('UPDATE locations SET view_position=? WHERE location_id=?;', [dataPairs[i].viewPosition, dataPairs[i].locationId]);
 
                 if (rs.rowsAffected !== 1) {
                     console.log("error: failed to update view position for " + dataPairs[i].locationId);
+                } else {
+                    res += 1;
                 }
-
-                res += rs.rowsAffected;
             }
         });
     } catch(e) {
-        console.log("error in query:", values);
+        console.log("error in query:", dataPairs);
         res = undefined;
     }
 
     if (res !== dataPairs.length) {
-        console.log("error: failed to save overview positions");
+        console.log("error: failed to save overview positions (" + (res ? res : 0) + "/" + dataPairs.length + " ok)");
     }
 
     return res;
