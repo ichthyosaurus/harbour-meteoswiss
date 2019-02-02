@@ -3,7 +3,7 @@
 // ATTENTION if there are duplicates, the hash function has to be adapted and changed
 // in qml/js/locations-details.js
 //
-// update original unprocessed locations list with: sed -f x locations-details.js > newlox.js
+// update original unprocessed locations list with: sed -f x locations-base.js > newlox.js
 
 function hash(token) {
     var a = token.substr(1, 3);
@@ -4255,8 +4255,9 @@ function quote(string) {
 // do hashing
 
 for (var i = 0; i < LocationsList.length; i++) {
-    print("s/" + quote(LocationsList[i]).replace(/\\/g, "\\\\").replace(/\//g, "\\/") + "/" + quote(hash(LocationsList[i])) + "/g;");
+    var src = quote(LocationsList[i]).replace(/\\/g, "\\\\").replace(/\//g, "\\/");
+    var to  = quote(hash(LocationsList[i])).replace(/\\/g, "\\\\").replace(/\//g, "\\/");
+    print("s/" + src + "/" + to + "/g;");
 }
 
-print('s/    "/"/g;');
 print('s/\"\: \{/":{/g;');
