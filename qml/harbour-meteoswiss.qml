@@ -21,7 +21,7 @@ ApplicationWindow {
     // ===============================
     // ATTENTION UPDATE BEFORE RELEASE
     // -------------------------------
-    property string version: "1.1.1-1"
+    property string version: "1.2.0-dev"
     property bool debug:     true
     // ===============================
 
