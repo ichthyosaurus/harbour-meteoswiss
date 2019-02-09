@@ -173,7 +173,7 @@ Page {
                 }
             }
 
-            contentHeight: labelColumn.height + (summaryRow.visible ? summaryRow.height : 0) + vertSpace.height + labelColumn.y
+            contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
 
             function showForecast(activeDay) {
                 meteoApp.refreshData(locationId, false)
@@ -279,31 +279,45 @@ Page {
                 width: parent.width
             }
 
-            Row {
-                id: summaryRow
-                width: parent.width
-                anchors.top: vertSpace.bottom
-                property var full: defaultFor(Storage.getData(locationId), [{date: Date.now(), dayCount: 0}])
-
+            Column {
+                id: overviewColumn
                 visible: index < 3 // show only first 3 locations with details
+                anchors.top: vertSpace.bottom
 
-                Repeater {
-                    model: summaryRow.full[0] && summaryRow.full[0].dayCount
+                Loader {
+                    asynchronous: true
+                    visible: status == Loader.Ready
+                    width: (isPortrait ? Screen.width : Screen.height) - Theme.paddingMedium
+                    height: labelColumn.height
 
-                    DaySummaryItem {
-                        location: locationId
-                        day: index
-                        dayCount: summaryRow.full[0] && summaryRow.full[0].dayCount
+                    Component.onCompleted: {
+                        setSource("components/DayOverviewGraphItem.qml", {location: locationId, day: 0})
+                    }
+                }
 
-                        Component.onCompleted: {
-                            summaryClicked.connect(function(day, loc) { showForecast(day); })
+                Row {
+                    id: summaryRow
+                    width: parent.width
+                    property var full: defaultFor(Storage.getData(locationId), [{date: Date.now(), dayCount: 0}])
+
+                    Repeater {
+                        model: summaryRow.full[0] && summaryRow.full[0].dayCount
+
+                        DaySummaryItem {
+                            location: locationId
+                            day: index
+                            dayCount: summaryRow.full[0] && summaryRow.full[0].dayCount
+
+                            Component.onCompleted: {
+                                summaryClicked.connect(function(day, loc) { showForecast(day); })
+                            }
                         }
                     }
                 }
             }
 
             Rectangle {
-                visible: index >= 3 || summaryRow.height == 0
+                visible: index >= 3 || overviewColumn.height == 0
                 anchors.fill: parent
                 gradient: Gradient {
                     GradientStop { position: 0.0; color: "transparent" }
