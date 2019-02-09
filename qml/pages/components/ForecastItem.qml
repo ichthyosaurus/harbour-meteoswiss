@@ -101,8 +101,8 @@ Column {
 
         Label {
             id: descriptionLabel
-            x: (parent.x + parent.width/2) - (width/2)
-            width: parent.width - 4*parent.x
+            x: 2*parent.x
+            width: (isPortrait ? Screen.width : Screen.height) - 2*x
 
             color: Theme.secondaryColor
             font.pixelSize: Theme.fontSizeSmall
