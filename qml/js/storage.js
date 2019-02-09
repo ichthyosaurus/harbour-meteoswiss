@@ -1,10 +1,13 @@
+.pragma library
+.import QtQuick.LocalStorage 2.0 as LS
+
 
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
 var initialized = false
 
 function getDatabase() {
-    var db = LocalStorage.openDatabaseSync("harbour-meteoswiss", "2.0", "MeteoSwiss Offline Cache", 1000000);
+    var db = LS.LocalStorage.openDatabaseSync("harbour-meteoswiss", "2.0", "MeteoSwiss Offline Cache", 1000000);
 
     if (!initialized) {
         doInit(db);

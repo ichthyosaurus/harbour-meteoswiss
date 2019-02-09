@@ -1,3 +1,5 @@
+.pragma library
+
 var Locations = {
 "000aann":{i:100010,la:153859,lo:539324,al:615},
 "001aann":{i:100101,la:152062,lo:538086,al:450},

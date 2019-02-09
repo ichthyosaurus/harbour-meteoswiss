@@ -1,3 +1,5 @@
+.pragma library
+
 var Cantons = {
     "ZH": "Zürich",
     "BE": "Bern",

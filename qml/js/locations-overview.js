@@ -1,3 +1,5 @@
+.pragma library
+
 var LocationsList = [
     "1001 Lausanne (VD)",
     "1002 Lausanne (VD)",
