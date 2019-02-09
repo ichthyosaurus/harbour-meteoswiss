@@ -93,68 +93,76 @@
         <translation>Tageszeiten</translation>
     </message>
     <message>
-        <source>Sunrise</source>
-        <translation>Sonnenaufgang\x9cSonnen-aufgang</translation>
-    </message>
-    <message>
         <source>top edge of the sun appears on the horizon</source>
         <translation>die obere Kante der Sonne erscheint am Horizont</translation>
-    </message>
-    <message>
-        <source>Dawn</source>
-        <translation>Morgendämmerung\x9cMorgen-dämmerung\x9cDämmerung\x9cMorgendäm-merung</translation>
-    </message>
-    <message>
-        <source>morning civil twilight starts</source>
-        <translation>die Morgendämmerung beginnt</translation>
-    </message>
-    <message>
-        <source>Golden Hour End</source>
-        <translation>Goldene Stunde (Ende)\x9cGoldene Stunde</translation>
     </message>
     <message>
         <source>morning golden hour (soft light, best time for photography) ends</source>
         <translation>die morgendliche goldene Stunde (warmes Licht, beste Zeit zum Fotografieren) endet</translation>
     </message>
     <message>
-        <source>Solar Noon</source>
-        <translation>Mittag</translation>
-    </message>
-    <message>
         <source>sun is in the highest position</source>
         <translation>die Sonne steht im höchsten Punkt</translation>
-    </message>
-    <message>
-        <source>Golden Hour</source>
-        <translation>Goldene Stunde (Anfang)\x9cGoldene Stunde</translation>
     </message>
     <message>
         <source>evening golden hour (soft light, best time for photography) starts</source>
         <translation>die abendliche goldene Stunde (warmes Licht, beste Zeit zum Fotografieren) beginnt</translation>
     </message>
     <message>
-        <source>Sunset</source>
-        <translation>Sonnenuntergang\x9cSonnen-untergang</translation>
-    </message>
-    <message>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
         <translation>die Sonne verschwindet hinter dem Horizont; die Abenddämmerung beginnt</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Nacht</translation>
     </message>
     <message>
         <source>dark enough for astronomical observations</source>
         <translation>dunkel genug für astronomische Beobachtungen</translation>
     </message>
     <message>
-        <source>Nadir</source>
-        <translation>Mitternacht\x9cMitter-nacht</translation>
-    </message>
-    <message>
         <source>darkest moment of the night, sun is in the lowest position</source>
         <translation>dunkelster Zeitpunkt der Nacht; die Sonne ist im tiefsten Punkt angelangt</translation>
+    </message>
+    <message>
+        <source>morning civil twilight starts</source>
+        <translation>die Morgendämmerung beginnt</translation>
+    </message>
+    <message>
+        <source>Dawn</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Morgendämmerung\x9cMorgen-dämmerung\x9cDämmerung\x9cMorgendäm-merung</translation>
+    </message>
+    <message>
+        <source>Sunrise</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Sonnenaufgang\x9cSonnen-aufgang</translation>
+    </message>
+    <message>
+        <source>Golden Hour End</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Goldene Stunde (Ende)\x9cGoldene Stunde</translation>
+    </message>
+    <message>
+        <source>Solar Noon</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Mittag</translation>
+    </message>
+    <message>
+        <source>Golden Hour</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Goldene Stunde (Anfang)\x9cGoldene Stunde</translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Sonnenuntergang\x9cSonnen-untergang</translation>
+    </message>
+    <message>
+        <source>Night</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Nacht</translation>
+    </message>
+    <message>
+        <source>Nadir</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Mitternacht\x9cMitter-nacht</translation>
     </message>
 </context>
 <context>

@@ -93,68 +93,76 @@
         <translation>Sun Times</translation>
     </message>
     <message>
-        <source>Sunrise</source>
-        <translation>Sunrise</translation>
-    </message>
-    <message>
         <source>top edge of the sun appears on the horizon</source>
         <translation>top edge of the sun appears on the horizon</translation>
-    </message>
-    <message>
-        <source>Dawn</source>
-        <translation>Dawn</translation>
-    </message>
-    <message>
-        <source>morning civil twilight starts</source>
-        <translation>morning civil twilight starts</translation>
-    </message>
-    <message>
-        <source>Golden Hour End</source>
-        <translation>Golden Hour End</translation>
     </message>
     <message>
         <source>morning golden hour (soft light, best time for photography) ends</source>
         <translation>morning golden hour (soft light, best time for photography) ends</translation>
     </message>
     <message>
-        <source>Solar Noon</source>
-        <translation>Solar Noon</translation>
-    </message>
-    <message>
         <source>sun is in the highest position</source>
         <translation>sun is in the highest position</translation>
-    </message>
-    <message>
-        <source>Golden Hour</source>
-        <translation>Golden Hour</translation>
     </message>
     <message>
         <source>evening golden hour (soft light, best time for photography) starts</source>
         <translation>evening golden hour (soft light, best time for photography) starts</translation>
     </message>
     <message>
-        <source>Sunset</source>
-        <translation>Sunset</translation>
-    </message>
-    <message>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
         <translation>sun disappears below the horizon, evening civil twilight starts</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Night</translation>
     </message>
     <message>
         <source>dark enough for astronomical observations</source>
         <translation>dark enough for astronomical observations</translation>
     </message>
     <message>
-        <source>Nadir</source>
-        <translation>Nadir</translation>
-    </message>
-    <message>
         <source>darkest moment of the night, sun is in the lowest position</source>
         <translation>darkest moment of the night, sun is in the lowest position</translation>
+    </message>
+    <message>
+        <source>morning civil twilight starts</source>
+        <translation>morning civil twilight starts</translation>
+    </message>
+    <message>
+        <source>Dawn</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Dawn</translation>
+    </message>
+    <message>
+        <source>Sunrise</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Sunrise</translation>
+    </message>
+    <message>
+        <source>Golden Hour End</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Golden Hour End</translation>
+    </message>
+    <message>
+        <source>Solar Noon</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Solar Noon</translation>
+    </message>
+    <message>
+        <source>Golden Hour</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Golden Hour</translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Sunset</translation>
+    </message>
+    <message>
+        <source>Night</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Night</translation>
+    </message>
+    <message>
+        <source>Nadir</source>
+        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <translation>Nadir</translation>
     </message>
 </context>
 <context>
