@@ -65,7 +65,7 @@ BackgroundItem {
             source: String("../../weather-icons/%1.svg").arg(0)
             verticalAlignment: Image.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            opacity: (primary ? 0.8 : (isToday ? 0.8 : 0.65))
+            opacity: (primary ? 0.8 : (isToday ? 0.9 : 0.7))
         }
 
         ForecastSummaryItemLabel {
