@@ -2,6 +2,28 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Feb 09 2019 Mirian Margiani <mirian@margiani.ch> 1.2.0-1
+- backwards incompatible: store more locations details and week summaries in database
+- include more details in shipped list of locations
+- attempt to reduce network load by caching source paths
+- make clock on overview page non-clickable
+- highlight items on overview page to make them more distinct
+- prevent day summaries from flickering when selected
+- improve some error messages
+- mark current day in overview page's week overview
+- use API fromt he official app to load better week summaries
+- improve handling of missing data
+- show sunrise and other sun times for each day
+- fix saving locations order (regression from version 1.1.0)
+- indicate current hour only in today's charts
+- greatly improve performance:
+    - general loading
+    - data loading from network
+    - search page, searching
+    - details page
+- add tiny overview charts to overview page
+- plus some minor visual improvements
+
 * Tue Jan 29 2019 Mirian Margiani <mirian@margiani.ch> 1.1.1-1
 - visually overhaul forecast page
 - show week overview for first 3 locations on overview page
