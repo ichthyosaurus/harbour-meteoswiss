@@ -88,6 +88,11 @@ ApplicationWindow {
                 type: "weekOverview",
                 locations: locs,
             });
+        } else if (locationId && force) {
+            dataLoader.sendMessage({
+                type: "weekOverview",
+                locations: [locationId],
+            });
         }
 
         if (locationId) {
