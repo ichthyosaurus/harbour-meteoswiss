@@ -9,12 +9,13 @@ QChart {
     id: rainChart
     property bool scaleOnly: false
     property bool isToday: false
+    property bool asOverview: false
 
     chartAnimated: false
     chartData: rain ? rain : { labels: [], datasets: [{ fillColor: getFillColor(), strokeColor: getStrokeColor(), pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.BAR
     chartOptions: ({
-        scaleFontSize: Theme.fontSizeExtraSmall,
+        scaleFontSize: Theme.fontSizeExtraSmall * (asOverview ? (4/5) : 1),
         scaleFontFamily: 'Sail Sans Pro',
         scaleFontColor: Theme.secondaryColor,
         scaleLineColor: Theme.secondaryColor,
@@ -23,6 +24,7 @@ QChart {
         scaleOverlay: scaleOnly,
         currentHourLine: isToday,
         barOverlay: true,
+        asOverview: asOverview,
 
         fillColor: [getFillColor(), "rgba(151,187,205,0.1)", "rgba(151,187,205,0.1)"],
         strokeColor: [getStrokeColor(), "rgba(151,187,205,0.6)", "rgba(151,187,205,0.6)"],
