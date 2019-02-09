@@ -198,6 +198,7 @@ Item {
 
     onAppStateChanged: {
         if (Qt.application.state === Qt.ApplicationActive) {
+            forecast.loaded = false;
             loadCharts();
         }
     }
