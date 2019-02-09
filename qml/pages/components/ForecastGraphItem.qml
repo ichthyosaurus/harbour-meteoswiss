@@ -39,7 +39,7 @@ Item {
                 spacing: Theme.paddingLarge
 
                 visible: forecast.loaded
-                Behavior on opacity { NumberAnimation { duration: 500 } }
+                Behavior on opacity { NumberAnimation { duration: 50 } }
                 opacity: forecast.loaded ? 1 : 0
 
                 property int tempHeight: 500
@@ -54,6 +54,7 @@ Item {
 
                 Loader {
                     id: tempLoader
+                    asynchronous: true
                     // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
                 }
 
@@ -65,6 +66,7 @@ Item {
 
                 Loader {
                     id: rainLoader
+                    asynchronous: true
                     // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
                 }
 
@@ -77,6 +79,7 @@ Item {
                 Loader {
                     id: windLoader
                     onLoaded: forecast.loaded = true
+                    asynchronous: true
                 }
             }
         }
@@ -88,7 +91,7 @@ Item {
         height: Screen.width
         anchors.verticalCenter: parent.verticalCenter
 
-        Behavior on opacity { NumberAnimation { duration: 500 } }
+        Behavior on opacity { NumberAnimation { duration: 50 } }
         opacity: forecast.loaded ? 0 : 1
         visible: forecast.loaded ? false : true
 
@@ -124,9 +127,10 @@ Item {
         id: tempScaleLoader
         x: tempLoader.x
         y: tempLoader.y
+        asynchronous: true
 
         visible: forecast.loaded
-        Behavior on opacity { NumberAnimation { duration: 500 } }
+        Behavior on opacity { NumberAnimation { duration: 50 } }
         opacity: forecast.loaded ? 1 : 0
     }
 
@@ -134,9 +138,10 @@ Item {
         id: rainScaleLoader
         x: rainLoader.x
         y: rainLoader.y
+        asynchronous: true
 
         visible: forecast.loaded
-        Behavior on opacity { NumberAnimation { duration: 500 } }
+        Behavior on opacity { NumberAnimation { duration: 50 } }
         opacity: forecast.loaded ? 1 : 0
     }
 
@@ -144,14 +149,19 @@ Item {
         id: windScaleLoader
         x: windLoader.x
         y: windLoader.y
+        asynchronous: true
 
         visible: forecast.loaded
-        Behavior on opacity { NumberAnimation { duration: 500 } }
+        Behavior on opacity { NumberAnimation { duration: 50 } }
         opacity: forecast.loaded ? 1 : 0
     }
 
     function loadCharts() {
-        if (day === null) return
+        if (   day === null
+            || !forecast.visible
+            || forecast.loaded) {
+            return
+        }
 
         if (meteoApp.dataIsReady[locationId]) {
             console.log("loading charts for day " + day + "...")
@@ -178,6 +188,10 @@ Item {
     Component.onCompleted: {
         meteoApp.dataLoaded.connect(loadCharts)
         meteoApp.dataIsLoading.connect(function(){ if (forecast) forecast.loaded = false })
+    }
+
+    onVisibleChanged: {
+        loadCharts();
     }
 
     property var appState: Qt.application.state
