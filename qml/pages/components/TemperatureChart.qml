@@ -10,12 +10,13 @@ QChart {
     property int minValue: Math.min.apply(Math, temp ? temp.datasets[0].data : [0])
     property bool scaleOnly: false
     property bool isToday: false
+    property bool asOverview: false
 
     chartAnimated: false
     chartData: temp ? temp : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.LINE
     chartOptions: ({
-        scaleFontSize: Theme.fontSizeExtraSmall,
+        scaleFontSize: Theme.fontSizeExtraSmall * (asOverview ? (4/5) : 1),
         scaleFontFamily: 'Sail Sans Pro',
         scaleFontColor: Theme.secondaryColor,
         scaleLineColor: Theme.secondaryColor,
@@ -26,6 +27,7 @@ QChart {
         datasetFillDiff23: true,
         pointDotRadius: 6,
         currentHourLine: isToday,
+        asOverview: asOverview,
 
         fillColor: ["rgba(234,77,79,0)", "rgba(234,77,79,0.2)", "rgba(234,77,79,0.2)"],
         strokeColor: ["rgba(234,77,79,1)", "rgba(234,77,79,0.6)", "rgba(234,77,79,0.6)"],
