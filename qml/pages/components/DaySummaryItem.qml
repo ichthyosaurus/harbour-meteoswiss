@@ -86,7 +86,7 @@ BackgroundItem {
     function refreshData(data, locationToUpdate) {
         if (locationToUpdate && locationToUpdate != location) return;
 
-        var full = Storage.getData(locationId);
+        var full = Storage.getData(location);
 
         if (full) {
             dayCount = full[0].dayCount;
