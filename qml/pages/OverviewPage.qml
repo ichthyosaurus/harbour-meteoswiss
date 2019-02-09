@@ -110,14 +110,18 @@ Page {
             Component.onCompleted: {
                 var idx = index;
                 meteoApp.dataIsLoading.connect(function(loc) {
-                    var locationId = locationsModel.get(idx).locationId;
-                    if (locationId !== loc) return;
-                    locationsModel.setProperty(idx, 'isLoading', true);
+                    if (locationsModel) {
+                        var locationId = locationsModel.get(idx).locationId;
+                        if (locationId !== loc) return;
+                        locationsModel.setProperty(idx, 'isLoading', true);
+                    }
                 });
                 overviewPage.loadingFinished.connect(function(loc) {
-                    var locationId = locationsModel.get(idx).locationId;
-                    if (locationId !== loc) return;
-                    locationsModel.setProperty(idx, 'isLoading', false);
+                    if (locationsModel) {
+                        var locationId = locationsModel.get(idx).locationId;
+                        if (locationId !== loc) return;
+                        locationsModel.setProperty(idx, 'isLoading', false);
+                    }
                 });
             }
 
