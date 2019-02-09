@@ -150,25 +150,25 @@ Column {
 
             SunTimesItem {
                 id: dawn
-                label: qsTr("Dawn", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Dawn", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("morning civil twilight starts")
             }
             SunTimesItem {
                 id: sunrise
-                label: qsTr("Sunrise", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Sunrise", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("top edge of the sun appears on the horizon")
             }
             SunTimesItem {
                 id: morningGoldenHourEnd
-                label: qsTr("Golden Hour End", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Golden Hour End", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("morning golden hour (soft light, best time for photography) ends")
             }
             SunTimesItem {
                 id: solarNoon
-                label: qsTr("Solar Noon", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Solar Noon", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("sun is in the highest position")
             }
@@ -179,25 +179,25 @@ Column {
 
             SunTimesItem {
                 id: eveningGoldenHour
-                label: qsTr("Golden Hour", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Golden Hour", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("evening golden hour (soft light, best time for photography) starts")
             }
             SunTimesItem {
                 id: sunset
-                label: qsTr("Sunset", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Sunset", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("sun disappears below the horizon, evening civil twilight starts")
             }
             SunTimesItem {
                 id: night
-                label: qsTr("Night", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Night", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("dark enough for astronomical observations")
             }
             SunTimesItem {
                 id: nadir
-                label: qsTr("Nadir", "use '\\x9c' to separate alternative strings of different length")
+                label: qsTr("Nadir", "use '|' to separate alternative strings of different length").replace('|', '\x9c')
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("darkest moment of the night, sun is in the lowest position")
             }

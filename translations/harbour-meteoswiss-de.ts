@@ -126,43 +126,43 @@
     </message>
     <message>
         <source>Dawn</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
-        <translation>Morgendämmerung\x9cMorgen-dämmerung\x9cDämmerung\x9cMorgendäm-merung</translation>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
+        <translation>Morgendämmerung|Morgen-dämmerung|Dämmerung|Morgendäm-merung</translation>
     </message>
     <message>
         <source>Sunrise</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
-        <translation>Sonnenaufgang\x9cSonnen-aufgang</translation>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
+        <translation>Sonnenaufgang|Sonnen-aufgang</translation>
     </message>
     <message>
         <source>Golden Hour End</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
-        <translation>Goldene Stunde (Ende)\x9cGoldene Stunde</translation>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
+        <translation>Goldene Stunde (Ende)|Goldene Stunde</translation>
     </message>
     <message>
         <source>Solar Noon</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Mittag</translation>
     </message>
     <message>
         <source>Golden Hour</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
-        <translation>Goldene Stunde (Anfang)\x9cGoldene Stunde</translation>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
+        <translation>Goldene Stunde (Anfang)|Goldene Stunde</translation>
     </message>
     <message>
         <source>Sunset</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
-        <translation>Sonnenuntergang\x9cSonnen-untergang</translation>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
+        <translation>Sonnenuntergang|Sonnen-untergang</translation>
     </message>
     <message>
         <source>Night</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Nacht</translation>
     </message>
     <message>
         <source>Nadir</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
-        <translation>Mitternacht\x9cMitter-nacht</translation>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
+        <translation>Mitternacht|Mitter-nacht</translation>
     </message>
 </context>
 <context>

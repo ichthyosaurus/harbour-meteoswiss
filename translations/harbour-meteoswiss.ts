@@ -126,42 +126,42 @@
     </message>
     <message>
         <source>Dawn</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Dawn</translation>
     </message>
     <message>
         <source>Sunrise</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Sunrise</translation>
     </message>
     <message>
         <source>Golden Hour End</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Golden Hour End</translation>
     </message>
     <message>
         <source>Solar Noon</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Solar Noon</translation>
     </message>
     <message>
         <source>Golden Hour</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Golden Hour</translation>
     </message>
     <message>
         <source>Sunset</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Sunset</translation>
     </message>
     <message>
         <source>Night</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Night</translation>
     </message>
     <message>
         <source>Nadir</source>
-        <comment>use &apos;\x9c&apos; to separate alternative strings of different length</comment>
+        <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Nadir</translation>
     </message>
 </context>
