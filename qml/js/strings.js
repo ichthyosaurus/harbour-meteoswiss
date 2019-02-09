@@ -1,3 +1,5 @@
+.pragma library
+
 var MeteoLang = {
     noLocation: "Kein Ort gefunden",
     temperature: "Temperatur in °C",
