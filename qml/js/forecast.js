@@ -1,4 +1,3 @@
-.pragma library
 
 function date_diff(a, b) {
     var d1 = new Date();
