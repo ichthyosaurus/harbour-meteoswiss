@@ -24,6 +24,7 @@
 // - add option to line graph to only fill difference between second and third dataset
 // - support setting colors when building the graph instead of inside the datasets
 // - add options to overlay bars instead of plotting them side by side
+// - add options for a special layout optimized for overlaying tiny bar and line plots
 //
 
 var ChartType = {
@@ -71,6 +72,7 @@ var Chart = function(canvas, context) {
             animationSteps: 60,
             animationEasing: "easeOutQuart",
             onAnimationComplete: null,
+            asOverview: false,
 
             fillColor: [],
             strokeColor: [],
@@ -116,6 +118,7 @@ var Chart = function(canvas, context) {
             animationSteps: 60,
             animationEasing: "easeOutQuart",
             onAnimationComplete: null,
+            asOverview: false,
 
             fillColor: [],
             strokeColor: [],
@@ -142,8 +145,10 @@ var Chart = function(canvas, context) {
         var valueHop;
         var widestXLabel;
         var xAxisLength;
-        var yAxisPosX;
+        var yAxisLeftPosX;
+        var yAxisRightPosX;
         var xAxisPosY;
+        var longestText;
         var rotateLabels = 0;
 
         // /////////////////////////////////////////////////////////////////
@@ -159,6 +164,17 @@ var Chart = function(canvas, context) {
 
             valueBounds = getValueBounds();
             labelTemplateString = (config.scaleShowLabels)? config.scaleLabel : "";
+
+            if (config.asOverview) {
+                config.scaleOverlay = false
+                config.bezierCurve = true
+                config.pointDot = false
+                config.pointDotRadius = 0
+                config.pointDotStrokeWidth = 0
+                config.datasetFill = false
+                config.currentHourLine = true
+                config.datasetFillDiff23 = false
+            }
 
             if (!config.scaleOverride) {
                 calculatedScale = calculateScale(
@@ -250,6 +266,8 @@ var Chart = function(canvas, context) {
                         ctx.stroke();
                     }
                 }
+
+                if (config.asOverview) break;
             }
 
             function yPos(dataSet,iteration) {
@@ -257,7 +275,7 @@ var Chart = function(canvas, context) {
             }
 
             function xPos(iteration) {
-                return yAxisPosX + (valueHop * iteration) + valueHop/2;
+                return yAxisLeftPosX + (valueHop * iteration) + valueHop/2;
             }
         }
 
@@ -268,8 +286,15 @@ var Chart = function(canvas, context) {
 
             if (!config.scaleOverlay) {
                 ctx.beginPath();
-                ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
-                ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+
+                if (config.asOverview) {
+                    ctx.moveTo(width-widestXLabel/2+5-longestText,xAxisPosY);
+                    ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5-longestText,xAxisPosY);
+                } else {
+                    ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
+                    ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+                }
+
                 ctx.stroke();
             }
 
@@ -279,8 +304,8 @@ var Chart = function(canvas, context) {
                 hour += now.getMinutes()/60;
 
                 ctx.beginPath();
-                ctx.moveTo(yAxisPosX + hour*valueHop + valueHop/2,xAxisPosY);
-                ctx.lineTo(yAxisPosX + hour*valueHop + valueHop/2,5);
+                ctx.moveTo(yAxisLeftPosX + hour*valueHop + valueHop/2,xAxisPosY);
+                ctx.lineTo(yAxisLeftPosX + hour*valueHop + valueHop/2,5);
                 ctx.stroke();
             }
 
@@ -294,27 +319,28 @@ var Chart = function(canvas, context) {
 
             if (!config.scaleOverlay) {
                 for (var i=0; i<data.labels.length; i++) {
+                    if (config.asOverview && (i+1)%2 != 0) continue;
 
                     ctx.save();
 
                     if (rotateLabels > 0) {
-                        ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
+                        ctx.translate(yAxisLeftPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
                         ctx.rotate(-(rotateLabels * (Math.PI/180)));
                         ctx.fillText(data.labels[i], 0,0);
                         ctx.restore();
                     } else {
-                        ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
+                        ctx.fillText(data.labels[i], yAxisLeftPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
                     }
 
                     ctx.beginPath();
-                    ctx.moveTo(yAxisPosX + i * valueHop, xAxisPosY+3);
+                    ctx.moveTo(yAxisLeftPosX + i * valueHop, xAxisPosY+3);
 
                     if(config.scaleShowGridLines && i>0) {
                         ctx.lineWidth = config.scaleGridLineWidth;
                         ctx.strokeStyle = config.scaleGridLineColor;
-                        ctx.lineTo(yAxisPosX + i * valueHop, 5);
+                        ctx.lineTo(yAxisLeftPosX + i * valueHop, 5);
                     } else{
-                        ctx.lineTo(yAxisPosX + i * valueHop, xAxisPosY+3);
+                        ctx.lineTo(yAxisLeftPosX + i * valueHop, xAxisPosY+3);
                     }
                     ctx.stroke();
                 }
@@ -323,42 +349,62 @@ var Chart = function(canvas, context) {
             ctx.lineWidth = config.scaleLineWidth;
             ctx.strokeStyle = config.scaleLineColor;
             ctx.beginPath();
-            ctx.moveTo(yAxisPosX,xAxisPosY+5);
-            ctx.lineTo(yAxisPosX,5);
+            ctx.moveTo(yAxisLeftPosX,xAxisPosY+5);
+            ctx.lineTo(yAxisLeftPosX,5);
             ctx.stroke();
             ctx.textAlign = "right";
             ctx.textBaseline = "middle";
 
             for (var j=0; j<calculatedScale.steps; j++) {
                 ctx.beginPath();
-                ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
+                ctx.moveTo(yAxisLeftPosX-3,xAxisPosY - ((j+1) * scaleHop));
                 if (config.scaleShowGridLines) {
                     ctx.lineWidth = config.scaleGridLineWidth;
                     ctx.strokeStyle = config.scaleGridLineColor;
-                    ctx.lineTo(yAxisPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
+                    ctx.lineTo(yAxisLeftPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
                 } else {
-                    ctx.lineTo(yAxisPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
+                    ctx.lineTo(yAxisLeftPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
                 }
                 ctx.stroke();
                 if (config.scaleShowLabels) {
-                    ctx.fillText(calculatedScale.labels[j],yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+                    ctx.fillText(calculatedScale.labels[j],yAxisLeftPosX-8,xAxisPosY - ((j+1) * scaleHop));
                 }
+            }
+
+            if (config.asOverview) {
+                ctx.lineWidth = config.scaleLineWidth*2;
+                ctx.strokeStyle = config.strokeColor[0];
+                ctx.beginPath();
+                ctx.moveTo(yAxisLeftPosX,xAxisPosY+5);
+                ctx.lineTo(yAxisLeftPosX,5);
+                ctx.stroke();
             }
         }
 
         function calculateXAxisSize() {
-
-            var longestText = 1;
+            longestText = 1;
 
             if (config.scaleShowLabels) {
                 ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
                 longestText = ctx.measureText("9.99").width + 10;
             }
 
-            xAxisLength = width - longestText - widestXLabel;
+            if (config.asOverview) {
+                xAxisLength = width - 2*longestText - widestXLabel;
+            } else {
+                xAxisLength = width - longestText - widestXLabel;
+            }
+
             valueHop = Math.floor(xAxisLength/(data.labels.length));
 
-            yAxisPosX = width-widestXLabel/2-xAxisLength;
+            if (config.asOverview) {
+                yAxisLeftPosX = width-widestXLabel/2-xAxisLength-longestText;
+                yAxisRightPosX = width-widestXLabel/2-longestText;
+            } else {
+                yAxisLeftPosX = width-widestXLabel/2-xAxisLength;
+                yAxisRightPosX = undefined
+            }
+
             xAxisPosY = scaleHeight + config.scaleFontSize/2;
         }
 
@@ -371,7 +417,7 @@ var Chart = function(canvas, context) {
             widestXLabel = 1;
 
             for (var i=0; i<data.labels.length; i++) {
-
+                if (config.asOverview && (i+1)%2 != 0) continue;
                 var textLength = ctx.measureText(data.labels[i]).width;
                 widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
             }
@@ -404,12 +450,18 @@ var Chart = function(canvas, context) {
             var upperValue = Number.MIN_VALUE;
             var lowerValue = Number.MAX_VALUE;
 
-            for (var i=0; i<data.datasets.length; i++) {
-                for (var j=0; j<data.datasets[i].data.length; j++) {
-                    if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j] };
-                    if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j] };
-                }
-            };
+            if (config.asOverview) {
+                upperValue = Math.max.apply(Math, data.datasets[0].data);
+                lowerValue = Math.min.apply(Math, data.datasets[0].data);
+            } else {
+                for (var i=0; i<data.datasets.length; i++) {
+                    var u = Math.max.apply(Math, data.datasets[i].data);
+                    var l = Math.min.apply(Math, data.datasets[i].data);
+
+                    if ( u > upperValue) { upperValue = u; };
+                    if ( l < lowerValue) { lowerValue = l; };
+                };
+            }
 
             var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
             var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
@@ -439,9 +491,11 @@ var Chart = function(canvas, context) {
         var valueHop;
         var widestXLabel;
         var xAxisLength;
-        var yAxisPosX;
+        var yAxisLeftPosX;
+        var yAxisRightPosX;
         var xAxisPosY;
         var barWidth;
+        var longestText;
         var rotateLabels = 0;
 
         // /////////////////////////////////////////////////////////////////
@@ -501,9 +555,9 @@ var Chart = function(canvas, context) {
                 for (var j=0; j<data.datasets[i].data.length; j++) {
 
                     if (config.barOverlay) {
-                        var barOffset = yAxisPosX + config.barValueSpacing + valueHop*j + config.barStrokeWidth;
+                        var barOffset = yAxisLeftPosX + config.barValueSpacing + valueHop*j + config.barStrokeWidth;
                     } else {
-                        var barOffset = yAxisPosX + config.barValueSpacing + valueHop*j + barWidth*i + config.barDatasetSpacing*i + config.barStrokeWidth*i;
+                        var barOffset = yAxisLeftPosX + config.barValueSpacing + valueHop*j + barWidth*i + config.barDatasetSpacing*i + config.barStrokeWidth*i;
                     }
 
                     ctx.beginPath();
@@ -527,8 +581,14 @@ var Chart = function(canvas, context) {
 
             if (!config.scaleOverlay) {
                 ctx.beginPath();
-                ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
-                ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+
+                if (config.asOverview) {
+                    ctx.moveTo(width-widestXLabel/2+5-longestText,xAxisPosY);
+                    ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5-longestText,xAxisPosY);
+                } else {
+                    ctx.moveTo(width-widestXLabel/2+5,xAxisPosY);
+                    ctx.lineTo(width-(widestXLabel/2)-xAxisLength-5,xAxisPosY);
+                }
                 ctx.stroke();
             }
 
@@ -538,8 +598,8 @@ var Chart = function(canvas, context) {
                 hour += now.getMinutes()/60;
 
                 ctx.beginPath();
-                ctx.moveTo(yAxisPosX + hour*valueHop + valueHop/2, xAxisPosY);
-                ctx.lineTo(yAxisPosX + hour*valueHop + valueHop/2, 5);
+                ctx.moveTo(yAxisLeftPosX + hour*valueHop + valueHop/2, xAxisPosY);
+                ctx.lineTo(yAxisLeftPosX + hour*valueHop + valueHop/2, 5);
                 ctx.stroke();
             }
 
@@ -552,63 +612,96 @@ var Chart = function(canvas, context) {
 
             ctx.fillStyle = config.scaleFontColor;
 
-            if (!config.scaleOverlay) {
+            if (!config.scaleOverlay && !config.asOverview) {
                 for (var i=0; i<data.labels.length; i++) {
                     ctx.save();
                     if (rotateLabels > 0) {
-                        ctx.translate(yAxisPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
+                        ctx.translate(yAxisLeftPosX + i*valueHop,xAxisPosY + config.scaleFontSize);
                         ctx.rotate(-(rotateLabels * (Math.PI/180)));
                         ctx.fillText(data.labels[i], 0,0);
                         ctx.restore();
                     } else {
-                        ctx.fillText(data.labels[i], yAxisPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
+                        ctx.fillText(data.labels[i], yAxisLeftPosX + i*valueHop + valueHop/2,xAxisPosY + config.scaleFontSize+3);
                     }
 
                     ctx.beginPath();
-                    ctx.moveTo(yAxisPosX + (i+1) * valueHop, xAxisPosY+3);
+                    ctx.moveTo(yAxisLeftPosX + (i+1) * valueHop, xAxisPosY+3);
                     ctx.lineWidth = config.scaleGridLineWidth;
                     ctx.strokeStyle = config.scaleGridLineColor;
-                    ctx.lineTo(yAxisPosX + (i+1) * valueHop, 5);
+                    ctx.lineTo(yAxisLeftPosX + (i+1) * valueHop, 5);
                     ctx.stroke();
                 }
             }
 
+            ctx.beginPath();
+
+            if (config.asOverview) {
+                ctx.lineWidth = config.scaleLineWidth*2;
+                ctx.strokeStyle = config.strokeColor[0] === "rgba(0,0,0,0)" ? config.scaleLineColor : config.strokeColor[0];
+                ctx.moveTo(yAxisRightPosX,xAxisPosY+5);
+                ctx.lineTo(yAxisRightPosX,5);
+            } else {
+                ctx.lineWidth = config.scaleLineWidth;
+                ctx.strokeStyle = config.scaleLineColor;
+                ctx.moveTo(yAxisLeftPosX,xAxisPosY+5);
+                ctx.lineTo(yAxisLeftPosX,5);
+            }
+
+            ctx.stroke();
             ctx.lineWidth = config.scaleLineWidth;
             ctx.strokeStyle = config.scaleLineColor;
-            ctx.beginPath();
-            ctx.moveTo(yAxisPosX,xAxisPosY+5);
-            ctx.lineTo(yAxisPosX,5);
-            ctx.stroke();
-            ctx.textAlign = "right";
             ctx.textBaseline = "middle";
 
-            for (var j=0; j<calculatedScale.steps; j++) {
-                ctx.beginPath();
-                ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
-                if (config.scaleShowGridLines) {
-                    ctx.lineWidth = config.scaleGridLineWidth;
-                    ctx.strokeStyle = config.scaleGridLineColor;
-                    ctx.lineTo(yAxisPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
-                } else {
-                    ctx.lineTo(yAxisPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
+            if (config.asOverview) {
+                ctx.textAlign = "left";
+                for (var j=0; j<calculatedScale.steps; j++) {
+                    ctx.beginPath();
+                    ctx.moveTo(yAxisRightPosX-3,xAxisPosY - ((j+1) * scaleHop));
+                    if (config.scaleShowGridLines) {
+                        ctx.lineWidth = config.scaleGridLineWidth;
+                        ctx.strokeStyle = config.scaleGridLineColor;
+                        ctx.lineTo(yAxisRightPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
+                    } else {
+                        ctx.lineTo(yAxisRightPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
+                    }
+                    ctx.stroke();
+                    if (config.scaleShowLabels) {
+                        ctx.fillText(calculatedScale.labels[j],yAxisRightPosX+8,xAxisPosY - ((j+1) * scaleHop));
+                    }
                 }
-                ctx.stroke();
-                if (config.scaleShowLabels) {
-                    ctx.fillText(calculatedScale.labels[j],yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+            } else {
+                ctx.textAlign = "right";
+                for (var j=0; j<calculatedScale.steps; j++) {
+                    ctx.beginPath();
+                    ctx.moveTo(yAxisLeftPosX-3,xAxisPosY - ((j+1) * scaleHop));
+                    if (config.scaleShowGridLines) {
+                        ctx.lineWidth = config.scaleGridLineWidth;
+                        ctx.strokeStyle = config.scaleGridLineColor;
+                        ctx.lineTo(yAxisLeftPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
+                    } else {
+                        ctx.lineTo(yAxisLeftPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
+                    }
+                    ctx.stroke();
+                    if (config.scaleShowLabels) {
+                        ctx.fillText(calculatedScale.labels[j],yAxisLeftPosX-8,xAxisPosY - ((j+1) * scaleHop));
+                    }
                 }
             }
         }
 
         function calculateXAxisSize() {
-
-            var longestText = 1;
+            longestText = 1;
 
             if (config.scaleShowLabels) {
                 ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
                 longestText = ctx.measureText("9.99").width + 10;
             }
 
-            xAxisLength = width - longestText - widestXLabel;
+            if (config.asOverview) {
+                xAxisLength = width - 2*longestText - widestXLabel;
+            } else {
+                xAxisLength = width - longestText - widestXLabel;
+            }
             valueHop = Math.floor(xAxisLength/(data.labels.length));
 
             if (config.barOverlay) {
@@ -617,7 +710,13 @@ var Chart = function(canvas, context) {
                 barWidth = (valueHop - config.scaleGridLineWidth*2 - (config.barValueSpacing*2) - (config.barDatasetSpacing*data.datasets.length-1) - ((config.barStrokeWidth/2)*data.datasets.length-1))/data.datasets.length;
             }
 
-            yAxisPosX = width-widestXLabel/2-xAxisLength;
+            if (config.asOverview) {
+                yAxisLeftPosX = width-widestXLabel/2-xAxisLength-longestText;
+                yAxisRightPosX = width-widestXLabel/2-longestText;
+            } else {
+                yAxisLeftPosX = width-widestXLabel/2-xAxisLength;
+                yAxisRightPosX = undefined
+            }
             xAxisPosY = scaleHeight + config.scaleFontSize/2;
         }
 
@@ -654,15 +753,15 @@ var Chart = function(canvas, context) {
         }
 
         function getValueBounds() {
-
             var upperValue = Number.MIN_VALUE;
             var lowerValue = Number.MAX_VALUE;
 
             for (var i=0; i<data.datasets.length; i++) {
-                for (var j=0; j<data.datasets[i].data.length; j++) {
-                    if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j] };
-                    if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j] };
-                }
+                var u = Math.max.apply(Math, data.datasets[i].data);
+                var l = Math.min.apply(Math, data.datasets[i].data);
+
+                if ( u > upperValue) { upperValue = u; };
+                if ( l < lowerValue) { lowerValue = l; };
             };
 
             var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
