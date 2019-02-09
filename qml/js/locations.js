@@ -70,6 +70,7 @@ function search(string) {
         if (string != "" && Locations.LocationsList[i].indexOf(string) >= 0) {
             ret.push({"name": Locations.LocationsList[i]});
         }
+        if (ret.length == 50) break;
     }
     return ret;
 }
