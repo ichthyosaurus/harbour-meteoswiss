@@ -1,17 +1,14 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 
-import "../js/locations-overview.js" as Locations
-import "../js/locations-details.js" as LocationDetails
-import "../js/cantons.js" as Cantons
+import "../js/locations.js" as Locations
 
 Page {
     id: searchPage
     Component.onCompleted: searchField.forceActiveFocus()
 
     function addLocation(token) {
-        var details = LocationDetails.get(token)
-        details.canton = Cantons.Cantons[details.cantonId]
+        var details = Locations.getDetails(token)
         meteoApp.locationAdded(details)
     }
 
@@ -66,12 +63,9 @@ Page {
 
                     function update() {
                         clear()
-                        for (var i = 0; i < Locations.LocationsList.length; i++) {
-                            if (searchField.text != "" && Locations.LocationsList[i].indexOf(searchField.text) >= 0) {
-                                append({
-                                    "name": Locations.LocationsList[i],
-                                })
-                            }
+
+                        if (searchField.text != "") {
+                            append(Locations.search(searchField.text));
                         }
                     }
 
