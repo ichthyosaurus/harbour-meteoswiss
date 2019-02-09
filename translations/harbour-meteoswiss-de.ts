@@ -94,7 +94,7 @@
     </message>
     <message>
         <source>Sunrise</source>
-        <translation>Sonnenaufgang</translation>
+        <translation>Sonnenaufgang\x9cSonnen-aufgang</translation>
     </message>
     <message>
         <source>top edge of the sun appears on the horizon</source>
@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>Dawn</source>
-        <translation>Dämmerung</translation>
+        <translation>Morgendämmerung\x9cMorgen-dämmerung\x9cDämmerung\x9cMorgendäm-merung</translation>
     </message>
     <message>
         <source>morning civil twilight starts</source>
@@ -110,7 +110,7 @@
     </message>
     <message>
         <source>Golden Hour End</source>
-        <translation>Goldene Stunde (Ende)</translation>
+        <translation>Goldene Stunde (Ende)\x9cGoldene Stunde</translation>
     </message>
     <message>
         <source>morning golden hour (soft light, best time for photography) ends</source>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Golden Hour</source>
-        <translation>Goldene Stunde</translation>
+        <translation>Goldene Stunde (Anfang)\x9cGoldene Stunde</translation>
     </message>
     <message>
         <source>evening golden hour (soft light, best time for photography) starts</source>
@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>Sunset</source>
-        <translation>Sonnenuntergang</translation>
+        <translation>Sonnenuntergang\x9cSonnen-untergang</translation>
     </message>
     <message>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
@@ -150,7 +150,7 @@
     </message>
     <message>
         <source>Nadir</source>
-        <translation>Mitternacht</translation>
+        <translation>Mitternacht\x9cMitter-nacht</translation>
     </message>
     <message>
         <source>darkest moment of the night, sun is in the lowest position</source>

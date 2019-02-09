@@ -142,24 +142,24 @@ Column {
     }
 
     Row {
-        x: 0
-        width: isPortrait ? Screen.width : Screen.height
+        x: sunTitle.x
+        width: (isPortrait ? Screen.width : Screen.height) - 2*x
         visible: active
 
         Column {
             width: parent.width/2
 
             SunTimesItem {
-                id: sunrise
-                label: qsTr("Sunrise")
-                descriptionLabel: sunDescriptionLabel
-                description: qsTr("top edge of the sun appears on the horizon")
-            }
-            SunTimesItem {
                 id: dawn
                 label: qsTr("Dawn")
                 descriptionLabel: sunDescriptionLabel
                 description: qsTr("morning civil twilight starts")
+            }
+            SunTimesItem {
+                id: sunrise
+                label: qsTr("Sunrise")
+                descriptionLabel: sunDescriptionLabel
+                description: qsTr("top edge of the sun appears on the horizon")
             }
             SunTimesItem {
                 id: morningGoldenHourEnd
@@ -232,8 +232,8 @@ Column {
 
     Label {
         id: sunDescriptionLabel
-        x: (parent.x + parent.width/2) - (width/2)
-        width: parent.width - 4*parent.x
+        x: 2*sunTitle.x
+        width: (isPortrait ? Screen.width : Screen.height) - 2*x
         text: " "
 
         color: Theme.secondaryColor
