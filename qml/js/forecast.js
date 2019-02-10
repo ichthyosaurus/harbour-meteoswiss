@@ -254,6 +254,26 @@ WorkerScript.onMessage = function(message) {
 
         if (ts.toDateString() == now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
             fallbackToArchive(archived, "already refreshed less than an hour ago");
+
+            // Notify of the unchanged path to make sure refreshing continues.
+            //
+            // When refreshing all locations, the first is refreshed and the
+            // rest waits for the updated path. If the path stays unchanged,
+            // the main thread has to be notified nonetheless, else the process
+            // would not continue.
+            // This is only needed if the first location was already refreshed
+            // less than an hour ago. If the path is invalid later on, we don't
+            // want to ensure a cached path is used. It will be renewed if necessary.
+            // All this is only important when refreshing all locations. When
+            // refreshing a single location, the path gets extracted and stored.
+            // If two locations are refreshed separately with less than a certain
+            // threshold of difference, the cached path will be used correctly.
+            // This work-around is only necessary to make sure the threads stay
+            // in sync when looping quickly over all locations.
+            if (message.notifyUnchangedPath) {
+                WorkerScript.sendMessage({ type: 'path', source: sourcePath, age: sourceAge });
+            }
+
             return;
         }
     }
@@ -280,7 +300,7 @@ WorkerScript.onMessage = function(message) {
         return [retPath, retAge];
     }
 
-    if (!sourcePath || now - sourceAge > 60*10*1000) {
+    if (!sourcePath || (now - sourceAge) > 60*10*1000) {
         var source = getSourcePath();
         sourcePath = source[0];
         sourceAge = source[1];
