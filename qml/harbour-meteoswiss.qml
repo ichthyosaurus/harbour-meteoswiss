@@ -54,8 +54,12 @@ ApplicationWindow {
         source: "js/forecast.js"
         onMessage: {
             if (messageObject.type == 'path') {
-                meteoApp.sourceBasePath = messageObject.source
+                // note: age has to be changed before updating the path!
+                // When updating all locations, we wait for an updated path to
+                // continue after the first locations has been refreshed. See
+                // below for details.
                 meteoApp.sourcePathUpdated = messageObject.age
+                meteoApp.sourceBasePath = messageObject.source
             } else if (messageObject.type == 'weekOverview') {
                 meteoApp.overviewTimestamp = messageObject.age;
 
@@ -75,7 +79,7 @@ ApplicationWindow {
         }
     }
 
-    function doRefreshData(locationId, force) {
+    function doRefreshData(locationId, force, refreshingAll, notifyUnchangedPath) {
         if (!overviewTimestamp) {
             overviewTimestamp = Storage.getDaySummaryAge();
         }
@@ -110,12 +114,49 @@ ApplicationWindow {
                 locationId: locationId,
                 source: meteoApp.sourceBasePath,
                 sourceAge: meteoApp.sourcePathUpdated,
+                notifyUnchangedPath: (notifyUnchangedPath ? false : true)
             })
         } else {
             console.log("refreshing all known locations...")
-            var locs = Storage.getLocationData()
-            for (var i = 0; i < locs.length; i++) {
-                doRefreshData(locs[i].locationId, force)
+            var locs = Storage.getLocationData();
+
+            refreshAll = true;
+            locationsToRefresh = locs;
+            forceRefreshAll = (force === undefined) ? false : force;
+
+            // Work-around to make sure source path is only extracted once per refresh.
+            //
+            // Essentially, we wait for the first location to send an updated path to
+            // use for the rest. If the path stays unchanged because the first location
+            // was already updated less than a certain amount of time before,
+            // the main thread will be notified nonetheless so the process can continue.
+            // We then accept that the path will be extracted separately for the
+            // remaining locations. Note that this can only happen if the user
+            // force-refreshes the first location.
+            doRefreshData(locationsToRefresh[0].locationId, forceRefreshAll, true);
+        }
+    }
+
+    // Properties needed for work-around to make sure source path is only
+    // extracted once per refresh
+    property bool refreshAll: false
+    property var  locationsToRefresh
+    property bool forceRefreshAll: false
+
+    // Work-around to make sure source path is only extracted once per refresh.
+    // Essentially, we wait for the first location to send an updated path to
+    // use for the rest. If the path stays unchanged because the first location
+    // was already updated less than a certain amount of time before,
+    // the main thread will be notified nonetheless so the process can continue.
+    // We then accept that the path will be extracted separately for the
+    // remaining locations. Note that this can only happen if the user
+    // force-refreshes the first location.
+    onSourceBasePathChanged: {
+        if (refreshAll && locationsToRefresh) {
+            refreshAll = false;
+
+            for (var i = 1; i < locationsToRefresh.length; i++) {
+                doRefreshData(locationsToRefresh[i].locationId, forceRefreshAll, false)
             }
         }
     }
