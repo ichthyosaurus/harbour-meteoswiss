@@ -172,11 +172,9 @@ ListItem {
         }
     }
 
-    Item { // vertical spacing
+    VerticalSpacing {
         id: vertSpace
         anchors.top: labelColumn.bottom
-        height: Theme.paddingMedium
-        width: parent.width
     }
 
     Column {
