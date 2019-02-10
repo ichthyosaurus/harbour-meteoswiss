@@ -61,9 +61,7 @@ Column {
         }
     }
 
-    Item { // vertical spacing
-        height: Theme.paddingMedium
-        width: parent.width
+    VerticalSpacing {
         visible: active
     }
 
@@ -110,10 +108,7 @@ Column {
         }
     }
 
-
-    Item { // vertical spacing
-        height: Theme.paddingMedium
-        width: parent.width
+    VerticalSpacing {
         visible: active
     }
 
@@ -125,9 +120,7 @@ Column {
         day: dayId
     }
 
-    Item { // vertical spacing
-        height: Theme.paddingMedium
-        width: parent.width
+    VerticalSpacing {
         visible: active
     }
 
@@ -223,9 +216,7 @@ Column {
         }
     }
 
-    Item { // vertical spacing
-        height: Theme.paddingMedium
-        width: parent.width
+    VerticalSpacing {
         visible: active
     }
 
@@ -242,9 +233,7 @@ Column {
         visible: active
     }
 
-    Item { // vertical spacing
-        height: Theme.paddingLarge
-        width: parent.width
+    VerticalSpacing {
         visible: active
     }
 
@@ -283,9 +272,7 @@ Column {
         }
     }
 
-    Item { // vertical spacing
-        height: Theme.paddingMedium
-        width: parent.width
+    VerticalSpacing {
         visible: active
     }
 
