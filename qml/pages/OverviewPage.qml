@@ -96,7 +96,7 @@ Page {
         }
 
         ViewPlaceholder {
-            enabled: (locationsModel.count === 0)
+            enabled: (locationsModel.count === 0 && Storage.getLocationsCount() === 0)
             text: qsTr("Add a location first")
             hintText: qsTr("Pull down to add items")
         }
