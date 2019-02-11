@@ -155,15 +155,15 @@ ListItem {
         Row {
             id: summaryRow
             width: parent.width
-            property var full: defaultFor(Storage.getData(locationId), [{date: Date.now(), dayCount: 0}])
+            property var meta: Storage.getLatestMetadata(locationId)
 
             Repeater {
-                model: summaryRow.full[0] && summaryRow.full[0].dayCount
+                model: (summaryRow.meta && summaryRow.meta.dayCount) ? summaryRow.meta.dayCount : 0
 
                 DaySummaryItem {
                     location: locationId
                     day: index
-                    dayCount: summaryRow.full[0] && summaryRow.full[0].dayCount
+                    dayCount: summaryRow.meta && summaryRow.meta.dayCount
 
                     Component.onCompleted: {
                         summaryClicked.connect(function(day, loc) { showForecast(day); })
