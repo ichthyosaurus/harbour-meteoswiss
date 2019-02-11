@@ -204,7 +204,7 @@ ListItem {
             var idx = index; // index is reset in animateRemoval() but item is not removed
             animateRemoval(parent);
             parentModel.remove(idx);
-        }, 1000);
+        }, 3000);
     }
 
     function showForecast(activeDay) {
