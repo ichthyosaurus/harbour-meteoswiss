@@ -152,24 +152,38 @@ ListItem {
             Behavior on opacity { NumberAnimation { duration: 100 } }
         }
 
-        Row {
-            id: summaryRow
-            width: parent.width
-            property var meta: Storage.getLatestMetadata(locationId)
+        Component {
+            id: summaryComponent
 
-            Repeater {
-                model: (summaryRow.meta && summaryRow.meta.dayCount) ? summaryRow.meta.dayCount : 0
+            Row {
+                id: summaryRow
+                property var meta: Storage.getLatestMetadata(locationId)
 
-                DaySummaryItem {
-                    location: locationId
-                    day: index
-                    dayCount: summaryRow.meta && summaryRow.meta.dayCount
+                Repeater {
+                    model: (summaryRow.meta && summaryRow.meta.dayCount) ? summaryRow.meta.dayCount : 0
 
-                    Component.onCompleted: {
-                        summaryClicked.connect(function(day, loc) { showForecast(day); })
+                    DaySummaryItem {
+                        location: locationId
+                        day: index
+                        dayCount: summaryRow.meta && summaryRow.meta.dayCount
+
+                        Component.onCompleted: {
+                            summaryClicked.connect(function(day, loc) { showForecast(day); })
+                        }
                     }
                 }
             }
+        }
+
+        Loader {
+            id: summaryLoader
+            asynchronous: true
+            visible: status == Loader.Ready
+            width: parent.width
+            opacity: visible ? 1 : 0
+            sourceComponent: summaryComponent
+
+            Behavior on opacity { NumberAnimation { duration: 100 } }
         }
     }
 
@@ -204,6 +218,11 @@ ListItem {
 
     onClicked: {
         showForecast(0);
+    }
+
+    function refreshWeekSummary() {
+        summaryLoader.sourceComponent = undefined;
+        summaryLoader.sourceComponent = summaryComponent;
     }
 
     Component.onCompleted: {

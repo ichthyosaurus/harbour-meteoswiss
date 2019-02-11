@@ -118,6 +118,14 @@ Page {
 
             sourceComponent: OverviewListDelegate {
                 parentModel: locationsModel
+
+                Component.onCompleted: {
+                    loadingFinished.connect(function(loc) {
+                        if (locationId == loc) {
+                            refreshWeekSummary();
+                        }
+                    });
+                }
             }
         }
 
