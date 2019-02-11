@@ -196,6 +196,21 @@
     </message>
 </context>
 <context>
+    <name>OverviewListDelegate</name>
+    <message>
+        <source>Remove</source>
+        <translation>Remove</translation>
+    </message>
+    <message>
+        <source>Move to top</source>
+        <translation>Move to top</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation>Deleting</translation>
+    </message>
+</context>
+<context>
     <name>OverviewPage</name>
     <message>
         <source>About</source>
@@ -210,10 +225,6 @@
         <translation>MeteoSwiss</translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation>Remove</translation>
-    </message>
-    <message>
         <source>Add location</source>
         <translation>Add Location</translation>
     </message>
@@ -224,14 +235,6 @@
     <message>
         <source>Pull down to add items</source>
         <translation>Pull down to add items</translation>
-    </message>
-    <message>
-        <source>Deleting</source>
-        <translation>Deleting</translation>
-    </message>
-    <message>
-        <source>Move to top</source>
-        <translation>Move to top</translation>
     </message>
 </context>
 <context>

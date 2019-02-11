@@ -2,6 +2,13 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Feb 11 2019 Mirian Margiani <mirian@margiani.ch> 1.2.1-1
+- heavily decrease network load
+- fix some visual glitches
+- heavily improve loading performance
+- heavily improve location adding performance
+- fix refreshing week summary on overview page
+
 * Sat Feb 09 2019 Mirian Margiani <mirian@margiani.ch> 1.2.0-1
 - backwards incompatible: store more locations details and week summaries in database
 - include more details in shipped list of locations
