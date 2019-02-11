@@ -45,9 +45,10 @@ function hash(token) {
 }
 
 function getDetails(token) {
-    Qt.include("locations-details.js")
-
     var hashstr = hash(token);
+
+    Qt.include("locations-details/locations-details-" + hashstr.substr(0, 2) + ".js")
+
     var coords = swiss2intl(Locations[hashstr].la, Locations[hashstr].lo);
     var cantonId = token.substr(token.length-3, 2);
 
