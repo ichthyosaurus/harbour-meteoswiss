@@ -120,7 +120,7 @@ ListItem {
             }
 
         anchors {
-            verticalCenter: labelColumn.verticalCenter
+            top: locationLabel.verticalCenter
             right: parent.right
             rightMargin: Theme.horizontalPageMargin
         }

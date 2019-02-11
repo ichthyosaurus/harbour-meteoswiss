@@ -175,10 +175,10 @@ Page {
             return;
         }
 
-        console.log("updating overview summaries...");
 
         for (var i = 0; i < locationsModel.count; i++) {
             if (!locationId || (locationId === locationsModel.get(i).locationId)) {
+                console.log("updating overview summary... " + i);
                 var loc = locationsModel.get(i).locationId;
                 var summary = Storage.getDataSummary(loc);
                 locationsModel.setProperty(i, 'temperatureString', getTemperatureString(summary.temp));
