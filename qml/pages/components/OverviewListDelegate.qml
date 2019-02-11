@@ -138,7 +138,7 @@ ListItem {
             asynchronous: true
             visible: status == Loader.Ready
             width: parent.width
-            height: summaryRow.height*(1/2)
+            height: icon.height*1.5
             opacity: visible ? 1 : 0
 
             Component.onCompleted: {
