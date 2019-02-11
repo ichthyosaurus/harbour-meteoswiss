@@ -7,6 +7,10 @@ import "../../js/strings.js" as Strings
 ListItem {
     id: locationItem
 
+    // parent list model, because 'model' property is not a ListModel
+    // seems to be a Qt bug...
+    property var parentModel
+
     property bool isLoading: false
     contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
 
@@ -27,7 +31,7 @@ ListItem {
 
             MenuItem {
                 text: qsTr("Remove")
-                onClicked: showRemoveRemorser()
+                onClicked: removeWithRemorser()
             }
 
             MenuItem {
@@ -178,14 +182,15 @@ ListItem {
         }
     }
 
-    ListView.onAdd: AddAnimation { target: locationItem }
+    RemorseItem { id: remorse }
 
-    ListView.onRemove: {
-        animateRemoval()
-    }
-
-    onClicked: {
-        showForecast(0);
+    function removeWithRemorser() {
+        remorse.execute(locationItem, qsTr("Deleting"), function() {
+            Storage.removeLocation(locationId);
+            var idx = index; // index is reset in animateRemoval() but item is not removed
+            animateRemoval(parent);
+            parentModel.remove(idx);
+        }, 1000);
     }
 
     function showForecast(activeDay) {
@@ -197,6 +202,10 @@ ListItem {
         });
     }
 
+    onClicked: {
+        showForecast(0);
+    }
+
     Component.onCompleted: {
         meteoApp.dataIsLoading.connect(function(loc) {
             if (locationId == loc) isLoading = true;
@@ -205,14 +214,16 @@ ListItem {
         overviewPage.loadingFinished.connect(function(loc) {
             if (locationId == loc) isLoading = false;
         });
-    }
 
-    RemorseItem { id: remorse }
+        orderChanged.connect(function() {
+            parentModel.move(index, 0, 1)
 
-    function showRemoveRemorser() {
-        remorse.execute(locationItem, qsTr("Deleting"), function() {
-            ListView.remove(index)
-            Storage.removeLocation(locationId)
-        }, 3000);
+            var pairs = []
+            for (var i = 0; i < parentModel.count; i++) {
+                pairs.push({ locationId: parentModel.get(i).locationId, viewPosition: i })
+            }
+
+            Storage.setOverviewPositions(pairs)
+        });
     }
 }
