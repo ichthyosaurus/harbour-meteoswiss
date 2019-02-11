@@ -1,4 +1,3 @@
-.pragma library
 .import "cantons.js" as Cantons
 .import "locations-overview.js" as Locations
 
