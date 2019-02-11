@@ -173,7 +173,6 @@ ListItem {
         }
     }
 
-
     ListView.onAdd: AddAnimation { target: locationItem }
 
     ListView.onRemove: {
@@ -182,6 +181,15 @@ ListItem {
 
     onClicked: {
         showForecast(0);
+    }
+
+    function showForecast(activeDay) {
+        meteoApp.refreshData(locationId, false)
+        pageStack.animatorPush("../ForecastPage.qml", {
+            "activeDay": activeDay,
+            "locationId": locationId,
+            "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
+        });
     }
 
     Component.onCompleted: {
@@ -201,14 +209,5 @@ ListItem {
             ListView.remove(index)
             Storage.removeLocation(locationId)
         }, 3000);
-    }
-
-    function showForecast(activeDay) {
-        meteoApp.refreshData(locationId, false)
-        pageStack.animatorPush("../ForecastPage.qml", {
-            "activeDay": activeDay,
-            "locationId": locationId,
-            "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
-        });
     }
 }
