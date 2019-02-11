@@ -101,9 +101,26 @@ Page {
             hintText: qsTr("Pull down to add items")
         }
 
-        model: ListModel { id: locationsModel }
+        ListModel {
+            id: locationsModel
+        }
 
-        delegate: OverviewListDelegate { }
+        model: locationsModel
+
+        delegate: OverviewListDelegate {
+            Component.onCompleted: {
+                orderChanged.connect(function() {
+                    locationsModel.move(index, 0, 1)
+
+                    var pairs = []
+                    for (var i = 0; i < locationsModel.count; i++) {
+                        pairs.push({ locationId: locationsModel.get(i).locationId, viewPosition: i })
+                    }
+
+                    Storage.setOverviewPositions(pairs)
+                });
+            }
+        }
 
         Component.onCompleted: {
             console.log("loading all known locations...")
