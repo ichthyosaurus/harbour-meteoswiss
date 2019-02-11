@@ -86,11 +86,11 @@ BackgroundItem {
     function refreshData(data, locationToUpdate) {
         if (locationToUpdate && locationToUpdate != location) return;
 
-        var full = Storage.getData(location);
+        var meta = Storage.getLatestMetadata(location);
 
-        if (full) {
-            dayCount = full[0].dayCount;
-            if (day < dayCount) timestamp = new Date(JSON.parse(full[0].dayDates)[day]);
+        if (meta) {
+            dayCount = meta.dayCount;
+            if (day < dayCount) timestamp = new Date(meta.dayDates[day]);
         } else {
             console.log("error: no data to show in day overview");
             return;

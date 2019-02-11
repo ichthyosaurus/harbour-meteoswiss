@@ -11,8 +11,6 @@ Page {
     signal loadingFinished(var locationId)
     signal dataUpdated(var newData, var locationId)
 
-    function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
-
     function getTemperatureString(temperature) {
         return (temperature === undefined) ? "" : temperature + " °C";
     }

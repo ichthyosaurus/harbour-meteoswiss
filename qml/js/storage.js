@@ -434,6 +434,35 @@ function setData(timestamp, locationId, data) {
     return res;
 }
 
+function getLatestMetadata(locationId) {
+    var db = getDatabase();
+    var res = {
+        locationId: locationId,
+        timestamp: 0,
+        dayCount: 0,
+        dayDates: []
+    };
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM data WHERE location_id=? AND timestamp>=? ORDER BY timestamp DESC LIMIT 1;', [locationId, 0]);
+
+            if (rs.rows.length === 0) {
+                console.log("failed loading metadata: no data available for " + locationId);
+            } else {
+                res.timestamp = rs.rows.item(0).timestamp
+                res.dayCount  = rs.rows.item(0).day_count
+                res.dayDates  = JSON.parse(rs.rows.item(0).day_dates)
+            }
+        });
+    } catch(e) {
+        console.log("error while loading latest metadata: locationId=" + locationId);
+        return res;
+    }
+
+    return res;
+}
+
 function getData(locationId, mostRecent, newerThan) {
     var db = getDatabase();
     var res = [];
