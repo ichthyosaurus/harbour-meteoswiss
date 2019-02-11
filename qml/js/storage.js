@@ -135,7 +135,8 @@ function getNextCoverLocation(locationId) {
 
                 if (rs.rows.length === 0) {
                     res = 0;
-                    console.log("error: failed to get next cover location");
+                    console.log("failed to get next cover location: no locations available");
+                    return res;
                 }
             }
 
@@ -374,6 +375,10 @@ function getDataSummary(locationId) {
         temp: undefined,
         rain: undefined,
     };
+
+    if (locationId === 0) {
+        return res;
+    }
 
     var data = getData(locationId, true);
     data = data.length > 0 ? data[0] : undefined;
