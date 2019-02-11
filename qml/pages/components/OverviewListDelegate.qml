@@ -130,17 +130,22 @@ ListItem {
     Column {
         id: overviewColumn
         visible: index < 3 // show only first 3 locations with details
+        width: parent.width
         anchors.top: vertSpace.bottom
 
         Loader {
+            id: chartLoader
             asynchronous: true
             visible: status == Loader.Ready
-            width: (isPortrait ? Screen.width : Screen.height)
-            height: labelColumn.height
+            width: parent.width
+            height: summaryRow.height*(1/2)
+            opacity: visible ? 1 : 0
 
             Component.onCompleted: {
                 setSource("DayOverviewGraphItem.qml", {location: locationId, day: 0})
             }
+
+            Behavior on opacity { NumberAnimation { duration: 100 } }
         }
 
         Row {
