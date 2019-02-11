@@ -96,9 +96,15 @@ Page {
         }
 
         ViewPlaceholder {
+            id: placeholder
             enabled: (locationsModel.count === 0 && Storage.getLocationsCount() === 0)
             text: qsTr("Add a location first")
             hintText: qsTr("Pull down to add items")
+        }
+
+        property int itemCount: locationsModel.count
+        onItemCountChanged: {
+            if (itemCount === 0) placeholder.enabled = true;
         }
 
         ListModel {
@@ -113,18 +119,7 @@ Page {
             width: (isPortrait ? Screen.width : Screen.height)
 
             sourceComponent: OverviewListDelegate {
-                Component.onCompleted: {
-                    orderChanged.connect(function() {
-                        locationsModel.move(index, 0, 1)
-
-                        var pairs = []
-                        for (var i = 0; i < locationsModel.count; i++) {
-                            pairs.push({ locationId: locationsModel.get(i).locationId, viewPosition: i })
-                        }
-
-                        Storage.setOverviewPositions(pairs)
-                    });
-                }
+                parentModel: locationsModel
             }
         }
 
