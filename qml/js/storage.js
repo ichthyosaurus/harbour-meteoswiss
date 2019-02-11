@@ -447,7 +447,7 @@ function getLatestMetadata(locationId) {
         db.transaction(function(tx) {
             var rs = tx.executeSql('SELECT * FROM data WHERE location_id=? AND timestamp>=? ORDER BY timestamp DESC LIMIT 1;', [locationId, 0]);
 
-            if (rs.rows.length === 0) {
+            if (rs.rows.length == 0) {
                 console.log("failed loading metadata: no data available for " + locationId);
             } else {
                 res.timestamp = rs.rows.item(0).timestamp
