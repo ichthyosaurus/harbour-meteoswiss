@@ -135,7 +135,7 @@ ListItem {
         Loader {
             asynchronous: true
             visible: status == Loader.Ready
-            width: (isPortrait ? Screen.width : Screen.height) - Theme.paddingMedium
+            width: (isPortrait ? Screen.width : Screen.height)
             height: labelColumn.height
 
             Component.onCompleted: {
