@@ -6,40 +6,11 @@ import "../../js/strings.js" as Strings
 
 ListItem {
     id: locationItem
+
     property bool isLoading: false
+    contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
 
-    Component.onCompleted: {
-        var idx = index;
-        meteoApp.dataIsLoading.connect(function(loc) {
-            if (locationsModel) {
-                var locationId = locationsModel.get(idx).locationId;
-                if (locationId !== loc) return;
-                locationsModel.setProperty(idx, 'isLoading', true);
-            }
-        });
-        overviewPage.loadingFinished.connect(function(loc) {
-            if (locationsModel) {
-                var locationId = locationsModel.get(idx).locationId;
-                if (locationId !== loc) return;
-                locationsModel.setProperty(idx, 'isLoading', false);
-            }
-        });
-    }
-
-    function showRemoveRemorser() {
-        var idx = index
-        var loc = locationId
-
-        remorse.execute(locationItem, qsTr("Deleting"), function() {
-            locationsModel.remove(idx)
-            Storage.removeLocation(loc)
-        }, 3000);
-    }
-
-    RemorseItem { id: remorse }
-
-    ListView.onAdd: AddAnimation { target: locationItem }
-    ListView.onRemove: animateRemoval()
+    signal orderChanged()
 
     menu: Component {
         ContextMenu {
@@ -49,14 +20,8 @@ ListItem {
 
             onMenuOpenChanged: {
                 if (!menuOpen && moveItemsWhenClosed) {
-                    locationsModel.move(model.index, 0, 1)
-                    moveItemsWhenClosed = false
-
-                    var pairs = []
-                    for (var i = 0; i < locationsModel.count; i++) {
-                        pairs.push({ locationId: locationsModel.get(i).locationId, viewPosition: i })
-                    }
-                    Storage.setOverviewPositions(pairs)
+                    orderChanged();
+                    moveItemsWhenClosed = false;
                 }
             }
 
@@ -71,21 +36,6 @@ ListItem {
                 onClicked: moveItemsWhenClosed = true
             }
         }
-    }
-
-    contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
-
-    function showForecast(activeDay) {
-        meteoApp.refreshData(locationId, false)
-        pageStack.animatorPush("../ForecastPage.qml", {
-            "activeDay": activeDay,
-            "locationId": locationId,
-            "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
-        });
-    }
-
-    onClicked: {
-        showForecast(0);
     }
 
     Image {
@@ -221,5 +171,44 @@ ListItem {
             GradientStop { position: 0.0; color: "transparent" }
             GradientStop { position: 1.0; color: Theme.rgba(Theme.secondaryColor, 0.05) }
         }
+    }
+
+
+    ListView.onAdd: AddAnimation { target: locationItem }
+
+    ListView.onRemove: {
+        animateRemoval()
+    }
+
+    onClicked: {
+        showForecast(0);
+    }
+
+    Component.onCompleted: {
+        meteoApp.dataIsLoading.connect(function(loc) {
+            if (locationId == loc) isLoading = true;
+        });
+
+        overviewPage.loadingFinished.connect(function(loc) {
+            if (locationId == loc) isLoading = false;
+        });
+    }
+
+    RemorseItem { id: remorse }
+
+    function showRemoveRemorser() {
+        remorse.execute(locationItem, qsTr("Deleting"), function() {
+            ListView.remove(index)
+            Storage.removeLocation(locationId)
+        }, 3000);
+    }
+
+    function showForecast(activeDay) {
+        meteoApp.refreshData(locationId, false)
+        pageStack.animatorPush("../ForecastPage.qml", {
+            "activeDay": activeDay,
+            "locationId": locationId,
+            "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
+        });
     }
 }

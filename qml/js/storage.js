@@ -238,7 +238,6 @@ function setOverviewPositions(dataPairs) {
     try {
         db.transaction(function(tx) {
             for (var i = 0; i < dataPairs.length; i++) {
-                console.log(dataPairs[i].viewPosition, dataPairs[i].locationId)
                 var rs = tx.executeSql('UPDATE locations SET view_position=? WHERE location_id=?;', [dataPairs[i].viewPosition, dataPairs[i].locationId]);
 
                 if (rs.rowsAffected !== 1) {
