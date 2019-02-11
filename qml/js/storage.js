@@ -194,6 +194,22 @@ function getLocationsList() {
     return res;
 }
 
+function getLocationsCount() {
+    var db = getDatabase();
+    var res = 0;
+
+    try {
+        db.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM locations;', []);
+            res = rs.rows.length;
+        });
+    } catch(e) {
+        console.log("error while loading locations count")
+    }
+
+    return res;
+}
+
 function getLocationData(locationId) {
     var db = getDatabase();
     var res = [];
