@@ -53,13 +53,18 @@ Column {
         if (dataReady) {
             console.log("loading overview chart for day " + day + " of " + location+ "...")
 
-            var isToday = true;
+            var isToday = (new Date(data[day].date).toDateString() == new Date().toDateString());
             temp = data[day].temperature
             rain = data[day].rainfall
 
-            tempLoader.setSource("TemperatureChart.qml", { data: temp, asOverview: true })
-            rainLoader.setSource("RainChart.qml",        { data: rain, asOverview: true })
-            forecast.loaded = true
+            if (isToday) {
+                tempLoader.setSource("TemperatureChart.qml", { data: temp, asOverview: true })
+                rainLoader.setSource("RainChart.qml",        { data: rain, asOverview: true })
+                forecast.loaded = true
+            } else {
+                tempLoader.sourceComponent = undefined;
+                rainLoader.sourceComponent = undefined;
+            }
         } else {
             console.log("overview chart for day", day, "(" + location + ") not updated: data is not ready")
         }
