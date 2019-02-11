@@ -120,6 +120,8 @@ ApplicationWindow {
             console.log("refreshing all known locations...")
             var locs = Storage.getLocationData();
 
+            if (locs.length === 0) return;
+
             refreshAll = true;
             locationsToRefresh = locs;
             forceRefreshAll = (force === undefined) ? false : force;
