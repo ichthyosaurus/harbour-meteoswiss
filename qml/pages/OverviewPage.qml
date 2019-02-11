@@ -107,18 +107,24 @@ Page {
 
         model: locationsModel
 
-        delegate: OverviewListDelegate {
-            Component.onCompleted: {
-                orderChanged.connect(function() {
-                    locationsModel.move(index, 0, 1)
+        delegate: Loader {
+            asynchronous: true
+            visible: status == Loader.Ready
+            width: (isPortrait ? Screen.width : Screen.height)
 
-                    var pairs = []
-                    for (var i = 0; i < locationsModel.count; i++) {
-                        pairs.push({ locationId: locationsModel.get(i).locationId, viewPosition: i })
-                    }
+            sourceComponent: OverviewListDelegate {
+                Component.onCompleted: {
+                    orderChanged.connect(function() {
+                        locationsModel.move(index, 0, 1)
 
-                    Storage.setOverviewPositions(pairs)
-                });
+                        var pairs = []
+                        for (var i = 0; i < locationsModel.count; i++) {
+                            pairs.push({ locationId: locationsModel.get(i).locationId, viewPosition: i })
+                        }
+
+                        Storage.setOverviewPositions(pairs)
+                    });
+                }
             }
         }
 
