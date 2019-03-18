@@ -231,13 +231,37 @@ ListItem {
         summaryLoader.sourceComponent = summaryComponent;
     }
 
+    Timer {
+        id: loadingCooldown
+        interval: 1000
+        repeat: false
+        running: false
+        onTriggered: {
+            isLoading = false;
+        }
+    }
+
+    Timer {
+        id: loadingMinWait
+        interval: 1000
+        repeat: false
+        running: false
+        onTriggered: {}
+    }
+
     Component.onCompleted: {
         meteoApp.dataIsLoading.connect(function(loc) {
-            if (locationId == loc) isLoading = true;
+            if (locationId == loc) {
+                isLoading = true;
+                loadingMinWait.restart();
+            }
         });
 
         overviewPage.loadingFinished.connect(function(loc) {
-            if (locationId == loc) isLoading = false;
+            if (locationId == loc) {
+                if (loadingMinWait.running) loadingCooldown.restart();
+                else isLoading = false;
+            }
         });
 
         orderChanged.connect(function() {
