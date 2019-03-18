@@ -120,7 +120,8 @@ ListItem {
             }
 
         anchors {
-            top: locationLabel.verticalCenter
+            top: parent.top
+            topMargin: Theme.paddingSmall
             right: parent.right
             rightMargin: Theme.horizontalPageMargin
         }
@@ -131,10 +132,11 @@ ListItem {
         anchors.top: labelColumn.bottom
     }
 
-    Column {
+    Item {
         id: overviewColumn
         visible: index < 3 // show only first 3 locations with details
         width: parent.width
+        height: childrenRect.height
         anchors.top: vertSpace.bottom
 
         Loader {
@@ -144,6 +146,8 @@ ListItem {
             width: parent.width
             height: icon.height*1.5
             opacity: visible ? 1 : 0
+
+            anchors.top: parent.top
 
             Component.onCompleted: {
                 setSource("DayOverviewGraphItem.qml", {location: locationId, day: 0})
@@ -182,6 +186,8 @@ ListItem {
             width: parent.width
             opacity: visible ? 1 : 0
             sourceComponent: summaryComponent
+
+            anchors.top: chartLoader.bottom
 
             Behavior on opacity { NumberAnimation { duration: 100 } }
         }
