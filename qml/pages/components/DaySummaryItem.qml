@@ -32,9 +32,9 @@ BackgroundItem {
         clip: true
 
         Rectangle {
-            rotation: (Math.atan(parent.width/parent.height) * 180) / Math.PI // diagonal
-            width: parent.width * Math.ceil(parent.height/parent.width)
-            height: parent.height * Math.ceil(parent.height/parent.width)
+            rotation: 45
+            width: parent.width * Math.ceil(parent.height/parent.width) * 1.41
+            height: parent.height * Math.ceil(parent.height/parent.width) * 1.41
             x: parent.width - width
 
             gradient: Gradient {
