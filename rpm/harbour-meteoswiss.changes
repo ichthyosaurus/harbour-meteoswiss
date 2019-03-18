@@ -2,6 +2,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Mar 18 2019 Mirian Margiani <mirian@margiani.ch> 1.2.2-1
+- fix some visual glitches
+- improve data validation to make sure downloaded data is reliable
+
 * Mon Feb 11 2019 Mirian Margiani <mirian@margiani.ch> 1.2.1-1
 - heavily decrease network load
 - fix some visual glitches
