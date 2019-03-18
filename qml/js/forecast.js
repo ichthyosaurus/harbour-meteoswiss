@@ -89,7 +89,8 @@ function convert_raw(raw) {
             },
         };
 
-        if (   raw[day].rainfall.length != raw[day].temperature.length
+        if (   raw[day].rainfall.length != 24
+            || raw[day].rainfall.length != raw[day].temperature.length
             || raw[day].rainfall.length != raw[day].wind.data.length
             || raw[day].rainfall.length != raw[day].variance_rain.length
             || raw[day].rainfall.length != raw[day].variance_range.length
