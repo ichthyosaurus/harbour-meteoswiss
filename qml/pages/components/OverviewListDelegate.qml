@@ -12,6 +12,7 @@ ListItem {
     property var parentModel
 
     property bool isLoading: false
+    property bool initialLoadingDone: false
     contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
 
     signal orderChanged()
@@ -263,6 +264,16 @@ ListItem {
                 else isLoading = false;
             }
         });
+
+        // Refresh all locations on startup *when the first overview entry
+        // component is completed*. This is needed *here* instead of in the main
+        // qml (harbour-meteoswiss.qml) to circumvent a nasty visual bug: if we
+        // refresh immediately after finishing the main component, the busy
+        // indicator of the first entry won't be triggered.
+        if (index === 0) {
+            isLoading = true;
+            meteoApp.refreshData(undefined, false);
+        }
 
         orderChanged.connect(function() {
             parentModel.move(index, 0, 1)
