@@ -234,7 +234,7 @@ ListItem {
 
     Timer {
         id: loadingCooldown
-        interval: 1000
+        interval: 500
         repeat: false
         running: false
         onTriggered: {
@@ -260,8 +260,16 @@ ListItem {
 
         overviewPage.loadingFinished.connect(function(loc) {
             if (locationId == loc) {
-                if (loadingMinWait.running) loadingCooldown.restart();
-                else isLoading = false;
+                if (initialLoadingDone) {
+                    if (loadingMinWait.running) {
+                        loadingCooldown.restart();
+                    } else {
+                        isLoading = false;
+                    }
+                } else {
+                    initialLoadingDone = true;
+                    isLoading = false;
+                }
             }
         });
 
