@@ -164,7 +164,15 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        doRefreshData()
+        // Do *not* refresh forecast data here!
+        // Refresh all locations on startup *when the first overview entry
+        // component is completed*. This is has to be done in
+        // qml/pages/components/OverviewListDelegate.qml instead of here
+        // to circumvent a nasty visual bug: if we refresh immediately after
+        // finishing the main component, the busy indicator of the first
+        // entry won't be triggered.
+        //
+        // DON'T! // doRefreshData()
         refreshData.connect(doRefreshData)
     }
 }
