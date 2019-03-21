@@ -50,7 +50,7 @@ lupdate-qt5 -noobsolete qml -ts translations/*.ts
 
 echo "updating rpm config..."
 sed -i "s/^Version: $current$/Version: $new_version/g" rpm/harbour-meteoswiss.yaml
-sed -i "s/^# - Summary of changes$/# - Summary of changes\n\n* $(LC_ALL=en_GB.utf8 date "+%a %b %d %y") $(git config user.name) <$(git config user.email)> $new_version-1\n- /g" rpm/harbour-meteoswiss.changes
+sed -i "s/^# - Summary of changes$/# - Summary of changes\n\n* $(LC_ALL=en_GB.utf8 date "+%a %b %d %Y") $(git config user.name) <$(git config user.email)> $new_version-1\n- /g" rpm/harbour-meteoswiss.changes
 
 echo "updating main qml..."
 sed -i "s/property string version: \"$current\"/property string version: \"$new_version\"/g" qml/harbour-meteoswiss.qml
