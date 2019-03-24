@@ -250,7 +250,28 @@ ListItem {
         onTriggered: {}
     }
 
+    Timer {
+        id: initialLoadingTimer
+        interval: 50
+        repeat: false
+        running: false
+        onTriggered: {
+            if (meteoApp.dataIsReady[locationId]) {
+                isLoading = false;
+            } else {
+                restart();
+            }
+        }
+    }
+
     Component.onCompleted: {
+        // This is needed to circumvent a nasty visual bug: when
+        // refreshing immediately after finishing the main component, the busy
+        // indicator of the first entry won't be triggered. Therefore we need
+        // to initially "force show" the spinner.
+        isLoading = true;
+        initialLoadingTimer.restart();
+
         meteoApp.dataIsLoading.connect(function(loc) {
             if (locationId == loc) {
                 isLoading = true;
@@ -272,16 +293,6 @@ ListItem {
                 }
             }
         });
-
-        // Refresh all locations on startup *when the first overview entry
-        // component is completed*. This is needed *here* instead of in the main
-        // qml (harbour-meteoswiss.qml) to circumvent a nasty visual bug: if we
-        // refresh immediately after finishing the main component, the busy
-        // indicator of the first entry won't be triggered.
-        if (index === 0) {
-            isLoading = true;
-            meteoApp.refreshData(undefined, false);
-        }
 
         orderChanged.connect(function() {
             parentModel.move(index, 0, 1)
