@@ -112,7 +112,7 @@ Page {
         model: locationsModel
 
         delegate: Loader {
-            asynchronous: true
+            asynchronous: false
             visible: status == Loader.Ready
             width: (isPortrait ? Screen.width : Screen.height)
 
@@ -121,7 +121,7 @@ Page {
 
                 Component.onCompleted: {
                     loadingFinished.connect(function(loc) {
-                        if (locationId == loc) {
+                        if (locationId === loc) {
                             refreshWeekSummary();
                         }
                     });
@@ -176,7 +176,7 @@ Page {
         }
 
 
-        for (var i = 0; i < locationsModel.count; i++) {
+        for (var i = locationsModel.count-1; i >= 0; i--) {
             if (!locationId || (locationId === locationsModel.get(i).locationId)) {
                 console.log("updating overview summary... " + i);
                 var loc = locationsModel.get(i).locationId;
