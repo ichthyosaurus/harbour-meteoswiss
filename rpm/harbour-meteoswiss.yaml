@@ -4,10 +4,10 @@ Version: 1.2.4
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
-Group: Applications/Internet
-# URL: http://example.org/
+Group: Qt/Qt
+URL: https://github.com/ichthyosaurus/harbour-meteoswiss
 BuildArch: noarch
-License: LICENSE
+License: GPLv3+
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
