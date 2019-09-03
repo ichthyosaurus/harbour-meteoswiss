@@ -31,6 +31,24 @@
         <source>Version %1</source>
         <translation>Version %1</translation>
     </message>
+    <message>
+        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
+        <translation>This is an unofficial client app for the national weather service&apos;s web interface.</translation>
+    </message>
+    <message>
+        <source>Weather icons by Zeix.</source>
+        <translation>Weather icons by Zeix.</translation>
+    </message>
+    <message>
+        <source>License GPLv3+: GNU GPL version 3 or later.
+This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</source>
+        <translation>License GPLv3+: GNU GPL version 3 or later.
+This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</translation>
+    </message>
+    <message>
+        <source>Sources on GitHub</source>
+        <translation>Sources on GitHub</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -178,6 +196,13 @@
     <message>
         <source>Reload Data</source>
         <translation>Reload Data</translation>
+    </message>
+</context>
+<context>
+    <name>LicensePage</name>
+    <message>
+        <source>License</source>
+        <translation>License</translation>
     </message>
 </context>
 <context>
