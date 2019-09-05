@@ -1,0 +1,71 @@
+<!DOCTYPE QPH><QPH language="it_IT">
+<phrase><source>clear</source><target>sereno</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast</source><target>poco nuvoloso</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>heavy cloud formations</source><target>in parte nuvoloso</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast</source><target>nuvoloso</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy</source><target>coperto</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, scattered showers</source><target>nuvolosità variabile con rovesci di pioggia isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, scattered rain and snow showers</source><target>nuvolosità variabile con rovesci di pioggia e neve isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, snow showers</source><target>nuvolosità variabile con rovesci di neve isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some showers</source><target>nuvoloso con rovesci di pioggia</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some sleet</source><target>nuvoloso con rovesci di pioggia e neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some rain and snow showers</source><target>nuvoloso con rovesci di pioggia e neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some snow showers</source><target>nuvoloso con rovesci di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly stormy</source><target>nuvolosità variabile, con temporali possibili</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>storms</source><target>nuvolosità variabile e temporalesco</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light rain</source><target>molto nuvoloso, deboli piogge</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light rain and snow  showers</source><target>molto nuvoloso, debole pioggia frammista a neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light snowfall</source><target>molto nuvoloso, deboli nevicate</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent rain</source><target>molto nuvoloso, piogge intermittenti</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittant mixed rain and snowfall</source><target>molto nuvoloso, pioggia frammista a neve intermittente </target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent snowfall</source><target>molto nuvoloso, nevicate intermittenti</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some snow showers</source><target>nuvoloso con rovesci di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy,  constant rain</source><target>molto nuvoloso, piogge intense</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, frequent rain and snowfall</source><target>molto nuvoloso, piogge e nevicate intense</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, heavy snowfall</source><target>molto nuvoloso, nevicate intense</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, slightly stormy</source><target>molto nuvoloso, temporali isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, stormy</source><target>molto nuvoloso, temporalesco</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, storms</source><target>molto nuvoloso con temporali intensi</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>high cloud</source><target>a tratti nuvolosità ad alta quota</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>stratus</source><target>nebbia alta</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>fog</source><target>nebbia</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, scattered showers</source><target>in parte nuvoloso, isolati rovesci</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, chance of thunderstorms</source><target>nuvolosità variabile, con temporali possibili</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, scattered snowfall</source><target>in parte nuvoloso, isolati rovesci di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, rain and snow showers</source><target>in parte nuvoloso, con alcuni rovesci di pioggia e di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, some showers</source><target>in parte nuvoloso con alcuni rovesci</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, frequent snow showers</source><target>nuvoloso con frequenti rovesci di pioggia</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, frequent snow showers</source><target>nuvoloso con frequenti rovesci di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast and dry</source><target>estesa nuvolosità ad alta quota</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, possible thunderstorms</source><target>nuvolosità variabile e temporalesco</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light rain</source><target>molto nuvoloso, deboli piogge</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light sleet</source><target>molto nuvoloso, debole pioggia frammista a neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light snow showers</source><target>molto nuvoloso, deboli nevicate</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent rain</source><target>molto nuvoloso, piogge intermittenti</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent sleet</source><target>molto nuvoloso, pioggia frammista a neve intermittente </target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent snow</source><target>molto nuvoloso, nevicate intermittenti</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny</source><target>soleggiato</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with rain</source><target>molto nuvoloso, piogge intense</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with frequent sleet</source><target>molto nuvoloso, piogge e nevicate intense</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with heavy snow</source><target>molto nuvoloso, nevicate intense</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast, slight chance of storms</source><target>molto nuvoloso, temporali isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with storms</source><target>molto nuvoloso, temporalesco</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, very stormy</source><target>molto nuvoloso con temporali intensi</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>high clouds</source><target>a tratti nuvolosità ad alta quota</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>stratus</source><target>nebbia alta</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>fog</source><target>nebbia</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, scattered showers</source><target>in parte nuvoloso, isolati rovesci</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>mostly sunny, some clouds</source><target>abbastanza soleggiato</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, scattered snow showers</source><target>in parte nuvoloso, isolati rovesci di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, scattered sleet</source><target>in parte nuvoloso, con rovesci di pioggia e di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, some showers</source><target>in parte nuvoloso con rovesci</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>short sunny intervals, frequent rain</source><target>nuvoloso con frequenti rovesci di pioggia</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>short sunny intervals, frequent snowfalls</source><target>nuvoloso con frequenti rovesci di neve</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast and dry</source><target>estesa nuvolosità ad alta quota</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>partly sunny, thick passing clouds</source><target>parzialmente soleggiato</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast</source><target>nuvoloso</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy</source><target>coperto</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals,  isolated showers</source><target>nuvolosità variabile con rovesci di pioggia isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, isolated sleet</source><target>nuvolosità variabile con rovesci di pioggia e neve isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, snow showers</source><target>nuvolosità variabile con rovesci di neve isolati</target><definition>Locations: Weather Descriptions</definition></phrase>
+</QPH>
