@@ -387,7 +387,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation>molto nuvoloso, pioggia frammista a neve intermittente </translation>
+        <translation>molto nuvoloso, pioggia frammista a neve intermittente</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snowfall</source>
@@ -471,7 +471,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>very cloudy, intermittent sleet</source>
-        <translation>molto nuvoloso, pioggia frammista a neve intermittente </translation>
+        <translation>molto nuvoloso, pioggia frammista a neve intermittente</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snow</source>
