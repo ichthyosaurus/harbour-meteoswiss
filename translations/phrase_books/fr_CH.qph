@@ -1,0 +1,71 @@
+<!DOCTYPE QPH><QPH language="fr_CH">
+<phrase><source>clear</source><target>ciel dégagé</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast</source><target>peu nuageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>heavy cloud formations</source><target>bancs nuageux denses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast</source><target>nuageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy</source><target>très nuageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, scattered showers</source><target>nuageux, averses par moments</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, scattered rain and snow showers</source><target>nuageux, par moments averses de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, snow showers</source><target>nuageux, giboulées de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some showers</source><target>nuageux, quelques averses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some sleet</source><target>nuageux, quelques averses de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some rain and snow showers</source><target>nuageux, quelques averses de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some snow showers</source><target>nuageux, quelques averses de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly stormy</source><target>faiblement orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>storms</source><target>orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light rain</source><target>très nuageux, faibles pluies</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light rain and snow  showers</source><target>très nuageux, faibles chutes de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light snowfall</source><target>très nuageux, faibles chutes de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent rain</source><target>très nuageux, pluies intermittences</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittant mixed rain and snowfall</source><target>très nuageux, chutes intermittentes de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent snowfall</source><target>très nuageux, chutes de neige intermittentes</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, some snow showers</source><target>nuageux, quelques averses de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy,  constant rain</source><target>très nuageux, pluie continue </target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, frequent rain and snowfall</source><target>très nuageux, fréquentes chutes de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, heavy snowfall</source><target>très nuageux, fortes chutes de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, slightly stormy</source><target>très nuageux, faiblement orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, stormy</source><target>très nuageux, orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, storms</source><target>très nuageux, très orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>high cloud</source><target>nuages élevés</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>stratus</source><target>stratus</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>fog</source><target>brouillard</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, scattered showers</source><target>peu nuageux, averses éparses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, chance of thunderstorms</source><target>éclaircies, faiblement orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, scattered snowfall</source><target>peu nuageux, giboulées de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, rain and snow showers</source><target>peu nuageux, giboulées de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>slightly overcast, some showers</source><target>peu nuageux, quelques averses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, frequent snow showers</source><target>nuageux, fréquentes averses de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast, frequent snow showers</source><target>nuageux, fréquentes averses de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast and dry</source><target>couvert et sec</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, possible thunderstorms</source><target>éclaircies, orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light rain</source><target>très nuageux, faibles pluies</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light sleet</source><target>très nuageux, faibles chutes de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, light snow showers</source><target>très nuageux, faibles chutes de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent rain</source><target>très nuageux, pluies intermittentes</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent sleet</source><target>très nuageux, chutes intermittentes de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, intermittent snow</source><target>très nuageux, chutes de neige intermittentes</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny</source><target>ensoleillé</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with rain</source><target>très nuageux, pluie continue </target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with frequent sleet</source><target>très nuageux, fréquentes chutes de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with heavy snow</source><target>très nuageux, fortes chutes de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast, slight chance of storms</source><target>très nuageux, faiblement orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very overcast with storms</source><target>très nuageux, orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy, very stormy</source><target>très nuageux, très orageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>high clouds</source><target>nuages élevés</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>stratus</source><target>stratus</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>fog</source><target>brouillard</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, scattered showers</source><target>belles éclaircies, averses éparses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>mostly sunny, some clouds</source><target>assez ensoleillé, quelques passages nuageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, scattered snow showers</source><target>belles éclaircies, giboulées de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, scattered sleet</source><target>belles éclaircies, giboulées de pluie et de neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, some showers</source><target>éclaircies, quelques averses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>short sunny intervals, frequent rain</source><target>rares éclaircies, fréquentes averses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>short sunny intervals, frequent snowfalls</source><target>rares éclaircies, fréquentes averses de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast and dry</source><target>couvert et sec</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>partly sunny, thick passing clouds</source><target>en partie ensoleillé, passages nuageux parfois denses</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>overcast</source><target>nuageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>very cloudy</source><target>très nuageux</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals,  isolated showers</source><target>éclaircies, averses isolées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, isolated sleet</source><target>éclaircies, averses isolées de pluie et neige mêlées</target><definition>Locations: Weather Descriptions</definition></phrase>
+<phrase><source>sunny intervals, snow showers</source><target>éclaircies, giboulées de neige</target><definition>Locations: Weather Descriptions</definition></phrase>
+</QPH>

@@ -106,7 +106,7 @@ ListItem {
             id: descriptionLabel
             width: parent.width
             color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-            text: (!Strings.MeteoLang.weatherSymbolDescription[model.symbol] ? zip : String("%1 – %2").arg(zip).arg(Strings.MeteoLang.weatherSymbolDescription[model.symbol]))
+            text: (!Strings.weatherSymbolDescription[model.symbol] ? zip : String("%1 – %2").arg(zip).arg(Strings.weatherSymbolDescription[model.symbol]))
             font.pixelSize: Theme.fontSizeSmall
             truncationMode: TruncationMode.Fade
             wrapMode: Text.Wrap

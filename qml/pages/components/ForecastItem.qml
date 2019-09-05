@@ -109,7 +109,7 @@ Column {
                     clickedCallback: function(hour, symbol) {
                             descriptionLabel.text = String(
                                 qsTr("%1: %2", "time (1) with weather description (2)")).arg(hour).arg(
-                                    Strings.MeteoLang.weatherSymbolDescription[symbol]);
+                                    Strings.weatherSymbolDescription[symbol]);
                         };
                 }
             }

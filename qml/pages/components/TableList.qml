@@ -138,7 +138,7 @@ SilicaListView {
                 "rain": (rain.haveData ? rain.datasets[0].data[i] : []),
                 "wind": wind.datasets[0].data[i],
                 "windSym": wind.datasets[0].symbols[i],
-                "description": Strings.MeteoLang.weatherSymbolDescription[temp.datasets[0].symbols[i]],
+                "description": Strings.weatherSymbolDescription[temp.datasets[0].symbols[i]],
             })
         }
     }
