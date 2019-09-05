@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.meteosuisse.admin.ch/</translation>
     </message>
     <message>
         <source>Author</source>
@@ -42,7 +42,8 @@
     <message>
         <source>License GPLv3+: GNU GPL version 3 or later.
 This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</source>
-        <translation type="unfinished"></translation>
+        <translation>License GPLv3+: GNU GPL version 3 or later.
+This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</translation>
     </message>
     <message>
         <source>Sources on GitHub</source>
@@ -53,29 +54,29 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <name>CoverPage</name>
     <message>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MétéoSuisse</translation>
     </message>
 </context>
 <context>
     <name>DaySummaryItem</name>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Aujourd&apos;hui</translation>
     </message>
 </context>
 <context>
     <name>ForecastGraphItem</name>
     <message>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Température</translation>
     </message>
     <message>
         <source>Precipitation</source>
-        <translation type="unfinished"></translation>
+        <translation>Précipitations</translation>
     </message>
     <message>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Vent</translation>
     </message>
 </context>
 <context>
@@ -190,7 +191,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MétéoSuisse</translation>
     </message>
     <message>
         <source>Failed to load data!</source>
@@ -250,7 +251,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MétéoSuisse</translation>
     </message>
     <message>
         <source>Add a location first</source>
@@ -277,38 +278,38 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Heure</translation>
     </message>
     <message>
         <source>Temp.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp.</translation>
     </message>
     <message>
         <source>Precip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Précip.</translation>
     </message>
     <message>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Vent</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Description</translation>
     </message>
 </context>
 <context>
     <name>harbour-meteoswiss</name>
     <message>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>d MMM yyyy &apos;(&apos;hh&apos;h&apos;mm&apos;)&apos;</translation>
     </message>
     <message>
         <source>hh&apos;:&apos;mm</source>
-        <translation type="unfinished"></translation>
+        <translation>hh&apos;h&apos;mm</translation>
     </message>
     <message>
         <source>ddd d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>ddd d MMM yyyy</translation>
     </message>
 </context>
 <context>
@@ -383,7 +384,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation>très nuageux, pluies intermittences</translation>
+        <translation>très nuageux, pluies&#xa0;intermittences</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
@@ -395,7 +396,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>very cloudy,  constant rain</source>
-        <translation>très nuageux, pluie continue </translation>
+        <translation>très nuageux, pluie continue</translation>
     </message>
     <message>
         <source>very cloudy, frequent rain and snowfall</source>
@@ -483,7 +484,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>very overcast with rain</source>
-        <translation>très nuageux, pluie continue </translation>
+        <translation>très nuageux, pluie continue</translation>
     </message>
     <message>
         <source>very overcast with frequent sleet</source>
