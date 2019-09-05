@@ -39,7 +39,7 @@ ApplicationWindow {
     // ===============================
     // ATTENTION UPDATE BEFORE RELEASE
     // -------------------------------
-    property string version: "1.2.4"
+    property string version: "1.2.5"
     property bool debug:     false
     // ===============================
 
