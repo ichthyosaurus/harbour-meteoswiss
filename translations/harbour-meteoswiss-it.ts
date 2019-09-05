@@ -315,243 +315,243 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <name>strings</name>
     <message>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>sereno</translation>
     </message>
     <message>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>poco nuvoloso</translation>
     </message>
     <message>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso</translation>
     </message>
     <message>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso</translation>
     </message>
     <message>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>coperto</translation>
     </message>
     <message>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile con rovesci di pioggia isolati</translation>
     </message>
     <message>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile con rovesci di pioggia e neve isolati</translation>
     </message>
     <message>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile con rovesci di neve isolati</translation>
     </message>
     <message>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con rovesci di pioggia</translation>
     </message>
     <message>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con rovesci di pioggia e neve</translation>
     </message>
     <message>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con rovesci di pioggia e neve</translation>
     </message>
     <message>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con rovesci di neve</translation>
     </message>
     <message>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile, con temporali possibili</translation>
     </message>
     <message>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile e temporalesco</translation>
     </message>
     <message>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, deboli piogge</translation>
     </message>
     <message>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, debole pioggia frammista a neve</translation>
     </message>
     <message>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, deboli nevicate</translation>
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, piogge intermittenti</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, pioggia frammista a neve intermittente </translation>
     </message>
     <message>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, nevicate intermittenti</translation>
     </message>
     <message>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, piogge intense</translation>
     </message>
     <message>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, piogge e nevicate intense</translation>
     </message>
     <message>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, nevicate intense</translation>
     </message>
     <message>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, temporali isolati</translation>
     </message>
     <message>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, temporalesco</translation>
     </message>
     <message>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso con temporali intensi</translation>
     </message>
     <message>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>a tratti nuvolosità ad alta quota</translation>
     </message>
     <message>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>nebbia alta</translation>
     </message>
     <message>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>nebbia</translation>
     </message>
     <message>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso, isolati rovesci</translation>
     </message>
     <message>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile, con temporali possibili</translation>
     </message>
     <message>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso, isolati rovesci di neve</translation>
     </message>
     <message>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso, con alcuni rovesci di pioggia e di neve</translation>
     </message>
     <message>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso con alcuni rovesci</translation>
     </message>
     <message>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con frequenti rovesci di pioggia</translation>
     </message>
     <message>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>estesa nuvolosità ad alta quota</translation>
     </message>
     <message>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile e temporalesco</translation>
     </message>
     <message>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, debole pioggia frammista a neve</translation>
     </message>
     <message>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, deboli nevicate</translation>
     </message>
     <message>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, pioggia frammista a neve intermittente </translation>
     </message>
     <message>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, nevicate intermittenti</translation>
     </message>
     <message>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>soleggiato</translation>
     </message>
     <message>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, piogge intense</translation>
     </message>
     <message>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, piogge e nevicate intense</translation>
     </message>
     <message>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, nevicate intense</translation>
     </message>
     <message>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, temporali isolati</translation>
     </message>
     <message>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso, temporalesco</translation>
     </message>
     <message>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>molto nuvoloso con temporali intensi</translation>
     </message>
     <message>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>a tratti nuvolosità ad alta quota</translation>
     </message>
     <message>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso, isolati rovesci</translation>
     </message>
     <message>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>abbastanza soleggiato</translation>
     </message>
     <message>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso, isolati rovesci di neve</translation>
     </message>
     <message>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso, con rovesci di pioggia e di neve</translation>
     </message>
     <message>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>in parte nuvoloso con rovesci</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con frequenti rovesci di pioggia</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvoloso con frequenti rovesci di neve</translation>
     </message>
     <message>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>parzialmente soleggiato</translation>
     </message>
     <message>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile con rovesci di pioggia isolati</translation>
     </message>
     <message>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile con rovesci di pioggia e neve isolati</translation>
     </message>
     <message>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuvolosità variabile con rovesci di neve isolati</translation>
     </message>
 </context>
 </TS>
