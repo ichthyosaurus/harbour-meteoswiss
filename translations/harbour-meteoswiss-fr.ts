@@ -315,243 +315,243 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <name>strings</name>
     <message>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>ciel dégagé</translation>
     </message>
     <message>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>peu nuageux</translation>
     </message>
     <message>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>bancs nuageux denses</translation>
     </message>
     <message>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux</translation>
     </message>
     <message>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux</translation>
     </message>
     <message>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, averses par moments</translation>
     </message>
     <message>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, par moments averses de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, giboulées de neige</translation>
     </message>
     <message>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, quelques averses</translation>
     </message>
     <message>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, quelques averses de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, quelques averses de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, quelques averses de neige</translation>
     </message>
     <message>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>faiblement orageux</translation>
     </message>
     <message>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>orageux</translation>
     </message>
     <message>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faibles pluies</translation>
     </message>
     <message>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faibles chutes de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faibles chutes de neige</translation>
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, pluies intermittences</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, chutes intermittentes de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, chutes de neige intermittentes</translation>
     </message>
     <message>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, pluie continue </translation>
     </message>
     <message>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, fréquentes chutes de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, fortes chutes de neige</translation>
     </message>
     <message>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faiblement orageux</translation>
     </message>
     <message>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, orageux</translation>
     </message>
     <message>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, très orageux</translation>
     </message>
     <message>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>nuages élevés</translation>
     </message>
     <message>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>stratus</translation>
     </message>
     <message>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>brouillard</translation>
     </message>
     <message>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>peu nuageux, averses éparses</translation>
     </message>
     <message>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>éclaircies, faiblement orageux</translation>
     </message>
     <message>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>peu nuageux, giboulées de neige</translation>
     </message>
     <message>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>peu nuageux, giboulées de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>peu nuageux, quelques averses</translation>
     </message>
     <message>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nuageux, fréquentes averses de neige</translation>
     </message>
     <message>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>couvert et sec</translation>
     </message>
     <message>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>éclaircies, orageux</translation>
     </message>
     <message>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faibles chutes de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faibles chutes de neige</translation>
     </message>
     <message>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, chutes intermittentes de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, chutes de neige intermittentes</translation>
     </message>
     <message>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>ensoleillé</translation>
     </message>
     <message>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, pluie continue </translation>
     </message>
     <message>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, fréquentes chutes de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, fortes chutes de neige</translation>
     </message>
     <message>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, faiblement orageux</translation>
     </message>
     <message>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, orageux</translation>
     </message>
     <message>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>très nuageux, très orageux</translation>
     </message>
     <message>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>nuages élevés</translation>
     </message>
     <message>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>belles éclaircies, averses éparses</translation>
     </message>
     <message>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>assez ensoleillé, quelques passages nuageux</translation>
     </message>
     <message>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>belles éclaircies, giboulées de neige</translation>
     </message>
     <message>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>belles éclaircies, giboulées de pluie et de neige mêlées</translation>
     </message>
     <message>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>éclaircies, quelques averses</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>rares éclaircies, fréquentes averses</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>rares éclaircies, fréquentes averses de neige</translation>
     </message>
     <message>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>en partie ensoleillé, passages nuageux parfois denses</translation>
     </message>
     <message>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation>éclaircies, averses isolées</translation>
     </message>
     <message>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>éclaircies, averses isolées de pluie et neige mêlées</translation>
     </message>
     <message>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>éclaircies, giboulées de neige</translation>
     </message>
 </context>
 </TS>

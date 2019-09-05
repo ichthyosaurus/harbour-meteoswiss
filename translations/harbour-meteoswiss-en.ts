@@ -316,243 +316,243 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <name>strings</name>
     <message>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>clear</translation>
     </message>
     <message>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>slightly overcast</translation>
     </message>
     <message>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>heavy cloud formations</translation>
     </message>
     <message>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast</translation>
     </message>
     <message>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy</translation>
     </message>
     <message>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, scattered showers</translation>
     </message>
     <message>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, scattered rain and snow showers</translation>
     </message>
     <message>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, snow showers</translation>
     </message>
     <message>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, some showers</translation>
     </message>
     <message>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, some sleet</translation>
     </message>
     <message>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, some rain and snow showers</translation>
     </message>
     <message>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, some snow showers</translation>
     </message>
     <message>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>slightly stormy</translation>
     </message>
     <message>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>storms</translation>
     </message>
     <message>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, light rain</translation>
     </message>
     <message>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, light rain and snow  showers</translation>
     </message>
     <message>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, light snowfall</translation>
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, intermittent rain</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, intermittant mixed rain and snowfall</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, intermittent snowfall</translation>
     </message>
     <message>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy,  constant rain</translation>
     </message>
     <message>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, frequent rain and snowfall</translation>
     </message>
     <message>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, heavy snowfall</translation>
     </message>
     <message>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, slightly stormy</translation>
     </message>
     <message>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, stormy</translation>
     </message>
     <message>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, storms</translation>
     </message>
     <message>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>high cloud</translation>
     </message>
     <message>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>stratus</translation>
     </message>
     <message>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>fog</translation>
     </message>
     <message>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>slightly overcast, scattered showers</translation>
     </message>
     <message>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, chance of thunderstorms</translation>
     </message>
     <message>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>slightly overcast, scattered snowfall</translation>
     </message>
     <message>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>slightly overcast, rain and snow showers</translation>
     </message>
     <message>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>slightly overcast, some showers</translation>
     </message>
     <message>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast, frequent snow showers</translation>
     </message>
     <message>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>overcast and dry</translation>
     </message>
     <message>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, possible thunderstorms</translation>
     </message>
     <message>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, light sleet</translation>
     </message>
     <message>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, light snow showers</translation>
     </message>
     <message>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, intermittent sleet</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, intermittent snow</translation>
     </message>
     <message>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny</translation>
     </message>
     <message>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>very overcast with rain</translation>
     </message>
     <message>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>very overcast with frequent sleet</translation>
     </message>
     <message>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>very overcast with heavy snow</translation>
     </message>
     <message>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>very overcast, slight chance of storms</translation>
     </message>
     <message>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>very overcast with storms</translation>
     </message>
     <message>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>very cloudy, very stormy</translation>
     </message>
     <message>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>high clouds</translation>
     </message>
     <message>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, scattered showers</translation>
     </message>
     <message>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>mostly sunny, some clouds</translation>
     </message>
     <message>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, scattered snow showers</translation>
     </message>
     <message>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, scattered sleet</translation>
     </message>
     <message>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, some showers</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>short sunny intervals, frequent rain</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>short sunny intervals, frequent snowfalls</translation>
     </message>
     <message>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>partly sunny, thick passing clouds</translation>
     </message>
     <message>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals,  isolated showers</translation>
     </message>
     <message>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, isolated sleet</translation>
     </message>
     <message>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>sunny intervals, snow showers</translation>
     </message>
 </context>
 </TS>
