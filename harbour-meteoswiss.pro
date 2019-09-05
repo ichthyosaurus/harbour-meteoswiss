@@ -43,3 +43,12 @@ TRANSLATIONS += \
     translations/harbour-meteoswiss-de.ts \
     translations/harbour-meteoswiss-fr.ts \
     translations/harbour-meteoswiss-it.ts
+
+lupdate_only {
+SOURCES += \
+    qml/*.qml \
+    qml/cover/*.qml \
+    qml/pages/*.qml \
+    qml/pages/components/*.qml \
+    qml/js/*.js
+}
