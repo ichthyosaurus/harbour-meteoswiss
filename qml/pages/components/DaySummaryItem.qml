@@ -121,7 +121,7 @@ BackgroundItem {
             isToday = false;
         }
 
-        data = Storage.getDaySummary(location, timestamp);
+        data = Storage.getDaySummary(location, timestamp, day);
 
         dayElem.value = isToday ? qsTr("Today") : (timestamp != undefined ? timestamp.toLocaleString(Qt.locale(), "ddd") : "");
         dayElem.refresh();
