@@ -316,243 +316,243 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <name>strings</name>
     <message>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>晴朗的</translation>
     </message>
     <message>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>稍阴</translation>
     </message>
     <message>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云</translation>
     </message>
     <message>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>阴</translation>
     </message>
     <message>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>多云</translation>
     </message>
     <message>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，零星小雨</translation>
     </message>
     <message>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，零星小雨及降雪</translation>
     </message>
     <message>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，降雪</translation>
     </message>
     <message>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，阵雨</translation>
     </message>
     <message>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，雨夹雪</translation>
     </message>
     <message>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，小雨及降雪</translation>
     </message>
     <message>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，小雪</translation>
     </message>
     <message>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>轻度暴雨</translation>
     </message>
     <message>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>暴雨</translation>
     </message>
     <message>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，小雨</translation>
     </message>
     <message>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，小雨及降雪</translation>
     </message>
     <message>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，小雪</translation>
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，间歇性降雨</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，间歇性雨夹雪</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，间歇性降雪</translation>
     </message>
     <message>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，持续降雨</translation>
     </message>
     <message>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，频繁降雨及降雪</translation>
     </message>
     <message>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，大雪</translation>
     </message>
     <message>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，轻度暴雨</translation>
     </message>
     <message>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，暴雨</translation>
     </message>
     <message>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，暴雨</translation>
     </message>
     <message>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>天高云淡</translation>
     </message>
     <message>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>层云</translation>
     </message>
     <message>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>雾</translation>
     </message>
     <message>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>稍阴，零星小雨</translation>
     </message>
     <message>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，可能有雷暴</translation>
     </message>
     <message>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>稍阴，阵雪</translation>
     </message>
     <message>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>稍阴，雨及阵雪</translation>
     </message>
     <message>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>稍阴，零星阵雨</translation>
     </message>
     <message>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>阴，频繁阵雪</translation>
     </message>
     <message>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>阴及干燥</translation>
     </message>
     <message>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，可能有雷暴</translation>
     </message>
     <message>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，轻度雨夹雪</translation>
     </message>
     <message>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，轻度阵雪</translation>
     </message>
     <message>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，间歇性雨夹雪</translation>
     </message>
     <message>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，间歇性降雪</translation>
     </message>
     <message>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>晴朗</translation>
     </message>
     <message>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>极阴及降雨</translation>
     </message>
     <message>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>极阴，频繁雨夹雪</translation>
     </message>
     <message>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>极阴，大雪</translation>
     </message>
     <message>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>极阴，小概率暴雨</translation>
     </message>
     <message>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>极阴，暴雨</translation>
     </message>
     <message>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>浓云密布，暴雨倾盆</translation>
     </message>
     <message>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>天高云淡</translation>
     </message>
     <message>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，阵雨</translation>
     </message>
     <message>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>大部晴朗，小部多云</translation>
     </message>
     <message>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，零星阵雪</translation>
     </message>
     <message>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，零星雨夹雪</translation>
     </message>
     <message>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，零星降雨</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>短时晴朗，频繁降雨</translation>
     </message>
     <message>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>短时晴朗，频繁降雪</translation>
     </message>
     <message>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>部分晴朗，阳光穿透云层</translation>
     </message>
     <message>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation> 间晴，局部地区性骤雨</translation>
     </message>
     <message>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，局部地区性骤雨</translation>
     </message>
     <message>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>间晴，阵雪</translation>
     </message>
 </context>
 </TS>
