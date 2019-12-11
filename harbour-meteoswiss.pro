@@ -42,7 +42,8 @@ TRANSLATIONS += \
     translations/harbour-meteoswiss-en.ts \
     translations/harbour-meteoswiss-de.ts \
     translations/harbour-meteoswiss-fr.ts \
-    translations/harbour-meteoswiss-it.ts
+    translations/harbour-meteoswiss-it.ts \
+    translations/harbour-meteoswiss-zh_CN.ts
 
 lupdate_only {
 SOURCES += \

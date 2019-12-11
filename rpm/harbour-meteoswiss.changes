@@ -2,7 +2,7 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Wed Dec 11 2019 Mirian Margiani <mirian@margiani.ch> 1.2.6-1
+* Wed Dec 11 2019 Mirian Margiani <mirian@margiani.ch> 1.2.6-2
 - generate day summaries if none could be downloaded
 - fix typo in French translation
 - add Chinese translation (thanks dashinfantry!)
