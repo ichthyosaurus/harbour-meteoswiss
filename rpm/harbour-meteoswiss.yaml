@@ -1,6 +1,6 @@
 Name: harbour-meteoswiss
 Summary: Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
-Version: 1.2.5
+Version: 1.2.6
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
