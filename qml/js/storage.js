@@ -295,6 +295,24 @@ function setOverviewPositions(dataPairs) {
     return res;
 }
 
+function getHourSymbolFor(hour) {
+    if (!hour) {
+        hour = 23;
+    }
+
+    if (hour == 0) {
+        hour = 23;
+    } else {
+        if ((hour+1) % 3 == 1) {
+            hour -= 1;
+        } else if ((hour+1) % 3 == 2) {
+            hour += 1;
+        }
+    }
+
+    return hour;
+}
+
 function getCurrentSymbolHour() {
     // find nearest available symbol:
     // There are symbols every 3 hours, starting at 2am and ending at 11pm.
@@ -309,17 +327,7 @@ function getCurrentSymbolHour() {
         hour += 1;
     }
 
-    if (hour == 0) {
-        hour = 23;
-    } else {
-        if ((hour+1) % 3 == 1) {
-            hour -= 1;
-        } else if ((hour+1) % 3 == 2) {
-            hour += 1;
-        }
-    }
-
-    return hour;
+    return getHourSymbolFor(hour);
 }
 
 function setDaySummary(locationId, dayString, symbol, precipitation, tempMin, tempMax) {
@@ -355,7 +363,7 @@ function getDaySummaryAge() {
     return res;
 }
 
-function getDaySummary(locationId, dayDate) {
+function getDaySummary(locationId, dayDate, dayId) {
     var res = {
         symbol: 0,
         minTemp: undefined,
@@ -378,11 +386,44 @@ function getDaySummary(locationId, dayDate) {
                 res.minTemp = rs.rows.item(0).temp_min;
             } else {
                 console.log("error while loading day overview: no data");
+
+                if (dayId === undefined) {
+                    console.log("cannot generate day overview: day id is missing")
+                } else {
+                    res = getGeneratedDaySummary(locationId, dayId)
+                }
             }
         });
     } catch(e) {
         console.log("error while loading day summary data: locationId=" + locationId + " date=" + dayDate.toISOString());
     }
+
+    return res;
+}
+
+function getGeneratedDaySummary(locationId, dayId) {
+    var res = {
+        symbol: 0,
+        minTemp: undefined,
+        maxTemp: undefined,
+        precipitation: undefined,
+    };
+
+    if (locationId == undefined || dayId == undefined) return res;
+
+    var data = getData(locationId, true);
+    data = data.length > 0 ? data[0] : undefined;
+
+    if (!data) {
+        console.log("error: failed to get data to generate summary for", locationId)
+        return res;
+    }
+
+    var full = JSON.parse(data.data)[dayId];
+    res.maxTemp = Math.max.apply(Math, full.temperature.datasets[0].data);
+    res.minTemp = Math.min.apply(Math, full.temperature.datasets[0].data);
+    res.precipitation = full.rainfall.datasets[0].data.reduce(function(acc, val) { return acc + val; }, 0);
+    res.symbol = full.temperature.datasets[0].symbols[getHourSymbolFor(12)];
 
     return res;
 }
