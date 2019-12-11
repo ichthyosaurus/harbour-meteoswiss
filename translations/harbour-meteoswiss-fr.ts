@@ -384,7 +384,7 @@ This is free software: you are free to change and redistribute it.There is NO WA
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation>très nuageux, pluies&#xa0;intermittences</translation>
+        <translation>très nuageux, pluies intermittences</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
