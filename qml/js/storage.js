@@ -90,6 +90,23 @@ function simpleQuery(query, values) {
     return res;
 }
 
+function pruneOldData(locationId) {
+    if (!locationId) return;
+
+    var res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
+        (location_id=? AND timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
+        (location_id NOT IN (SELECT location_id FROM locations))\
+        ORDER BY rowid ASC\
+        LIMIT 100\
+    );', [locationId]);
+
+    if (res === undefined) {
+        console.log("error: failed to prune old data for " + locationId);
+    } else if (res > 0) {
+        console.log("pruned " + res + " old entries for " + locationId);
+    }
+}
+
 function addLocation(locationData, viewPosition) {
     var id = defaultFor(locationData.locationId, null);
     var alt = defaultFor(locationData.altitude, 0);
@@ -489,6 +506,8 @@ function setData(timestamp, locationId, data) {
 
     if (!res) {
         console.log("error: failed to save data for " + locationId + " to db");
+    } else {
+        pruneOldData(locationId);
     }
 
     return res;
