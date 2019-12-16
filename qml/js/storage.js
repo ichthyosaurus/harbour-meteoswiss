@@ -485,7 +485,7 @@ function getGeneratedDaySummary(locationId, dayId) {
     var full = JSON.parse(data.data)[dayId];
     res.maxTemp = Math.max.apply(Math, full.temperature.datasets[0].data);
     res.minTemp = Math.min.apply(Math, full.temperature.datasets[0].data);
-    res.precipitation = full.rainfall.datasets[0].data.reduce(function(acc, val) { return acc + val; }, 0);
+    res.precipitation = Math.round(full.rainfall.datasets[0].data.reduce(function(acc, val) { return acc + val; }, 0)*10)/10;
     res.symbol = full.temperature.datasets[0].symbols[getHourSymbolFor(12)];
 
     return res;
