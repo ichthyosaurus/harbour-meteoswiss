@@ -182,7 +182,17 @@ ApplicationWindow {
         }
     }
 
+    MaintenanceOverlay {
+        id: maintenanceOverlay
+    }
+
     Component.onCompleted: {
+        if (Storage.dbNeedsMaintenance()) {
+            maintenanceOverlay.state = "visible";
+            Storage.doDatabaseMaintenance();
+            maintenanceOverlay.state = "invisible";
+        }
+
         doRefreshData()
         refreshData.connect(doRefreshData)
     }
