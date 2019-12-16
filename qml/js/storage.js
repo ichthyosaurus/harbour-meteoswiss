@@ -98,13 +98,12 @@ function pruneOldData(locationId, allAtOnce) {
     if (!locationId && !allAtOnce) return;
     var res;
 
-    if (allAtOnce == true) {
+    if (allAtOnce === true) {
         res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
             (timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
             (location_id NOT IN (SELECT location_id FROM locations))\
             ORDER BY rowid ASC\
         );');
-        console.log("prune ALLLLLLLL " + res)
     } else {
         res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
             (location_id=? AND timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
