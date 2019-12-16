@@ -29,8 +29,8 @@ function getDatabase() {
     var db = LS.LocalStorage.openDatabaseSync("harbour-meteoswiss", "2.0", "MeteoSwiss Offline Cache", 1000000);
 
     if (!initialized) {
-        doInit(db);
         initialized = true;
+        doInit(db);
     }
 
     return db;
