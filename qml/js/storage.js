@@ -62,7 +62,7 @@ function doInit(db) {
     });
 }
 
-function simpleQuery(query, values) {
+function simpleQuery(query, values, getSelectedCount) {
     var db = getDatabase();
     var res = undefined;
     values = defaultFor(values, []);
@@ -81,30 +81,76 @@ function simpleQuery(query, values) {
             } else {
                 res = 0;
             }
+
+            if (getSelectedCount === true) {
+                res = rs.rows.length;
+            }
         });
     } catch(e) {
-        console.log("error in query:", values);
+        console.log("error in query: '"+ e +"', values=", values);
         res = undefined;
     }
 
     return res;
 }
 
-function pruneOldData(locationId) {
-    if (!locationId) return;
+function pruneOldData(locationId, allAtOnce) {
+    if (!locationId && !allAtOnce) return;
+    var res;
 
-    var res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
-        (location_id=? AND timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
-        (location_id NOT IN (SELECT location_id FROM locations))\
-        ORDER BY rowid ASC\
-        LIMIT 100\
-    );', [locationId]);
+    if (allAtOnce == true) {
+        res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
+            (timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
+            (location_id NOT IN (SELECT location_id FROM locations))\
+            ORDER BY rowid ASC\
+        );');
+        console.log("prune ALLLLLLLL " + res)
+    } else {
+        res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
+            (location_id=? AND timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
+            (location_id NOT IN (SELECT location_id FROM locations))\
+            ORDER BY rowid ASC\
+            LIMIT 100\
+        );', [locationId]);
+    }
 
     if (res === undefined) {
         console.log("error: failed to prune old data for " + locationId);
     } else if (res > 0) {
         console.log("pruned " + res + " old entries for " + locationId);
     }
+}
+
+function vacuumDatabase() {
+    var db = getDatabase();
+
+    try {
+        db.transaction(function(tx) {
+            // VACUUM cannot be executed inside a transaction, but the LocalStorage
+            // module cannot execute queries without one. Thus we have to manually
+            // end the transaction from inside the transaction...
+            var rs = tx.executeSql("END TRANSACTION;");
+            var rs2 = tx.executeSql("VACUUM;");
+        });
+    } catch(e) {
+        console.log("error in query: '"+ e);
+    }
+}
+
+function dbNeedsMaintenance() {
+    var last_maintenance = simpleQuery('SELECT * FROM settings WHERE setting="last_maintenance" AND value >= date("now", "-60 day") LIMIT 1;', [], true);
+
+    if (last_maintenance > 0) {
+        return false;
+    }
+
+    return true;
+}
+
+function doDatabaseMaintenance() {
+    pruneOldData(0, true);
+    vacuumDatabase();
+    simpleQuery('INSERT OR REPLACE INTO settings VALUES (?,?);', ["last_maintenance", new Date().toISOString()]);
 }
 
 function addLocation(locationData, viewPosition) {
