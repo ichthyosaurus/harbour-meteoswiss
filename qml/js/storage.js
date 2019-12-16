@@ -99,11 +99,22 @@ function pruneOldData(locationId, allAtOnce) {
     var res;
 
     if (allAtOnce === true) {
-        res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
+        var res1 = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
             (timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
             (location_id NOT IN (SELECT location_id FROM locations))\
             ORDER BY rowid ASC\
         );');
+
+        var res2 = simpleQuery('DELETE FROM data_overview WHERE rowid IN (SELECT rowid FROM data_overview WHERE\
+            (datestring <= date("now", "-14 day")) OR\
+            (location_id NOT IN (SELECT location_id FROM locations))\
+            ORDER BY rowid ASC\
+        );');
+
+        if (res1 === undefined && res2 === undefined) res = undefined;
+        else if (res1 === undefined) res1 = 0;
+        else if (res2 === undefined) res2 = 0;
+        if (res !== undefined) res = res1 + res2;
     } else {
         res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
             (location_id=? AND timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
