@@ -23,6 +23,7 @@ import "components"
 
 import "../js/storage.js" as Storage
 import "../js/strings.js" as Strings
+import "../sf-about-page/about.js" as About
 
 Page {
     id: overviewPage
@@ -82,7 +83,7 @@ Page {
 
             MenuItem {
                 text: qsTr("About")
-                onClicked: pageStack.animatorPush(Qt.resolvedUrl("AboutPage.qml"))
+                onClicked: About.pushAboutPage(pageStack)
             }
 
             MenuItem {
