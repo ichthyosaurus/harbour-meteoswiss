@@ -3,8 +3,6 @@
 // This script is a library. This improves performance, but it means that no
 // variables from the outside can be accessed.
 
-var VERSION_NUMBER // set in main.qml's Component.onCompleted
-
 var DEVELOPMENT = [
     {label: qsTr("Programming"), values: ["Mirian Margiani"]},
     {label: qsTr("Weather Icons"), values: ["Zeix"]}
@@ -16,6 +14,7 @@ var TRANSLATIONS = [
     {label: qsTr("Chinese"), values: ["dashinfantry"]}
 ]
 
+var VERSION_NUMBER // set in main.qml's Component.onCompleted
 var APPINFO = {
     appName: qsTr("MeteoSwiss"),
     iconPath: "../weather-icons/harbour-meteoswiss.svg",
@@ -39,5 +38,6 @@ function aboutPageUrl() {
 }
 
 function pushAboutPage(pageStack) {
+    APPINFO.versionNumber = VERSION_NUMBER;
     pageStack.push(aboutPageUrl(), APPINFO);
 }
