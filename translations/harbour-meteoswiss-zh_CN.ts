@@ -4,10 +4,6 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <source>About MeteoSwiss</source>
-        <translation>关于 MeteoSwiss</translation>
-    </message>
-    <message>
         <source>Author</source>
         <translation>作者</translation>
     </message>
@@ -16,38 +12,51 @@
         <translation>数据</translation>
     </message>
     <message>
-        <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation>版权所有，联邦气象与气候办公室，MeteoSwiss.</translation>
-    </message>
-    <message>
         <source>Website</source>
         <translation>网站</translation>
-    </message>
-    <message>
-        <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation>https://www.meteoswiss.admin.ch/</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation>版本 %1</translation>
     </message>
     <message>
-        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
-        <translation>这是一个非官方国家气象服务网站客户端。</translation>
+        <source>About %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Weather icons by Zeix.</source>
-        <translation>天气图标作者为 Zeix 。</translation>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>License GPLv3+: GNU GPL version 3 or later.
-This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</source>
-        <translation>许可协议为 GPLv3+: GNU GPL 版本3 及以上。
-这是一个自由软件，因此你可以自由修改及分发。在法律许可范围内没有任何限制。</translation>
+        <source>&lt;i&gt;show contributors &lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sources on GitHub</source>
-        <translation>源代码位于 GitHub</translation>
+        <source>License</source>
+        <translation>许可协议</translation>
+    </message>
+    <message>
+        <source>&lt;i&gt;show license &lt;/i&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ContributorsPage</name>
+    <message>
+        <source>Contributors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -295,6 +304,53 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <message>
         <source>Wind</source>
         <translation>风</translation>
+    </message>
+</context>
+<context>
+    <name>about</name>
+    <message>
+        <source>Programming</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Weather Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Weather Descriptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>English, German</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MeteoSwiss</source>
+        <translation>MeteoSwiss</translation>
+    </message>
+    <message>
+        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
+        <translation>这是一个非官方国家气象服务网站客户端。</translation>
+    </message>
+    <message>
+        <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
+        <translation>版权所有，联邦气象与气候办公室，MeteoSwiss.</translation>
+    </message>
+    <message>
+        <source>Weather icons by Zeix.</source>
+        <translation>天气图标作者为 Zeix 。</translation>
+    </message>
+    <message>
+        <source>https://www.meteoschweiz.admin.ch/</source>
+        <translation>https://www.meteoswiss.admin.ch/</translation>
+    </message>
+    <message>
+        <source>Sources on GitHub</source>
+        <translation>源代码位于 GitHub</translation>
     </message>
 </context>
 <context>

@@ -4,10 +4,6 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <source>About MeteoSwiss</source>
-        <translation>About MeteoSwiss</translation>
-    </message>
-    <message>
         <source>Author</source>
         <translation>Author</translation>
     </message>
@@ -16,38 +12,51 @@
         <translation>Data</translation>
     </message>
     <message>
-        <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</translation>
-    </message>
-    <message>
         <source>Website</source>
         <translation>Website</translation>
-    </message>
-    <message>
-        <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation>https://www.meteoswiss.admin.ch/</translation>
     </message>
     <message>
         <source>Version %1</source>
         <translation>Version %1</translation>
     </message>
     <message>
-        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
-        <translation>This is an unofficial client app for the national weather service&apos;s web interface.</translation>
+        <source>About %1</source>
+        <translation>About %1</translation>
     </message>
     <message>
-        <source>Weather icons by Zeix.</source>
-        <translation>Weather icons by Zeix.</translation>
+        <source>Development</source>
+        <translation>Development</translation>
     </message>
     <message>
-        <source>License GPLv3+: GNU GPL version 3 or later.
-This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</source>
-        <translation>License GPLv3+: GNU GPL version 3 or later.
-This is free software: you are free to change and redistribute it.There is NO WARRANTY, to the extent permitted by law.</translation>
+        <source>&lt;i&gt;show contributors &lt;/i&gt;</source>
+        <translation>&lt;i&gt;show contributors &lt;/i&gt;</translation>
     </message>
     <message>
-        <source>Sources on GitHub</source>
-        <translation>Sources on GitHub</translation>
+        <source>License</source>
+        <translation>License</translation>
+    </message>
+    <message>
+        <source>&lt;i&gt;show license &lt;/i&gt;</source>
+        <translation>&lt;i&gt;show license &lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Source Code</source>
+        <translation>Source Code</translation>
+    </message>
+</context>
+<context>
+    <name>ContributorsPage</name>
+    <message>
+        <source>Contributors</source>
+        <translation>Contributors</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation>Development</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation>Translations</translation>
     </message>
 </context>
 <context>
@@ -295,6 +304,53 @@ This is free software: you are free to change and redistribute it.There is NO WA
     <message>
         <source>Wind</source>
         <translation>Wind</translation>
+    </message>
+</context>
+<context>
+    <name>about</name>
+    <message>
+        <source>Programming</source>
+        <translation>Programming</translation>
+    </message>
+    <message>
+        <source>Weather Icons</source>
+        <translation>Weather Icons</translation>
+    </message>
+    <message>
+        <source>Weather Descriptions</source>
+        <translation>Weather Descriptions</translation>
+    </message>
+    <message>
+        <source>English, German</source>
+        <translation>English, German</translation>
+    </message>
+    <message>
+        <source>Chinese</source>
+        <translation>Chinese</translation>
+    </message>
+    <message>
+        <source>MeteoSwiss</source>
+        <translation>MeteoSwiss</translation>
+    </message>
+    <message>
+        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
+        <translation>This is an unofficial client app for the national weather service&apos;s web interface.</translation>
+    </message>
+    <message>
+        <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
+        <translation>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</translation>
+    </message>
+    <message>
+        <source>Weather icons by Zeix.</source>
+        <translation>Weather icons by Zeix.</translation>
+    </message>
+    <message>
+        <source>https://www.meteoschweiz.admin.ch/</source>
+        <translation>https://www.meteoswiss.admin.ch/</translation>
+    </message>
+    <message>
+        <source>Sources on GitHub</source>
+        <translation>Sources on GitHub</translation>
     </message>
 </context>
 <context>
