@@ -23,6 +23,7 @@ import "pages"
 
 import "js/forecast.js" as Forecast
 import "js/storage.js" as Storage
+import "sf-about-page/about.js" as About
 
 
 ApplicationWindow {
@@ -72,14 +73,14 @@ ApplicationWindow {
         id: dataLoader
         source: "js/forecast.js"
         onMessage: {
-            if (messageObject.type == 'path') {
+            if (messageObject.type === 'path') {
                 // note: age has to be changed before updating the path!
                 // When updating all locations, we wait for an updated path to
                 // continue after the first locations has been refreshed. See
                 // below for details.
                 meteoApp.sourcePathUpdated = messageObject.age
                 meteoApp.sourceBasePath = messageObject.source
-            } else if (messageObject.type == 'weekOverview') {
+            } else if (messageObject.type === 'weekOverview') {
                 meteoApp.overviewTimestamp = messageObject.age;
 
                 for (var i = 0; i < messageObject.data.length; i++) {
@@ -103,9 +104,10 @@ ApplicationWindow {
             overviewTimestamp = Storage.getDaySummaryAge();
         }
 
+        var locs;
         if (Date.now() - overviewTimestamp.getTime() > 60*60*1000) {
             overviewTimestamp = new Date()
-            var locs = Storage.getLocationsList();
+            locs = Storage.getLocationsList();
             dataLoader.sendMessage({
                 type: "weekOverview",
                 locations: locs,
@@ -137,7 +139,7 @@ ApplicationWindow {
             })
         } else {
             console.log("refreshing all known locations...")
-            var locs = Storage.getLocationData();
+            locs = Storage.getLocationData();
 
             if (locs.length === 0) return;
 
@@ -193,7 +195,8 @@ ApplicationWindow {
             maintenanceOverlay.state = "invisible";
         }
 
-        doRefreshData()
-        refreshData.connect(doRefreshData)
+        doRefreshData();
+        refreshData.connect(doRefreshData);
+        About.VERSION_NUMBER = version;
     }
 }

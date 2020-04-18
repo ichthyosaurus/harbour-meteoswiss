@@ -34,6 +34,10 @@ DISTFILES += \
     weather-icons/*.svg \
     harbour-meteoswiss.desktop
 
+DISTFILES += qml/sf-about-page/*.qml \
+    qml/sf-about-page/license.html \
+    qml/sf-about-page/about.js
+
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 CONFIG += sailfishapp_i18n
