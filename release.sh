@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# release.sh 0.0.1 (2019-03-21)
+# release.sh 1.0.0 (2020-04-18)
 #
 # This file is part of harbour-meteoswiss.
-# Copyright (C) 2018-2019  Mirian Margiani
+# Copyright (C) 2018-2020  Mirian Margiani
 #
 # harbour-meteoswiss is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
