@@ -440,7 +440,7 @@
     </message>
     <message>
         <source>very cloudy, intermittent rain</source>
-        <translation>très nuageux, pluies intermittences</translation>
+        <translation>très nuageux, pluies intermittences</translation>
     </message>
     <message>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
