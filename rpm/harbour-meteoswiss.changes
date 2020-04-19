@@ -2,6 +2,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Apr 19 2020 Mirian Margiani <mirian@margiani.ch> 1.2.8-1
+- fix About page to show correct license
+- fix typo in French translation
+- add Contributors page
+
 * Mon Dec 16 2019 Mirian Margiani <mirian@margiani.ch> 1.2.7-1
 - implement extensive database maintenance which will be done every 60 days
 - round precipitation value in (generated) day summaries
