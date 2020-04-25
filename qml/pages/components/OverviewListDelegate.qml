@@ -26,8 +26,8 @@ import "../../js/strings.js" as Strings
 ListItem {
     id: locationItem
 
-    // parent list model, because 'model' property is not a ListModel
-    // seems to be a Qt bug...
+    // parent list model, because 'model' property is not a full
+    // ListModel but only a relay for the item's data (QQmlDMAbstractItemModelData)
     property var parentModel
 
     property bool isLoading: false
