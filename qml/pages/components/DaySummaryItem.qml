@@ -29,7 +29,6 @@ BackgroundItem {
     property var data
     property int dayCount
 
-    property bool primary: false
     property bool selected: false
     property bool isToday: false
 
@@ -50,7 +49,7 @@ BackgroundItem {
         id: column
         width: parent.width
 
-        property var textColor: (primary ? Theme.highlightColor :
+        property var textColor: (selected ? Theme.highlightColor :
             (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor))
 
         ForecastSummaryItemLabel {
@@ -67,7 +66,7 @@ BackgroundItem {
             source: String("../../weather-icons/%1.svg").arg(0)
             verticalAlignment: Image.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            opacity: (primary ? 0.8 : (isToday ? 0.9 : 0.7))
+            opacity: (selected || highlighted) ? 1.0 : 0.5
         }
 
         ForecastSummaryItemLabel {
@@ -86,7 +85,7 @@ BackgroundItem {
     }
 
     function refreshData(data, locationToUpdate) {
-        if (locationToUpdate && locationToUpdate != location) return;
+        if (locationToUpdate && locationToUpdate !== location) return;
 
         var meta = Storage.getLatestMetadata(location);
 
@@ -98,7 +97,7 @@ BackgroundItem {
             return;
         }
 
-        if (timestamp != undefined && timestamp.toDateString() == new Date().toDateString()) {
+        if (timestamp != undefined && timestamp.toDateString() === new Date().toDateString()) {
             isToday = true;
         } else {
             isToday = false;
@@ -117,6 +116,8 @@ BackgroundItem {
 
         rainElem.value = (data.precipitation != undefined ? data.precipitation : "");;
         rainElem.refresh();
+
+        console.log("---> refresh", day, timestamp, locationId)
     }
 
     Component.onCompleted: {
