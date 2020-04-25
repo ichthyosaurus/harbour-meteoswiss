@@ -41,7 +41,7 @@ CoverBackground {
                 width: parent.width
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.secondaryColor
-                text: Strings.weatherSymbolDescription[summary.symbol]  // weather string
+                text: summary.symbol ? Strings.weatherSymbolDescription[summary.symbol] : ""  // weather string
                 truncationMode: TruncationMode.Fade
             }
 
