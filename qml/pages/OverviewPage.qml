@@ -67,11 +67,20 @@ Page {
 
     SilicaListView {
         id: locationsListView
+        anchors.fill: parent
+
+        property int itemCount: locationsModel.count
+        onItemCountChanged: if (itemCount === 0) placeholder.enabled = true;
+
+        ListModel { id: locationsModel }
+        model: locationsModel
+
+        header: PageHeader { title: qsTr("MeteoSwiss") }
+        VerticalScrollDecorator { flickable: locationsListView }
+
+        footer: VerticalSpacing { }
 
         PullDownMenu {
-            id: pulley
-            busy: false
-
             Component.onCompleted: {
                 overviewPage.dataUpdated.connect(function(newData, locationId) {
                     var readyList = Object.keys(meteoApp.dataIsReady).map(function(k) { return meteoApp.dataIsReady[k]; });
@@ -108,12 +117,6 @@ Page {
             }
         }
 
-        anchors.fill: parent
-
-        header: PageHeader {
-            title: qsTr("MeteoSwiss")
-        }
-
         ViewPlaceholder {
             id: placeholder
             enabled: (locationsModel.count === 0 && Storage.getLocationsCount() === 0)
@@ -121,32 +124,16 @@ Page {
             hintText: qsTr("Pull down to add items")
         }
 
-        property int itemCount: locationsModel.count
-        onItemCountChanged: {
-            if (itemCount === 0) placeholder.enabled = true;
-        }
-
-        ListModel {
-            id: locationsModel
-        }
-
-        model: locationsModel
-
-        delegate: Loader {
-            asynchronous: false
-            visible: status == Loader.Ready
-            width: (isPortrait ? Screen.width : Screen.height)
-
-            sourceComponent: OverviewListDelegate {
-                parentModel: locationsModel
-
-                Component.onCompleted: {
-                    loadingFinished.connect(function(loc) {
-                        if (locationId === loc) {
-                            refreshWeekSummary();
-                        }
-                    });
-                }
+        delegate: OverviewListDelegate {
+            parentModel: locationsModel
+            Component.onCompleted: {
+                refreshWeekSummary();
+                loadingFinished.connect(function(loc) {
+                    if (locationId === loc) {
+                        refreshWeekSummary();
+                        console.log("refreshing:", loc)
+                    }
+                });
             }
         }
 
@@ -158,8 +145,6 @@ Page {
                 addLocationToModel(locs[i], summary.temperature, summary.symbol)
             }
         }
-
-        VerticalScrollDecorator {}
     }
 
     Timer {
@@ -185,6 +170,7 @@ Page {
     }
 
     onStatusChanged: {
+        // refresh everything; probably not necessary
         if (overviewPage.status === PageStatus.Active) {
             dataUpdated(undefined, undefined);
         }
@@ -195,7 +181,6 @@ Page {
             console.log("summary not updated: data is not ready yet", meteoApp.dataIsReady[locationId], locationId);
             return;
         }
-
 
         for (var i = locationsModel.count-1; i >= 0; i--) {
             if (!locationId || (locationId === locationsModel.get(i).locationId)) {
