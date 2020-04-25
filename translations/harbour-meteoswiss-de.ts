@@ -8,10 +8,6 @@
         <translation>Autor</translation>
     </message>
     <message>
-        <source>Data</source>
-        <translation>Daten</translation>
-    </message>
-    <message>
         <source>Website</source>
         <translation>Webseite</translation>
     </message>
@@ -351,6 +347,10 @@
     <message>
         <source>Sources on GitHub</source>
         <translation>Quellcode auf GitHub</translation>
+    </message>
+    <message>
+        <source>Data</source>
+        <translation>Daten</translation>
     </message>
 </context>
 <context>
