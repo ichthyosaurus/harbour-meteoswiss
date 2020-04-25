@@ -46,23 +46,6 @@ BackgroundItem {
         }
     }
 
-    Item {
-        anchors.fill: parent
-        clip: true
-
-        Rectangle {
-            rotation: 45
-            width: parent.width * Math.ceil(parent.height/parent.width) * 1.41
-            height: parent.height * Math.ceil(parent.height/parent.width) * 1.41
-            x: parent.width - width
-
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: Theme.rgba(Theme.secondaryColor, 0) }
-                GradientStop { position: 1.0; color: Theme.rgba(Theme.secondaryColor, 0.15) }
-            }
-        }
-    }
-
     Column {
         id: column
         width: parent.width
