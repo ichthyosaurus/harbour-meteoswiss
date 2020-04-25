@@ -27,6 +27,7 @@ import "../sf-about-page/about.js" as About
 
 Page {
     id: overviewPage
+    allowedOrientations: Orientation.All
 
     signal loadingFinished(var locationId)
     signal dataUpdated(var newData, var locationId)
