@@ -35,6 +35,7 @@ ListItem {
     contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
 
     signal orderChanged()
+    signal refreshWeekSummary()
 
     menu: Component {
         ContextMenu {
@@ -65,33 +66,31 @@ ListItem {
     Image {
         id: icon
         visible: model.symbol > 0 ? true : false
-        x: Theme.horizontalPageMargin
-        anchors.verticalCenter: labelColumn.verticalCenter
-        width: 2.5*Theme.horizontalPageMargin
-        height: width
-        opacity: isLoading ? 0.2 : 1.0
+        anchors {
+            left: parent.left; leftMargin: Theme.horizontalPageMargin
+            verticalCenter: labelColumn.verticalCenter
+        }
+
+        width: 2.5*Theme.horizontalPageMargin; height: width
         source: String("../../weather-icons/%1.svg").arg(model.symbol ? model.symbol : "0")
         fillMode: Image.PreserveAspectFit
-        Behavior on opacity { NumberAnimation { duration: 200 } }
-    }
 
-    BusyIndicator {
-        anchors.centerIn: icon
-        visible: isLoading ? true : false
-        running: visible
+        opacity: isLoading ? 0.2 : 1.0
+        Behavior on opacity { NumberAnimation { duration: 200 } }
+
+        BusyIndicator {
+            anchors.centerIn: parent
+            visible: isLoading ? true : false
+            running: visible
+        }
     }
 
     Column {
         id: labelColumn
-
-        y: Theme.paddingMedium
-        height: locationLabel.height + descriptionLabel.height
-
         anchors {
-            left: icon.right
-            right: temperatureLabel.left
-            leftMargin: Theme.paddingMedium
-            rightMargin: Theme.paddingSmall
+            top: parent.top; topMargin: Theme.paddingMedium
+            left: icon.right; leftMargin: Theme.paddingMedium
+            right: temperatureLabel.left; rightMargin: Theme.paddingSmall
         }
 
         Label {
@@ -111,15 +110,12 @@ ListItem {
             truncationMode: TruncationMode.Fade
             wrapMode: Text.Wrap
 
-            onTextChanged:
-                NumberAnimation {
-                    target: descriptionLabel
-                    property: "opacity"
-                    duration: 500
-                    easing.type: Easing.InOutQuad
-                    from: 0.0
-                    to: 1.0
-                }
+            onTextChanged: NumberAnimation {
+                target: descriptionLabel; property: "opacity"
+                duration: 500
+                easing.type: Easing.InOutQuad
+                from: 0.0; to: 1.0
+            }
         }
     }
 
@@ -129,92 +125,74 @@ ListItem {
         color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
         font.pixelSize: Theme.fontSizeHuge
 
-        onTextChanged:
-            NumberAnimation {
-                target: temperatureLabel
-                property: "opacity"
-                duration: 500
-                easing.type: Easing.InOutQuad
-                from: 0.0
-                to: 1.0
-            }
+        onTextChanged: NumberAnimation {
+            target: temperatureLabel; property: "opacity"
+            duration: 500
+            easing.type: Easing.InOutQuad
+            from: 0.0; to: 1.0
+        }
 
         anchors {
-            top: parent.top
-            topMargin: Theme.paddingSmall
-            right: parent.right
-            rightMargin: Theme.horizontalPageMargin
+            top: parent.top; topMargin: Theme.paddingSmall
+            right: parent.right; rightMargin: Theme.horizontalPageMargin
         }
     }
 
-    VerticalSpacing {
-        id: vertSpace
-        anchors.top: labelColumn.bottom
-    }
+    VerticalSpacing { id: vertSpace; anchors.top: labelColumn.bottom }
 
-    Item {
+    Column {
         id: overviewColumn
         visible: index < 3 // show only first 3 locations with details
         width: parent.width
-        height: childrenRect.height
         anchors.top: vertSpace.bottom
 
-        Loader {
-            id: chartLoader
-            asynchronous: true
-            visible: status == Loader.Ready
+        DayOverviewGraphItem {
+            id: chart
+            location: locationId
+            day: -1
             width: parent.width
-            height: icon.height*1.5
-            opacity: visible ? 1 : 0
-
-            anchors.top: parent.top
-
-            Component.onCompleted: {
-                setSource("DayOverviewGraphItem.qml", {location: locationId, day: 0})
-            }
-
-            Behavior on opacity { NumberAnimation { duration: 100 } }
+            height: 1.5*icon.height
+            property string dayToShow: ""
         }
 
-        Component {
-            id: summaryComponent
+        Row {
+            id: summaryRow
+            width: parent.width
+            property int dayCount: 0
 
-            Row {
-                id: summaryRow
-                property var meta: Storage.getLatestMetadata(locationId)
+            Repeater {
+                id: summaryRepeater
+                model: summaryRow.dayCount
+                property int currentSelection: 0
 
-                Repeater {
-                    model: (summaryRow.meta && summaryRow.meta.dayCount) ? summaryRow.meta.dayCount : 0
+                DaySummaryItem {
+                    location: locationId
+                    day: index
+                    dayCount: summaryRow.dayCount
+                    selected: summaryRepeater.currentSelection === index
+                    highlightedColor: "transparent"
 
-                    DaySummaryItem {
-                        location: locationId
-                        day: index
-                        dayCount: summaryRow.meta && summaryRow.meta.dayCount
-
-                        Component.onCompleted: {
-                            summaryClicked.connect(function(day, loc) { showForecast(day); })
+                    onSummaryClicked: {
+                        if (summaryRepeater.currentSelection === index) return
+                        showDayChart(index)
+                    }
+                    onIsTodayChanged: {
+                        if (isToday && chart.day < 0) {
+                            showDayChart(index)
                         }
                     }
                 }
             }
         }
+    }
 
-        Loader {
-            id: summaryLoader
-            asynchronous: true
-            visible: status == Loader.Ready
-            width: parent.width
-            opacity: visible ? 1 : 0
-            sourceComponent: summaryComponent
-
-            anchors.top: chartLoader.bottom
-
-            Behavior on opacity { NumberAnimation { duration: 100 } }
-        }
+    onRefreshWeekSummary: {
+        var meta = Storage.getLatestMetadata(locationId);
+        var dayCount = (overviewColumn.visible && meta && meta.dayCount) ? meta.dayCount : 0
+        summaryRow.dayCount = dayCount;
     }
 
     Rectangle {
-        visible: index >= 3 || overviewColumn.height == 0
         anchors.fill: parent
         gradient: Gradient {
             GradientStop { position: 0.0; color: "transparent" }
@@ -248,23 +226,19 @@ ListItem {
         });
     }
 
-    onClicked: {
-        showForecast(0);
+    function showDayChart(index) {
+        summaryRepeater.currentSelection = index
+        chart.loadChart(index)
     }
 
-    function refreshWeekSummary() {
-        summaryLoader.sourceComponent = undefined;
-        summaryLoader.sourceComponent = summaryComponent;
-    }
+    onClicked: showForecast(summaryRepeater.currentSelection);
 
     Timer {
         id: loadingCooldown
         interval: 500
         repeat: false
         running: false
-        onTriggered: {
-            isLoading = false;
-        }
+        onTriggered: isLoading = false;
     }
 
     Timer {
@@ -272,7 +246,6 @@ ListItem {
         interval: 1000
         repeat: false
         running: false
-        onTriggered: {}
     }
 
     Timer {
@@ -298,14 +271,14 @@ ListItem {
         initialLoadingTimer.restart();
 
         meteoApp.dataIsLoading.connect(function(loc) {
-            if (locationId == loc) {
+            if (locationId === loc) {
                 isLoading = true;
                 loadingMinWait.restart();
             }
         });
 
         overviewPage.loadingFinished.connect(function(loc) {
-            if (locationId == loc) {
+            if (locationId === loc) {
                 if (initialLoadingDone) {
                     if (loadingMinWait.running) {
                         loadingCooldown.restart();
