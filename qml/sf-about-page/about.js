@@ -21,12 +21,14 @@ var APPINFO = {
     versionNumber: VERSION_NUMBER,
     description: qsTr("This is an unofficial client app for the national weather service's web interface."),
     author: "Mirian Margiani",
-    dataInformation: qsTr("Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.") + "\n" +
-                     qsTr('Weather icons by Zeix.'),
-    dataLink: qsTr('https://www.meteoschweiz.admin.ch/'),
-    dataLinkText: "", // use default button text
     sourcesLink: "https://github.com/ichthyosaurus/harbour-meteoswiss",
     sourcesText: qsTr("Sources on GitHub"),
+
+    extraInfoTitle: qsTr("Data"),
+    extraInfoText: qsTr("Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.") + "\n" +
+                     qsTr('Weather icons by Zeix.'),
+    extraInfoLink: qsTr('https://www.meteoschweiz.admin.ch/'),
+    extraInfoLinkText: "", // use default button text
 
     enableContributorsPage: true, // whether to enable 'ContributorsPage.qml'
     contribDevelopment: DEVELOPMENT,
