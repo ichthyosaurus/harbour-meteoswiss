@@ -45,8 +45,9 @@ SilicaListView {
 
     delegate: Item {
         width: Screen.height
-        height: visible ? Theme.itemSizeSmall : 0
-        visible: (   hour == 2
+        height: opacity > 0 ? Theme.itemSizeSmall : 0
+
+        opacity: (   hour == 2
                   || hour == 5
                   || hour == 8
                   || hour == 11
@@ -54,7 +55,10 @@ SilicaListView {
                   || hour == 17
                   || hour == 20
                   || hour == 23
-                  || showAll)
+                  || showAll) ? 1.0 : 0.0
+
+        Behavior on height { NumberAnimation { duration: 100 } }
+        Behavior on opacity { NumberAnimation { duration: 50 } }
 
         Row {
             width: parent.width
@@ -109,7 +113,7 @@ SilicaListView {
                 width: descriptionTitle.width - Theme.paddingLarge
                 font.pixelSize: Theme.fontSizeExtraSmall
                 wrapMode: Text.Wrap
-                text: description
+                text: description ? description : ""
             }
         }
 
