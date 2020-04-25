@@ -116,7 +116,6 @@ Page {
                 day: index
                 timestamp: new Date(meteoApp.forecastData[index].date)
                 dayCount: meteoApp.forecastData.length
-                primary: true
                 selected: (index == activeDay)
 
                 Component.onCompleted: {
