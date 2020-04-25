@@ -28,6 +28,8 @@ import "sf-about-page/about.js" as About
 
 ApplicationWindow {
     id: meteoApp
+    allowedOrientations: defaultAllowedOrientations
+
     initialPage: entryPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 

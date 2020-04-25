@@ -235,7 +235,13 @@ ListItem {
 
     function showForecast(activeDay) {
         meteoApp.refreshData(locationId, false)
-        pageStack.animatorPush("../ForecastPage.qml", {
+
+        // there seems to be a bug in the page stack implementation
+        // that breaks animatorPush in landscape mode (as of 2020-04-25)
+        var pusher = pageStack.animatorPush // pushes, then load the page
+        if (isLandscape) pusher = pageStack.push // first loads the page, then pushes
+
+        pusher("../ForecastPage.qml", {
             "activeDay": activeDay,
             "locationId": locationId,
             "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
