@@ -41,7 +41,16 @@ SilicaListView {
     opacity: tablePage.loaded ? 1 : 0
     visible: tablePage.loaded ? true : false
 
-    model: ListModel { }
+    model: ListModel {
+        ListElement {
+            // This is here to enforce the correct types.
+            // It will be removed when the real data is loaded.
+            hour: 1
+            image: 1; description: ''
+            temp: ''; rain: '';
+            wind: ''; windSym: ''
+        }
+    }
 
     delegate: Item {
         width: Screen.height
@@ -91,7 +100,7 @@ SilicaListView {
 
             TableListValueElement {
                 base: rainTitle
-                text: (rain > 0) ? rain : ''
+                text: (rain > 0.0) ? rain : ''
                 unit: meteoApp.rainUnit
             }
 
@@ -127,6 +136,14 @@ SilicaListView {
         }
     }
 
+    function _rounded(value) {
+        var prec = 1;
+        /*if (String(Number(value).toPrecision(prec)).match(/\.0+$/) !== null) {
+            prec = 0;
+        }*/
+        return Number(value).toLocaleString(Qt.locale(), 'f', prec);
+    }
+
     function refreshModel() {
         rain = forecastData[day].rainfall
         temp = forecastData[day].temperature
@@ -138,9 +155,9 @@ SilicaListView {
             model.append({
                 "hour": i,
                 "image": temp.datasets[0].symbols[i],
-                "temp": temp.datasets[0].data[i],
-                "rain": (rain.haveData ? rain.datasets[0].data[i] : []),
-                "wind": wind.datasets[0].data[i],
+                "temp": _rounded(temp.datasets[0].data[i]),
+                "rain": _rounded(rain.datasets[0].data[i]),
+                "wind": _rounded(wind.datasets[0].data[i]),
                 "windSym": wind.datasets[0].symbols[i],
                 "description": Strings.weatherSymbolDescription[temp.datasets[0].symbols[i]],
             })
