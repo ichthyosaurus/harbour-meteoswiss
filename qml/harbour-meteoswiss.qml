@@ -201,16 +201,16 @@ ApplicationWindow {
     Component.onCompleted: {
         // FIXME disable when everything works again
         // TODO implement a way to detect API breakage and enable the overlay automatically
-        disableAppOverlay.state = "visible";
+        // disableAppOverlay.state = "visible";
 
-        /*if (Storage.dbNeedsMaintenance()) {
+        if (Storage.dbNeedsMaintenance()) {
             maintenanceOverlay.state = "visible";
             Storage.doDatabaseMaintenance();
             maintenanceOverlay.state = "invisible";
         }
 
         doRefreshData();
-        refreshData.connect(doRefreshData);*/
+        refreshData.connect(doRefreshData);
 
         About.VERSION_NUMBER = version;
     }
