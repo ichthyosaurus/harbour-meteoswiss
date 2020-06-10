@@ -97,7 +97,7 @@ BackgroundItem {
             return;
         }
 
-        if (timestamp != undefined && timestamp.toDateString() === new Date().toDateString()) {
+        if (timestamp !== undefined && timestamp.toDateString() === new Date().toDateString()) {
             isToday = true;
         } else {
             isToday = false;
@@ -105,16 +105,16 @@ BackgroundItem {
 
         data = Storage.getDaySummary(location, timestamp, day);
 
-        dayElem.value = isToday ? qsTr("Today") : (timestamp != undefined ? timestamp.toLocaleString(Qt.locale(), "ddd") : "");
+        dayElem.value = isToday ? qsTr("Today") : (timestamp !== undefined ? timestamp.toLocaleString(Qt.locale(), "ddd") : "");
         dayElem.refresh();
 
         image.source = String("../../weather-icons/%1.svg").arg(data.symbol);
 
-        tempElem.value = (data.minTemp != undefined ? data.minTemp : "");
-        tempElem.valueMax = (data.maxTemp != undefined ? data.maxTemp : "");;
+        tempElem.value = (data.minTemp !== undefined ? data.minTemp : "");
+        tempElem.valueMax = (data.maxTemp !== undefined ? data.maxTemp : "");;
         tempElem.refresh();
 
-        rainElem.value = (data.precipitation != undefined ? data.precipitation : "");;
+        rainElem.value = (data.precipitation !== undefined ? data.precipitation : "");;
         rainElem.refresh();
 
         console.log("---> refresh", day, timestamp, locationId)
