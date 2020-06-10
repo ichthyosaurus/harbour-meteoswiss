@@ -1,6 +1,6 @@
 /*
  * This file is part of harbour-meteoswiss.
- * Copyright (C) 2018-2019  Mirian Margiani
+ * Copyright (C) 2018-2020  Mirian Margiani
  *
  * harbour-meteoswiss is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
  * along with harbour-meteoswiss.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
+function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
 function date_diff(a, b) {
     var d1 = new Date();
@@ -177,12 +179,30 @@ function convert_raw(raw) {
 
 var fullData = [emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay];
 
+function httpGet(url, enableSpoofing) {
+    enableSpoofing = defaultFor(enableSpoofing, false);
+    console.log("getting", url, "| spoofed:", enableSpoofing);
 
-function httpGet(url) {
     var xmlHttp = new XMLHttpRequest();
-    // xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-2.3.3-Android");
-    xmlHttp.open("GET", url, false); // false for synchronous request
+    xmlHttp.open("GET", url, false); // 'false' for synchronous request
+
+    if (enableSpoofing === true) {
+        // FIXME Setting Host and Referer is not possible via XHR.
+        // See: https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name
+        // And: https://doc.qt.io/qt-5/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
+        // As of 2020-06-10, the app can no longer receive data due to this.
+
+        // xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-2.3.3-Android");
+        xmlHttp.setRequestHeader('Host', 'www.meteoschweiz.admin.ch');
+        xmlHttp.setRequestHeader('Referer', 'https://www.meteoschweiz.admin.ch/home.html?tab=overview');
+    }
+
     xmlHttp.send(null);
+
+    console.log("XHR response:", xmlHttp.status, xmlHttp.statusText);
+    console.log("XHR response headers:", xmlHttp.getAllResponseHeaders());
+    if (xmlHttp.status !== 200) console.log("XHR received data:", xmlHttp.responseText);
+
     return xmlHttp;
 }
 
@@ -217,7 +237,7 @@ WorkerScript.onMessage = function(message) {
             return
         }
 
-        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzOverview?plz=&small=' + message.locations.join(',') + '&large=');
+        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzOverview?plz=&small=' + message.locations.join(',') + '&large=', false);
 
         try {
             var week = JSON.parse(json.responseText);
@@ -301,7 +321,7 @@ WorkerScript.onMessage = function(message) {
     var sourceAge = message.sourceAge;
 
     function getSourcePath() {
-        var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview').responseText;
+        var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview', false).responseText;
         var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
         var retPath = chartReg.exec(xml);
 
@@ -328,7 +348,11 @@ WorkerScript.onMessage = function(message) {
     }
 
     function getJSON(sourcePath) {
-        var json = httpGet('https://www.meteoschweiz.admin.ch' + sourcePath + '/' + locationId + '.json');
+        var json = httpGet('https://www.meteoschweiz.admin.ch' + sourcePath + '/' + locationId + '.json', true);
+
+        if (json.status !== 200) {
+            return 'FAILED';
+        }
 
         try {
             var ret = JSON.parse(json.responseText);
@@ -351,6 +375,9 @@ WorkerScript.onMessage = function(message) {
             fallbackToArchive(archived, "could not parse data JSON");
             return;
         }
+    } else if (raw_data === 'FAILED') {
+        fallbackToArchive(archived, "failed to retrieve data (invalid response)");
+        return;
     }
 
     fullData = convert_raw(raw_data);
