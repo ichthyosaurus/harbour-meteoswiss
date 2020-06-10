@@ -65,7 +65,8 @@ var emptyDummyDay = {
     },
 };
 
-function convert_raw(raw) {
+function convert_raw_legacy(raw) {
+    // convert raw data received from MeteoSwiss' website
     var data = [];
 
     raw.sort(function(a, b) {
@@ -103,18 +104,18 @@ function convert_raw(raw) {
             wind: {
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{
-                    data: [],
-                    symbols: [],
-                }],
+                        data: [],
+                        symbols: [],
+                    }],
             },
         };
 
         if (   raw[day].rainfall.length != 24
-            || raw[day].rainfall.length != raw[day].temperature.length
-            || raw[day].rainfall.length != raw[day].wind.data.length
-            || raw[day].rainfall.length != raw[day].variance_rain.length
-            || raw[day].rainfall.length != raw[day].variance_range.length
-        ) {
+                || raw[day].rainfall.length != raw[day].temperature.length
+                || raw[day].rainfall.length != raw[day].wind.data.length
+                || raw[day].rainfall.length != raw[day].variance_rain.length
+                || raw[day].rainfall.length != raw[day].variance_range.length
+                ) {
             console.log("failed converting data for day " + day + ": datasets have different lengths")
             dayData.isSane = true;
             data.push(dayData);
@@ -177,6 +178,125 @@ function convert_raw(raw) {
     return data
 }
 
+function convert_raw(raw) {
+    var data = [];
+
+    var dayCount = raw.forecast.length;
+    for (var day = 0; day < dayCount; day++) {
+        var dayData = {
+            isSane: false,
+            date: '',
+            temperature: {
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [{ // estimate
+                        data: [],
+                        symbols: []
+                    },{ // minimum
+                        data: [],
+                    },{ // maximum
+                        data: [],
+                    },
+                ],
+            },
+            rainfall: {
+                haveData: false,
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [{ // estimate
+                        data: [],
+                    },{ // minimum
+                        data: [],
+                    },{ // maximum
+                        data: [],
+                    },
+                ],
+            },
+            wind: {
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [{
+                    data: [],
+                    symbols: [],
+                }],
+            },
+        };
+
+        var date = new Date();
+        date.setTime(raw.graph.start+(day*86400000));
+        dayData.date = date.toJSON();
+
+        console.log("date:", dayData.date);
+
+        // convert data
+        for (var hour = day*24; hour < day*24+24; hour++) {
+            var isThird = (hour+1)%3 === 0;
+            var third = (hour+1)/3;
+
+            console.log("H", hour, day, dayCount, isThird, third)
+
+            if (hour < raw.graph.precipitation1h.length) {
+                dayData.rainfall.datasets[0].data.push(raw.graph.precipitation1h[hour]); // estimate
+                dayData.rainfall.datasets[1].data.push(raw.graph.precipitation1h[hour]); // minimum (not available anymore)
+                dayData.rainfall.datasets[2].data.push(raw.graph.precipitation1h[hour]); // maximum (not available anymore)
+                dayData.rainfall.haveData = true;
+            } else {
+                // dayData.isSane = false;
+                // dayData.rainfall.haveData = false;
+                console.log("warning: missing data at the end: precipitation,", hour, raw.graph.precipitation1h.length);
+            }
+
+            if (hour < raw.graph.temperatureMean1h.length
+                    && hour < raw.graph.temperatureMin1h.length
+                    && hour < raw.graph.temperatureMax1h.length) {
+                dayData.temperature.datasets[0].data.push(raw.graph.temperatureMean1h[hour]); // estimate
+                dayData.temperature.datasets[1].data.push(raw.graph.temperatureMin1h[hour]); // minimum
+                dayData.temperature.datasets[2].data.push(raw.graph.temperatureMax1h[hour]); // maximum
+
+                if (isThird) {
+                    dayData.temperature.datasets[0].symbols.push(raw.graph.weatherIcon3h[third]);
+                } else {
+                    dayData.temperature.datasets[0].symbols.push(0);
+                }
+
+                dayData.temperature.haveData = true;
+            } else {
+                // dayData.isSane = false;
+                // dayData.temperature.haveData = false;
+                console.log("warning: missing data at the end: temperature,", hour, raw.graph.temperatureMean1h.length);
+            }
+
+            if (third < raw.graph.windSpeed3h.length) {
+                if (isThird) {
+                    dayData.wind.datasets[0].data.push(raw.graph.windSpeed3h[third]);
+                    dayData.wind.datasets[0].symbols.push(raw.graph.windDirection3h[third]+"°");
+                    dayData.wind.haveData = true;
+                } else {
+                    var lastThird = (hour+1)-((hour+1)%3);
+                    dayData.wind.datasets[0].data.push(lastThird >= 0 ? raw.graph.windSpeed3h[lastThird] : 0.0);
+                    dayData.wind.datasets[0].symbols.push("");
+                }
+            } else {
+                // dayData.isSane = false;
+                // dayData.wind.haveData = false;
+                console.log("warning: missing data at the end: temperature,", hour, raw.graph.temperatureMean1h.length);
+            }
+        }
+
+        // check if there is any precipitation
+        var minRain = Math.min.apply(Math, dayData.rainfall.datasets[1].data); // minimum of minimum
+
+        // @disable-check M126
+        if (minRain == 0.0) {
+            // workaround to make sure chart scale is being shown
+            dayData.rainfall.haveData = false;
+            dayData.rainfall.datasets[0].data[0] = 0.3;
+        }
+
+        dayData.isSane = true;
+        data.push(dayData);
+    }
+
+    return data
+}
+
 var fullData = [emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay];
 
 function httpGet(url, enableSpoofing) {
@@ -185,6 +305,7 @@ function httpGet(url, enableSpoofing) {
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // 'false' for synchronous request
+    xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-2.3.3-Android");
 
     if (enableSpoofing === true) {
         // FIXME Setting Host and Referer is not possible via XHR.
@@ -192,9 +313,8 @@ function httpGet(url, enableSpoofing) {
         // And: https://doc.qt.io/qt-5/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
         // As of 2020-06-10, the app can no longer receive data due to this.
 
-        // xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-2.3.3-Android");
-        xmlHttp.setRequestHeader('Host', 'www.meteoschweiz.admin.ch');
-        xmlHttp.setRequestHeader('Referer', 'https://www.meteoschweiz.admin.ch/home.html?tab=overview');
+        // xmlHttp.setRequestHeader('Host', 'www.meteoschweiz.admin.ch');
+        // xmlHttp.setRequestHeader('Referer', 'https://www.meteoschweiz.admin.ch/home.html?tab=overview');
     }
 
     xmlHttp.send(null);
@@ -310,7 +430,7 @@ WorkerScript.onMessage = function(message) {
             // This work-around is only necessary to make sure the threads stay
             // in sync when looping quickly over all locations.
             if (message.notifyUnchangedPath) {
-                WorkerScript.sendMessage({ type: 'path', source: sourcePath, age: sourceAge });
+                WorkerScript.sendMessage({ type: 'path', source: message.source, age: message.sourceAge });
             }
 
             return;
@@ -321,7 +441,7 @@ WorkerScript.onMessage = function(message) {
     var sourceAge = message.sourceAge;
 
     function getSourcePath() {
-        var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview', false).responseText;
+        /*var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview', false).responseText;
         var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
         var retPath = chartReg.exec(xml);
 
@@ -330,8 +450,9 @@ WorkerScript.onMessage = function(message) {
             return [undefined, undefined];
         } else {
             console.log("extracted data path:", retPath);
-        }
+        }*/
 
+        var retPath = '[unused]';
         var retAge = now;
 
         WorkerScript.sendMessage({ type: 'path', source: retPath, age: retAge });
@@ -348,7 +469,8 @@ WorkerScript.onMessage = function(message) {
     }
 
     function getJSON(sourcePath) {
-        var json = httpGet('https://www.meteoschweiz.admin.ch' + sourcePath + '/' + locationId + '.json', true);
+        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=' + locationId, true);
+        // var json = httpGet('/home/nemo/Devel/meteoswiss/forecast_plzDetail.json', true);
 
         if (json.status !== 200) {
             return 'FAILED';
@@ -365,7 +487,7 @@ WorkerScript.onMessage = function(message) {
     var raw_data = getJSON(sourcePath);
 
     if (!raw_data) {
-        console.log("retrying with new source path...");
+        /*console.log("retrying with new source path...");
         var source = getSourcePath();
         sourcePath = source[0];
         sourceAge = source[1];
@@ -374,7 +496,10 @@ WorkerScript.onMessage = function(message) {
         if (!raw_data) {
             fallbackToArchive(archived, "could not parse data JSON");
             return;
-        }
+        }*/
+
+        fallbackToArchive(archived, "could not parse data JSON");
+        return;
     } else if (raw_data === 'FAILED') {
         fallbackToArchive(archived, "failed to retrieve data (invalid response)");
         return;
@@ -385,7 +510,7 @@ WorkerScript.onMessage = function(message) {
     WorkerScript.sendMessage({
         'type': 'data',
         'locationId': locationId,
-        'timestamp': raw_data[0].current_time,
+        'timestamp': raw_data.currentWeather.time,
         'data': fullData,
     });
 }
