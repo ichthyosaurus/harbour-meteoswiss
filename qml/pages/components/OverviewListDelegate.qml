@@ -1,6 +1,6 @@
 /*
  * This file is part of harbour-meteoswiss.
- * Copyright (C) 2018-2019  Mirian Margiani
+ * Copyright (C) 2018-2020  Mirian Margiani
  *
  * harbour-meteoswiss is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -160,6 +160,15 @@ ListItem {
             width: parent.width
             property int dayCount: 0
 
+            signal refresh(var newDayCount)
+            onRefresh: {
+                if (dayCount === newDayCount) {
+                    dayCountChanged(); // force notification
+                } else {
+                    dayCount = newDayCount;
+                }
+            }
+
             Repeater {
                 id: summaryRepeater
                 model: summaryRow.dayCount
@@ -189,7 +198,7 @@ ListItem {
     onRefreshWeekSummary: {
         var meta = Storage.getLatestMetadata(locationId);
         var dayCount = (overviewColumn.visible && meta && meta.dayCount) ? meta.dayCount : 0
-        summaryRow.dayCount = dayCount;
+        summaryRow.refresh(dayCount);
     }
 
     Rectangle {
