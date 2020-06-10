@@ -33,6 +33,7 @@ var emptyDummyDay = {
     isSane: false,
     date: '',
     temperature: {
+        haveData: false,
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{ // estimate
                 data: [],
@@ -57,11 +58,13 @@ var emptyDummyDay = {
         ],
     },
     wind: {
+        haveData: false,
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{
-            data: [],
-            symbols: [],
-        }],
+                data: [],
+                symbols: [],
+            }
+        ],
     },
 };
 
@@ -78,6 +81,7 @@ function convert_raw_legacy(raw) {
             isSane: false,
             date: '',
             temperature: {
+                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{ // estimate
                         data: [],
@@ -102,11 +106,13 @@ function convert_raw_legacy(raw) {
                 ],
             },
             wind: {
+                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{
                         data: [],
                         symbols: [],
-                    }],
+                    }
+                ],
             },
         };
 
@@ -181,12 +187,37 @@ function convert_raw_legacy(raw) {
 function convert_raw(raw) {
     var data = [];
 
+    var _currentSum = 0; var _currentIndex = 0;
+    console.log("missing %1 more high res data points".
+                arg(raw.graph.precipitation10m.length%6 > 0 ? 6-raw.graph.precipitation10m.length%6 : 0));
+    for (var m = 0; m < raw.graph.precipitation10m.length; m++) {
+        if (m > 0 && m%6 === 0) {
+            raw.graph.precipitation1h.splice(_currentIndex, 0, _currentSum);
+            _currentIndex += 1;
+            _currentSum = 0;
+        }
+        _currentSum += raw.graph.precipitation10m[m];
+    }
+    console.log("inserted %1 summed high res data points: final length".arg(_currentIndex+1),
+                raw.graph.precipitation1h.length)
+
+    if (raw.graph.precipitation1h.length % 24 !== 0) {
+        console.warn("precipitation data is incomplete (modulo 24 === %1 !== 0)".arg(raw.graph.precipitation1h.length % 24));
+    }
+
+    if (raw.graph.start+((_currentIndex)*3600000) === raw.graph.startLowResolution) {
+        console.warn("precipitation data does not align: last summed hour and first low res hour seem to overlap | MUST BE CHECKED; often, this is fine");
+    } else if (raw.graph.start+((_currentIndex+1)*3600000) !== raw.graph.startLowResolution) {
+        console.warn("precipitation data does not align: generated start and startLowResolution mismatch");
+    }
+
     var dayCount = raw.forecast.length;
     for (var day = 0; day < dayCount; day++) {
         var dayData = {
             isSane: false,
             date: '',
             temperature: {
+                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{ // estimate
                         data: [],
@@ -211,11 +242,13 @@ function convert_raw(raw) {
                 ],
             },
             wind: {
+                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{
-                    data: [],
-                    symbols: [],
-                }],
+                        data: [],
+                        symbols: [],
+                    }
+                ],
             },
         };
 
@@ -223,14 +256,13 @@ function convert_raw(raw) {
         date.setTime(raw.graph.start+(day*86400000));
         dayData.date = date.toJSON();
 
-        console.log("date:", dayData.date);
+        console.log("- converting date:", dayData.date);
 
         // convert data
         for (var hour = day*24; hour < day*24+24; hour++) {
-            var isThird = (hour+1)%3 === 0;
-            var third = (hour+1)/3;
-
-            console.log("H", hour, day, dayCount, isThird, third)
+            var isThird = (hour)%3 === 2;
+            var third = (hour-2)/3;
+            // console.log("H", hour, day, dayCount, isThird, third)
 
             if (hour < raw.graph.precipitation1h.length) {
                 dayData.rainfall.datasets[0].data.push(raw.graph.precipitation1h[hour]); // estimate
@@ -269,7 +301,7 @@ function convert_raw(raw) {
                     dayData.wind.datasets[0].symbols.push(raw.graph.windDirection3h[third]+"°");
                     dayData.wind.haveData = true;
                 } else {
-                    var lastThird = (hour+1)-((hour+1)%3);
+                    var lastThird = (hour-(hour%3))/3;
                     dayData.wind.datasets[0].data.push(lastThird >= 0 ? raw.graph.windSpeed3h[lastThird] : 0.0);
                     dayData.wind.datasets[0].symbols.push("");
                 }
@@ -351,8 +383,8 @@ function fallbackToArchive(archived, errorMessage) {
 WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
 
-    if (message && message.type == "weekOverview") {
-        if (!message.locations || message.locations.length == 0) {
+    if (message && message.type === "weekOverview") {
+        if (!message.locations || message.locations.length === 0) {
             console.log("note: no locations - week overview not updated");
             return
         }
@@ -411,7 +443,7 @@ WorkerScript.onMessage = function(message) {
     if (archived) {
         var ts = new Date(archived.timestamp);
 
-        if (ts.toDateString() == now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
+        if (ts.toDateString() === now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
             fallbackToArchive(archived, "already refreshed less than an hour ago");
 
             // Notify of the unchanged path to make sure refreshing continues.
