@@ -444,13 +444,14 @@ function getDaySummary(locationId, dayDate, dayId) {
         precipitation: undefined,
     };
 
-    if (locationId == undefined || dayDate == undefined) return res;
+    if (locationId === undefined || dayDate === undefined) return res;
 
     var db = getDatabase();
 
     try {
         db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT * FROM data_overview WHERE location_id=? AND datestring=? LIMIT 1;', [locationId, dayDate.toISOString().split("T")[0]]);
+            var rs = tx.executeSql('SELECT * FROM data_overview WHERE location_id=? AND datestring=? LIMIT 1;',
+                                   [locationId, dayDate.toLocaleString(Qt.locale(), "yyyy-MM-dd")]);
 
             if (rs.rows.length > 0) {
                 res.symbol = rs.rows.item(0).symbol;
@@ -468,7 +469,7 @@ function getDaySummary(locationId, dayDate, dayId) {
             }
         });
     } catch(e) {
-        console.log("error while loading day summary data: locationId=" + locationId + " date=" + dayDate.toISOString());
+        console.log("error while loading day summary data: locationId=" + locationId + " date=" + dayDate.toLocaleString(Qt.locale(), "yyyy-MM-dd"));
     }
 
     return res;
