@@ -367,6 +367,22 @@
         <source>hh&apos;:&apos;mm</source>
         <translation>hh&apos;:&apos;mm &apos;Uhr&apos;</translation>
     </message>
+    <message>
+        <source>Database Maintenance</source>
+        <translation>Datenbank-Pflege</translation>
+    </message>
+    <message>
+        <source>Please be patient and allow up to 30 seconds for this.</source>
+        <translation>Bitte warten Sie einen Moment und gewähren Sie rund 30 Sekunden für den Vorgang.</translation>
+    </message>
+    <message>
+        <source>Currently unusable</source>
+        <translation>Derzeit nicht verwendbar</translation>
+    </message>
+    <message>
+        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
+        <translation>Die App kann derzeit wegen Änderungen aufseiten der Datenquelle nicht verwendet werden.</translation>
+    </message>
 </context>
 <context>
     <name>strings</name>
