@@ -26,14 +26,16 @@ Rectangle {
     color: Theme.highlightDimmerColor
     visible: false
 
+    property alias text: placeholder.text
+    property alias hintText: placeholder.hintText
+
     SilicaListView {
         anchors.fill: parent
         model: 0
 
         ViewPlaceholder {
+            id: placeholder
             enabled: true
-            text: "Database Maintenance"
-            hintText: "Please be patient and allow up to 30 seconds for this."
         }
     }
 

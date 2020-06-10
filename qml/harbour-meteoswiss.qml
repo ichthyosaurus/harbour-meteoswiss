@@ -188,17 +188,30 @@ ApplicationWindow {
 
     MaintenanceOverlay {
         id: maintenanceOverlay
+        text: qsTr("Database Maintenance")
+        hintText: qsTr("Please be patient and allow up to 30 seconds for this.")
+    }
+
+    MaintenanceOverlay {
+        id: disableAppOverlay
+        text: qsTr("Currently unusable")
+        hintText: qsTr("This app is currently unusable, due to a change at the data provider's side.")
     }
 
     Component.onCompleted: {
-        if (Storage.dbNeedsMaintenance()) {
+        // FIXME disable when everything works again
+        // TODO implement a way to detect API breakage and enable the overlay automatically
+        disableAppOverlay.state = "visible";
+
+        /*if (Storage.dbNeedsMaintenance()) {
             maintenanceOverlay.state = "visible";
             Storage.doDatabaseMaintenance();
             maintenanceOverlay.state = "invisible";
         }
 
         doRefreshData();
-        refreshData.connect(doRefreshData);
+        refreshData.connect(doRefreshData);*/
+
         About.VERSION_NUMBER = version;
     }
 }
