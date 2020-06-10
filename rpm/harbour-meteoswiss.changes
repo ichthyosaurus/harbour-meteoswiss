@@ -2,6 +2,20 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Wed Jun 10 2020 Mirian Margiani <mirian@margiani.ch> 1.2.9-1
+- DUE TO EXTERNAL API CHANGES THE APP IS CURRENTLY UNUSABLE
+- disable the whole app for now (prevents unnecessary network usage)
+
+- changes (currently not visible):
+- animate details table
+- make the app usable in landscape mode
+- remove broken summary background
+- show the corresponding small graph when tapping on a day instead of switching
+  to the forecast page (tap on the graph or the title to switch)
+- update About page
+- internal clean-ups
+- fix some small warnings
+
 * Sun Apr 19 2020 Mirian Margiani <mirian@margiani.ch> 1.2.8-1
 - fix About page to show correct license
 - fix typo in French translation

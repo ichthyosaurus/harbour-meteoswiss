@@ -367,6 +367,22 @@
         <source>ddd d MMM yyyy</source>
         <translation>ddd d MMM yyyy</translation>
     </message>
+    <message>
+        <source>Database Maintenance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please be patient and allow up to 30 seconds for this.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently unusable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>strings</name>
