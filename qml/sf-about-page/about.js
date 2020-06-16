@@ -27,7 +27,7 @@ var APPINFO = {
     extraInfoTitle: qsTr("Data"),
     extraInfoText: qsTr("Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.") + "\n" +
                      qsTr('Weather icons by Zeix.'),
-    extraInfoLink: qsTr('https://www.meteoschweiz.admin.ch/'),
+    extraInfoLink: qsTr('https://www.meteoswiss.admin.ch/'),
     extraInfoLinkText: "", // use default button text
 
     enableContributorsPage: true, // whether to enable 'ContributorsPage.qml'
