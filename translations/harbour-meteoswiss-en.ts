@@ -329,10 +329,6 @@
         <translation>MeteoSwiss</translation>
     </message>
     <message>
-        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
-        <translation>This is an unofficial client app for the national weather service&apos;s web interface.</translation>
-    </message>
-    <message>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
         <translation>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</translation>
     </message>
@@ -341,16 +337,20 @@
         <translation>Weather icons by Zeix.</translation>
     </message>
     <message>
-        <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation>https://www.meteoswiss.admin.ch/</translation>
-    </message>
-    <message>
         <source>Sources on GitHub</source>
         <translation>Sources on GitHub</translation>
     </message>
     <message>
         <source>Data</source>
         <translation>Data</translation>
+    </message>
+    <message>
+        <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
+        <translation>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</translation>
+    </message>
+    <message>
+        <source>https://www.meteoswiss.admin.ch/</source>
+        <translation>https://www.meteoswiss.admin.ch/</translation>
     </message>
 </context>
 <context>
@@ -369,19 +369,19 @@
     </message>
     <message>
         <source>Database Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Database Maintenance</translation>
     </message>
     <message>
         <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Please be patient and allow up to 30 seconds for this.</translation>
     </message>
     <message>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Currently unusable</translation>
     </message>
     <message>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>This app is currently unusable, due to a change at the data provider&apos;s side.</translation>
     </message>
 </context>
 <context>

@@ -329,19 +329,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Weather icons by Zeix.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>https://www.meteoschweiz.admin.ch/</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -351,6 +343,14 @@
     <message>
         <source>Data</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>https://www.meteoswiss.admin.ch/</source>
+        <translation>https://www.meteosvizzera.admin.ch/</translation>
     </message>
 </context>
 <context>
