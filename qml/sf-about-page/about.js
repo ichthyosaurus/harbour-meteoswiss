@@ -19,7 +19,7 @@ var APPINFO = {
     appName: qsTr("MeteoSwiss"),
     iconPath: "../weather-icons/harbour-meteoswiss.svg",
     versionNumber: VERSION_NUMBER,
-    description: qsTr("This is an unofficial client app for the national weather service's web interface."),
+    description: qsTr("This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss)."),
     author: "Mirian Margiani",
     sourcesLink: "https://github.com/ichthyosaurus/harbour-meteoswiss",
     sourcesText: qsTr("Sources on GitHub"),
