@@ -29,8 +29,9 @@ License: GPLv3+
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
-  MeteoSwiss is an unofficial client to the Federal Office of Meteorology and Climatology
-  (MeteoSwiss). Downloaded datasets are available offline and updated hourly.
+  MeteoSwiss is an unofficial client to weather forecast services provided by
+  the Federal Office of Meteorology and Climatology (MeteoSwiss). Forecasts are
+  available offline and updated every hour.
 Configure: none
 Builder: qtc5
 
