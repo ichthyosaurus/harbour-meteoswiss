@@ -329,10 +329,6 @@
         <translation>MeteoSchweiz</translation>
     </message>
     <message>
-        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
-        <translation>Dies ist ein inoffizieller Klient für das offizielle Web-Interface.</translation>
-    </message>
-    <message>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
         <translation>Copyright, Bundesamt für Meteorologie und Klimatologie MeteoSchweiz.</translation>
     </message>
@@ -341,16 +337,20 @@
         <translation>Mit Wetter-Icons von Zeix.</translation>
     </message>
     <message>
-        <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation>https://www.meteoschweiz.admin.ch/</translation>
-    </message>
-    <message>
         <source>Sources on GitHub</source>
         <translation>Quellcode auf GitHub</translation>
     </message>
     <message>
         <source>Data</source>
         <translation>Daten</translation>
+    </message>
+    <message>
+        <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
+        <translation>Dies ist ein inoffizieller Klient für die Wettervorhersagen des Bundesamts für Meteorologie und Klimatologie (MeteoSchweiz).</translation>
+    </message>
+    <message>
+        <source>https://www.meteoswiss.admin.ch/</source>
+        <translation>https://www.meteoschweiz.admin.ch/</translation>
     </message>
 </context>
 <context>

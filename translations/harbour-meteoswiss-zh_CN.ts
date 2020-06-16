@@ -329,10 +329,6 @@
         <translation>MeteoSwiss</translation>
     </message>
     <message>
-        <source>This is an unofficial client app for the national weather service&apos;s web interface.</source>
-        <translation>这是一个非官方国家气象服务网站客户端。</translation>
-    </message>
-    <message>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
         <translation>版权所有，联邦气象与气候办公室，MeteoSwiss.</translation>
     </message>
@@ -341,16 +337,20 @@
         <translation>天气图标作者为 Zeix 。</translation>
     </message>
     <message>
-        <source>https://www.meteoschweiz.admin.ch/</source>
-        <translation>https://www.meteoswiss.admin.ch/</translation>
-    </message>
-    <message>
         <source>Sources on GitHub</source>
         <translation>源代码位于 GitHub</translation>
     </message>
     <message>
         <source>Data</source>
         <translation>数据</translation>
+    </message>
+    <message>
+        <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>https://www.meteoswiss.admin.ch/</source>
+        <translation>https://www.meteoswiss.admin.ch/</translation>
     </message>
 </context>
 <context>
