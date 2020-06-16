@@ -162,8 +162,10 @@ ListItem {
 
             signal refresh(var newDayCount)
             onRefresh: {
-                if (dayCount === newDayCount) {
-                    dayCountChanged(); // force notification
+                // changing the model forces the repeater to rebuild its children
+                var oldCount = dayCount; dayCount = 0;
+                if (oldCount === newDayCount || newDayCount === undefined) {
+                    dayCount = oldCount;
                 } else {
                     dayCount = newDayCount;
                 }
@@ -186,7 +188,7 @@ ListItem {
                         showDayChart(index)
                     }
                     onIsTodayChanged: {
-                        if (isToday && chart.day < 0) {
+                        if (isToday) { // reset chart and selection to today
                             showDayChart(index)
                         }
                     }
@@ -285,6 +287,11 @@ ListItem {
                 loadingMinWait.restart();
             }
         });
+
+        meteoApp.dataLoaded.connect(function(unused, newLocation) {
+            if (newLocation !== undefined && newLocation !== locationId) return
+            else refreshWeekSummary(); // force refresh summaries
+        })
 
         overviewPage.loadingFinished.connect(function(loc) {
             if (locationId === loc) {
