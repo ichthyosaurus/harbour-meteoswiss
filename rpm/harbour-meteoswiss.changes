@@ -2,6 +2,14 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Jun 16 2020 Mirian Margiani <mirian@margiani.ch> 1.3.0-1
+- THE APP IS WORKING AGAIN
+- see the last changelog for some changes that became visible with this release
+- switch to the official app's API
+- fix bug where day summaries were not correctly refreshed
+- update app description in a few places
+- update translations
+
 * Wed Jun 10 2020 Mirian Margiani <mirian@margiani.ch> 1.2.9-1
 - DUE TO EXTERNAL API CHANGES THE APP IS CURRENTLY UNUSABLE
 - disable the whole app for now (prevents unnecessary network usage)
