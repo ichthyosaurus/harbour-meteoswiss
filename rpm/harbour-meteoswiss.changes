@@ -3,6 +3,7 @@
 # - Summary of changes
 
 * Tue Jun 16 2020 Mirian Margiani <mirian@margiani.ch> 1.3.0-1
+* Tue Jun 16 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.0-1
 - THE APP IS WORKING AGAIN
 - see the last changelog for some changes that became visible with this release
 - switch to the official app's API
@@ -10,7 +11,7 @@
 - update app description in a few places
 - update translations
 
-* Wed Jun 10 2020 Mirian Margiani <mirian@margiani.ch> 1.2.9-1
+* Wed Jun 10 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.9-1
 - DUE TO EXTERNAL API CHANGES THE APP IS CURRENTLY UNUSABLE
 - disable the whole app for now (prevents unnecessary network usage)
 
@@ -24,44 +25,44 @@
 - internal clean-ups
 - fix some small warnings
 
-* Sun Apr 19 2020 Mirian Margiani <mirian@margiani.ch> 1.2.8-1
+* Sun Apr 19 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.8-1
 - fix About page to show correct license
 - fix typo in French translation
 - add Contributors page
 
-* Mon Dec 16 2019 Mirian Margiani <mirian@margiani.ch> 1.2.7-1
+* Mon Dec 16 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.7-1
 - implement extensive database maintenance which will be done every 60 days
 - round precipitation value in (generated) day summaries
 - update Chinese translation
 - always prune old weather data from database
 
-* Wed Dec 11 2019 Mirian Margiani <mirian@margiani.ch> 1.2.6-2
+* Wed Dec 11 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.6-2
 - generate day summaries if none could be downloaded
 - fix typo in French translation
 - add Chinese translation (thanks dashinfantry!)
 
-* Thu Sep 05 2019 Mirian Margiani <mirian@margiani.ch> 1.2.5-1
+* Thu Sep 05 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.5-1
 - make app translatable to French and Italian
 - translate weather descriptions to French and Italian
 
-* Sun Mar 24 2019 Mirian Margiani <mirian@margiani.ch> 1.2.4-1
+* Sun Mar 24 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.4-1
 - improve startup time
 
-* Thu Mar 21 2019 Mirian Margiani <mirian@margiani.ch> 1.2.3-1
+* Thu Mar 21 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.3-1
 - fix missing loading indicators on overview page
 
-* Mon Mar 18 2019 Mirian Margiani <mirian@margiani.ch> 1.2.2-1
+* Mon Mar 18 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.2-1
 - fix some visual glitches
 - improve data validation to make sure downloaded data is reliable
 
-* Mon Feb 11 2019 Mirian Margiani <mirian@margiani.ch> 1.2.1-1
+* Mon Feb 11 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.1-1
 - heavily decrease network load
 - fix some visual glitches
 - heavily improve loading performance
 - heavily improve location adding performance
 - fix refreshing week summary on overview page
 
-* Sat Feb 09 2019 Mirian Margiani <mirian@margiani.ch> 1.2.0-1
+* Sat Feb 09 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.0-1
 - backwards incompatible: store more locations details and week summaries in database
 - include more details in shipped list of locations
 - attempt to reduce network load by caching source paths
@@ -83,7 +84,7 @@
 - add tiny overview charts to overview page
 - plus some minor visual improvements
 
-* Tue Jan 29 2019 Mirian Margiani <mirian@margiani.ch> 1.1.1-1
+* Tue Jan 29 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.1.1-1
 - visually overhaul forecast page
 - show week overview for first 3 locations on overview page
 - visually polish table
@@ -92,15 +93,15 @@
 - show weather description when clicking on a summary item on forecast page
 - improve code quality
 
-* Mon Jan 28 2019 Mirian Margiani <mirian@margiani.ch> 1.1.0-2
+* Mon Jan 28 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.1.0-2
 - fix version number in About page
 
-* Mon Jan 28 2019 Mirian Margiani <mirian@margiani.ch> 1.1.0-1
+* Mon Jan 28 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.1.0-1
 - backwards incompatible: store less data in database
 - show variance data in graphs (temperature and rain)
 - improve data loading performance
 
-* Sun Jan 27 2019 Mirian Margiani <mirian@margiani.ch> 1.0.3-1
+* Sun Jan 27 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.3-1
 - improve translations
 - hide scales and overview on forecast page while loading
 - make status line dynamic
@@ -112,13 +113,13 @@
 - add descriptions to graphs
 - fix slight difference in size of main scale and overlay scale
 
-* Sat Jan 26 2019 Mirian Margiani <mirian@margiani.ch> 1.0.2-1
+* Sat Jan 26 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.2-1
 - use straight lines in temperature chart
 - add forecast summaries with symbols to the main forecast page
 - fix issues with graph width
 - visually align temperature and precipitation graphs
 
-* Sat Jan 5 2019 Mirian Margiani <mirian@margiani.ch> 1.0.1-1
+* Sat Jan 5 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.1-1
 - refactor visuals of forecast page
 - show weather string instead of zip and canton in overview
 - fix temperature sometimes not being shown in overview
@@ -126,5 +127,5 @@
 - add some busy indicators and animations
 - performance changes
 
-* Fri Jan 4 2019 Mirian Margiani <mirian@margiani.ch> 1.0.0-1
+* Fri Jan 4 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.0-1
 - initial release
