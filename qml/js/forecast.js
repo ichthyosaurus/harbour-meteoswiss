@@ -502,7 +502,7 @@ WorkerScript.onMessage = function(message) {
 
     function getJSON(sourcePath) {
         var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=' + locationId, true);
-        // var json = httpGet('/home/nemo/Devel/meteoswiss/forecast_plzDetail.json', true);
+        // var json = httpGet('/home/<user>/Devel/meteoswiss/forecast_plzDetail.json', true); -- use for debugging
 
         if (json.status !== 200) {
             return 'FAILED';
