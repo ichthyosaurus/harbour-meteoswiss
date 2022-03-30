@@ -2,9 +2,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Thu Mar 24 2022 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.1-1
+* Thu Mar 24 2022 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.1-2
 - added a Sailjail profile so the app hopefully keeps working in SFOS >= 4.4
 - only permission is "Internet" for fetching forecasts
+
+* Thu Mar 24 2022 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.1-1
+- accidental release, skip to version 1.3.1-2
 
 * Mon Dec 21 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.0-2
 - changed an internal comment to make Sailfish SDK's RPM validation script happy
@@ -83,10 +86,10 @@
 - fix saving locations order (regression from version 1.1.0)
 - indicate current hour only in today's charts
 - greatly improve performance:
-    - general loading
-    - data loading from network
-    - search page, searching
-    - details page
+- > general loading
+- > data loading from network
+- > search page, searching
+- > details page
 - add tiny overview charts to overview page
 - plus some minor visual improvements
 
@@ -125,7 +128,7 @@
 - fix issues with graph width
 - visually align temperature and precipitation graphs
 
-* Sat Jan 5 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.1-1
+* Sat Jan 05 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.1-1
 - refactor visuals of forecast page
 - show weather string instead of zip and canton in overview
 - fix temperature sometimes not being shown in overview
@@ -133,5 +136,5 @@
 - add some busy indicators and animations
 - performance changes
 
-* Fri Jan 4 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.0-1
+* Fri Jan 04 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.0-1
 - initial release
