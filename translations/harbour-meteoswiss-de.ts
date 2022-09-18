@@ -325,6 +325,10 @@
         <translation>Chinesisch</translation>
     </message>
     <message>
+        <source>French</source>
+        <translation>Französisch</translation>
+    </message>
+    <message>
         <source>MeteoSwiss</source>
         <translation>MeteoSchweiz</translation>
     </message>
