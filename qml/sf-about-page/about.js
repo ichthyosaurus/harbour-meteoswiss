@@ -11,7 +11,8 @@ var DEVELOPMENT = [
 var TRANSLATIONS = [
     {label: qsTr("Weather Descriptions"), values: ["MeteoSwiss"]},
     {label: qsTr("English, German"), values: ["Mirian Margiani"]},
-    {label: qsTr("Chinese"), values: ["dashinfantry"]}
+    {label: qsTr("Chinese"), values: ["dashinfantry"]},
+    {label: qsTr("French"), values: ["Robin Grenet"]}
 ]
 
 var VERSION_NUMBER // set in main.qml's Component.onCompleted
