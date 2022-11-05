@@ -325,6 +325,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>French</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>MeteoSwiss</source>
         <translation type="unfinished"></translation>
     </message>

@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Site Web</translation>
     </message>
     <message>
         <source>Author</source>
@@ -17,42 +17,42 @@
     </message>
     <message>
         <source>About %1</source>
-        <translation>Apropos %1</translation>
+        <translation>À propos de %1</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Développement</translation>
     </message>
     <message>
         <source>&lt;i&gt;show contributors &lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;i&gt;afficher les contributeurs &lt;/i&gt;</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licence</translation>
     </message>
     <message>
         <source>&lt;i&gt;show license &lt;/i&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;i&gt;afficher la licence &lt;/i&gt;</translation>
     </message>
     <message>
         <source>Source Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Code source</translation>
     </message>
 </context>
 <context>
     <name>ContributorsPage</name>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Contributeurs</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Développement</translation>
     </message>
     <message>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Traductions</translation>
     </message>
 </context>
 <context>
@@ -66,7 +66,7 @@
     <name>DaySummaryItem</name>
     <message>
         <source>Today</source>
-        <translation>Aujourd&apos;hui</translation>
+        <translation>auj.</translation>
     </message>
 </context>
 <context>
@@ -88,111 +88,111 @@
     <name>ForecastItem</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement...</translation>
     </message>
     <message>
         <source>%1: %2</source>
         <comment>time (1) with weather description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 : %2</translation>
     </message>
     <message>
         <source>Sun Times</source>
-        <translation type="unfinished"></translation>
+        <translation>Heures de la journée</translation>
     </message>
     <message>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Aube</translation>
     </message>
     <message>
         <source>morning civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>l&apos;aube civile commence</translation>
     </message>
     <message>
         <source>Sunrise</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Lever du soleil</translation>
     </message>
     <message>
         <source>top edge of the sun appears on the horizon</source>
-        <translation type="unfinished"></translation>
+        <translation>le bord supérieur du soleil apparaît à l&apos;horizon</translation>
     </message>
     <message>
         <source>Golden Hour End</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Heure dorée (Fin)|Heure dorée</translation>
     </message>
     <message>
         <source>morning golden hour (soft light, best time for photography) ends</source>
-        <translation type="unfinished"></translation>
+        <translation>l&apos;heure dorée du matin (lumière douce, meilleur moment pour la photographie) se termine</translation>
     </message>
     <message>
         <source>Solar Noon</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Midi solaire</translation>
     </message>
     <message>
         <source>sun is in the highest position</source>
-        <translation type="unfinished"></translation>
+        <translation>le soleil est au point le plus haut</translation>
     </message>
     <message>
         <source>Golden Hour</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Heure dorée (début)|Heure dorée</translation>
     </message>
     <message>
         <source>evening golden hour (soft light, best time for photography) starts</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;heure dorée du soir (lumière douce, meilleur moment pour la photographie) commence</translation>
     </message>
     <message>
         <source>Sunset</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Coucher du soleil</translation>
     </message>
     <message>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>le soleil disparaît sous l&apos;horizon, le crépuscule commence</translation>
     </message>
     <message>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Nuit</translation>
     </message>
     <message>
         <source>dark enough for astronomical observations</source>
-        <translation type="unfinished"></translation>
+        <translation>suffisamment sombre pour les observations astronomiques</translation>
     </message>
     <message>
         <source>Nadir</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Minuit solaire</translation>
     </message>
     <message>
         <source>darkest moment of the night, sun is in the lowest position</source>
-        <translation type="unfinished"></translation>
+        <translation>moment le plus sombre de la nuit, le soleil est au point le plus bas</translation>
     </message>
     <message>
         <source>status: </source>
-        <translation type="unfinished"></translation>
+        <translation>statut : </translation>
     </message>
     <message>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>inconnu</translation>
     </message>
     <message>
         <source>now: </source>
-        <translation type="unfinished"></translation>
+        <translation>maintenant : </translation>
     </message>
     <message>
         <source>Failed...</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec...</translation>
     </message>
 </context>
 <context>
     <name>ForecastPage</name>
     <message>
         <source>Reload Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Recharger les données</translation>
     </message>
     <message>
         <source>MeteoSwiss</source>
@@ -200,59 +200,59 @@
     </message>
     <message>
         <source>Failed to load data!</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec du chargement des données !</translation>
     </message>
 </context>
 <context>
     <name>LicensePage</name>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licence</translation>
     </message>
 </context>
 <context>
     <name>LocationSearchPage</name>
     <message>
         <source>Bootstrap debug locations</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter des lieux de débogage</translation>
     </message>
     <message>
         <source>Add Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un lieu</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechercher</translation>
     </message>
 </context>
 <context>
     <name>OverviewListDelegate</name>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Move to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer vers le haut</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppression</translation>
     </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>About</source>
-        <translation>Apropos</translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <source>Add location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un lieu</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualiser</translation>
     </message>
     <message>
         <source>MeteoSwiss</source>
@@ -260,11 +260,11 @@
     </message>
     <message>
         <source>Add a location first</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajoutez d&apos;abord un lieu</translation>
     </message>
     <message>
         <source>Pull down to add items</source>
-        <translation type="unfinished"></translation>
+        <translation>Faites glisser vers le bas pour ajouter de nouveaux lieux</translation>
     </message>
 </context>
 <context>
@@ -272,14 +272,14 @@
     <message>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 : %2</translation>
     </message>
 </context>
 <context>
     <name>TablePage</name>
     <message>
         <source>Detailed Forecast</source>
-        <translation type="unfinished"></translation>
+        <translation>Prévisions détaillées</translation>
     </message>
     <message>
         <source>Hour</source>
@@ -306,23 +306,27 @@
     <name>about</name>
     <message>
         <source>Programming</source>
-        <translation type="unfinished"></translation>
+        <translation>Programmation</translation>
     </message>
     <message>
         <source>Weather Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Icônes météo</translation>
     </message>
     <message>
         <source>Weather Descriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Descriptions météorologiques</translation>
     </message>
     <message>
         <source>English, German</source>
-        <translation type="unfinished"></translation>
+        <translation>Anglais, Allemand</translation>
     </message>
     <message>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinois</translation>
+    </message>
+    <message>
+        <source>French</source>
+        <translation>Français</translation>
     </message>
     <message>
         <source>MeteoSwiss</source>
@@ -330,23 +334,23 @@
     </message>
     <message>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright, Office Fédéral de Météorologie et de Climatologie MétéoSuisse.</translation>
     </message>
     <message>
         <source>Weather icons by Zeix.</source>
-        <translation type="unfinished"></translation>
+        <translation>Icônes météo par Zeix.</translation>
     </message>
     <message>
         <source>Sources on GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>Sources sur GitHub</translation>
     </message>
     <message>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Données</translation>
     </message>
     <message>
         <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceci est un client non officiel pour les prévisions météorologiques de l&apos;Office Fédéral de Météorologie et de Climatologie (MétéoSuisse).</translation>
     </message>
     <message>
         <source>https://www.meteoswiss.admin.ch/</source>
@@ -369,19 +373,19 @@
     </message>
     <message>
         <source>Database Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenance de la base de données</translation>
     </message>
     <message>
         <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez patienter et attendre jusqu&apos;à 30 secondes la fin du processus.</translation>
     </message>
     <message>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Actuellement inutilisable</translation>
     </message>
     <message>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette application est actuellement inutilisable, en raison d&apos;un changement du côté du fournisseur de données.</translation>
     </message>
 </context>
 <context>
