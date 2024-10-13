@@ -1,3 +1,12 @@
+/*
+ * This file has been adapted for use in harbour-meteoswiss.
+ *
+ * SPDX-FileCopyrightText: Copyright (c) 2014, Vladimir Agafonkin
+ * SPDX-FileCopyrightText: (c) 2011-2015, Vladimir Agafonkin
+ * SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 .pragma library
 
 /*

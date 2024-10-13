@@ -1,7 +1,7 @@
 #!/bin/bash
 # This file is part of harbour-meteoswiss.
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: Mirian Margiani
+# SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
 
 echo "WARNING: OUTDATED!"
 echo "This script is no longer usable to build the locations.js used by the app."
