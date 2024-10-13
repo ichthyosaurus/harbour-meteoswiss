@@ -56,10 +56,10 @@ A.AboutPageBase {
 
     attributions: [
         A.Attribution {
-            name: "SortFilterProxyModel"
-            entries: ["2016 Pierre-Yves Siret"]
-            licenses: A.License { spdxId: "MIT" }
-            sources: "https://github.com/oKcerG/SortFilterProxyModel"
+            name: "suncalc.js"
+            entries: ["2011-2015 Vladimir Agafonkin", "2018-2024 Mirian Margiani"]
+            licenses: A.License { spdxId: "BSD-2-Clause" }
+            sources: "https://github.com/mourner/suncalc"
         }
     ]
 
