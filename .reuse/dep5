@@ -46,3 +46,8 @@ Files: dist/ambience.jpg
 Copyright: Xavier von Erlach
 License: LicenseRef-Unsplash
 Comment: https://unsplash.com/de/fotos/8dcWmdVBjIM
+
+Files: qml/weather-icons/*.svg
+Copyright: Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
+License: LicenseRef-Official
+Comment: These files are included as a cache to reduce load on official servers.
