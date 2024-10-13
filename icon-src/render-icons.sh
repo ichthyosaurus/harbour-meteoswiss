@@ -30,6 +30,12 @@ cRESOLUTIONS=(86 108 128 172)
 cTARGETS=(../icons/RESXxRESY)
 render_batch
 
+cNAME="status icons"
+cITEMS=("$cMY_APP@256")
+cRESOLUTIONS=(F1)
+cTARGETS=(../qml/images)
+render_batch
+
 cNAME="store icon"
 cITEMS=("$cMY_APP")
 cRESOLUTIONS=(172)
