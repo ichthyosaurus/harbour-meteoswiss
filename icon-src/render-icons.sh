@@ -45,8 +45,10 @@ cRESOLUTIONS=(
 cTARGETS=(../dist)
 render_batch
 
-cNAME="cover background"
-cITEMS=(cover)
-cRESOLUTIONS=(204x230)
-cTARGETS=(../qml/cover)
-render_batch
+# TODO decide whether to keep this at all
+# TODO render to qml/images/
+# cNAME="cover background"
+# cITEMS=(cover)
+# cRESOLUTIONS=(204x230)
+# cTARGETS=(../qml/cover)
+# render_batch
