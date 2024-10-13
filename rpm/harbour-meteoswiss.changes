@@ -7,138 +7,138 @@
 # - Summary of changes
 
 * Thu Mar 24 2022 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.1-2
-- added a Sailjail profile so the app hopefully keeps working in SFOS >= 4.4
-- only permission is "Internet" for fetching forecasts
+- Added a Sailjail profile so the app hopefully keeps working in SFOS >= 4.4
+- Only permission is "Internet" for fetching forecasts
 
 * Thu Mar 24 2022 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.1-1
-- accidental release, skip to version 1.3.1-2
+- Accidental release, skip to version 1.3.1-2
 
 * Mon Dec 21 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.0-2
-- changed an internal comment to make Sailfish SDK's RPM validation script happy
+- Changed an internal comment to make Sailfish SDK's RPM validation script happy
 
 * Tue Jun 16 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.0-1
-- THE APP IS WORKING AGAIN
-- see the last changelog for some changes that became visible with this release
-- switch to the official app's API
-- fix bug where day summaries were not correctly refreshed
-- update app description in a few places
-- update translations
+- Important: the app is working again
+- See the last changelog for some changes that became visible with this release
+- Switch to the official app's API
+- Fix bug where day summaries were not correctly refreshed
+- Update app description in a few places
+- Update translations
 
 * Wed Jun 10 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.9-1
-- DUE TO EXTERNAL API CHANGES THE APP IS CURRENTLY UNUSABLE
-- disable the whole app for now (prevents unnecessary network usage)
+- Important: the app is currently unusable due to external API changes
+- Disable the whole app for now (prevents unnecessary network usage)
 
-- changes (currently not visible):
-- animate details table
-- make the app usable in landscape mode
-- remove broken summary background
-- show the corresponding small graph when tapping on a day instead of switching
-  to the forecast page (tap on the graph or the title to switch)
-- update About page
-- internal clean-ups
-- fix some small warnings
+- Changes (currently not visible):
+- > Animate details table
+- > Make the app usable in landscape mode
+- > Remove broken summary background
+- > Show the corresponding small graph when tapping on a day instead of switching
+    to the forecast page (tap on the graph or the title to switch)
+- > Update About page
+- > Internal clean-ups
+- > Fix some small warnings
 
 * Sun Apr 19 2020 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.8-1
-- fix About page to show correct license
-- fix typo in French translation
-- add Contributors page
+- Fix About page to show correct license
+- Fix typo in French translation
+- Add Contributors page
 
 * Mon Dec 16 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.7-1
-- implement extensive database maintenance which will be done every 60 days
-- round precipitation value in (generated) day summaries
-- update Chinese translation
-- always prune old weather data from database
+- Implement extensive database maintenance which will be done every 60 days
+- Round precipitation value in (generated) day summaries
+- Update Chinese translation
+- Always prune old weather data from database
 
 * Wed Dec 11 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.6-2
-- generate day summaries if none could be downloaded
-- fix typo in French translation
-- add Chinese translation (thanks dashinfantry!)
+- Generate day summaries if none could be downloaded
+- Fix typo in French translation
+- Add Chinese translation (thanks dashinfantry!)
 
 * Thu Sep 05 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.5-1
-- make app translatable to French and Italian
-- translate weather descriptions to French and Italian
+- Make app translatable to French and Italian
+- Translate weather descriptions to French and Italian
 
 * Sun Mar 24 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.4-1
-- improve startup time
+- Improve startup time
 
 * Thu Mar 21 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.3-1
-- fix missing loading indicators on overview page
+- Fix missing loading indicators on overview page
 
 * Mon Mar 18 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.2-1
-- fix some visual glitches
-- improve data validation to make sure downloaded data is reliable
+- Fix some visual glitches
+- Improve data validation to make sure downloaded data is reliable
 
 * Mon Feb 11 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.1-1
-- heavily decrease network load
-- fix some visual glitches
-- heavily improve loading performance
-- heavily improve location adding performance
-- fix refreshing week summary on overview page
+- Heavily decrease network load
+- Fix some visual glitches
+- Heavily improve loading performance
+- Heavily improve location adding performance
+- Fix refreshing week summary on overview page
 
 * Sat Feb 09 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.2.0-1
-- backwards incompatible: store more locations details and week summaries in database
-- include more details in shipped list of locations
-- attempt to reduce network load by caching source paths
-- make clock on overview page non-clickable
-- highlight items on overview page to make them more distinct
-- prevent day summaries from flickering when selected
-- improve some error messages
-- mark current day in overview page's week overview
-- use API fromt he official app to load better week summaries
-- improve handling of missing data
-- show sunrise and other sun times for each day
-- fix saving locations order (regression from version 1.1.0)
-- indicate current hour only in today's charts
-- greatly improve performance:
+- Backwards incompatible: store more locations details and week summaries in database
+- Include more details in shipped list of locations
+- Attempt to reduce network load by caching source paths
+- Make clock on overview page non-clickable
+- Highlight items on overview page to make them more distinct
+- Prevent day summaries from flickering when selected
+- Improve some error messages
+- Mark current day in overview page's week overview
+- Use API fromt he official app to load better week summaries
+- Improve handling of missing data
+- Show sunrise and other sun times for each day
+- Fix saving locations order (regression from version 1.1.0)
+- Indicate current hour only in today's charts
+- Greatly improve performance:
 - > general loading
 - > data loading from network
 - > search page, searching
 - > details page
-- add tiny overview charts to overview page
-- plus some minor visual improvements
+- Add tiny overview charts to overview page
+- Plus some minor visual improvements
 
 * Tue Jan 29 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.1.1-1
-- visually overhaul forecast page
-- show week overview for first 3 locations on overview page
-- visually polish table
-- fine-tune colors throughout
-- fix wrong wind speed unit
-- show weather description when clicking on a summary item on forecast page
-- improve code quality
+- Visually overhaul forecast page
+- Show week overview for first 3 locations on overview page
+- Visually polish table
+- Fine-tune colors throughout
+- Fix wrong wind speed unit
+- Show weather description when clicking on a summary item on forecast page
+- Improve code quality
 
 * Mon Jan 28 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.1.0-2
-- fix version number in About page
+- Fix version number in About page
 
 * Mon Jan 28 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.1.0-1
-- backwards incompatible: store less data in database
-- show variance data in graphs (temperature and rain)
-- improve data loading performance
+- Backwards incompatible: store less data in database
+- Show variance data in graphs (temperature and rain)
+- Improve data loading performance
 
 * Sun Jan 27 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.3-1
-- improve translations
-- hide scales and overview on forecast page while loading
-- make status line dynamic
-- show zip code on overview page
-- add clock on overview page
-- small performance improvement while loading
-- add wind graph (with details in the table)
-- detect clicks everywhere on table list entries
-- add descriptions to graphs
-- fix slight difference in size of main scale and overlay scale
+- Improve translations
+- Hide scales and overview on forecast page while loading
+- Make status line dynamic
+- Show zip code on overview page
+- Add clock on overview page
+- Small performance improvement while loading
+- Add wind graph (with details in the table)
+- Detect clicks everywhere on table list entries
+- Add descriptions to graphs
+- Fix slight difference in size of main scale and overlay scale
 
 * Sat Jan 26 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.2-1
-- use straight lines in temperature chart
-- add forecast summaries with symbols to the main forecast page
-- fix issues with graph width
-- visually align temperature and precipitation graphs
+- Use straight lines in temperature chart
+- Add forecast summaries with symbols to the main forecast page
+- Fix issues with graph width
+- Visually align temperature and precipitation graphs
 
 * Sat Jan 05 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.1-1
-- refactor visuals of forecast page
-- show weather string instead of zip and canton in overview
-- fix temperature sometimes not being shown in overview
-- don't restart refresh timer when data is manually refreshed
-- add some busy indicators and animations
-- performance changes
+- Refactor visuals of forecast page
+- Show weather string instead of zip and canton in overview
+- Fix temperature sometimes not being shown in overview
+- Don't restart refresh timer when data is manually refreshed
+- Add some busy indicators and animations
+- Performance changes
 
 * Fri Jan 04 2019 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.0.0-1
-- initial release
+- Initial release
