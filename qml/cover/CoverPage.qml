@@ -1,3 +1,9 @@
+/*
+ * This file is part of harbour-meteoswiss.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
+ */
+
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
