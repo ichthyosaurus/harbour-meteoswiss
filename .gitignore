@@ -8,3 +8,5 @@ dist
 raw/strings/*.clean
 raw/strings/strings
 liverunner*
+libs/opal-translations
+libs/opal-docs
