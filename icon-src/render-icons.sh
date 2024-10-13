@@ -1,26 +1,52 @@
 #!/bin/bash
 #
-# This file is part of harbour-meteoswiss.
-# Copyright (C) 2018-2020  Mirian Margiani
+# This file is part of Opal and has been released into the public domain.
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2021-2023 Mirian Margiani
 #
-# harbour-meteoswiss is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# See https://github.com/Pretty-SFOS/opal/blob/main/snippets/opal-render-icons.md
+# for documentation.
 #
-# harbour-meteoswiss is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# @@@ keep this line: based on template v1.0.0
 #
-# You should have received a copy of the GNU General Public License
-# along with harbour-meteoswiss.  If not, see <http://www.gnu.org/licenses/>.
-#
+c__FOR_RENDER_LIB__="1.0.0"
 
-for i in 86 108 128 172; do
-    mkdir -p "icons/${i}x$i"
-    inkscape -z -e "icons/${i}x$i/harbour-meteoswiss.png" -w "$i" -h "$i" harbour-meteoswiss.svg
+# Run this script from the same directory where your icon sources are located,
+# e.g. <app>/icon-src.
+source ../libs/opal-render-icons.sh
+cFORCE=false
+
+for i in raw/*.svg; do
+    if [[ "$i" -nt "${i#raw/}" ]]; then
+        scour "$i" > "${i#raw/}"
+    fi
 done
 
-mkdir -p "qml/weather-icons"
-inkscape -z -l "qml/weather-icons/harbour-meteoswiss.svg" harbour-meteoswiss.svg
+cMY_APP=harbour-meteoswiss
+
+cNAME="app icons"
+cITEMS=("$cMY_APP")
+cRESOLUTIONS=(86 108 128 172)
+cTARGETS=(../icons/RESXxRESY)
+render_batch
+
+cNAME="store icon"
+cITEMS=("$cMY_APP")
+cRESOLUTIONS=(172)
+cTARGETS=(../dist)
+render_batch
+
+cNAME="banner image"
+cITEMS=(../dist/banner)
+cRESOLUTIONS=(
+    1080x540++-large
+    540x270++-small
+)
+cTARGETS=(../dist)
+render_batch
+
+cNAME="cover background"
+cITEMS=(cover)
+cRESOLUTIONS=(204x230)
+cTARGETS=(../qml/cover)
+render_batch
