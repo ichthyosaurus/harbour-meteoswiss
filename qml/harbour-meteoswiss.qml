@@ -38,7 +38,6 @@ ApplicationWindow {
     signal locationAdded(var locationData)
     signal weekSummaryUpdated()
 
-    property string version: "1.3.1"
     // ATTENTION set to "false" before release
     property bool debug: false
 
