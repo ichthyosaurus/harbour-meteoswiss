@@ -22,7 +22,7 @@ import Opal.About 1.0 as A
 A.AboutPageBase {
     id: page
 
-    appName: main.appName
+    appName: Qt.application.name
     appIcon: Qt.resolvedUrl("../images/%1.png".arg(Qt.application.name))
     appVersion: APP_VERSION
     appRelease: APP_RELEASE
