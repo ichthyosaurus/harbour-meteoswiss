@@ -1,0 +1,5 @@
+Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
+
+Weather icons by Zeix.
+
+Website: https://www.meteoswiss.admin.ch/
