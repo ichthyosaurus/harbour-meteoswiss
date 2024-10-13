@@ -6,36 +6,54 @@ Name: harbour-meteoswiss
 Summary: Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
 Version: 1.3.1
 Release: 2
+
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
-Group: Qt/Qt
+Group: Applications/Productivity
 URL: https://github.com/ichthyosaurus/harbour-meteoswiss
-BuildArch: noarch
-License: GPLv3+
+License: GPL-3.0-or-later
+
+# This must be generated before uploading a package to a remote build service.
+# Usually this line does not need to be modified.
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
   MeteoSwiss is an unofficial client to weather forecast services provided by
   the Federal Office of Meteorology and Climatology (MeteoSwiss). Forecasts are
   available offline and updated every hour.
-Configure: none
-Builder: qtc5
 
+Configure: none
+Builder: qmake5
+QMakeOptions:
+    - VERSION=%{version}
+    - RELEASE=%{release}
+
+Macros:
+    - __provides_exclude_from;^%{_datadir}/.*$
+
+# This section specifies build dependencies that are resolved using pkgconfig.
+# This is the preferred way of specifying build dependencies for your package.
 PkgConfigBR:
   - sailfishapp >= 1.0.3
   - Qt5Core
   - Qt5Qml
   - Qt5Quick
 
-Macros:
-  - __provides_exclude_from;^%{_datadir}/.*$
+# Build dependencies without a pkgconfig setup can be listed here
+# PkgBR:
+#   - package-needed-to-build
 
+# Runtime dependencies which are not automatically detected
 Requires:
   - sailfishsilica-qt5 >= 0.10.9
   - libsailfishapp-launcher
 
+# All installed files
 Files:
-  - '%defattr(0644,root,root,-)'
+  - '%{_bindir}'
   - '%{_datadir}/%{name}'
   - '%{_datadir}/applications/%{name}.desktop'
   - '%{_datadir}/icons/hicolor/*/apps/%{name}.png'
+
+# For more information about yaml and what's supported in Sailfish OS
+# build system, please see https://wiki.merproject.org/wiki/Spectacle
