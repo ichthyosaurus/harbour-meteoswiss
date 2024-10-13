@@ -1,12 +1,23 @@
-build
-*.pro.user
-reverse
-rpm/*.spec
-rpm/*.spec.*
-dist
-*.bak
+# This file is part of harbour-meteoswiss.
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: Mirian Margiani
+
+*.user*
+*~
+*.~*
+.directory
+.gitignore
+build*
+dist-old*
+tmp*
+icon-src/raw
+TODO
+
+databases/
 raw/strings/*.clean
 raw/strings/strings
-liverunner*
+reverse/
+deep-rename.sh
+
 libs/opal-translations
 libs/opal-docs
