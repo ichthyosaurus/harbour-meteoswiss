@@ -1,3 +1,9 @@
+/*
+ * This file is part of harbour-meteoswiss.
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
+ */
+
 // run: js -f hash.js > x
 // check with "sort x | uniq -d" for duplicates
 // ATTENTION if there are duplicates, the hash function has to be adapted and changed

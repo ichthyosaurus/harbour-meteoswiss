@@ -16,6 +16,7 @@ TODO
 databases/
 raw/strings/*.clean
 raw/strings/strings
+raw/locations-temp/
 reverse/
 deep-rename.sh
 
