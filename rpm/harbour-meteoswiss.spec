@@ -9,16 +9,11 @@ Name:       harbour-meteoswiss
 # << macros
 %define __provides_exclude_from ^%{_datadir}/.*$
 
-%{!?qtc_qmake:%define qtc_qmake %qmake}
-%{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
-%{!?qtc_make:%define qtc_make make}
-%{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
 Version:    1.3.1
 Release:    2
-Group:      Qt/Qt
-License:    GPLv3+
-BuildArch:  noarch
+Group:      Applications/Productivity
+License:    GPL-3.0-or-later
 URL:        https://github.com/ichthyosaurus/harbour-meteoswiss
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-meteoswiss.yaml
@@ -46,9 +41,11 @@ available offline and updated every hour.
 # >> build pre
 # << build pre
 
-%qtc_qmake5 
+%qmake5  \
+    VERSION=%{version} \
+    RELEASE=%{release}
 
-%qtc_make %{?_smp_mflags}
+make %{?_smp_mflags}
 
 # >> build post
 # << build post
@@ -68,7 +65,7 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
-%defattr(0644,root,root,-)
+%{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
