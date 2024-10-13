@@ -19,12 +19,11 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Opal.About 1.0 as A
 import "pages"
 
 import "js/forecast.js" as Forecast
 import "js/storage.js" as Storage
-import "sf-about-page/about.js" as About
-
 
 ApplicationWindow {
     id: meteoApp
@@ -211,7 +210,5 @@ ApplicationWindow {
 
         doRefreshData();
         refreshData.connect(doRefreshData);
-
-        About.VERSION_NUMBER = version;
     }
 }
