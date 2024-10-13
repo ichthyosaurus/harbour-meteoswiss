@@ -27,7 +27,7 @@ A.AboutPageBase {
     appVersion: APP_VERSION
     appRelease: APP_RELEASE
 
-    allowDownloadingLicenses: false
+    allowDownloadingLicenses: true  // this app requires an internet connection anyway
     sourcesUrl: "https://github.com/ichthyosaurus/%1".arg(Qt.application.name)
     homepageUrl: "https://forum.sailfishos.org/t/apps-by-ichthyosaurus/15753"
     translationsUrl: "https://hosted.weblate.org/projects/%1".arg(Qt.application.name)
