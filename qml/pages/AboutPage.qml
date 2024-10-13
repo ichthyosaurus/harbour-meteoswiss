@@ -82,6 +82,35 @@ A.AboutPageBase {
             ]
         },
         //>>> GENERATED LIST OF TRANSLATION CREDITS
+        A.ContributionSection {
+            title: qsTr("Translations")
+            groups: [
+                A.ContributionGroup {
+                    title: qsTr("German")
+                    entries: [
+                        "Mirian Margiani"
+                    ]
+                },
+                A.ContributionGroup {
+                    title: qsTr("French")
+                    entries: [
+                        "Robin Grenet"
+                    ]
+                },
+                A.ContributionGroup {
+                    title: qsTr("English")
+                    entries: [
+                        "Mirian Margiani"
+                    ]
+                },
+                A.ContributionGroup {
+                    title: qsTr("Chinese")
+                    entries: [
+                        "dashinfantry"
+                    ]
+                }
+            ]
+        }
         //<<< GENERATED LIST OF TRANSLATION CREDITS
     ]
 }
