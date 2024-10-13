@@ -10,15 +10,14 @@ Name:       harbour-meteoswiss
 %define __provides_exclude_from ^%{_datadir}/.*$
 
 Summary:    Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
-Version:    1.3.1
-Release:    2
+Version:    1.4.0
+Release:    1
 Group:      Applications/Productivity
 License:    GPL-3.0-or-later
 URL:        https://github.com/ichthyosaurus/harbour-meteoswiss
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-meteoswiss.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
-Requires:   libsailfishapp-launcher
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.3
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
