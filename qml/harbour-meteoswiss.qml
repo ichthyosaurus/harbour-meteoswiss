@@ -28,7 +28,6 @@ import "js/storage.js" as Storage
 
 ApplicationWindow {
     id: meteoApp
-    allowedOrientations: defaultAllowedOrientations
 
     initialPage: entryPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -39,12 +38,9 @@ ApplicationWindow {
     signal locationAdded(var locationData)
     signal weekSummaryUpdated()
 
-    // ===============================
-    // ATTENTION UPDATE BEFORE RELEASE
-    // -------------------------------
     property string version: "1.3.1"
-    property bool debug:     false
-    // ===============================
+    // ATTENTION set to "false" before release
+    property bool debug: false
 
     property var forecastData: Forecast.fullData
     property var dataIsReady: ({})
@@ -65,6 +61,16 @@ ApplicationWindow {
 
     property var symbolHours: [2,5,8,11,14,17,20,23]
     property int noonHour: symbolHours[((symbolHours.length - symbolHours.length%2)/2)-1]
+
+    // We have to explicitly set the \c _defaultPageOrientations property
+    // to \c Orientation.All so the page stack's default placeholder page
+    // will be allowed to be in landscape mode. (The default value is
+    // \c Orientation.Portrait.) Without this setting, pushing multiple pages
+    // to the stack using \c animatorPush() while in landscape mode will cause
+    // the view to rotate back and forth between orientations.
+    // [as of 2021-02-17, SFOS 3.4.0.24, sailfishsilica-qt5 version 1.1.110.3-1.33.3.jolla]
+    _defaultPageOrientations: Orientation.All
+    allowedOrientations: Orientation.All
 
     Component {
         id: entryPage
