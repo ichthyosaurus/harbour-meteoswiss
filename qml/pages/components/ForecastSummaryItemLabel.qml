@@ -37,9 +37,14 @@ Label {
 
     text: getText()
 
-    width: parent.width
+    anchors.horizontalCenter: parent.horizontalCenter
+    width: parent.width - 2 * Theme.paddingSmall
     color: parent.textColor ? parent.textColor : Theme.primaryColor
 
+    truncationMode: TruncationMode.Fade
+    minimumPixelSize: 0.8 * Theme.fontSizeTiny
+    fontSizeMode: Text.Fit
     font.pixelSize: Theme.fontSizeTiny
     horizontalAlignment: Text.AlignHCenter
+    verticalAlignment: Text.AlignVCenter
 }
