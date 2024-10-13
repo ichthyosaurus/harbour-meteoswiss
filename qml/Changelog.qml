@@ -8,6 +8,19 @@ import QtQuick 2.0
 import "modules/Opal/About"
 
 ChangelogList {
+    ChangelogItem {
+        version: "1.4.0-1"
+        date: "2024-10-13"
+        paragraphs: [
+            "- This is mainly a maintenance release to bring the app back into shape for future development<br>" +
+            "- Fixed overflowing text in day summaries<br>" +
+            "- Added a support dialog for donations, a proper about page, and an internal changelog<br>" +
+            "- Added translations through Weblate, you are invited to contribute!<br>" +
+            "- Added and updated many translations from Opal<br>" +
+            "- Updated packaging and infrastructure"
+        ]
+    }
+    ChangelogItem {
         version: "1.3.1-2"
         date: "2022-03-24"
         paragraphs: [

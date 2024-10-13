@@ -6,6 +6,14 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Oct 13 2024 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.4.0-1
+- This is mainly a maintenance release to bring the app back into shape for future development
+- Fixed overflowing text in day summaries
+- Added a support dialog for donations, a proper about page, and an internal changelog
+- Added translations through Weblate, you are invited to contribute!
+- Added and updated many translations from Opal
+- Updated packaging and infrastructure
+
 * Thu Mar 24 2022 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.3.1-2
 - Added a Sailjail profile so the app hopefully keeps working in SFOS >= 4.4
 - Only permission is "Internet" for fetching forecasts
