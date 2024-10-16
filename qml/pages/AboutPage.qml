@@ -86,6 +86,12 @@ A.AboutPageBase {
             title: qsTr("Translations")
             groups: [
                 A.ContributionGroup {
+                    title: qsTr("Spanish")
+                    entries: [
+                        "gallegonovato"
+                    ]
+                },
+                A.ContributionGroup {
                     title: qsTr("German")
                     entries: [
                         "Mirian Margiani"

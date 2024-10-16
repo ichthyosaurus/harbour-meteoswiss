@@ -1,5 +1,12 @@
 {
-  "weblate": [],
+  "weblate": [
+    {
+      "language": "Spanish",
+      "entries": [
+        "gallegonovato"
+      ]
+    }
+  ],
   "extra": [
     {
       "language": "Chinese",
