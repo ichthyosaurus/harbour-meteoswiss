@@ -324,7 +324,7 @@ function httpGet(url, enableSpoofing) {
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // 'false' for synchronous request
-    xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-2.3.3-Android");
+    xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-3.0.6-Android");
 
     if (enableSpoofing === true) {
         // FIXME Setting Host and Referer is not possible via XHR.
