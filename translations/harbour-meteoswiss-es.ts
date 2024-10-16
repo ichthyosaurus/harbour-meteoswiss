@@ -6,7 +6,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="45"/>
         <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
-        <translation type="unfinished"></translation>
+        <translation>Un cliente no oficial para las previsiones meteorológicas de la Oficina Federal de Meteorología y Climatología (MeteoSwiss).</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="50"/>
@@ -16,12 +16,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="51"/>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation type="unfinished"></translation>
+        <translation>Derechos de autor, Oficina Federal de Meteorología y Climatología MeteoSwiss.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="52"/>
         <source>Weather icons by Zeix.</source>
-        <translation type="unfinished"></translation>
+        <translation>Íconos del tiempo de Zeix.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="68"/>
@@ -36,12 +36,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="75"/>
         <source>Weather icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Iconos del clima</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="79"/>
         <source>Weather descriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Descripciones del tiempo</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="86"/>
@@ -82,7 +82,7 @@
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="24"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
 </context>
 <context>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoy</translation>
     </message>
 </context>
 <context>
@@ -111,17 +111,17 @@
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="114"/>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Temperatura</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="121"/>
         <source>Precipitation</source>
-        <translation type="unfinished"></translation>
+        <translation>Precipitación</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="128"/>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Viento</translation>
     </message>
 </context>
 <context>
@@ -130,98 +130,98 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="17"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="302"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargando…</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="290"/>
         <source>Failed...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fallida...</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="255"/>
         <source>status: </source>
-        <translation type="unfinished"></translation>
+        <translation>estado: </translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="268"/>
         <source>now: </source>
-        <translation type="unfinished"></translation>
+        <translation>ahora: </translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="262"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="295"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="305"/>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>desconocida</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="98"/>
         <source>%1: %2</source>
         <comment>time (1) with weather description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="135"/>
         <source>Sun Times</source>
-        <translation type="unfinished"></translation>
+        <translation>Salida y puesta del sol</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="160"/>
         <source>top edge of the sun appears on the horizon</source>
-        <translation type="unfinished"></translation>
+        <translation>El borde superior del sol aparece en el horizonte</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="166"/>
         <source>morning golden hour (soft light, best time for photography) ends</source>
-        <translation type="unfinished"></translation>
+        <translation>Termina la hora dorada de la mañana (luz suave, mejor momento para fotografiar)</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="172"/>
         <source>sun is in the highest position</source>
-        <translation type="unfinished"></translation>
+        <translation>El sol está en el punto más alta</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="183"/>
         <source>evening golden hour (soft light, best time for photography) starts</source>
-        <translation type="unfinished"></translation>
+        <translation>Comienza la hora dorada de la tarde (luz cálida, mejor momento para fotografiar)</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="189"/>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>El sol desaparece bajo el horizonte, comienza el crepúsculo</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="195"/>
         <source>dark enough for astronomical observations</source>
-        <translation type="unfinished"></translation>
+        <translation>suficientemente oscuridad para observaciones astronómicas</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="201"/>
         <source>darkest moment of the night, sun is in the lowest position</source>
-        <translation type="unfinished"></translation>
+        <translation>momento más oscuro de la noche; el sol ha llegado a su punto más bajo</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="154"/>
         <source>morning civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>Comienza el amanecer</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="152"/>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Amanecer</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="158"/>
         <source>Sunrise</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Amanecer</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="164"/>
         <source>Golden Hour End</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fin de la hora dorada|justo después del amanecer o justo antes de la puesta de sol</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="170"/>
