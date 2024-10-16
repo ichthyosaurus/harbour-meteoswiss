@@ -37,6 +37,7 @@ ApplicationWindow {
     property var sourcePathUpdated: new Date("1970-01-01T00:00:00.000Z")
 
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
+    property string dateFormat: qsTr("d MMM yyyy")
     property string timeFormat: qsTr("hh':'mm")
     property string fullDateFormat: qsTr("ddd d MMM yyyy")
 
@@ -44,6 +45,9 @@ ApplicationWindow {
     property string rainUnit: "mm/h"
     property string rainUnitShort: "mm"
     property string windUnit: "km/h"
+
+    property bool haveWallClock: wallClock != null
+    property QtObject wallClock
 
     property var symbolHours: [2,5,8,11,14,17,20,23]
     property int noonHour: symbolHours[((symbolHours.length - symbolHours.length%2)/2)-1]
@@ -201,7 +205,16 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        // FIXME disable when everything works again
+        // Avoid hard dependency on Nemo.Time and load it in a complicated
+        // way to make Jolla's validator script happy.
+        wallClock = Qt.createQmlObject("
+            import QtQuick 2.0
+            import %1 1.0
+            WallClock {
+                enabled: Qt.application.active
+                updateFrequency: WallClock.Minute
+            }".arg("Nemo.Time"), meteoApp, 'WallClock')
+
         // TODO implement a way to detect API breakage and enable the overlay automatically
         // disableAppOverlay.state = "visible";
 

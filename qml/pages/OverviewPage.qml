@@ -61,7 +61,26 @@ Page {
         ListModel { id: locationsModel }
         model: locationsModel
 
-        header: PageHeader { title: qsTr("MeteoSwiss") }
+        header: PageHeader {
+            id: header
+            title: qsTr("MeteoSwiss")
+
+            Column {
+                parent: header.extraContent
+                anchors.verticalCenter: parent.verticalCenter
+
+                Label {
+                    text: meteoApp.haveWallClock ?
+                        meteoApp.wallClock.time.toLocaleString(Qt.locale(), meteoApp.dateFormat)
+                        + "\n" +
+                        meteoApp.wallClock.time.toLocaleString(Qt.locale(), meteoApp.timeFormat)
+                        : ''
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryHighlightColor
+                }
+            }
+        }
+
         VerticalScrollDecorator { flickable: locationsListView }
 
         footer: VerticalSpacing { }
@@ -94,13 +113,6 @@ Page {
                     meteoApp.refreshData(undefined, false);
                 }
             }
-
-            Label {
-                id: clockLabel
-                text: new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
-                color: Theme.highlightColor
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
         }
 
         ViewPlaceholder {
@@ -130,16 +142,6 @@ Page {
                 var summary = Storage.getDataSummary(locs[i].locationId)
                 addLocationToModel(locs[i], summary.temperature, summary.symbol)
             }
-        }
-    }
-
-    Timer {
-        id: clockTimer
-        interval: 15*1000
-        repeat: true
-        running: true
-        onTriggered: {
-            clockLabel.text = new Date().toLocaleString(Qt.locale(), meteoApp.dateTimeFormat)
         }
     }
 
