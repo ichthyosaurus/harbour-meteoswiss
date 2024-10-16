@@ -43,7 +43,7 @@ A.AboutPageBase {
     ]
 
     description: qsTr("This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).")
-    mainAttributions: "2018-%1 Mirian Margiani".arg((new Date()).getFullYear())
+    mainAttributions: ["2018-%1 Mirian Margiani".arg((new Date()).getFullYear())]
     autoAddOpalAttributions: true
 
     extraSections: A.InfoSection {
