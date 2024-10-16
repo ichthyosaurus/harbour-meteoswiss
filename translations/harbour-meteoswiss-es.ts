@@ -24,47 +24,58 @@
         <translation>Íconos del tiempo de Zeix.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="68"/>
+        <location filename="../qml/pages/AboutPage.qml" line="65"/>
+        <source>Coordinates calculator</source>
+        <comment>MeteoSwiss uses the Swiss local coordinate system that must be converted to global coordinates</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="79"/>
         <source>Development</source>
         <translation>Desarrollo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="71"/>
+        <location filename="../qml/pages/AboutPage.qml" line="82"/>
         <source>Programming</source>
         <translation>Programación</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="75"/>
+        <location filename="../qml/pages/AboutPage.qml" line="86"/>
         <source>Weather icons</source>
         <translation>Iconos del clima</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="79"/>
+        <location filename="../qml/pages/AboutPage.qml" line="90"/>
         <source>Weather descriptions</source>
         <translation>Descripciones del tiempo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="86"/>
+        <location filename="../qml/pages/AboutPage.qml" line="97"/>
         <source>Translations</source>
         <translation>Traducciones</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="89"/>
+        <location filename="../qml/pages/AboutPage.qml" line="100"/>
+        <source>Spanish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
         <source>German</source>
         <translation>Alemán</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="95"/>
+        <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>French</source>
         <translation>Francés</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="101"/>
+        <location filename="../qml/pages/AboutPage.qml" line="118"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="107"/>
+        <location filename="../qml/pages/AboutPage.qml" line="124"/>
         <source>Chinese</source>
         <translation>Chino</translation>
     </message>
@@ -259,7 +270,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="76"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="83"/>
@@ -577,32 +588,32 @@
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="81"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="100"/>
         <source>About</source>
         <translation>Acerca de</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="91"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="110"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="64"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="66"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">MeteoSwiss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="86"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="105"/>
         <source>Add location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="109"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="121"/>
         <source>Add a location first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="110"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
         <source>Pull down to add items</source>
         <translation type="unfinished"></translation>
     </message>
@@ -613,7 +624,7 @@
         <location filename="../qml/pages/components/SunTimesItem.qml" line="18"/>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1: %2</translation>
     </message>
 </context>
 <context>
@@ -674,7 +685,7 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="78"/>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Viento</translation>
     </message>
 </context>
 <context>
@@ -685,32 +696,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="42"/>
         <source>ddd d MMM yyyy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
         <source>hh&apos;:&apos;mm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="183"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
+        <source>d MMM yyyy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
         <source>Database Maintenance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="184"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="188"/>
         <source>Please be patient and allow up to 30 seconds for this.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="189"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="193"/>
         <source>Currently unusable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="190"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="194"/>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
         <translation type="unfinished"></translation>
     </message>
