@@ -7,7 +7,7 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 
-import "../../js/strings.js" as Strings
+import "../js/strings.js" as Strings
 
 
 SilicaListView {
@@ -73,7 +73,7 @@ SilicaListView {
                 width: symbolTitle.width
                 height: Theme.itemSizeSmall
                 fillMode: Image.PreserveAspectFit
-                source: "../../weather-icons/" + image + ".svg"
+                source: "../weather-icons/" + image + ".svg"
                 verticalAlignment: Image.AlignVCenter
                 anchors.verticalCenter: hourLabel.verticalCenter
                 opacity: 1

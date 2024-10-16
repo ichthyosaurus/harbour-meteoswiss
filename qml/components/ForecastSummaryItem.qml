@@ -7,7 +7,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "../../js/storage.js" as Storage
+import "../js/storage.js" as Storage
 
 BackgroundItem {
     property int hour
@@ -49,7 +49,7 @@ BackgroundItem {
             width: 100
             height: Theme.itemSizeSmall
             fillMode: Image.PreserveAspectFit
-            source: "../../weather-icons/" + (
+            source: "../weather-icons/" + (
                 forecastData[day].temperature.datasets[0].symbols[hour] != undefined ? forecastData[day].temperature.datasets[0].symbols[hour] : 0
             ) + ".svg"
             verticalAlignment: Image.AlignVCenter

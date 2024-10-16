@@ -6,7 +6,7 @@
 
 import QtQuick 2.6
 import Sailfish.Silica 1.0
-import "components"
+import "../components"
 
 Page {
     id: tablePage
@@ -123,7 +123,7 @@ Page {
     function loadTable(msgData) {
         if (day === null) return
         console.log("loading table for day " + day + "...")
-        tableLoader.setSource("components/TableList.qml", {
+        tableLoader.setSource("../components/TableList.qml", {
             width: parent.width,
             forecastData: msgData ? msgData : meteoApp.forecastData
         })

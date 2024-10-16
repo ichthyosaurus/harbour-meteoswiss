@@ -7,9 +7,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "../../js/strings.js" as Strings
-import "../../js/suncalc.js" as SunCalc
-import "../../js/storage.js" as Storage
+import "../js/strings.js" as Strings
+import "../js/suncalc.js" as SunCalc
+import "../js/storage.js" as Storage
 
 
 Column {
@@ -29,7 +29,7 @@ Column {
 
             onClicked: active ? (
                 meteoApp.dataIsReady[locationId] ? pageStack.push(
-                    Qt.resolvedUrl("../TablePage.qml"), { name: title, day: dayId }
+                    Qt.resolvedUrl("../pages/TablePage.qml"), { name: title, day: dayId }
                 ) : console.log("table locked")
             ) : mainPage.activateGraph(dayId)
 

@@ -6,7 +6,7 @@
 
 import QtQuick 2.6
 import Sailfish.Silica 1.0
-import "components"
+import "../components"
 
 import "../js/storage.js" as Storage
 import "../js/strings.js" as Strings

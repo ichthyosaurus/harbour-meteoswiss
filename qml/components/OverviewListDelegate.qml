@@ -7,8 +7,8 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 
-import "../../js/storage.js" as Storage
-import "../../js/strings.js" as Strings
+import "../js/storage.js" as Storage
+import "../js/strings.js" as Strings
 
 ListItem {
     id: locationItem
@@ -59,7 +59,7 @@ ListItem {
         }
 
         width: 2.5*Theme.horizontalPageMargin; height: width
-        source: String("../../weather-icons/%1.svg").arg(model.symbol ? model.symbol : "0")
+        source: String("../weather-icons/%1.svg").arg(model.symbol ? model.symbol : "0")
         fillMode: Image.PreserveAspectFit
 
         opacity: isLoading ? 0.2 : 1.0
@@ -217,7 +217,7 @@ ListItem {
         var pusher = pageStack.animatorPush // pushes, then load the page
         if (isLandscape) pusher = pageStack.push // first loads the page, then pushes
 
-        pusher("../ForecastPage.qml", {
+        pusher("../pages/ForecastPage.qml", {
             "activeDay": activeDay,
             "locationId": locationId,
             "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),

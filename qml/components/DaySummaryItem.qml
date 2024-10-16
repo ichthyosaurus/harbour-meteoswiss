@@ -7,7 +7,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import "../../js/storage.js" as Storage
+import "../js/storage.js" as Storage
 
 BackgroundItem {
     property int day
@@ -50,7 +50,7 @@ BackgroundItem {
             width: 100
             height: Theme.itemSizeSmall
             fillMode: Image.PreserveAspectFit
-            source: String("../../weather-icons/%1.svg").arg(0)
+            source: String("../weather-icons/%1.svg").arg(0)
             verticalAlignment: Image.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
             opacity: (selected || highlighted) ? 1.0 : 0.5
@@ -95,7 +95,7 @@ BackgroundItem {
         dayElem.value = isToday ? qsTr("Today") : (timestamp !== undefined ? timestamp.toLocaleString(Qt.locale(), "ddd") : "");
         dayElem.refresh();
 
-        image.source = String("../../weather-icons/%1.svg").arg(data.symbol);
+        image.source = String("../weather-icons/%1.svg").arg(data.symbol);
 
         tempElem.value = (data.minTemp !== undefined ? data.minTemp : "");
         tempElem.valueMax = (data.maxTemp !== undefined ? data.maxTemp : "");;
