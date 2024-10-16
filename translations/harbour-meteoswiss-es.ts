@@ -27,7 +27,7 @@
         <location filename="../qml/pages/AboutPage.qml" line="65"/>
         <source>Coordinates calculator</source>
         <comment>MeteoSwiss uses the Swiss local coordinate system that must be converted to global coordinates</comment>
-        <translation type="unfinished"></translation>
+        <translation>Calcular coordenadas</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="79"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Español</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
@@ -238,25 +238,25 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="170"/>
         <source>Solar Noon</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Sol de mediodía</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="181"/>
         <source>Golden Hour</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Hora dorada</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="187"/>
         <source>Sunset</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Atardecer</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="193"/>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Noche</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="199"/>
@@ -708,7 +708,7 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
         <source>d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>d MMM yyyy</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
