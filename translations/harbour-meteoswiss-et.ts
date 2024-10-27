@@ -6,7 +6,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="45"/>
         <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
-        <translation type="unfinished"></translation>
+        <translation>See rakendus on mitteametlik klient ilmaennustusele, mida pakub Šveitsi Föderaalne Ilma- ja Kliimateenistus (MeteoSwiss).</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="50"/>
@@ -16,18 +16,18 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="51"/>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoriõigused: Šveitsi Föderaalne Ilma- ja Kliimateenistus (MeteoSwiss).</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="52"/>
         <source>Weather icons by Zeix.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmaikoonide autor: Zeix.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="65"/>
         <source>Coordinates calculator</source>
         <comment>MeteoSwiss uses the Swiss local coordinate system that must be converted to global coordinates</comment>
-        <translation type="unfinished"></translation>
+        <translation>Koordinaatide konverteerija</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="79"/>
@@ -42,12 +42,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="86"/>
         <source>Weather icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmaennustuse ikoonid</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="90"/>
         <source>Weather descriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmaennustuse kirjeldused</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="97"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>hispaania keel</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="24"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Täna</translation>
     </message>
 </context>
 <context>
@@ -122,17 +122,17 @@
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="114"/>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Temperatuur</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="121"/>
         <source>Precipitation</source>
-        <translation type="unfinished"></translation>
+        <translation>Sademed</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="128"/>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuul</translation>
     </message>
 </context>
 <context>
@@ -141,128 +141,128 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="17"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="302"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Laadin andmeid...</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="290"/>
         <source>Failed...</source>
-        <translation type="unfinished"></translation>
+        <translation>Päring ei õnnestunud...</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="255"/>
         <source>status: </source>
-        <translation type="unfinished"></translation>
+        <translation>olek: </translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="268"/>
         <source>now: </source>
-        <translation type="unfinished"></translation>
+        <translation>praegu: </translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="262"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="295"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="305"/>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>teadmata</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="98"/>
         <source>%1: %2</source>
         <comment>time (1) with weather description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="135"/>
         <source>Sun Times</source>
-        <translation type="unfinished"></translation>
+        <translation>Päikese ringkäik</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="160"/>
         <source>top edge of the sun appears on the horizon</source>
-        <translation type="unfinished"></translation>
+        <translation>päikese ülemine äär asub horisondil</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="166"/>
         <source>morning golden hour (soft light, best time for photography) ends</source>
-        <translation type="unfinished"></translation>
+        <translation>hommikune kuldne tund (pehme valgus, parim aeg pildistamiseks) lõppeb</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="172"/>
         <source>sun is in the highest position</source>
-        <translation type="unfinished"></translation>
+        <translation>päikese kõrgeim asukoht</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="183"/>
         <source>evening golden hour (soft light, best time for photography) starts</source>
-        <translation type="unfinished"></translation>
+        <translation>õhtune kuldne tund (pehme valgus, parim aeg pildistamiseks) algab</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="189"/>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>päike veereb horisondi taha, õhtune tsiviilhämarik algab</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="195"/>
         <source>dark enough for astronomical observations</source>
-        <translation type="unfinished"></translation>
+        <translation>piisavalt pime astronoomilisteks vaatlusteks</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="201"/>
         <source>darkest moment of the night, sun is in the lowest position</source>
-        <translation type="unfinished"></translation>
+        <translation>öö pimedaim hetk, päike on kõige madalamal</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="154"/>
         <source>morning civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>hommikune tsiviilhämarik algab</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="152"/>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Koidik</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="158"/>
         <source>Sunrise</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Päikesetõus</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="164"/>
         <source>Golden Hour End</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Kuldse tunni lõpp</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="170"/>
         <source>Solar Noon</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Keskpäev</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="181"/>
         <source>Golden Hour</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Kuldne tund</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="187"/>
         <source>Sunset</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Loojang</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="193"/>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Öö</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="199"/>
         <source>Nadir</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Nadiir</translation>
     </message>
 </context>
 <context>
@@ -270,17 +270,17 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="76"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="83"/>
         <source>Failed to load data!</source>
-        <translation type="unfinished"></translation>
+        <translation>Andmete laadimine ei õnnestunud!</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="35"/>
         <source>Reload Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Laadi andmed uuesti</translation>
     </message>
 </context>
 <context>
@@ -296,17 +296,17 @@
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="48"/>
         <source>Add Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa asukoht</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="54"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Otsi</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="32"/>
         <source>Bootstrap debug locations</source>
-        <translation type="unfinished"></translation>
+        <translation>Alglaadi silumiseks mõeldud asukohad</translation>
     </message>
 </context>
 <context>
@@ -518,7 +518,7 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="44"/>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation>Märkus: kõige täpsema teabe saamiseks kontrollige vaata lähtekoodi.</translation>
+        <translation>Märkus: kõige täpsema teabe saamiseks palun vaata lähtekoodi.</translation>
     </message>
 </context>
 <context>
@@ -572,17 +572,17 @@
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="41"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eemalda</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="46"/>
         <source>Move to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Teisalda üles</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="204"/>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Kustutame</translation>
     </message>
 </context>
 <context>
@@ -595,27 +595,27 @@
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="110"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Värskenda andmeid</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="66"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="105"/>
         <source>Add location</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa asukoht</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="121"/>
         <source>Add a location first</source>
-        <translation type="unfinished"></translation>
+        <translation>Esmalt lisa asukoht</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="122"/>
         <source>Pull down to add items</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjete lisamiseks viipa alla</translation>
     </message>
 </context>
 <context>
@@ -624,7 +624,7 @@
         <location filename="../qml/pages/components/SunTimesItem.qml" line="18"/>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2</translation>
     </message>
 </context>
 <context>
@@ -660,32 +660,32 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="31"/>
         <source>Detailed Forecast</source>
-        <translation type="unfinished"></translation>
+        <translation>Detailne ennustus</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="53"/>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Tund</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="64"/>
         <source>Temp.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="71"/>
         <source>Precip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Õhun.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="92"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjeldus</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="78"/>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuul</translation>
     </message>
 </context>
 <context>
@@ -693,42 +693,42 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="39"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>dd.MM.yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="42"/>
         <source>ddd d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>ddd d MMM yyyy</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
         <source>hh&apos;:&apos;mm</source>
-        <translation type="unfinished"></translation>
+        <translation>hh&apos;:&apos;mm</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
         <source>d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>dd.MM.yyyy</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
         <source>Database Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Andmebaasi hooldus</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="188"/>
         <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Palun oota rahulikult kuni 30 sekundit selle tegevuse lõppemiseni.</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="193"/>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Pole hetkel kasutatav</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="194"/>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuna andmepakkuja poolel on toimunud muudatusi, siis seda rakendust ei saa hetkel kasutada.</translation>
     </message>
 </context>
 <context>
@@ -736,311 +736,311 @@
     <message>
         <location filename="../qml/js/strings.js" line="5"/>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>pilvitu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="6"/>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>kergelt pilves</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="7"/>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>rasked pilved</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="8"/>
         <location filename="../qml/js/strings.js" line="69"/>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="9"/>
         <location filename="../qml/js/strings.js" line="70"/>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="10"/>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, hajutatud hoogvihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="11"/>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, hajutatud hoogvihm ja hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="12"/>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="13"/>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, vähene hoogvihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="14"/>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, vähene lauslörts</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="15"/>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, vähene hoogvihm ja hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="16"/>
         <location filename="../qml/js/strings.js" line="25"/>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, vähene hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="17"/>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>kergelt tormine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="18"/>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>tormine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="19"/>
         <location filename="../qml/js/strings.js" line="44"/>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, kerge vihmasadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="20"/>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, kerge vihmasadu ja hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="21"/>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, kerge lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="22"/>
         <location filename="../qml/js/strings.js" line="47"/>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, vahelduv vihmasadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="23"/>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, vahelduv ning segatud vihma- ja lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="24"/>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, vahelduv lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="26"/>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, pidev vihmasadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="27"/>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, sage vihma- ja lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="28"/>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, tugev lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="29"/>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, kergelt tormine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="30"/>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, tormine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="31"/>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, tugevalt tormine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="32"/>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>kõrge pilvisus</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="33"/>
         <location filename="../qml/js/strings.js" line="58"/>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>kihtpilved</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="34"/>
         <location filename="../qml/js/strings.js" line="59"/>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>udu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="35"/>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>kergelt lauspilves, hajutatud hoogvihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="36"/>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, väike äikese võimalus</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="37"/>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>kergelt lauspilves, hajutatud hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="38"/>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>kerge pilvisus, hoogvihm ja hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="39"/>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>kergelt lauspilves, vähene hoogvihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="40"/>
         <location filename="../qml/js/strings.js" line="41"/>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves, sagedane hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="42"/>
         <location filename="../qml/js/strings.js" line="67"/>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>lauspilves ja kuiv</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="43"/>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, suur äikese võimalus</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="45"/>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, kerge lörtsisadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="46"/>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, kerge hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="48"/>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, vahelduv lörtsisadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="49"/>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, vahelduv lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="50"/>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>päikeseline</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="51"/>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>tihedad lauspilved koos vihmaga</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="52"/>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>tihedad lauspilved sagedase hooglörtsiga</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="53"/>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>tihedad lauspilved tugeva lumesajuga</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="54"/>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>tihedad lauspilved, kerge tormivõimalus</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="55"/>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>tihedad lauspilved koos tormiga</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="56"/>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>väga pilvine, väga tormine</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="57"/>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>kõrged pilved</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="60"/>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, hajutatud hoogvihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="61"/>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>üldiselt päikeseline, mõned pilved</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="62"/>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, hajutatud hooglumi</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="63"/>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, hajutatud hooglörts</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="64"/>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, vähene hoogvihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="65"/>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus harva päikesepaistega, sage vihm</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="66"/>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus harva päikesepaistega, sage lumesadu</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="68"/>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>osaliselt päikeseline, paksud mööduvad pilved</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="71"/>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, üksikud vihmahood</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="72"/>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, üksikud lörtsihood</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="73"/>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>vahelduv pilvisus, hooglumi</translation>
     </message>
 </context>
 </TS>
