@@ -6,7 +6,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="45"/>
         <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
-        <translation>Ceci est un client non officiel pour les prévisions météorologiques de l&apos;Office Fédéral de Météorologie et de Climatologie (MétéoSuisse).</translation>
+        <translation>Ceci est un client non officiel pour les prévisions météorologiques de l&apos;Office fédéral de météorologie et de climatologie (MétéoSuisse).</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="50"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="51"/>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation>Copyright, Office Fédéral de Météorologie et de Climatologie MétéoSuisse.</translation>
+        <translation>Copyright, Office fédéral de météorologie et de climatologie MétéoSuisse.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="52"/>
@@ -27,7 +27,7 @@
         <location filename="../qml/pages/AboutPage.qml" line="65"/>
         <source>Coordinates calculator</source>
         <comment>MeteoSwiss uses the Swiss local coordinate system that must be converted to global coordinates</comment>
-        <translation type="unfinished"></translation>
+        <translation>Calculateur de coordonnées</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="79"/>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="90"/>
         <source>Weather descriptions</source>
-        <translation>Descriptiones météo</translation>
+        <translation>Descriptions météo</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="97"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>espagnol</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
@@ -85,7 +85,7 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="11"/>
         <source>Please take a moment to consider if you can contribute to this project in one way or another.</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez prendre un moment pour déterminer si vous pouvez contribuer à ce projet d&apos;une manière ou d&apos;une autre.</translation>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
         <source>Today</source>
-        <translation>auj.</translation>
+        <translation>Aujourd&apos;hui</translation>
     </message>
 </context>
 <context>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
         <source>show less</source>
-        <translation>réduire</translation>
+        <translation>voir moins</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
@@ -141,7 +141,7 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="17"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="302"/>
         <source>Loading...</source>
-        <translation>Chargement...</translation>
+        <translation>Chargement…</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="98"/>
@@ -262,7 +262,7 @@
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="290"/>
         <source>Failed...</source>
-        <translation>Échec...</translation>
+        <translation>Échec…</translation>
     </message>
 </context>
 <context>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="83"/>
         <source>Failed to load data!</source>
-        <translation>Échec du chargement des données !</translation>
+        <translation>Échec du chargement des données&#x202f;!</translation>
     </message>
 </context>
 <context>
@@ -314,62 +314,62 @@
     <message>
         <location filename="../qml/MySupportDialog.qml" line="14"/>
         <source>Donate on Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>Faire une don sur Liberapay</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="15"/>
         <source>Pay the amount of a cup of coffee, a slice of pizza, or a ticket to the theater.</source>
-        <translation type="unfinished"></translation>
+        <translation>Payez la quantité d&apos;une tasse de café, d&apos;une tranche de pizza ou d&apos;un billet pour le théâtre.</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="22"/>
         <source>Translate on Weblate</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduire sur Weblate</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="23"/>
         <source>Help with translating this app in as many languages as possible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aidez à traduire cette application dans autant de langues que possible.</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="30"/>
         <source>Develop on Github</source>
-        <translation type="unfinished"></translation>
+        <translation>Développer sur GitHub</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="31"/>
         <source>Support with maintenance and packaging, write code, or provide valuable bug reports.</source>
-        <translation type="unfinished"></translation>
+        <translation>Soutenir l&apos;entretien et l&apos;emballage, écrire un code, ou fournir de précieux rapports d&apos;erreur.</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="37"/>
         <source>Why should you care?</source>
-        <translation type="unfinished"></translation>
+        <translation>Pourquoi est-ce important&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="40"/>
         <source>This project is built with love and passion by a single developer in their spare time, and is provided to you free of charge.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce projet est construit avec amour et passion par un seul développeur dans son temps libre, et vous est fourni gratuitement.</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="46"/>
         <source>I develop Free Software because I am convinced that it is the ethical thing to do - and it is a fun hobby. However, developing software takes a lot of time and effort. As Sailfish and living in general costs money, I need your support to be able to spend time on non-paying projects like this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je développe des logiciels libres parce que je suis convaincu que c&apos;est la chose éthique à faire – et c&apos;est un passe-temps amusant. Cependant, le développement de logiciels prend beaucoup de temps et d&apos;effort. Comme Sailfish et vivre en général coûte de l&apos;argent, j&apos;ai besoin de votre soutien pour pouvoir passer du temps à des projets non rémunérés comme celui-ci.</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="56"/>
         <source>Why donate?</source>
-        <translation type="unfinished"></translation>
+        <translation>Pourquoi faire un don&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="59"/>
         <source>Jolla raised prices and is trying to force developers (who work for free) to pay rent for Sailfish.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jolla a augmenté les prix et tente de forcer les développeurs (qui travaillent gratuitement) à payer le loyer pour Sailfish.</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="64"/>
         <source>If you can afford it, donating is the easiest way to ensure that I can continue working on apps for Sailfish. Any amount is appreciated, be it a cup of coffee, a slice of pizza, or more.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous pouvez vous le permettre, le don est le moyen le plus facile de faire en sorte que je puisse continuer à travailler sur des applications pour les Sailfish. Tout montant est apprécié, que ce soit une tasse de café, une tranche de pizza ou plus.</translation>
     </message>
 </context>
 <context>
@@ -518,7 +518,7 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="44"/>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation>Note&amp;nbsp;: veuillez consulter le code source pour obtenir des informations plus précises.</translation>
+        <translation>Note&#xa0;: veuillez consulter le code source pour obtenir des informations plus précises.</translation>
     </message>
 </context>
 <context>
@@ -554,7 +554,7 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="32"/>
         <source>Open externally</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir extérieurement</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="36"/>
@@ -632,27 +632,27 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="9"/>
         <source>Hi there!</source>
-        <translation type="unfinished"></translation>
+        <translation>Salut&#x202f;!</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="10"/>
         <source>Thank you for using my little app! Maybe you can contribute back?</source>
-        <translation type="unfinished"></translation>
+        <translation>Merci d&apos;utiliser ma petite application&#x202f;! Vous pouvez peut-être contribuer&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="11"/>
         <source>Thank you for your support!</source>
-        <translation type="unfinished"></translation>
+        <translation>Merci pour votre soutien&#x202f;!</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="55"/>
         <source>Remind me later</source>
-        <translation type="unfinished"></translation>
+        <translation>Me le rappeler plus tard</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
         <source>Don&apos;t ask me again</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne plus me demander</translation>
     </message>
 </context>
 <context>
@@ -698,7 +698,7 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
         <source>d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>d MMM yyyy</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="41"/>

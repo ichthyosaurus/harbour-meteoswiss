@@ -220,7 +220,7 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="152"/>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation>Amanecer</translation>
+        <translation>Alba</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="158"/>
@@ -262,7 +262,7 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="199"/>
         <source>Nadir</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Nadir</translation>
     </message>
 </context>
 <context>
@@ -270,17 +270,17 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="76"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished">MeteoSwiss</translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="83"/>
         <source>Failed to load data!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Error al cargar los datos!</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="35"/>
         <source>Reload Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Recargar datos</translation>
     </message>
 </context>
 <context>
@@ -296,17 +296,17 @@
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="48"/>
         <source>Add Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir ubicación</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="54"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="32"/>
         <source>Bootstrap debug locations</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubicaciones de depuración de Bootstrap</translation>
     </message>
 </context>
 <context>
@@ -572,17 +572,17 @@
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="41"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="46"/>
         <source>Move to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Volver arriba</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="204"/>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrando</translation>
     </message>
 </context>
 <context>
@@ -595,27 +595,27 @@
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="110"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Recargar</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="66"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished">MeteoSwiss</translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="105"/>
         <source>Add location</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir ubicación</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="121"/>
         <source>Add a location first</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir primero una ubicación</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="122"/>
         <source>Pull down to add items</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrastre hacia abajo para añadir elementos</translation>
     </message>
 </context>
 <context>
@@ -624,7 +624,7 @@
         <location filename="../qml/pages/components/SunTimesItem.qml" line="18"/>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
-        <translation type="unfinished">%1: %2</translation>
+        <translation>%1: %2</translation>
     </message>
 </context>
 <context>
@@ -660,32 +660,32 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="31"/>
         <source>Detailed Forecast</source>
-        <translation type="unfinished"></translation>
+        <translation>Pronóstico detallado</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="53"/>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>Hora</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="64"/>
         <source>Temp.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="71"/>
         <source>Precip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Precip.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="92"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Descripción</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="78"/>
         <source>Wind</source>
-        <translation type="unfinished">Viento</translation>
+        <translation>Viento</translation>
     </message>
 </context>
 <context>
@@ -693,42 +693,42 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="39"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>d &apos;de&apos; MMM &apos;de&apos; yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="42"/>
         <source>ddd d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>ddd d &apos;de&apos; MMM &apos;de&apos; yyyy</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
         <source>hh&apos;:&apos;mm</source>
-        <translation type="unfinished"></translation>
+        <translation>hh&apos;:&apos;mm</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
         <source>d MMM yyyy</source>
-        <translation>d MMM yyyy</translation>
+        <translation>d &apos;de&apos; MMM &apos;de&apos; yyyy</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
         <source>Database Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenimiento de la base de datos</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="188"/>
         <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, ten paciencia y espera hasta 30 segundos para esto.</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="193"/>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualmente no utilizable</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="194"/>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta aplicación actualmente no es utilizable, debido a un cambio por parte del proveedor de datos.</translation>
     </message>
 </context>
 <context>
@@ -736,311 +736,311 @@
     <message>
         <location filename="../qml/js/strings.js" line="5"/>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>despejado</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="6"/>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>ligeramente nublado</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="7"/>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>formaciones de nubes densas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="8"/>
         <location filename="../qml/js/strings.js" line="69"/>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="9"/>
         <location filename="../qml/js/strings.js" line="70"/>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="10"/>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, chubascos dispersos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="11"/>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, chubascos dispersos de lluvia y nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="12"/>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, chubascos de nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="13"/>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, algunos chubascos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="14"/>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, algo de aguanieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="15"/>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, algunos chubascos de lluvia y nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="16"/>
         <location filename="../qml/js/strings.js" line="25"/>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, algunos chubascos de nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="17"/>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>ligeramente tormentoso</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="18"/>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>tormentas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="19"/>
         <location filename="../qml/js/strings.js" line="44"/>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, lluvia débil</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="20"/>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, lluvias débiles y chubascos de nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="21"/>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, ligera nevada</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="22"/>
         <location filename="../qml/js/strings.js" line="47"/>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, lluvia intermitente</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="23"/>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, lluvias y nevadas mixtas intermitentes</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="24"/>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, nevadas intermitentes</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="26"/>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, lluvia constante</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="27"/>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, lluvias y nevadas frecuentes</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="28"/>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, fuertes nevadas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="29"/>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, ligeramente tormentoso</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="30"/>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado, tormentoso</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="31"/>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado, tormentas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="32"/>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>nubes altas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="33"/>
         <location filename="../qml/js/strings.js" line="58"/>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>estratos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="34"/>
         <location filename="../qml/js/strings.js" line="59"/>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>niebla</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="35"/>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>ligeramente nublado, chubascos dispersos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="36"/>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, probabilidad de tormentas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="37"/>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>ligeramente nublado, nevadas dispersas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="38"/>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>ligeramente nublado, chubascos de lluvia y nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="39"/>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>ligeramente nublado, algunos chubascos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="40"/>
         <location filename="../qml/js/strings.js" line="41"/>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado, frecuentes chubascos de nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="42"/>
         <location filename="../qml/js/strings.js" line="67"/>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>nublado y seco</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="43"/>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, posibles tormentas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="45"/>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, ligera aguanieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="46"/>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, ligeros chubascos de nieve</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="48"/>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, aguanieve intermitente</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="49"/>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nuboso, nieve intermitente</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="50"/>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>soleado</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="51"/>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado con lluvia</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="52"/>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado con aguanieve frecuente</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="53"/>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado con fuertes nevadas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="54"/>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado, ligera probabilidad de tormentas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="55"/>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado con tormentas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="56"/>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>muy nublado, muy tormentoso</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="57"/>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>nubes altas</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="60"/>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, chubascos dispersos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="61"/>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>mayormente soleado, algunas nubes</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="62"/>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, chubascos de nieve dispersos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="63"/>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, aguanieve dispersa</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="64"/>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, algunos chubascos</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="65"/>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>cortos intervalos soleados, lluvia frecuente</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="66"/>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>cortos intervalos de sol, nevadas frecuentes</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="68"/>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>parcialmente soleado, nubes densas pasajeras</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="71"/>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, chubascos aislados</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="72"/>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, aguanieve aislada</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="73"/>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>intervalos soleados, chubascos de nieve</translation>
     </message>
 </context>
 </TS>
