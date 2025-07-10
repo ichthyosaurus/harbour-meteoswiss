@@ -344,7 +344,7 @@
     <message>
         <location filename="../qml/MySupportDialog.qml" line="37"/>
         <source>Why should you care?</source>
-        <translation>Pourquoi est-ce important&#x202f;?</translation>
+        <translation>En quoi ça te concerne&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="40"/>
