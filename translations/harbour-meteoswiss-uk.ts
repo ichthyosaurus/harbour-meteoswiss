@@ -6,7 +6,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="45"/>
         <source>This is an unofficial client to the weather forecast services provided by the Federal Office of Meteorology and Climatology (MeteoSwiss).</source>
-        <translation type="unfinished"></translation>
+        <translation>Це неофіційний клієнт служб прогнозу погоди, які надає Федеральне відомство метеорології та кліматології (MeteoSwiss).</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="50"/>
@@ -16,18 +16,18 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="51"/>
         <source>Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторське право, Федеральне відомство метеорології та кліматології MeteoSwiss.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="52"/>
         <source>Weather icons by Zeix.</source>
-        <translation type="unfinished"></translation>
+        <translation>Значки погоди від Zeix.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="65"/>
         <source>Coordinates calculator</source>
         <comment>MeteoSwiss uses the Swiss local coordinate system that must be converted to global coordinates</comment>
-        <translation type="unfinished"></translation>
+        <translation>Калькулятор координат</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="79"/>
@@ -42,12 +42,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="86"/>
         <source>Weather icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Погода іконки</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="90"/>
         <source>Weather descriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Описи погоди</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="97"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Іспанська</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="24"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьогодні</translation>
     </message>
 </context>
 <context>
@@ -122,17 +122,17 @@
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="114"/>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>температура</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="121"/>
         <source>Precipitation</source>
-        <translation type="unfinished"></translation>
+        <translation>Опади</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastGraphItem.qml" line="128"/>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Вітер</translation>
     </message>
 </context>
 <context>
@@ -141,128 +141,128 @@
         <location filename="../qml/pages/components/ForecastItem.qml" line="17"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="302"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження...</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="290"/>
         <source>Failed...</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося...</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="255"/>
         <source>status: </source>
-        <translation type="unfinished"></translation>
+        <translation>статус: </translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="268"/>
         <source>now: </source>
-        <translation type="unfinished"></translation>
+        <translation>тепер: </translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="262"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="295"/>
         <location filename="../qml/pages/components/ForecastItem.qml" line="305"/>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>невідомий</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="98"/>
         <source>%1: %2</source>
         <comment>time (1) with weather description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="135"/>
         <source>Sun Times</source>
-        <translation type="unfinished"></translation>
+        <translation>сонце Часи</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="160"/>
         <source>top edge of the sun appears on the horizon</source>
-        <translation type="unfinished"></translation>
+        <translation>верхній край сонця з&apos;являється на горизонті</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="166"/>
         <source>morning golden hour (soft light, best time for photography) ends</source>
-        <translation type="unfinished"></translation>
+        <translation>ранкова золота година (м&apos;яке світло, найкращий час для фотозйомки) закінчується</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="172"/>
         <source>sun is in the highest position</source>
-        <translation type="unfinished"></translation>
+        <translation>Сонце знаходиться в найвищому положенні</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="183"/>
         <source>evening golden hour (soft light, best time for photography) starts</source>
-        <translation type="unfinished"></translation>
+        <translation>починається вечірня золота година (м&apos;яке світло, найкращий час для фотозйомки)</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="189"/>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>сонце ховається за горизонт, починаються вечірні громадянські сутінки</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="195"/>
         <source>dark enough for astronomical observations</source>
-        <translation type="unfinished"></translation>
+        <translation>досить темно для астрономічних спостережень</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="201"/>
         <source>darkest moment of the night, sun is in the lowest position</source>
-        <translation type="unfinished"></translation>
+        <translation>найтемніший момент ночі, сонце знаходиться в найнижчому положенні</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="154"/>
         <source>morning civil twilight starts</source>
-        <translation type="unfinished"></translation>
+        <translation>починаються ранкові громадянські сутінки</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="152"/>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Світанок</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="158"/>
         <source>Sunrise</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Схід сонця</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="164"/>
         <source>Golden Hour End</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Кінець Золотої години</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="170"/>
         <source>Solar Noon</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Сонячний полудень</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="181"/>
         <source>Golden Hour</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Золота година</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="187"/>
         <source>Sunset</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Захід сонця</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="193"/>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>ніч</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ForecastItem.qml" line="199"/>
         <source>Nadir</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation type="unfinished"></translation>
+        <translation>Надір</translation>
     </message>
 </context>
 <context>
@@ -270,17 +270,17 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="76"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="83"/>
         <source>Failed to load data!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося завантажити дані!</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="35"/>
         <source>Reload Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезавантажити дані</translation>
     </message>
 </context>
 <context>
@@ -296,17 +296,17 @@
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="48"/>
         <source>Add Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати місцезнаходження</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="54"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="32"/>
         <source>Bootstrap debug locations</source>
-        <translation type="unfinished"></translation>
+        <translation>Розташування налагодження Bootstrap</translation>
     </message>
 </context>
 <context>
@@ -574,17 +574,17 @@
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="41"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>видалити</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="46"/>
         <source>Move to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейти вгору</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/OverviewListDelegate.qml" line="204"/>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Видалення</translation>
     </message>
 </context>
 <context>
@@ -597,27 +597,27 @@
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="110"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновити</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="66"/>
         <source>MeteoSwiss</source>
-        <translation type="unfinished"></translation>
+        <translation>MeteoSwiss</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="105"/>
         <source>Add location</source>
-        <translation type="unfinished"></translation>
+        <translation>Додайте місцезнаходження</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="121"/>
         <source>Add a location first</source>
-        <translation type="unfinished"></translation>
+        <translation>Спочатку додайте місцезнаходження</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="122"/>
         <source>Pull down to add items</source>
-        <translation type="unfinished"></translation>
+        <translation>Потягніть вниз, щоб додати елементи</translation>
     </message>
 </context>
 <context>
@@ -626,7 +626,7 @@
         <location filename="../qml/pages/components/SunTimesItem.qml" line="18"/>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2</translation>
     </message>
 </context>
 <context>
@@ -662,32 +662,32 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="31"/>
         <source>Detailed Forecast</source>
-        <translation type="unfinished"></translation>
+        <translation>Детальний прогноз</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="53"/>
         <source>Hour</source>
-        <translation type="unfinished"></translation>
+        <translation>годину</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="64"/>
         <source>Temp.</source>
-        <translation type="unfinished"></translation>
+        <translation>темп.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="71"/>
         <source>Precip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Опади.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="92"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>опис</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="78"/>
         <source>Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>Вітер</translation>
     </message>
 </context>
 <context>
@@ -695,42 +695,42 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="39"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>д MMM рррр &apos;(&apos;чч&apos;:&apos;мм&apos;)&apos;</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="42"/>
         <source>ddd d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>ддд д MMM рррр</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
         <source>hh&apos;:&apos;mm</source>
-        <translation type="unfinished"></translation>
+        <translation>чч&apos;:&apos;мм</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
         <source>d MMM yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>d MMM рррр</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
         <source>Database Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Обслуговування бази даних</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="188"/>
         <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка, запасіться терпінням і дайте на це до 30 секунд.</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="193"/>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Наразі непридатний</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="194"/>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цю програму наразі не можна використовувати через зміни на стороні постачальника даних.</translation>
     </message>
 </context>
 <context>
@@ -738,311 +738,311 @@
     <message>
         <location filename="../qml/js/strings.js" line="5"/>
         <source>clear</source>
-        <translation type="unfinished"></translation>
+        <translation>ясно</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="6"/>
         <source>slightly overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>злегка хмарно</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="7"/>
         <source>heavy cloud formations</source>
-        <translation type="unfinished"></translation>
+        <translation>важкі хмарні утворення</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="8"/>
         <location filename="../qml/js/strings.js" line="69"/>
         <source>overcast</source>
-        <translation type="unfinished"></translation>
+        <translation>похмуро</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="9"/>
         <location filename="../qml/js/strings.js" line="70"/>
         <source>very cloudy</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="10"/>
         <source>overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>хмарно, місцями зливи</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="11"/>
         <source>overcast, scattered rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>хмарно, місцями дощ зі снігом</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="12"/>
         <source>overcast, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>хмарно, снігопади</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="13"/>
         <source>overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>хмарно, місцями дощі</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="14"/>
         <source>overcast, some sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>хмарно, місцями мокрий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="15"/>
         <source>overcast, some rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>Хмарно, місцями дощ зі снігом</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="16"/>
         <location filename="../qml/js/strings.js" line="25"/>
         <source>overcast, some snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>хмарно, місцями сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="17"/>
         <source>slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>злегка штормовий</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="18"/>
         <source>storms</source>
-        <translation type="unfinished"></translation>
+        <translation>шторми</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="19"/>
         <location filename="../qml/js/strings.js" line="44"/>
         <source>very cloudy, light rain</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, дрібний дощ</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="20"/>
         <source>very cloudy, light rain and snow  showers</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, невеликий дощ зі снігом</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="21"/>
         <source>very cloudy, light snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, невеликий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="22"/>
         <location filename="../qml/js/strings.js" line="47"/>
         <source>very cloudy, intermittent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, короткочасний дощ</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="23"/>
         <source>very cloudy, intermittant mixed rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, періодично змішаний дощ і снігопад</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="24"/>
         <source>very cloudy, intermittent snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, короткочасний снігопад</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="26"/>
         <source>very cloudy,  constant rain</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, постійний дощ</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="27"/>
         <source>very cloudy, frequent rain and snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, часті дощі та снігопади</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="28"/>
         <source>very cloudy, heavy snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, сильний снігопад</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="29"/>
         <source>very cloudy, slightly stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, невелика гроза</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="30"/>
         <source>very cloudy, stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, гроза</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="31"/>
         <source>very cloudy, storms</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, грози</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="32"/>
         <source>high cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>висока хмарність</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="33"/>
         <location filename="../qml/js/strings.js" line="58"/>
         <source>stratus</source>
-        <translation type="unfinished"></translation>
+        <translation>стратус</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="34"/>
         <location filename="../qml/js/strings.js" line="59"/>
         <source>fog</source>
-        <translation type="unfinished"></translation>
+        <translation>туман</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="35"/>
         <source>slightly overcast, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>невелика хмарність, місцями дощ</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="36"/>
         <source>sunny intervals, chance of thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, можлива гроза</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="37"/>
         <source>slightly overcast, scattered snowfall</source>
-        <translation type="unfinished"></translation>
+        <translation>невелика хмарність, місцями снігопад</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="38"/>
         <source>slightly overcast, rain and snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>невелика хмарність, дощ зі снігом</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="39"/>
         <source>slightly overcast, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>невелика хмарність, місцями дощі</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="40"/>
         <location filename="../qml/js/strings.js" line="41"/>
         <source>overcast, frequent snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>похмуро, часті снігопади</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="42"/>
         <location filename="../qml/js/strings.js" line="67"/>
         <source>overcast and dry</source>
-        <translation type="unfinished"></translation>
+        <translation>похмуро і сухо</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="43"/>
         <source>sunny intervals, possible thunderstorms</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячна проміжок часу, можливі грози</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="45"/>
         <source>very cloudy, light sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, невеликий мокрий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="46"/>
         <source>very cloudy, light snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>Дуже хмарно, невеликий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="48"/>
         <source>very cloudy, intermittent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, місцями мокрий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="49"/>
         <source>very cloudy, intermittent snow</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, переривчастий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="50"/>
         <source>sunny</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячно</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="51"/>
         <source>very overcast with rain</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже похмуро з дощем</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="52"/>
         <source>very overcast with frequent sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже похмуро з частим мокрим снігом</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="53"/>
         <source>very overcast with heavy snow</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже похмуро, сильний сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="54"/>
         <source>very overcast, slight chance of storms</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже похмуро, можливі невеликі шторми</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="55"/>
         <source>very overcast with storms</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже похмуро з штормами</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="56"/>
         <source>very cloudy, very stormy</source>
-        <translation type="unfinished"></translation>
+        <translation>дуже хмарно, дуже штормово</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="57"/>
         <source>high clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>високі хмари</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="60"/>
         <source>sunny intervals, scattered showers</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, місцями дощі</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="61"/>
         <source>mostly sunny, some clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>переважно сонячно, невелика хмарність</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="62"/>
         <source>sunny intervals, scattered snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, місцями сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="63"/>
         <source>sunny intervals, scattered sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячно, місцями мокрий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="64"/>
         <source>sunny intervals, some showers</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, місцями зливи</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="65"/>
         <source>short sunny intervals, frequent rain</source>
-        <translation type="unfinished"></translation>
+        <translation>короткі сонячні проміжки, часті дощі</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="66"/>
         <source>short sunny intervals, frequent snowfalls</source>
-        <translation type="unfinished"></translation>
+        <translation>короткі сонячні проміжки, часті снігопади</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="68"/>
         <source>partly sunny, thick passing clouds</source>
-        <translation type="unfinished"></translation>
+        <translation>мінлива хмарність</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="71"/>
         <source>sunny intervals,  isolated showers</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, окремі дощі</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="72"/>
         <source>sunny intervals, isolated sleet</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, поодинокі мокрий сніг</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="73"/>
         <source>sunny intervals, snow showers</source>
-        <translation type="unfinished"></translation>
+        <translation>сонячні проміжки часу, снігопади</translation>
     </message>
 </context>
 </TS>
