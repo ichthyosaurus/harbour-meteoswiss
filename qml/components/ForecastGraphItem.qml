@@ -50,10 +50,10 @@ Item {
                 opacity: forecast.loaded ? 1 : 0
 
                 // TODO add some space for symbols above the charts
-                property int tempHeight: 300
-                property int rainHeight: 200
-                property int sunHeight: 200
-                property int windHeight: 200
+                property int tempHeight: 350
+                property int rainHeight: 350
+                property int sunHeight: 350
+                property int windHeight: 350
 
                 Item { // placeholder
                     id: tempTitlePlace
