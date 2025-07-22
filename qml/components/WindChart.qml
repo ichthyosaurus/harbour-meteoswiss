@@ -1,7 +1,7 @@
 /*
  * This file is part of harbour-meteoswiss.
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
+ * SPDX-FileCopyrightText: 2018-2025 Mirian Margiani
  */
 
 import QtQuick 2.0
@@ -28,12 +28,27 @@ QChart {
         bezierCurve: true,
         scaleStartValue: 0,
         datasetStrokeWidth: 2,
+        datasetFill: false,
+        datasetFillDiff23: true,
+        pointDotRadius: 6,
         pointDot: false,
         currentHourLine: isToday,
 
-        fillColor: ["rgba(0,0,0,0)"],
-        strokeColor: ["rgba(255,255,0,1)"],
-        pointColor: ["rgba(255,255,0,1)"],
-        pointStrokeColor: ["rgba(255,255,0,1)"],
+        fillColor: [
+            "rgba(190,133,255,0)", "rgba(190,133,255,0.2)", "rgba(190,133,255,0.2)",
+            "rgba(120,84,161,0)", "rgba(120,84,161,0.2)", "rgba(120,84,161,0.2)"
+        ],
+        strokeColor: [
+            "rgba(190,133,255,1)", "rgba(190,133,255,0.6)", "rgba(190,133,255,0.6)",
+            "rgba(120,84,161,1)", "rgba(120,84,161,0.6)", "rgba(120,84,161,0.6)"
+        ],
+        pointColor: [
+            "rgba(190,133,255,1)", "rgba(190,133,255,0.3)", "rgba(190,133,255,0.3)",
+            "rgba(120,84,161,1)", "rgba(120,84,161,0.3)", "rgba(120,84,161,0.3)"
+        ],
+        pointStrokeColor: [
+            "rgba(190,133,255,1)", "rgba(190,133,255,0.3)", "rgba(190,133,255,0.3)",
+            "rgba(120,84,161,1)", "rgba(120,84,161,0.3)", "rgba(120,84,161,0.3)"
+        ],
     })
 }

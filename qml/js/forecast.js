@@ -145,13 +145,37 @@ function convertRaw(raw) {
                     },
                 ],
             },
-            wind: {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [{
                         data: [],
                         symbols: [],
                     }
+                ],
+            },
+            wind: {
+                haveData: false,
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                datasets: [
+                    // WIND
+                    { // mean
+                        data: [],
+                        symbols: []
+                    },{ // minimum
+                        data: [],
+                    },{ // maximum
+                        data: [],
+                    },
+
+                    // GUSTS
+                    { // mean
+                        data: [],
+                        symbols: []
+                    },{ // minimum
+                        data: [],
+                    },{ // maximum
+                        data: [],
+                    },
                 ],
             },
         };
@@ -199,20 +223,38 @@ function convertRaw(raw) {
                 console.log("warning: missing data at the end: temperature,", hour, raw.graph.temperatureMean1h.length);
             }
 
-            if (third < raw.graph.windSpeed3h.length) {
+            if (hour < raw.graph.windSpeed1h.length
+                    && hour < raw.graph.windSpeed1hq10.length
+                    && hour < raw.graph.windSpeed1hq90.length) {
+                dayData.wind.datasets[0].data.push(raw.graph.windSpeed1h[hour]) // mean
+                dayData.wind.datasets[1].data.push(raw.graph.windSpeed1hq10[hour]) // minimum
+                dayData.wind.datasets[2].data.push(raw.graph.windSpeed1hq90[hour]) // maximum
+                dayData.wind.haveData = true
+
                 if (isThird) {
-                    dayData.wind.datasets[0].data.push(raw.graph.windSpeed3h[third]);
                     dayData.wind.datasets[0].symbols.push(raw.graph.windDirection3h[third]+"°");
-                    dayData.wind.haveData = true;
                 } else {
-                    var lastThird = (hour-(hour%3))/3;
-                    dayData.wind.datasets[0].data.push(lastThird >= 0 ? raw.graph.windSpeed3h[lastThird] : 0.0);
                     dayData.wind.datasets[0].symbols.push("");
                 }
             } else {
-                // dayData.isSane = false;
-                // dayData.wind.haveData = false;
-                console.log("warning: missing data at the end: temperature,", hour, raw.graph.temperatureMean1h.length);
+                // dayData.isSane = false
+                // dayData.wind.haveData = false
+                console.log("warning: missing data at the end: wind,", hour, raw.graph.windSpeed1h.length);
+            }
+
+            if (hour < raw.graph.gustSpeed1h.length
+                    && hour < raw.graph.gustSpeed1hq10.length
+                    && hour < raw.graph.gustSpeed1hq90.length) {
+                dayData.wind.datasets[3].data.push(raw.graph.gustSpeed1h[hour]) // mean
+                dayData.wind.datasets[4].data.push(raw.graph.gustSpeed1hq10[hour]) // minimum
+                dayData.wind.datasets[5].data.push(raw.graph.gustSpeed1hq90[hour]) // maximum
+                dayData.wind.haveData = true
+            } else {
+                // dayData.isSane = false
+                // dayData.wind.haveData = false
+                console.log("warning: missing data at the end: gust,", hour, raw.graph.gustSpeed1h.length);
+            }
+
             }
         }
 
