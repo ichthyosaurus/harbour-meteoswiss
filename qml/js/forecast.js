@@ -539,7 +539,12 @@ WorkerScript.onMessage = function(message) {
         return;
     }
 
-    fullData = convert_raw(raw_data);
+    try {
+        fullData = convert_raw(raw_data);
+    } catch (e) {
+        console.error("failed to convert raw data | exception:", e)
+        return
+    }
 
     WorkerScript.sendMessage({
         'type': 'data',
