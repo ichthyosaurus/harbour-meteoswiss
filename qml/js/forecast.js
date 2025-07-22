@@ -143,9 +143,9 @@ function convert_raw(raw) {
             // console.log("H", hour, day, dayCount, isThird, third)
 
             if (hour < raw.graph.precipitation1h.length) {
-                dayData.rainfall.datasets[0].data.push(raw.graph.precipitation1h[hour]); // estimate
-                dayData.rainfall.datasets[1].data.push(raw.graph.precipitation1h[hour]); // minimum (not available anymore)
-                dayData.rainfall.datasets[2].data.push(raw.graph.precipitation1h[hour]); // maximum (not available anymore)
+                dayData.rainfall.datasets[0].data.push(raw.graph.precipitation1h[hour]); // mean
+                dayData.rainfall.datasets[1].data.push(raw.graph.precipitationMin1h[hour]); // minimum
+                dayData.rainfall.datasets[2].data.push(raw.graph.precipitationMax1h[hour]); // maximum
                 dayData.rainfall.haveData = true;
             } else {
                 // dayData.isSane = false;
