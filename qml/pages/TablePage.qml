@@ -224,7 +224,7 @@ Page {
             VerticalScrollDecorator { flickable: itemList }
 
             delegate: PaddedDelegate {
-                width: 2000
+                width: headerRow.width
                 showOddEven: true
                 minContentHeight: Math.max(Theme.itemSizeSmall, Theme.iconSizeMedium)
                 opacity: ((model.hour >= new Date().getHours())) ? 1.0 : 0.6
