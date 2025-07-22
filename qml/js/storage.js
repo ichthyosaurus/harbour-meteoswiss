@@ -277,7 +277,7 @@ function getLocationsList() {
 
     try {
         db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT * FROM locations;', []);
+            var rs = tx.executeSql('SELECT * FROM locations ORDER BY view_position ASC;', []);
 
             for (var i = 0; i < rs.rows.length; i++) {
                 res.push(rs.rows.item(i).location_id);
