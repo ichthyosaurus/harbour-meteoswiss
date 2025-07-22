@@ -88,33 +88,39 @@ function convertRaw(raw) {
         throw new Error('no-forecast-error')
     }
 
-    if (raw.graph.hasOwnProperty('precipitation10m') && raw.graph.precipitation10m.length > 0) {
-        var _currentSum = 0
-        var _currentIndex = 0
+    if (raw.graph.precipitation1h.length % 24 != 0) {
+        console.log("precipitation1h data is incomplete, extending with high resolution sums")
 
-        console.log("missing %1 more high res data points".
-                    arg(raw.graph.precipitation10m.length%6 > 0 ? 6-raw.graph.precipitation10m.length%6 : 0));
-        for (var m = 0; m < raw.graph.precipitation10m.length; m++) {
-            if (m > 0 && m%6 === 0) {
-                raw.graph.precipitation1h.splice(_currentIndex, 0, _currentSum);
-                _currentIndex += 1;
-                _currentSum = 0;
+        if (raw.graph.hasOwnProperty('precipitation10m') && raw.graph.precipitation10m.length > 0) {
+            var _currentSum = 0
+            var _currentIndex = 0
+
+            console.log("missing %1 more high res data points".
+                        arg(raw.graph.precipitation10m.length%6 > 0 ? 6-raw.graph.precipitation10m.length%6 : 0));
+            for (var m = 0; m < raw.graph.precipitation10m.length; m++) {
+                if (m > 0 && m%6 === 0) {
+                    raw.graph.precipitation1h.splice(_currentIndex, 0, _currentSum);
+                    _currentIndex += 1;
+                    _currentSum = 0;
+                }
+                _currentSum += raw.graph.precipitation10m[m];
             }
-            _currentSum += raw.graph.precipitation10m[m];
+
+            console.log("inserted %1 summed high res data points: final length".arg(_currentIndex+1),
+                        raw.graph.precipitation1h.length)
+
+            if (raw.graph.start+((_currentIndex)*3600000) === raw.graph.startLowResolution) {
+                console.warn("precipitation data does not align: last summed hour and first low res hour seem to overlap | MUST BE CHECKED; often, this is fine");
+            } else if (raw.graph.start+((_currentIndex+1)*3600000) !== raw.graph.startLowResolution) {
+                console.warn("precipitation data does not align: generated start and startLowResolution mismatch");
+            }
         }
 
-        console.log("inserted %1 summed high res data points: final length".arg(_currentIndex+1),
-                    raw.graph.precipitation1h.length)
-
-        if (raw.graph.start+((_currentIndex)*3600000) === raw.graph.startLowResolution) {
-            console.warn("precipitation data does not align: last summed hour and first low res hour seem to overlap | MUST BE CHECKED; often, this is fine");
-        } else if (raw.graph.start+((_currentIndex+1)*3600000) !== raw.graph.startLowResolution) {
-            console.warn("precipitation data does not align: generated start and startLowResolution mismatch");
+        if (raw.graph.precipitation1h.length % 24 !== 0) {
+            console.warn("precipitation data is incomplete (modulo 24 === %1 !== 0)".arg(raw.graph.precipitation1h.length % 24));
         }
-    }
-
-    if (raw.graph.precipitation1h.length % 24 !== 0) {
-        console.warn("precipitation data is incomplete (modulo 24 === %1 !== 0)".arg(raw.graph.precipitation1h.length % 24));
+    } else {
+        console.log("got enough data in precipitation1h, skipping precipitation10m")
     }
 
     var dayCount = raw.forecast.length;
