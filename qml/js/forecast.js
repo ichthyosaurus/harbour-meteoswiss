@@ -31,7 +31,7 @@ function mayRefresh(lastRefreshed, maxAgeMins) {
 }
 
 function convertRaw(raw) {
-    var data = [];
+    var data = []
 
     console.log("converting...")
 
@@ -266,6 +266,62 @@ function convertRaw(raw) {
     return data
 }
 
+function updateTableModel(data, tableModel) {
+    console.log("populating table model...")
+    tableModel.clear()
+
+    var today = new Date()
+    today.setHours(0)
+    today.setMinutes(0)
+    today.setSeconds(0)
+    today.setMilliseconds(0)
+
+    if (data.length === 0 || !data[0].hasOwnProperty('data')) {
+        throw new Error("empty data")
+    } else {
+        var days = JSON.parse(data[0].data)
+    }
+
+    for (var day = 0; day < days.length; day++) {
+        var dayData = days[day]
+
+        if (new Date(dayData.date) < today) {
+            // skip outdated cached data
+            continue
+        }
+
+        for (var hour = 0; hour < 24; hour++) {
+            tableModel.append({
+                // NOTE any changes must be mirrored in harbour-meteoswiss.qml
+                // to enforce the correct types for all fields.
+                date: dayData.date,
+                hour: hour,
+                icon: dayData.temperature.datasets[0].symbols[hour],
+                tempExpected: dayData.temperature.datasets[0].data[hour],
+                tempMin: dayData.temperature.datasets[1].data[hour],
+                tempMax: dayData.temperature.datasets[2].data[hour],
+                rainExpected: dayData.rainfall.datasets[0].data[hour],
+                rainMin: dayData.rainfall.datasets[1].data[hour],
+                rainMax: dayData.rainfall.datasets[2].data[hour],
+                rainChance: dayData.rainfall.datasets[0].symbols[hour] === null ?
+                    Infinity : dayData.rainfall.datasets[0].symbols[hour],
+                windExpected: dayData.wind.datasets[0].data[hour],
+                windMin: dayData.wind.datasets[1].data[hour],
+                windMax: dayData.wind.datasets[2].data[hour],
+                windDirection: dayData.wind.datasets[0].symbols[hour] === null ?
+                    Infinity : dayData.wind.datasets[0].symbols[hour],
+                gustsExpected: dayData.wind.datasets[3].data[hour],
+                gustsMin: dayData.wind.datasets[4].data[hour],
+                gustsMax: dayData.wind.datasets[5].data[hour],
+                sun: dayData.sun.datasets[0].data[hour],
+            })
+        }
+    }
+
+    tableModel.sync()
+    console.log("loaded %1 table entries".arg(tableModel.count))
+}
+
 function httpGet(url) {
     console.log("getting", url);
 
@@ -370,6 +426,22 @@ WorkerScript.onMessage = function(message) {
             timestamp: (new Date()).getTime(),
             data: ret
         })
+    } else if (message.type === 'updateTableModel') {
+        try {
+            console.log("updating table model for", message.locationId)
+            updateTableModel(message.data, message.tableModel)
+        } catch(e) {
+            console.error("failed to update table model for", message.locationId)
+            console.error("exception:", e.name);
+            console.error("message:", e.message);
+            console.error("stack:\n", e.stack);
+
+            console.log("RAW DATA:")
+            console.log(JSON.stringify(message.data))
+
+            message.tableModel.clear()
+            message.tableModel.sync()
+        }
     } else if (message.type === 'forecast') {
         var archived = message.data
         var lastRefreshed = message.lastRefreshed

@@ -31,6 +31,30 @@ ApplicationWindow {
     property bool debug: false
 
     property var forecastData: []
+    property ListModel forecastTable: ListModel {
+        ListElement {
+            // This is here to enforce the correct types.
+            // It will be removed when the real data is loaded.
+            date: ''
+            hour: 0
+            icon: 0
+            tempExpected: 0
+            tempMin: 0
+            tempMax: 0
+            rainExpected: 0
+            rainMin: 0
+            rainMax: 0
+            rainChance: 0
+            windExpected: 0
+            windMin: 0
+            windMax: 0
+            windDirection: 0
+            gustsExpected: 0
+            gustsMin: 0
+            gustsMax: 0
+            sun: 0
+        }
+    }
     property var dataIsReady: ({})
     property var dataTimestamp: new Date(0)
     property var overviewTimestamp: new Date(0)
@@ -102,6 +126,16 @@ ApplicationWindow {
                 console.error(JSON.stringify(messageObject))
             }
         }
+    }
+
+    function refreshTableModel(locationId) {
+        var archived = Storage.getData(locationId, true)
+        dataLoader.sendMessage({
+            type: "updateTableModel",
+            locationId: locationId,
+            data: archived,
+            tableModel: forecastTable,
+        })
     }
 
     function doRefreshData(locationId, force) {

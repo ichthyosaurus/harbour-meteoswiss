@@ -27,11 +27,21 @@ Column {
             width: parent.width
             height: Theme.itemSizeSmall
 
-            onClicked: active ? (
-                meteoApp.dataIsReady[locationId] ? pageStack.push(
-                    Qt.resolvedUrl("../pages/TablePage.qml"), { name: title, day: dayId }
-                ) : console.log("table locked")
-            ) : mainPage.activateGraph(dayId)
+            onClicked: {
+                if (active) {
+                    if (meteoApp.dataIsReady[locationId]) {
+                        meteoApp.refreshTableModel(locationId)
+                        pageStack.push(Qt.resolvedUrl("../pages/TablePage.qml"), {
+                            locationId: locationId,
+                            day: dayId
+                        })
+                    } else {
+                        console.log("table locked")
+                    }
+                } else {
+                    mainPage.activateGraph(dayId)
+                }
+            }
 
             Label {
                 x: Theme.horizontalPageMargin
