@@ -89,10 +89,11 @@ Item {
 
                             Label {
                                 width: !!rainLoader.item ? rainLoader.item.chartValueHop : 10
-                                text: modelData
+                                text: modelData !== null ? "%1%".arg(modelData) : ""
                                 font.pixelSize: Theme.fontSizeExtraSmall
                                 horizontalAlignment: Text.AlignHCenter
-                                color: Theme.secondaryColor
+                                color: Qt.tint(Theme.primaryColor, "#900000FF")
+                                opacity: (modelData || 0) / 100 + 0.3
                             }
                         }
                     }

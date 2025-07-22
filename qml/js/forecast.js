@@ -211,10 +211,10 @@ function convertRaw(raw) {
                 dayData.rainfall.datasets[2].data.push(raw.graph.precipitationMax1h[hour] || null); // maximum
                 dayData.rainfall.haveData = true;
 
-                if ((hour)%3 === 1) {
-                    dayData.rainfall.datasets[0].symbols.push("%1%".arg(raw.graph.precipitationProbability3h[(hour-1)/3]));
+                if (isThird) {
+                    dayData.rainfall.datasets[0].symbols.push(raw.graph.precipitationProbability3h[third]);
                 } else {
-                    dayData.rainfall.datasets[0].symbols.push("");
+                    dayData.rainfall.datasets[0].symbols.push(null);
                 }
             } else {
                 // dayData.isSane = false;
