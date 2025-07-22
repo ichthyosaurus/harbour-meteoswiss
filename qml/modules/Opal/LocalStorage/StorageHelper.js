@@ -466,8 +466,8 @@ function __vacuumDatabase() {
             // VACUUM cannot be executed inside a transaction, but the LocalStorage
             // module cannot execute queries without one. Thus we have to manually
             // end the transaction from inside the transaction...
-            var rs = tx.executeSql("END TRANSACTION;");
-            var rs2 = tx.executeSql("VACUUM;");
+            tx.executeSql("END TRANSACTION;");
+            tx.executeSql("VACUUM;");
         });
     } catch(e) {
         console.error("database vacuuming failed:\n", e);
@@ -489,6 +489,7 @@ function __doDatabaseMaintenance() {
 
     if (maintenanceStartSignal instanceof Function) {
         try {
+            console.log("- calling start signal")
             maintenanceStartSignal()
         } catch(e) {
             console.error("sending the maintenance start signal failed:",
@@ -514,6 +515,7 @@ function __doDatabaseMaintenance() {
 
     if (maintenanceEndSignal instanceof Function) {
         try {
+            console.log("- calling end signal")
             maintenanceEndSignal()
         } catch(e) {
             console.error("sending the maintenance end signal failed:",

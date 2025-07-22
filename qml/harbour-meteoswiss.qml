@@ -8,6 +8,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Opal.About 1.0 as A
 import Opal.SupportMe 1.0 as M
+import Opal.LocalStorage 1.0 as L
 import "pages"
 
 import "js/forecast.js" as Forecast
@@ -32,7 +33,7 @@ ApplicationWindow {
     property var forecastData: Forecast.fullData
     property var dataIsReady: ({})
     property var dataTimestamp: new Date(0)
-    property var overviewTimestamp: Storage.getDaySummaryAge()
+    property var overviewTimestamp: new Date(0)
 
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
     property string dateFormat: qsTr("d MMM yyyy")
@@ -143,17 +144,16 @@ ApplicationWindow {
         }
     }
 
-    MaintenanceOverlay {
-        id: maintenanceOverlay
-        text: qsTr("Database Maintenance")
-        hintText: qsTr("Please be patient and allow up to 30 seconds for this.")
-    }
+    L.MaintenanceOverlay {}
 
-    MaintenanceOverlay {
+    /* L.MaintenanceOverlay {
         id: disableAppOverlay
         text: qsTr("Currently unusable")
-        hintText: qsTr("This app is currently unusable, due to a change at the data provider's side.")
-    }
+        hintText: qsTr("This app is currently unusable, " +
+                       "due to a change at the data provider's side.")
+        busy: false
+        autoShowOnMaintenance: false
+    } */
 
     A.ChangelogNews {
         changelogList: Qt.resolvedUrl("Changelog.qml")
@@ -166,11 +166,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        Storage.setMaintenanceSignals(
-            function() { maintenanceOverlay.state = "visible" },
-            function() { maintenanceOverlay.state = "invisible" },
-        )
-
         // Avoid hard dependency on Nemo.Time and load it in a complicated
         // way to make Jolla's validator script happy.
         wallClock = Qt.createQmlObject("
@@ -182,8 +177,10 @@ ApplicationWindow {
             }".arg("Nemo.Time"), meteoApp, 'WallClock')
 
         // TODO implement a way to detect API breakage and enable the overlay automatically
-        // disableAppOverlay.state = "visible";
+        // disableAppOverlay.show()
+        // return
 
+        overviewTimestamp = Storage.getDaySummaryAge()
         doRefreshData();
         refreshData.connect(doRefreshData);
     }
