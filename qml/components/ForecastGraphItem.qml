@@ -40,7 +40,7 @@ Item {
             Column {
                 id: chart
                 property int calcWidth: (Screen.height - 4*(Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium))
-                height: 7*spacing + tempTitle.height + tempHeight + rainTitle.height + rainColumn.height + sunTitle.height + sunHeight + windTitle.height + windHeight
+                height: 7*spacing + tempTitle.height + tempHeight + rainTitle.height + rainColumn.height + sunTitle.height + sunHeight + windTitle.height + rainColumn.height
                 width: calcWidth < 1840 ? 1840 : calcWidth
 
                 spacing: Theme.paddingLarge
@@ -106,7 +106,6 @@ Item {
                     }
                 }
 
-
                 Item { // placeholder
                     id: sunTitlePlace
                     height: sunTitle.height
@@ -125,10 +124,55 @@ Item {
                     width: parent.width
                 }
 
-                Loader {
-                    id: windLoader
-                    onLoaded: forecast.loaded = true
-                    asynchronous: true
+                Column {
+                    id: windColumn
+                    width: parent.width
+                    height: childrenRect.height
+                    spacing: Theme.paddingSmall
+
+                    Row {
+                        id: windDirection
+                        width: parent.width - 2*x
+                        x: !!windLoader.item ? windLoader.item.chartStartX : 0
+
+                        Repeater {
+                            model: !!wind ? wind.datasets[0].symbols : 0
+
+                            Column {
+                                width: !!windLoader.item ? windLoader.item.chartValueHop : 10
+                                height: childrenRect.height
+
+                                Label {
+                                    visible: modelData !== null
+                                    width: Theme.fontSizeMedium
+                                    height: width
+                                    font.family: "monospace"
+                                    text: "↑"
+                                    color: Theme.secondaryColor
+                                    rotation: modelData || 0.0
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+
+                                Label {
+                                    visible: modelData !== null
+                                    text: modelData + "°"
+                                    font.pixelSize: Theme.fontSizeExtraSmall
+                                    horizontalAlignment: Text.AlignHCenter
+                                    color: Theme.secondaryColor
+                                }
+                            }
+
+                        }
+                    }
+
+                    Loader {
+                        id: windLoader
+                        onLoaded: forecast.loaded = true
+                        width: parent.width
+                        height: chart.windHeight
+                        asynchronous: true
+                    }
                 }
             }
         }
@@ -214,8 +258,8 @@ Item {
 
     Loader {
         id: windScaleLoader
-        x: windLoader.x
-        y: windLoader.y
+        x: windColumn.x + windLoader.x
+        y: windColumn.y + windLoader.y
         asynchronous: true
 
         visible: forecast.loaded

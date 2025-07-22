@@ -251,9 +251,9 @@ function convertRaw(raw) {
                 dayData.wind.haveData = true
 
                 if (isThird) {
-                    dayData.wind.datasets[0].symbols.push(raw.graph.windDirection3h[third]+"°");
+                    dayData.wind.datasets[0].symbols.push(raw.graph.windDirection3h[third]);
                 } else {
-                    dayData.wind.datasets[0].symbols.push("");
+                    dayData.wind.datasets[0].symbols.push(null);
                 }
             } else {
                 // dayData.isSane = false
