@@ -80,12 +80,12 @@ ListItem {
             height: width
         }
 
-        opacity: isLoading ? 0.2 : 1.0
+        opacity: isLoading || !model.active ? 0.2 : 1.0
         Behavior on opacity { NumberAnimation { duration: 200 } }
 
         BusyIndicator {
             anchors.centerIn: parent
-            visible: isLoading ? true : false
+            visible: isLoading && model.active ? true : false
             running: visible
         }
     }
