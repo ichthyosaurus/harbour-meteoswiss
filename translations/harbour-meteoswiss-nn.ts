@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="id">
+<TS version="2.1" language="nn">
 <context>
     <name>AboutPage</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="50"/>
         <source>Data</source>
-        <translation>Data</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="51"/>
@@ -32,12 +32,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="79"/>
         <source>Development</source>
-        <translation>Pengembangan</translation>
+        <translation>Utvikling</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="82"/>
         <source>Programming</source>
-        <translation>Pemrograman</translation>
+        <translation>Programmering</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="86"/>
@@ -52,12 +52,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="97"/>
         <source>Translations</source>
-        <translation>Terjemahan</translation>
+        <translation>Omsetjingar</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
         <source>Turkish</source>
-        <translation>Bahasa Turki</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
@@ -67,37 +67,37 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>Spanish</source>
-        <translation>Bahasa Spanyol</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="119"/>
         <source>Italian</source>
-        <translation>Bahasa Italia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>German</source>
-        <translation>Bahasa Jerman</translation>
+        <translation>Tysk</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="132"/>
         <source>French</source>
-        <translation>Bahasa Prancis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="139"/>
         <source>Estonian</source>
-        <translation>Bahasa Estonia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="145"/>
         <source>English</source>
-        <translation>Bahasa Inggris</translation>
+        <translation type="unfinished">Engelsk</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="151"/>
         <source>Chinese</source>
-        <translation>Bahasa Cina</translation>
+        <translation>Kinesisk</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="13"/>
         <source>Please take a moment to consider if you can contribute to this project in one way or another.</source>
-        <translation>Mohon luangkan waktu sejenak untuk mempertimbangkan apakah Anda ingin berkontribusi dalam proyek ini dengan satu atau lain cara.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="119"/>
         <source>License text</source>
-        <translation>Teks lisensi</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -420,24 +420,24 @@
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="56"/>
         <source>About</source>
-        <translation>Tentang</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="85"/>
         <source>Version %1</source>
-        <translation>Versi %1</translation>
+        <translation>Versjon %1</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="101"/>
         <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="24"/>
         <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="33"/>
         <source>Development</source>
-        <translation>Pengembangan</translation>
+        <translation>Utvikling</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="104"/>
         <source>show contributors</source>
-        <translation>tampilkan kontributor</translation>
+        <translation>vis bidragsytar</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="106"/>
@@ -445,18 +445,18 @@
         <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="24"/>
         <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="47"/>
         <source>Homepage</source>
-        <translation>Beranda</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="109"/>
         <location filename="../qml/modules/Opal/About/private/ChangelogPage.qml" line="16"/>
         <source>Changelog</source>
-        <translation>Daftar perubahan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="112"/>
         <source>Translations</source>
-        <translation>Terjemahan</translation>
+        <translation>Omsetjingar</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="115"/>
@@ -464,29 +464,30 @@
         <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="25"/>
         <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="50"/>
         <source>Source Code</source>
-        <translation>Kode Sumber</translation>
+        <translation>Kjeldekode</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="124"/>
         <source>Donations</source>
-        <translation>Donasi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="130"/>
         <source>License</source>
-        <translation>Lisensi</translation>
+        <translation>Lisens</translation>
     </message>
     <message numerus="yes">
         <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="135"/>
         <source>show license(s)</source>
         <translation>
-            <numerusform>tampilkan lisensi</numerusform>
+            <numerusform>vis lisens</numerusform>
+            <numerusform>vis lisensar</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/ChangelogNews.qml" line="61"/>
         <source>News</source>
-        <translation>Berita</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/ChangelogNews.qml" line="62"/>
@@ -496,48 +497,48 @@
     <message>
         <location filename="../qml/modules/Opal/About/InfoSection.qml" line="15"/>
         <source>show details</source>
-        <translation>Tampilkan rincian</translation>
+        <translation>vis detaljar</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="11"/>
         <source>Thank you!</source>
-        <translation>Terima kasih!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="15"/>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="34"/>
         <source>Details</source>
-        <translation>Detil</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="23"/>
         <source>Contributors</source>
-        <translation>Kontributor-kontributor</translation>
+        <translation>Bidragsytarar</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="39"/>
         <source>Acknowledgements</source>
-        <translation>Pengakuan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ExternalUrlPage.qml" line="15"/>
         <source>External Link</source>
-        <translation>Tautan luar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ExternalUrlPage.qml" line="32"/>
         <source>Open in browser</source>
-        <translation>Buka di browser</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ExternalUrlPage.qml" line="36"/>
         <source>Copied to clipboard: %1</source>
-        <translation>Disalin ke papan klip: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/ExternalUrlPage.qml" line="41"/>
         <source>Copy to clipboard</source>
-        <translation>Salin ke papan klip</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="120"/>
@@ -553,13 +554,14 @@
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="34"/>
         <source>License(s)</source>
         <translation>
-            <numerusform>Lisensi</numerusform>
+            <numerusform>Lisens</numerusform>
+            <numerusform>Lisensar</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="44"/>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation>Catatan: silakan periksa kode sumber untuk informasi yang paling akurat.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -567,17 +569,17 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/DonationsGroup.qml" line="7"/>
         <source>If you want to support my work, you can buy me a cup of coffee.</source>
-        <translation>Jika Anda ingin mendukung pekerjaan saya, Anda dapat mentraktir secangkir kopi.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/DonationsGroup.qml" line="8"/>
         <source>You can support this project by contributing, or by donating using any of these services.</source>
-        <translation>Anda dapat mendukung proyek ini dengan berkontribusi, atau dengan berdonasi menggunakan salah satu layanan ini.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/About/private/DonationsGroup.qml" line="9"/>
         <source>Your contributions to translations or code would be most welcome.</source>
-        <translation>Kontribusi Anda terhadap terjemahan atau kode akan sangat disambut baik.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -585,12 +587,12 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="15"/>
         <source>External Link</source>
-        <translation>Tautan luar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="32"/>
         <source>Open in browser</source>
-        <translation>Buka di browser</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="32"/>
@@ -600,12 +602,12 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="36"/>
         <source>Copied to clipboard: %1</source>
-        <translation>Disalin ke papan klip: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/private/LinkHandler/private/ExternalUrlPage.qml" line="41"/>
         <source>Copy to clipboard</source>
-        <translation>Salin ke papan klip</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -636,7 +638,7 @@
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="101"/>
         <source>About</source>
-        <translation>Tentang</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <location filename="../qml/pages/OverviewPage.qml" line="111"/>

@@ -56,26 +56,46 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
+        <source>Turkish</source>
+        <translation>துருக்கிய</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <source>Tamil</source>
+        <translation>தமிழ்</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>Spanish</source>
         <translation>ச்பானிச்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <location filename="../qml/pages/AboutPage.qml" line="119"/>
+        <source>Italian</source>
+        <translation>இத்தாலிய</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>German</source>
         <translation>செர்மன்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="112"/>
+        <location filename="../qml/pages/AboutPage.qml" line="132"/>
         <source>French</source>
         <translation>பிரஞ்சு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="118"/>
+        <location filename="../qml/pages/AboutPage.qml" line="139"/>
+        <source>Estonian</source>
+        <translation>எச்டோனிய</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="145"/>
         <source>English</source>
         <translation>ஆங்கிலம்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="124"/>
+        <location filename="../qml/pages/AboutPage.qml" line="151"/>
         <source>Chinese</source>
         <translation>சீன</translation>
     </message>
@@ -83,7 +103,7 @@
 <context>
     <name>AskForSupport</name>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="11"/>
+        <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="13"/>
         <source>Please take a moment to consider if you can contribute to this project in one way or another.</source>
         <translation>இந்த திட்டத்திற்கு நீங்கள் ஒரு வழியில் அல்லது வேறு வழியில் பங்களிக்க முடியுமா என்பதைக் கருத்தில் கொள்ள சிறிது நேரம் ஒதுக்குங்கள்.</translation>
     </message>
@@ -99,7 +119,7 @@
 <context>
     <name>DaySummaryItem</name>
     <message>
-        <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
+        <location filename="../qml/components/DaySummaryItem.qml" line="99"/>
         <source>Today</source>
         <translation>இன்று</translation>
     </message>
@@ -107,12 +127,12 @@
 <context>
     <name>DetailsDrawer</name>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
+        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show less</source>
         <translation>குறைவாகக் காட்டு</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
+        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show more</source>
         <translation>மேலும் காட்டு</translation>
     </message>
@@ -120,17 +140,22 @@
 <context>
     <name>ForecastGraphItem</name>
     <message>
-        <location filename="../qml/pages/components/ForecastGraphItem.qml" line="114"/>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="202"/>
         <source>Temperature</source>
         <translation>வெப்பநிலை</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastGraphItem.qml" line="121"/>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="209"/>
         <source>Precipitation</source>
         <translation>மழைப்பொழிவு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastGraphItem.qml" line="128"/>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
+        <source>Sunshine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
         <source>Wind</source>
         <translation>காற்று</translation>
     </message>
@@ -138,128 +163,128 @@
 <context>
     <name>ForecastItem</name>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="17"/>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="302"/>
+        <location filename="../qml/components/ForecastItem.qml" line="17"/>
+        <location filename="../qml/components/ForecastItem.qml" line="312"/>
         <source>Loading...</source>
         <translation>ஏற்றுகிறது ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="290"/>
+        <location filename="../qml/components/ForecastItem.qml" line="300"/>
         <source>Failed...</source>
         <translation>தோல்வியுற்றது ...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="255"/>
+        <location filename="../qml/components/ForecastItem.qml" line="265"/>
         <source>status: </source>
         <translation>நிலை: </translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="268"/>
+        <location filename="../qml/components/ForecastItem.qml" line="278"/>
         <source>now: </source>
         <translation>இப்போது: </translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="262"/>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="295"/>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="305"/>
+        <location filename="../qml/components/ForecastItem.qml" line="272"/>
+        <location filename="../qml/components/ForecastItem.qml" line="305"/>
+        <location filename="../qml/components/ForecastItem.qml" line="315"/>
         <source>unknown</source>
         <translation>தெரியவில்லை</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="98"/>
+        <location filename="../qml/components/ForecastItem.qml" line="108"/>
         <source>%1: %2</source>
         <comment>time (1) with weather description (2)</comment>
         <translation>%1: %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="135"/>
+        <location filename="../qml/components/ForecastItem.qml" line="145"/>
         <source>Sun Times</source>
         <translation>சூரிய நேரங்கள்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="160"/>
+        <location filename="../qml/components/ForecastItem.qml" line="170"/>
         <source>top edge of the sun appears on the horizon</source>
         <translation>சூரியனின் மேல் விளிம்பு அடிவானத்தில் தோன்றும்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="166"/>
+        <location filename="../qml/components/ForecastItem.qml" line="176"/>
         <source>morning golden hour (soft light, best time for photography) ends</source>
         <translation>காலை தங்க மணி (மென்மையான ஒளி, புகைப்படத்திற்கு சிறந்த நேரம்) முடிவடைகிறது</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="172"/>
+        <location filename="../qml/components/ForecastItem.qml" line="182"/>
         <source>sun is in the highest position</source>
         <translation>சூரியன் மிக உயர்ந்த நிலையில் உள்ளது</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="183"/>
+        <location filename="../qml/components/ForecastItem.qml" line="193"/>
         <source>evening golden hour (soft light, best time for photography) starts</source>
         <translation>மாலை தங்க மணி (மென்மையான ஒளி, புகைப்படத்திற்கு சிறந்த நேரம்) தொடங்குகிறது</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="189"/>
+        <location filename="../qml/components/ForecastItem.qml" line="199"/>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
         <translation>சூரியன் அடிவானத்திற்கு கீழே காணாமல் போனது, மாலை குடிமை அந்தி தொடக்க</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="195"/>
+        <location filename="../qml/components/ForecastItem.qml" line="205"/>
         <source>dark enough for astronomical observations</source>
         <translation>வானியல் அவதானிப்புகளுக்கு போதுமான இருண்டது</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="201"/>
+        <location filename="../qml/components/ForecastItem.qml" line="211"/>
         <source>darkest moment of the night, sun is in the lowest position</source>
         <translation>இரவின் இருண்ட தருணம், சூரியன் மிகக் குறைந்த நிலையில் உள்ளது</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="154"/>
+        <location filename="../qml/components/ForecastItem.qml" line="164"/>
         <source>morning civil twilight starts</source>
         <translation>காலை குடிமை அந்தி தொடங்குகிறது</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="152"/>
+        <location filename="../qml/components/ForecastItem.qml" line="162"/>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>விடியல்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="158"/>
+        <location filename="../qml/components/ForecastItem.qml" line="168"/>
         <source>Sunrise</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>சூரிய தோன்றுகை</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="164"/>
+        <location filename="../qml/components/ForecastItem.qml" line="174"/>
         <source>Golden Hour End</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>கோல்டன் அவர் எண்ட்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="170"/>
+        <location filename="../qml/components/ForecastItem.qml" line="180"/>
         <source>Solar Noon</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>சூரிய நண்பகல்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="181"/>
+        <location filename="../qml/components/ForecastItem.qml" line="191"/>
         <source>Golden Hour</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>தங்க மணி</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="187"/>
+        <location filename="../qml/components/ForecastItem.qml" line="197"/>
         <source>Sunset</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>சூரிய மறைவு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="193"/>
+        <location filename="../qml/components/ForecastItem.qml" line="203"/>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>இரவு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="199"/>
+        <location filename="../qml/components/ForecastItem.qml" line="209"/>
         <source>Nadir</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>நீசம்</translation>
@@ -268,12 +293,17 @@
 <context>
     <name>ForecastPage</name>
     <message>
-        <location filename="../qml/pages/ForecastPage.qml" line="76"/>
+        <location filename="../qml/pages/ForecastPage.qml" line="41"/>
+        <source>Table view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ForecastPage.qml" line="90"/>
         <source>MeteoSwiss</source>
         <translation>Meteoswiss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ForecastPage.qml" line="83"/>
+        <location filename="../qml/pages/ForecastPage.qml" line="97"/>
         <source>Failed to load data!</source>
         <translation>தரவை ஏற்றுவதில் தோல்வி!</translation>
     </message>
@@ -307,6 +337,19 @@
         <location filename="../qml/pages/LocationSearchPage.qml" line="32"/>
         <source>Bootstrap debug locations</source>
         <translation>தொடக்கவார் பிழைத்திருத்த இடங்கள்</translation>
+    </message>
+</context>
+<context>
+    <name>MaintenanceOverlay</name>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="39"/>
+        <source>Database Maintenance</source>
+        <translation>தரவுத்தள பராமரிப்பு</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="40"/>
+        <source>Please be patient and allow up to 30 seconds for this.</source>
+        <translation>தயவுசெய்து பொறுமையாக இருங்கள், இதற்காக 30 வினாடிகள் வரை அனுமதிக்கவும்.</translation>
     </message>
 </context>
 <context>
@@ -570,17 +613,22 @@
 <context>
     <name>OverviewListDelegate</name>
     <message>
-        <location filename="../qml/pages/components/OverviewListDelegate.qml" line="41"/>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="54"/>
         <source>Remove</source>
         <translation>அகற்று</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/OverviewListDelegate.qml" line="46"/>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="59"/>
         <source>Move to top</source>
         <translation>மேலே செல்லுங்கள்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/OverviewListDelegate.qml" line="204"/>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="227"/>
+        <source>No forecast available for this location. Please replace it with a supported location nearby.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="258"/>
         <source>Deleting</source>
         <translation>நீக்குதல்</translation>
     </message>
@@ -588,32 +636,32 @@
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="100"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="101"/>
         <source>About</source>
         <translation>பற்றி</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="110"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="111"/>
         <source>Refresh</source>
         <translation>புதுப்பிப்பு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="66"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="67"/>
         <source>MeteoSwiss</source>
         <translation>Meteoswiss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="105"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="106"/>
         <source>Add location</source>
         <translation>இருப்பிடத்தைச் சேர்க்கவும்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="121"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
         <source>Add a location first</source>
         <translation>முதலில் ஒரு இடத்தைச் சேர்க்கவும்</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="123"/>
         <source>Pull down to add items</source>
         <translation>உருப்படிகளைச் சேர்க்க கீழே இழுக்கவும்</translation>
     </message>
@@ -621,7 +669,7 @@
 <context>
     <name>SunTimesItem</name>
     <message>
-        <location filename="../qml/pages/components/SunTimesItem.qml" line="18"/>
+        <location filename="../qml/components/SunTimesItem.qml" line="18"/>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
         <translation>%1: %2</translation>
@@ -645,12 +693,12 @@
         <translation>உங்கள் ஆதரவுக்கு நன்றி!</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="55"/>
+        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
         <source>Remind me later</source>
         <translation>பின்னர் எனக்கு நினைவூட்டுங்கள்</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
+        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="59"/>
         <source>Don&apos;t ask me again</source>
         <translation>மீண்டும் என்னிடம் கேட்க வேண்டாம்</translation>
     </message>
@@ -658,32 +706,48 @@
 <context>
     <name>TablePage</name>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="31"/>
+        <location filename="../qml/pages/TablePage.qml" line="54"/>
         <source>Detailed Forecast</source>
         <translation>விரிவான முன்னறிவிப்பு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="53"/>
+        <location filename="../qml/pages/TablePage.qml" line="95"/>
         <source>Hour</source>
         <translation>மணி</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="64"/>
-        <source>Temp.</source>
-        <translation>தற்காலிக.</translation>
+        <location filename="../qml/pages/TablePage.qml" line="108"/>
+        <source>Temperature</source>
+        <translation type="unfinished">வெப்பநிலை</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="71"/>
-        <source>Precip.</source>
-        <translation>செங்குத்து.</translation>
+        <location filename="../qml/pages/TablePage.qml" line="118"/>
+        <source>Precipitation</source>
+        <translation type="unfinished">மழைப்பொழிவு</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="92"/>
-        <source>Description</source>
-        <translation>விவரம்</translation>
+        <location filename="../qml/pages/TablePage.qml" line="133"/>
+        <source>Sun</source>
+        <comment>short for “Sunshine” in a narrow table header</comment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="78"/>
+        <location filename="../qml/pages/TablePage.qml" line="153"/>
+        <source>Gusts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="190"/>
+        <source>No data available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="191"/>
+        <source>Check your internet connection and refresh.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="143"/>
         <source>Wind</source>
         <translation>காற்று</translation>
     </message>
@@ -691,44 +755,24 @@
 <context>
     <name>harbour-meteoswiss</name>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="39"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="62"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
         <translation>டி mmm yyyy &apos;(&apos; hh &apos;:&apos; mm &apos;)&apos;</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="42"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="65"/>
         <source>ddd d MMM yyyy</source>
         <translation>ddd டி mmm yyyy</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="64"/>
         <source>hh&apos;:&apos;mm</source>
         <translation>HH &apos;:&apos; மிமீ</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="63"/>
         <source>d MMM yyyy</source>
         <translation>டி எம்.எம்.எம்</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
-        <source>Database Maintenance</source>
-        <translation>தரவுத்தள பராமரிப்பு</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="188"/>
-        <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation>தயவுசெய்து பொறுமையாக இருங்கள், இதற்காக 30 வினாடிகள் வரை அனுமதிக்கவும்.</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="193"/>
-        <source>Currently unusable</source>
-        <translation>தற்போது பயன்படுத்த முடியாதது</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="194"/>
-        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation>தரவு வழங்குநரின் பக்கத்தில் ஏற்பட்ட மாற்றத்தின் காரணமாக இந்த பயன்பாடு தற்போது பயன்படுத்த முடியாதது.</translation>
     </message>
 </context>
 <context>

@@ -56,26 +56,46 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
+        <source>Turkish</source>
+        <translation>turc</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <source>Tamil</source>
+        <translation>Tamil</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>Spanish</source>
         <translation>espagnol</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <location filename="../qml/pages/AboutPage.qml" line="119"/>
+        <source>Italian</source>
+        <translation>italien</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>German</source>
         <translation>allemand</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="112"/>
+        <location filename="../qml/pages/AboutPage.qml" line="132"/>
         <source>French</source>
         <translation>français</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="118"/>
+        <location filename="../qml/pages/AboutPage.qml" line="139"/>
+        <source>Estonian</source>
+        <translation>estonien</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="145"/>
         <source>English</source>
         <translation>anglais</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="124"/>
+        <location filename="../qml/pages/AboutPage.qml" line="151"/>
         <source>Chinese</source>
         <translation>chinois</translation>
     </message>
@@ -83,7 +103,7 @@
 <context>
     <name>AskForSupport</name>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="11"/>
+        <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="13"/>
         <source>Please take a moment to consider if you can contribute to this project in one way or another.</source>
         <translation>Veuillez prendre un moment pour déterminer si vous pouvez contribuer à ce projet d&apos;une manière ou d&apos;une autre.</translation>
     </message>
@@ -99,7 +119,7 @@
 <context>
     <name>DaySummaryItem</name>
     <message>
-        <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
+        <location filename="../qml/components/DaySummaryItem.qml" line="99"/>
         <source>Today</source>
         <translation>Auj.</translation>
     </message>
@@ -107,12 +127,12 @@
 <context>
     <name>DetailsDrawer</name>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
+        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show less</source>
         <translation>voir moins</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
+        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show more</source>
         <translation>voir plus</translation>
     </message>
@@ -120,17 +140,22 @@
 <context>
     <name>ForecastGraphItem</name>
     <message>
-        <location filename="../qml/pages/components/ForecastGraphItem.qml" line="114"/>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="202"/>
         <source>Temperature</source>
         <translation>Température</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastGraphItem.qml" line="121"/>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="209"/>
         <source>Precipitation</source>
         <translation>Précipitations</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastGraphItem.qml" line="128"/>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
+        <source>Sunshine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
         <source>Wind</source>
         <translation>Vent</translation>
     </message>
@@ -138,129 +163,129 @@
 <context>
     <name>ForecastItem</name>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="17"/>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="302"/>
+        <location filename="../qml/components/ForecastItem.qml" line="17"/>
+        <location filename="../qml/components/ForecastItem.qml" line="312"/>
         <source>Loading...</source>
         <translation>Chargement…</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="98"/>
+        <location filename="../qml/components/ForecastItem.qml" line="108"/>
         <source>%1: %2</source>
         <comment>time (1) with weather description (2)</comment>
         <translation>%1 : %2</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="135"/>
+        <location filename="../qml/components/ForecastItem.qml" line="145"/>
         <source>Sun Times</source>
         <translation>Heures de la journée</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="152"/>
+        <location filename="../qml/components/ForecastItem.qml" line="162"/>
         <source>Dawn</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Aube</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="154"/>
+        <location filename="../qml/components/ForecastItem.qml" line="164"/>
         <source>morning civil twilight starts</source>
         <translation>l&apos;aube civile commence</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="158"/>
+        <location filename="../qml/components/ForecastItem.qml" line="168"/>
         <source>Sunrise</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Lever du soleil</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="160"/>
+        <location filename="../qml/components/ForecastItem.qml" line="170"/>
         <source>top edge of the sun appears on the horizon</source>
         <translation>le bord supérieur du soleil apparaît à l&apos;horizon</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="164"/>
+        <location filename="../qml/components/ForecastItem.qml" line="174"/>
         <source>Golden Hour End</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Heure dorée (Fin)|Heure dorée</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="166"/>
+        <location filename="../qml/components/ForecastItem.qml" line="176"/>
         <source>morning golden hour (soft light, best time for photography) ends</source>
         <translation>l&apos;heure dorée du matin (lumière douce, meilleur moment pour la photographie) se termine</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="170"/>
+        <location filename="../qml/components/ForecastItem.qml" line="180"/>
         <source>Solar Noon</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Midi solaire</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="172"/>
+        <location filename="../qml/components/ForecastItem.qml" line="182"/>
         <source>sun is in the highest position</source>
         <translation>le soleil est au point le plus haut</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="181"/>
+        <location filename="../qml/components/ForecastItem.qml" line="191"/>
         <source>Golden Hour</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Heure dorée (début)|Heure dorée</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="183"/>
+        <location filename="../qml/components/ForecastItem.qml" line="193"/>
         <source>evening golden hour (soft light, best time for photography) starts</source>
         <translation>L&apos;heure dorée du soir (lumière douce, meilleur moment pour la photographie) commence</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="187"/>
+        <location filename="../qml/components/ForecastItem.qml" line="197"/>
         <source>Sunset</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Coucher du soleil</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="189"/>
+        <location filename="../qml/components/ForecastItem.qml" line="199"/>
         <source>sun disappears below the horizon, evening civil twilight starts</source>
         <translation>le soleil disparaît sous l&apos;horizon, le crépuscule commence</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="193"/>
+        <location filename="../qml/components/ForecastItem.qml" line="203"/>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Nuit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="195"/>
+        <location filename="../qml/components/ForecastItem.qml" line="205"/>
         <source>dark enough for astronomical observations</source>
         <translation>suffisamment sombre pour les observations astronomiques</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="199"/>
+        <location filename="../qml/components/ForecastItem.qml" line="209"/>
         <source>Nadir</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
         <translation>Minuit solaire</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="201"/>
+        <location filename="../qml/components/ForecastItem.qml" line="211"/>
         <source>darkest moment of the night, sun is in the lowest position</source>
         <translation>moment le plus sombre de la nuit, le soleil est au point le plus bas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="255"/>
+        <location filename="../qml/components/ForecastItem.qml" line="265"/>
         <source>status: </source>
         <translation>statut : </translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="262"/>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="295"/>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="305"/>
+        <location filename="../qml/components/ForecastItem.qml" line="272"/>
+        <location filename="../qml/components/ForecastItem.qml" line="305"/>
+        <location filename="../qml/components/ForecastItem.qml" line="315"/>
         <source>unknown</source>
         <translation>inconnu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="268"/>
+        <location filename="../qml/components/ForecastItem.qml" line="278"/>
         <source>now: </source>
         <translation>maintenant : </translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ForecastItem.qml" line="290"/>
+        <location filename="../qml/components/ForecastItem.qml" line="300"/>
         <source>Failed...</source>
         <translation>Échec…</translation>
     </message>
@@ -273,12 +298,17 @@
         <translation>Recharger les données</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ForecastPage.qml" line="76"/>
+        <location filename="../qml/pages/ForecastPage.qml" line="41"/>
+        <source>Table view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ForecastPage.qml" line="90"/>
         <source>MeteoSwiss</source>
         <translation>MétéoSuisse</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ForecastPage.qml" line="83"/>
+        <location filename="../qml/pages/ForecastPage.qml" line="97"/>
         <source>Failed to load data!</source>
         <translation>Échec du chargement des données&#x202f;!</translation>
     </message>
@@ -307,6 +337,19 @@
         <location filename="../qml/pages/LocationSearchPage.qml" line="54"/>
         <source>Search</source>
         <translation>Rechercher</translation>
+    </message>
+</context>
+<context>
+    <name>MaintenanceOverlay</name>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="39"/>
+        <source>Database Maintenance</source>
+        <translation>Maintenance de la base de données</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="40"/>
+        <source>Please be patient and allow up to 30 seconds for this.</source>
+        <translation>Veuillez patienter et attendre jusqu&apos;à 30 secondes la fin du processus.</translation>
     </message>
 </context>
 <context>
@@ -570,17 +613,22 @@
 <context>
     <name>OverviewListDelegate</name>
     <message>
-        <location filename="../qml/pages/components/OverviewListDelegate.qml" line="41"/>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="54"/>
         <source>Remove</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/OverviewListDelegate.qml" line="46"/>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="59"/>
         <source>Move to top</source>
         <translation>Déplacer vers le haut</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/OverviewListDelegate.qml" line="204"/>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="227"/>
+        <source>No forecast available for this location. Please replace it with a supported location nearby.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/OverviewListDelegate.qml" line="258"/>
         <source>Deleting</source>
         <translation>Suppression</translation>
     </message>
@@ -588,32 +636,32 @@
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="100"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="101"/>
         <source>About</source>
         <translation>À propos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="105"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="106"/>
         <source>Add location</source>
         <translation>Ajouter un lieu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="110"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="111"/>
         <source>Refresh</source>
         <translation>Actualiser</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="66"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="67"/>
         <source>MeteoSwiss</source>
         <translation>MétéoSuisse</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="121"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
         <source>Add a location first</source>
         <translation>Ajoutez d&apos;abord un lieu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="123"/>
         <source>Pull down to add items</source>
         <translation>Faites glisser vers le bas pour ajouter de nouveaux lieux</translation>
     </message>
@@ -621,7 +669,7 @@
 <context>
     <name>SunTimesItem</name>
     <message>
-        <location filename="../qml/pages/components/SunTimesItem.qml" line="18"/>
+        <location filename="../qml/components/SunTimesItem.qml" line="18"/>
         <source>%1: %2</source>
         <comment>sun time title (1) with description (2)</comment>
         <translation>%1 : %2</translation>
@@ -645,12 +693,12 @@
         <translation>Merci pour votre soutien&#x202f;!</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="55"/>
+        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
         <source>Remind me later</source>
         <translation>Me le rappeler plus tard</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
+        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="59"/>
         <source>Don&apos;t ask me again</source>
         <translation>Ne plus me demander</translation>
     </message>
@@ -658,77 +706,73 @@
 <context>
     <name>TablePage</name>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="31"/>
+        <location filename="../qml/pages/TablePage.qml" line="54"/>
         <source>Detailed Forecast</source>
         <translation>Prévisions détaillées</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="53"/>
+        <location filename="../qml/pages/TablePage.qml" line="95"/>
         <source>Hour</source>
         <translation>Heure</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="64"/>
-        <source>Temp.</source>
-        <translation>Temp.</translation>
+        <location filename="../qml/pages/TablePage.qml" line="108"/>
+        <source>Temperature</source>
+        <translation type="unfinished">Température</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="71"/>
-        <source>Precip.</source>
-        <translation>Précip.</translation>
+        <location filename="../qml/pages/TablePage.qml" line="118"/>
+        <source>Precipitation</source>
+        <translation type="unfinished">Précipitations</translation>
     </message>
     <message>
-        <location filename="../qml/pages/TablePage.qml" line="78"/>
+        <location filename="../qml/pages/TablePage.qml" line="133"/>
+        <source>Sun</source>
+        <comment>short for “Sunshine” in a narrow table header</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="153"/>
+        <source>Gusts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="190"/>
+        <source>No data available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="191"/>
+        <source>Check your internet connection and refresh.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/TablePage.qml" line="143"/>
         <source>Wind</source>
         <translation>Vent</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/TablePage.qml" line="92"/>
-        <source>Description</source>
-        <translation>Description</translation>
     </message>
 </context>
 <context>
     <name>harbour-meteoswiss</name>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="39"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="62"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
         <translation>d MMM yyyy &apos;(&apos;hh&apos;h&apos;mm&apos;)&apos;</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="40"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="63"/>
         <source>d MMM yyyy</source>
         <translation>d MMM yyyy</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="41"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="64"/>
         <source>hh&apos;:&apos;mm</source>
         <translation>hh&apos;h&apos;mm</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="42"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="65"/>
         <source>ddd d MMM yyyy</source>
         <translation>ddd d MMM yyyy</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="187"/>
-        <source>Database Maintenance</source>
-        <translation>Maintenance de la base de données</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="188"/>
-        <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation>Veuillez patienter et attendre jusqu&apos;à 30 secondes la fin du processus.</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="193"/>
-        <source>Currently unusable</source>
-        <translation>Actuellement inutilisable</translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="194"/>
-        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation>Cette application est actuellement inutilisable, en raison d&apos;un changement du côté du fournisseur de données.</translation>
     </message>
 </context>
 <context>

@@ -56,26 +56,46 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
+        <source>Turkish</source>
+        <translation>Türkisch</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <source>Tamil</source>
+        <translation>Tamilisch</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>Spanish</source>
         <translation>Spanisch</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <location filename="../qml/pages/AboutPage.qml" line="119"/>
+        <source>Italian</source>
+        <translation>Italienisch</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>German</source>
         <translation>Deutsch</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="112"/>
+        <location filename="../qml/pages/AboutPage.qml" line="132"/>
         <source>French</source>
         <translation>Französisch</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="118"/>
+        <location filename="../qml/pages/AboutPage.qml" line="139"/>
+        <source>Estonian</source>
+        <translation>Estnisch</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="145"/>
         <source>English</source>
         <translation>Englisch</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="124"/>
+        <location filename="../qml/pages/AboutPage.qml" line="151"/>
         <source>Chinese</source>
         <translation>Chinesisch</translation>
     </message>
@@ -83,7 +103,7 @@
 <context>
     <name>AskForSupport</name>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="11"/>
+        <location filename="../qml/modules/Opal/SupportMe/AskForSupport.qml" line="13"/>
         <source>Please take a moment to consider if you can contribute to this project in one way or another.</source>
         <translation>Bitte nimm dir einen Moment Zeit, um zu überlegen, ob du auf die ein oder andere Weise zu diesem Projekt beitragen kannst.</translation>
     </message>
@@ -107,12 +127,12 @@
 <context>
     <name>DetailsDrawer</name>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
+        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show less</source>
         <translation>weniger zeigen</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="53"/>
+        <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show more</source>
         <translation>mehr zeigen</translation>
     </message>
@@ -273,12 +293,17 @@
 <context>
     <name>ForecastPage</name>
     <message>
-        <location filename="../qml/pages/ForecastPage.qml" line="76"/>
+        <location filename="../qml/pages/ForecastPage.qml" line="41"/>
+        <source>Table view</source>
+        <translation>Tabellenansicht</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ForecastPage.qml" line="90"/>
         <source>MeteoSwiss</source>
         <translation>MeteoSchweiz</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ForecastPage.qml" line="83"/>
+        <location filename="../qml/pages/ForecastPage.qml" line="97"/>
         <source>Failed to load data!</source>
         <translation>Fehler beim Laden!</translation>
     </message>
@@ -317,12 +342,12 @@
 <context>
     <name>MaintenanceOverlay</name>
     <message>
-        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="67"/>
+        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="39"/>
         <source>Database Maintenance</source>
         <translation>Datenbank-Pflege</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="68"/>
+        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="40"/>
         <source>Please be patient and allow up to 30 seconds for this.</source>
         <translation>Bitte warten Sie einen Moment und gewähren Sie rund 30 Sekunden für den Vorgang.</translation>
     </message>
@@ -668,12 +693,12 @@
         <translation>Vielen Dank für deine Unterstützung!</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="55"/>
+        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
         <source>Remind me later</source>
         <translation>Erinnere mich später</translation>
     </message>
     <message>
-        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
+        <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="59"/>
         <source>Don&apos;t ask me again</source>
         <translation>Nicht wieder fragen</translation>
     </message>
@@ -722,18 +747,6 @@
         <translation>Prüfen Sie Ihre Internetverbindung und aktualisieren Sie den Wetterbericht.</translation>
     </message>
     <message>
-        <source>Temp.</source>
-        <translation type="vanished">Temp.</translation>
-    </message>
-    <message>
-        <source>Precip.</source>
-        <translation type="vanished">Niederschl.</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="vanished">Beschreibung</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/TablePage.qml" line="143"/>
         <source>Wind</source>
         <translation>Wind</translation>
@@ -760,22 +773,6 @@
         <location filename="../qml/harbour-meteoswiss.qml" line="63"/>
         <source>d MMM yyyy</source>
         <translation>d&apos;.&apos; MMM yyyy</translation>
-    </message>
-    <message>
-        <source>Database Maintenance</source>
-        <translation type="vanished">Datenbank-Pflege</translation>
-    </message>
-    <message>
-        <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="vanished">Bitte warten Sie einen Moment und gewähren Sie rund 30 Sekunden für den Vorgang.</translation>
-    </message>
-    <message>
-        <source>Currently unusable</source>
-        <translation type="vanished">Derzeit nicht verwendbar</translation>
-    </message>
-    <message>
-        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="vanished">Die App kann derzeit wegen Änderungen aufseiten der Datenquelle nicht verwendet werden.</translation>
     </message>
 </context>
 <context>
