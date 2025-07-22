@@ -32,7 +32,7 @@ ApplicationWindow {
     property var forecastData: Forecast.fullData
     property var dataIsReady: ({})
     property var dataTimestamp: new Date(0)
-    property var overviewTimestamp: new Date(0)
+    property var overviewTimestamp: Storage.getDaySummaryAge()
 
     property string dateTimeFormat: qsTr("d MMM yyyy '('hh':'mm')'")
     property string dateFormat: qsTr("d MMM yyyy")

@@ -454,24 +454,19 @@ function setDaySummary(locationId, dayString, symbol, precipitation, tempMin, te
 }
 
 function getDaySummaryAge() {
-    var db = getDatabase();
-    var res = new Date(0);
+    var q = DB.simpleQuery("\
+        SELECT age FROM data_overview
+        ORDER BY age DESC
+        LIMIT 1
+    ;", [])
 
-    try {
-        db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT * FROM data_overview ORDER BY age DESC LIMIT 1;', []);
+    var ret = new Date(0)
 
-            if (rs.rows.length > 0) {
-                res.setTime(rs.rows.item(0).age);
-            } else {
-                res.setTime(0);
-            }
-        });
-    } catch(e) {
-        console.log("error while loading day summary age");
+    if (q.rows.length > 0) {
+        ret.setTime(q.rows.item(0).age)
     }
 
-    return res;
+    return ret
 }
 
 function getDaySummary(locationId, dayDate, dayId) {
