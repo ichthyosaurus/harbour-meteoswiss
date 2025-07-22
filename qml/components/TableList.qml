@@ -70,13 +70,18 @@ SilicaListView {
             }
 
             Image {
-                width: symbolTitle.width
+                width: Theme.iconSizeMedium
                 height: Theme.itemSizeSmall
                 fillMode: Image.PreserveAspectFit
                 source: "../weather-icons/" + image + ".svg"
                 verticalAlignment: Image.AlignVCenter
                 anchors.verticalCenter: hourLabel.verticalCenter
                 opacity: 1
+
+                sourceSize {
+                    width: width
+                    height: width
+                }
             }
 
             TableListValueElement {

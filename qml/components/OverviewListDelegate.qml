@@ -58,9 +58,14 @@ ListItem {
             verticalCenter: labelColumn.verticalCenter
         }
 
-        width: 2.5*Theme.horizontalPageMargin; height: width
+        width: 2.5*Theme.horizontalPageMargin
+        height: width
         source: String("../weather-icons/%1.svg").arg(model.symbol ? model.symbol : "0")
         fillMode: Image.PreserveAspectFit
+        sourceSize {
+            width: width
+            height: width
+        }
 
         opacity: isLoading ? 0.2 : 1.0
         Behavior on opacity { NumberAnimation { duration: 200 } }

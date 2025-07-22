@@ -46,12 +46,16 @@ BackgroundItem {
         }
 
         Image {
-            width: 100
+            width: Theme.iconSizeMedium
             height: Theme.itemSizeSmall
             fillMode: Image.PreserveAspectFit
             source: "../weather-icons/" + (
                 forecastData[day].temperature.datasets[0].symbols[hour] != undefined ? forecastData[day].temperature.datasets[0].symbols[hour] : 0
             ) + ".svg"
+            sourceSize {
+                width: Theme.iconSizeMedium
+                height: Theme.iconSizeMedium
+            }
             verticalAlignment: Image.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
             opacity: 1

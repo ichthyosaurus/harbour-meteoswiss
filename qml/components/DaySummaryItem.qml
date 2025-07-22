@@ -47,10 +47,14 @@ BackgroundItem {
 
         Image {
             id: image
-            width: 100
+            width: Theme.iconSizeMedium
             height: Theme.itemSizeSmall
             fillMode: Image.PreserveAspectFit
             source: String("../weather-icons/%1.svg").arg(0)
+            sourceSize {
+                width: Theme.iconSizeMedium
+                height: Theme.iconSizeMedium
+            }
             verticalAlignment: Image.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
             opacity: (selected || highlighted) ? 1.0 : 0.5
