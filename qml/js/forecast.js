@@ -88,39 +88,59 @@ function convertRaw(raw) {
         throw new Error('no-forecast-error')
     }
 
-    if (raw.graph.precipitation1h.length % 24 != 0) {
-        console.log("precipitation1h data is incomplete, extending with high resolution sums")
+    if (raw.graph.hasOwnProperty('precipitation10m') && raw.graph.precipitation10m.length > 0) {
+        var lists = ['precipitation', 'precipitationMin', 'precipitationMax']
 
-        if (raw.graph.hasOwnProperty('precipitation10m') && raw.graph.precipitation10m.length > 0) {
+        for (var k = 0; k < lists.length; k++) {
+            var prefix = lists[k]
+            var highRes = prefix + '10m'
+            var lowRes = prefix + '1h'
+
+            var _highResSums = []
             var _currentSum = 0
-            var _currentIndex = 0
 
-            console.log("missing %1 more high res data points".
-                        arg(raw.graph.precipitation10m.length%6 > 0 ? 6-raw.graph.precipitation10m.length%6 : 0));
-            for (var m = 0; m < raw.graph.precipitation10m.length; m++) {
-                if (m > 0 && m%6 === 0) {
-                    raw.graph.precipitation1h.splice(_currentIndex, 0, _currentSum);
-                    _currentIndex += 1;
-                    _currentSum = 0;
+            for (var i = 0; i < raw.graph[highRes].length; i++) {
+                if (i > 0 && i % 6 === 0) {
+                    _highResSums.push(_currentSum)
+                    _currentSum = 0
                 }
-                _currentSum += raw.graph.precipitation10m[m];
+
+                _currentSum += raw.graph[highRes][i]
             }
 
-            console.log("inserted %1 summed high res data points: final length".arg(_currentIndex+1),
-                        raw.graph.precipitation1h.length)
+            if (raw.graph[highRes].length > 0 &&
+                    raw.graph[highRes].length % 6 === 0) {
+                _highResSums.push(_currentSum)
+            }
 
-            if (raw.graph.start+((_currentIndex)*3600000) === raw.graph.startLowResolution) {
-                console.warn("precipitation data does not align: last summed hour and first low res hour seem to overlap | MUST BE CHECKED; often, this is fine");
-            } else if (raw.graph.start+((_currentIndex+1)*3600000) !== raw.graph.startLowResolution) {
-                console.warn("precipitation data does not align: generated start and startLowResolution mismatch");
+            console.log("SUMMED", _highResSums)
+
+            var endOfSummedRange = raw.graph.start + (_highResSums.length*3600*1000)
+
+            if (endOfSummedRange > raw.graph.startLowResolution) {
+                var drop = Math.ceil(
+                            Math.abs(endOfSummedRange-raw.graph.startLowResolution) /
+                            (3600*1000))
+                raw.graph[lowRes].splice(0, drop)
+                console.log(prefix + ": got too much high resolution data, dropping %1 low resolution hours".arg(drop))
+            } else if (endOfSummedRange < raw.graph.startLowResolution &&
+                       raw.graph.startLowResolution - endOfSummedRange > 3600*1000) {
+                console.warn(prefix + ": gap of more than 1h between high resolution and low resolution data: %1 ms".
+                             arg(raw.graph.startLowResolution - endOfSummedRange))
+            } else if (endOfSummedRange === raw.graph.startLowResolution) {
+                console.log(prefix + ": low and high resolution data aligns perfectly")
+            }
+
+            raw.graph[lowRes] = _highResSums.concat(raw.graph[lowRes])
+
+            var extraHours = raw.graph[lowRes].length % 24
+            if (raw.graph[lowRes].length / 24 < raw.forecast.length && extraHours !== 0) {
+                console.warn(prefix + ": data is incomplete (modulo 24 === %1 !== 0)".arg(raw.graph[lowRes].length % 24));
+            } else if (extraHours > 0) {
+                console.log(prefix + ": dropping %1 extra hours".arg(extraHours))
+                raw.graph[lowRes].splice(-extraHours, extraHours)
             }
         }
-
-        if (raw.graph.precipitation1h.length % 24 !== 0) {
-            console.warn("precipitation data is incomplete (modulo 24 === %1 !== 0)".arg(raw.graph.precipitation1h.length % 24));
-        }
-    } else {
-        console.log("got enough data in precipitation1h, skipping precipitation10m")
     }
 
     var dayCount = raw.forecast.length;
