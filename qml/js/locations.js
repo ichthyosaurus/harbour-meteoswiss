@@ -67,6 +67,7 @@ function getDetails(token) {
         cantonId: cantonId,
         canton: Cantons.Cantons[cantonId],
         name: token.substr(5, token.length-10),
+        active: true,
     }
 }
 
