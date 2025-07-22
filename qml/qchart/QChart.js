@@ -2,7 +2,7 @@
  * This file is part of QChart.js, adapted for harbour-meteoswiss, harbour-forecasts, harbour-captains-log, and harbour-dashboard.
  * SPDX-License-Identifier: MIT
  * SPDX-FileCopyrightText: 2014  Julien Wintz
- * SPDX-FileCopyrightText: 2018-2019, 2022-2024  Mirian Margiani
+ * SPDX-FileCopyrightText: 2018-2019, 2022-2025  Mirian Margiani
  */
 
 // QChart.js ---
@@ -25,7 +25,7 @@
 // - allow setting a minimum value in line graphs
 // - remove all chart types except line and bar
 // - use computed fixed width for y scale
-// - print label for bottom end of y scale
+// - print label for bottom end of y scale in line and bar charts
 // - align line chart dots and bar chart bars
 // - add config option to draw a vertical indicator line based on the current time
 // - add config option to draw a vertical indicator line at a custom position (0.0 - 1.0)
@@ -680,39 +680,32 @@ var Chart = function(canvas, context) {
             ctx.strokeStyle = config.scaleLineColor;
             ctx.textBaseline = "middle";
 
+            var yAxisPosX = 0;
+            var yAxisLabelPadding = 0;
+
             if (config.asOverview) {
                 ctx.textAlign = "left";
-                for (var j=0; j<calculatedScale.steps; j++) {
-                    ctx.beginPath();
-                    ctx.moveTo(yAxisRightPosX-3,xAxisPosY - ((j+1) * scaleHop));
-                    if (config.scaleShowGridLines) {
-                        ctx.lineWidth = config.scaleGridLineWidth;
-                        ctx.strokeStyle = config.scaleGridLineColor;
-                        ctx.lineTo(yAxisRightPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
-                    } else {
-                        ctx.lineTo(yAxisRightPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
-                    }
-                    ctx.stroke();
-                    if (config.scaleShowLabels) {
-                        ctx.fillText(calculatedScale.labels[j],yAxisRightPosX+8,xAxisPosY - ((j+1) * scaleHop));
-                    }
-                }
+                yAxisPosX = yAxisRightPosX;
+                yAxisLabelPadding = 8;
             } else {
                 ctx.textAlign = "right";
-                for (var j=0; j<calculatedScale.steps; j++) {
-                    ctx.beginPath();
-                    ctx.moveTo(yAxisLeftPosX-3,xAxisPosY - ((j+1) * scaleHop));
-                    if (config.scaleShowGridLines) {
-                        ctx.lineWidth = config.scaleGridLineWidth;
-                        ctx.strokeStyle = config.scaleGridLineColor;
-                        ctx.lineTo(yAxisLeftPosX + xAxisLength + 5,xAxisPosY - ((j+1) * scaleHop));
-                    } else {
-                        ctx.lineTo(yAxisLeftPosX-0.5,xAxisPosY - ((j+1) * scaleHop));
-                    }
-                    ctx.stroke();
-                    if (config.scaleShowLabels) {
-                        ctx.fillText(calculatedScale.labels[j],yAxisLeftPosX-8,xAxisPosY - ((j+1) * scaleHop));
-                    }
+                yAxisPosX = yAxisLeftPosX;
+                yAxisLabelPadding = -8;
+            }
+
+            for (var j=0; j<calculatedScale.steps + 1; j++) {
+                ctx.beginPath();
+                ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j) * scaleHop));
+                if (config.scaleShowGridLines) {
+                    ctx.lineWidth = config.scaleGridLineWidth;
+                    ctx.strokeStyle = config.scaleGridLineColor;
+                    ctx.lineTo(yAxisPosX + xAxisLength + 5,xAxisPosY - ((j) * scaleHop));
+                } else {
+                    ctx.lineTo(yAxisPosX-0.5,xAxisPosY - ((j) * scaleHop));
+                }
+                ctx.stroke();
+                if (config.scaleShowLabels) {
+                    ctx.fillText(calculatedScale.labels[j],yAxisPosX+yAxisLabelPadding,xAxisPosY - ((j) * scaleHop));
                 }
             }
         }
