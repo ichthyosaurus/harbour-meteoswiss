@@ -67,8 +67,8 @@ BackgroundItem {
         }
 
         ForecastSummaryItemLabel {
-            property var rain: forecastData[day].rainfall.haveData ? forecastData[day].rainfall.datasets[0].data[hour] : 0
-            value: rain > 0 ? rain : ""
+            property int rain: forecastData[day].rainfall.datasets[0].data[hour] || 0.0
+            value: rain > 0.0 ? rain : ""
             unit: meteoApp.rainUnitShort
         }
     }
