@@ -10,7 +10,7 @@ Name:       harbour-meteoswiss
 %define __provides_exclude_from ^%{_datadir}/.*$
 
 Summary:    Unofficial client to the Swiss Meteorological Service (MeteoSwiss)
-Version:    1.4.0
+Version:    2.0.0
 Release:    1
 Group:      Applications/Productivity
 License:    GPL-3.0-or-later
