@@ -228,7 +228,7 @@ function httpGet(url) {
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // 'false' for synchronous request
-    xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-3.0.6-Android");
+    xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-3.4.2-Android");
     xmlHttp.send(null);
 
     console.log("XHR response:", xmlHttp.status, xmlHttp.statusText);
