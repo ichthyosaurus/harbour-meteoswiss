@@ -109,7 +109,7 @@ Page {
             MenuItem {
                 text: qsTr("Refresh")
                 visible: locationsModel.count > 0
-                onClicked: {
+                onDelayedClick: {
                     meteoApp.refreshData(undefined, false);
                 }
             }
