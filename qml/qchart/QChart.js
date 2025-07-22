@@ -235,19 +235,31 @@ var Chart = function(canvas, context) {
         // ///////////////////////////////////////////////////////////////
 
         function drawLines(animPc) {
-
             for (var i=0; i<data.datasets.length; i++) {
                 ctx.strokeStyle = (config.strokeColor[i] ? config.strokeColor[i] : data.datasets[i].strokeColor);
                 ctx.lineWidth = config.datasetStrokeWidth;
                 ctx.beginPath();
-                ctx.moveTo(xPos(0), yPos(i, 0))
 
+                for (var z=0; z<data.datasets[i].data.length; z++) {
+                    if (isMissing(i, z)) continue;
+                    ctx.moveTo(xPos(0), yPos(i, z));
+                    break;
+                }
+
+                var skipped = 0
                 for (var j=1; j<data.datasets[i].data.length; j++) {
+                    if (isMissing(i, j)) {
+                        skipped++;
+                        continue;
+                    }
+
                     if (config.bezierCurve) {
-                        ctx.bezierCurveTo(xPos(j-0.5),yPos(i,j-1),xPos(j-0.5),yPos(i,j),xPos(j),yPos(i,j));
+                        ctx.bezierCurveTo(xPos(j-0.5),yPos(i,j-1-skipped),xPos(j-0.5),yPos(i,j),xPos(j),yPos(i,j));
                     } else{
                         ctx.lineTo(xPos(j),yPos(i,j));
                     }
+
+                    skipped = 0;
                 }
 
                 ctx.stroke();
@@ -260,6 +272,8 @@ var Chart = function(canvas, context) {
                     ctx.fill();
                 } else if (config.datasetFillDiff23 && (i+1) % 3 == 0) {
                     for (var k=data.datasets[i-1].data.length; k>=0; k--) {
+                        if (isMissing(i, k)) continue;
+                        if (isMissing(i-1, k)) continue;
                         ctx.lineTo(xPos(k),yPos(i-1,k));
                     }
 
@@ -274,7 +288,9 @@ var Chart = function(canvas, context) {
                     ctx.fillStyle = (config.pointColor[i] ? config.pointColor[i] : data.datasets[i].pointColor);
                     ctx.strokeStyle = (config.pointStrokeColor[i] ? config.pointStrokeColor[i] : data.datasets[i].pointStrokeColor);
                     ctx.lineWidth = config.pointDotStrokeWidth;
+
                     for (var k=0; k<data.datasets[i].data.length; k++) {
+                        if (isMissing(i, k)) continue;
                         ctx.beginPath();
                         ctx.arc(xPos(k),yPos(i, k),config.pointDotRadius,0,Math.PI*2,true);
                         ctx.fill();
@@ -291,6 +307,11 @@ var Chart = function(canvas, context) {
 
             function xPos(iteration) {
                 return yAxisLeftPosX + (valueHop * iteration) + valueHop/2;
+            }
+
+            function isMissing(dataSet, iteration) {
+                return (data.datasets[dataSet].data[iteration] === null
+                        || typeof data.datasets[dataSet].data[iteration] === 'undefined')
             }
         }
 
