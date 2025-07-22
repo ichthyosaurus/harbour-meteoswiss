@@ -30,7 +30,7 @@ ApplicationWindow {
     // ATTENTION set to "false" before release
     property bool debug: false
 
-    property var forecastData: Forecast.fullData
+    property var forecastData: []
     property var dataIsReady: ({})
     property var dataTimestamp: new Date(0)
     property var overviewTimestamp: new Date(0)

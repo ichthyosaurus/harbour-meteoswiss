@@ -30,52 +30,6 @@ function mayRefresh(lastRefreshed, maxAgeMins) {
     return false
 }
 
-function date_diff(a, b) {
-    var d1 = new Date();
-    var d2 = new Date();
-
-    d1.setTime(a);
-    d2.setTime(b);
-
-    return d1-d2;
-}
-
-var emptyDummyDay = {
-    isSane: false,
-    date: '',
-    temperature: {
-        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-        datasets: [{ // estimate
-                data: [],
-                symbols: []
-            },{ // minimum
-                data: [],
-            },{ // maximum
-                data: [],
-            },
-        ],
-    },
-    rainfall: {
-        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-        datasets: [{ // estimate
-                data: [],
-            },{ // minimum
-                data: [],
-            },{ // maximum
-                data: [],
-            },
-        ],
-    },
-    wind: {
-        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-        datasets: [{
-                data: [],
-                symbols: [],
-            }
-        ],
-    },
-};
-
 function convertRaw(raw) {
     var data = [];
 
@@ -312,8 +266,6 @@ function convertRaw(raw) {
     return data
 }
 
-var fullData = [emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay];
-
 function httpGet(url) {
     console.log("getting", url);
 
@@ -336,7 +288,7 @@ function fallbackToArchive(archived, errorMessage) {
     }
 
     console.log("warning (" + archived.locationId + "): " + errorMessage);
-    fullData = JSON.parse(archived.data);
+    var fullData = JSON.parse(archived.data);
 
     // vvv DEBUG
 //    try {
@@ -445,7 +397,7 @@ WorkerScript.onMessage = function(message) {
         }
 
         try {
-            fullData = convertRaw(JSON.parse(JSON.stringify(rawData)));
+            var fullData = convertRaw(JSON.parse(JSON.stringify(rawData)));
         } catch (e) {
             if (e.message === 'no-forecast-error') {
                 console.warn("no forecast available for location", locationId)
