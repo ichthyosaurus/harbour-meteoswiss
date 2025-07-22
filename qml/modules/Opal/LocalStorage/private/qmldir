@@ -1,0 +1,5 @@
+module Opal.LocalStorage.private
+# This file is part of Opal.LocalStorage.
+# SPDX-FileCopyrightText: 2023-2024 Mirian Margiani
+# SPDX-License-Identifier: GPL-3.0-or-later
+MyPrivateComponent 1.0 MyPrivateComponent.qml

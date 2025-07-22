@@ -1,84 +1,130 @@
 /*
  * This file is part of harbour-meteoswiss.
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
+ * SPDX-FileCopyrightText: 2018-2025 Mirian Margiani
  */
 
 .pragma library
-.import QtQuick.LocalStorage 2.0 as LS
+.import "../modules/Opal/LocalStorage/StorageHelper.js" as DB
+
+//
+// BEGIN Database configuration
+//
+
+function dbOk() { return DB.dbOk }
+var isSameValue = DB.isSameValue
+
+DB.dbName = "harbour-meteoswiss"
+DB.dbDescription = "Swiss Meteo Offline Cache"
+DB.dbSize = 2000000
+DB.enableAutoMaintenance = false  // handled manually
+
+DB.dbMigrations = [
+    // Database versions do not correspond to app versions.
+    [2.0, function(tx){
+        // Version 2.0 is the first version. Subsequent versions use integer
+        // version numbers only.
+        tx.executeSql('\
+            CREATE TABLE IF NOT EXISTS data(
+                timestamp INTEGER NOT NULL,
+                location_id INTEGER NOT NULL,
+                data TEXT NOT NULL,
+                day_count INTEGER NOT NULL,
+                day_dates TEXT NOT NULL,
+
+                PRIMARY KEY(timestamp, location_id)
+        );')
+        tx.executeSql('\
+            CREATE TABLE IF NOT EXISTS data_overview(
+                datestring STRING NOT NULL,
+                location_id INTEGER NOT NULL,
+                symbol INTEGER NOT NULL,
+                precipitation INTEGER NOT NULL,
+                temp_max INTEGER NOT NULL,
+                temp_min INTEGER NOT NULL,
+                age INTEGER NOT NULL,
+
+                PRIMARY KEY(datestring, location_id)
+        );')
+        tx.executeSql('\
+            CREATE TABLE IF NOT EXISTS locations(
+                location_id INTEGER NOT NULL PRIMARY KEY,
+                zip INTEGER NOT NULL,
+                name TEXT NOT NULL,
+                cantonId TEXT NOT NULL,
+                canton TEXT NOT NULL,
+                latitude REAL NOT NULL,
+                longitude REAL NOT NULL,
+                altitude INTEGER NOT NULL,
+                view_position INTEGER NOT NULL
+        );')
+        tx.executeSql('\
+            CREATE TABLE IF NOT EXISTS settings(
+                setting TEXT NOT NULL PRIMARY KEY,
+                value TEXT
+        );')
+    }],
+//    [3, function(tx){
+
+//        tx.executeSql('\
+//            CREATE TABLE _accounts(
+//                rowid INTEGER PRIMARY KEY,
+//                title TEXT,
+//                currency TEXT,
+//                last_payer TEXT,
+//                precision INTEGER,
+//                color TEXT,
+//                interval TEXT,
+//                auto_topup REAL,
+//                seq INTEGER
+//            );
+//        ')
+//        DB.makeTableSortable(tx, '_accounts', 'seq')
+
+//        tx.executeSql('\
+//            CREATE TABLE transactions(
+//                rowid INTEGER PRIMARY KEY,
+//                project INTEGER NOT NULL,
+//                utc_time TEXT NOT NULL,
+//                local_time TEXT NOT NULL,
+//                local_tz TEXT NOT NULL,
+//                title TEXT DEFAULT "",
+//                info TEXT DEFAULT "",
+//                sum REAL DEFAULT 0.0,
+//                payer TEXT NOT NULL,
+
+//                FOREIGN KEY (project)
+//                REFERENCES projects (rowid)
+//                    ON UPDATE CASCADE
+//                    ON DELETE NO ACTION
+//            );
+//        ')
+//    }],
+
+    // add new versions here...
+    //
+    // remember: versions must be numeric, e.g. 0.1 but not 0.1.1
+    // note: this app uses integer version numbers since db version 3
+]
 
 
-function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
+//
+// BEGIN App database functions
+//
 
-var initialized = false
-
-function getDatabase() {
-    var db = LS.LocalStorage.openDatabaseSync("harbour-meteoswiss", "2.0", "MeteoSwiss Offline Cache", 1000000);
-
-    if (!initialized) {
-        initialized = true;
-        doInit(db);
-    }
-
-    return db;
-}
-
-function doInit(db) {
-    // Database tables: (primary key in all-caps)
-    // data: TIMESTAMP, LOCATION_ID, data (converted), day_count, day_dates
-    // data_overview: DATESTRING, LOCATION_ID, symbol, precipitation, temp_max, temp_min, age
-    // locations: LOCATION_ID, zip, name, cantonId, canton, latitude, longitude, altitude, view_position
-    // settings: SETTING, value
-
-    db.transaction(function(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS data(\
-            timestamp INTEGER NOT NULL, location_id INTEGER NOT NULL, data TEXT NOT NULL,\
-            day_count INTEGER NOT NULL, day_dates TEXT NOT NULL, PRIMARY KEY(timestamp, location_id))');
-
-        tx.executeSql('CREATE TABLE IF NOT EXISTS data_overview(\
-            datestring STRING NOT NULL, location_id INTEGER NOT NULL, symbol INTEGER NOT NULL,\
-            precipitation INTEGER NOT NULL, temp_max INTEGER NOT NULL, temp_min INTEGER NOT NULL,\
-            age INTEGER NOT NULL, PRIMARY KEY(datestring, location_id))');
-
-        tx.executeSql('CREATE TABLE IF NOT EXISTS locations(\
-            location_id INTEGER NOT NULL PRIMARY KEY, zip INTEGER NOT NULL, name TEXT NOT NULL,\
-            cantonId TEXT NOT NULL, canton TEXT NOT NULL,\
-            latitude REAL NOT NULL, longitude REAL NOT NULL, altitude INTEGER NOT NULL, view_position INTEGER NOT NULL)');
-
-        tx.executeSql('CREATE TABLE IF NOT EXISTS settings(setting TEXT NOT NULL PRIMARY KEY, value TEXT)');
-    });
-}
+var defaultFor = DB.defaultFor
+var getDatabase = DB.getDatabase
 
 function simpleQuery(query, values, getSelectedCount) {
-    var db = getDatabase();
-    var res = undefined;
-    values = defaultFor(values, []);
+    var res = DB.simpleQuery(query, values, false)
 
-    if (!query) {
-        console.log("error: empty query");
-        return undefined;
+    if (res.ok === false) {
+        return undefined
+    } else if (getSelectedCount) {
+        return res.rows.length
+    } else {
+        return res.rowsAffected
     }
-
-    try {
-        db.transaction(function(tx) {
-            var rs = tx.executeSql(query, values);
-
-            if (rs.rowsAffected > 0) {
-                res = rs.rowsAffected;
-            } else {
-                res = 0;
-            }
-
-            if (getSelectedCount === true) {
-                res = rs.rows.length;
-            }
-        });
-    } catch(e) {
-        console.log("error in query: '"+ e +"', values=", values);
-        res = undefined;
-    }
-
-    return res;
 }
 
 function pruneOldData(locationId, allAtOnce) {
@@ -163,7 +209,7 @@ function addLocation(locationData, viewPosition) {
     var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?,?,?,?);', [id, zip, name, canId, can, lat, long, alt, viewPosition]);
 
     if (res !== 0 && !res) {
-        console.log("error: failed to save location " + locationId + " to db");
+        console.log("error: failed to save location " + id + " to db");
     }
 
     return res;
