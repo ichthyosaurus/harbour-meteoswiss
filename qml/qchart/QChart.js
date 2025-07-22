@@ -838,8 +838,8 @@ var Chart = function(canvas, context) {
                 if ( l < lowerValue) { lowerValue = l; };
             };
 
-            var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
-            var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
+            var maxSteps = Math.floor((scaleHeight / labelHeight));
+            var minSteps = Math.floor((scaleHeight / labelHeight*0.66));
 
             return {
                 maxValue: upperValue,
