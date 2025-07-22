@@ -9,6 +9,37 @@ import "modules/Opal/About"
 
 ChangelogList {
     ChangelogItem {
+        version: "2.0.0-1"
+        date: "2025-07-22"
+        paragraphs: [
+            "- Added a fancy new table view that shows all available data, accessible from the pulley menu (try scrolling sideways to see everything)<br>" +
+            "- Added a new wind gusts graph, showing the range of expected gusts per hour<br>" +
+            "- Added a new sunshine duration graph, showing minutes of sunshine per hour<br>" +
+            "- Added expected chance of precipitation (percentage) in 3h intervals<br>" +
+            "- Added wind direction display to wind speed graph<br>" +
+            "- Improved logging of data conversion errors and database errors<br>" +
+            "- Improved error handling for cases when locations are no longer supported, or data loading fails<br>" +
+            "- Updated data refresh interval from 60min to 30min for forecasts, and to 15min for week overviews<br>" +
+            "- Updated wind speed graph to show data in 1h intervals<br>" +
+            "- Updated graph colors and spacing to be more legible<br>" +
+            "- Fixed precipitation display in multiple places<br>" +
+            "- Fixed precipitation calculation: expected amount, minimum, and maximum are visible again in charts<br>" +
+            "- Fixed broken locations showing up on the cover screen<br>" +
+            "- Fixed no longer supported locations breaking data loading: if a location is detected as broken, it will be disabled automatically now<br>" +
+            "- Fixed charts breaking when some data points are missing<br>" +
+            "- Fixed blurry weather icons on low resolution screens like the C2<br>" +
+            "- Fixed precipitation charts seemingly starting at negative values (#10)<br>" +
+            "- Large changes under the hood:<br>" +
+            "- > switched to Opal.LocalStorage for database handling<br>" +
+            "- > improved the charting library<br>" +
+            "- > removed a lot of dead code<br>" +
+            "- > updated Opal modules bringing in translation updates and bug fixes<br>" +
+            "- > backported fixes from Dashboard, Expenditure, and Captain's Log<br>" +
+            "- > and much more<br>" +
+            "- Note: switching to an older version after this update is not possible due to changes to the database schema"
+        ]
+    }
+    ChangelogItem {
         version: "1.4.0-1"
         date: "2024-10-13"
         paragraphs: [

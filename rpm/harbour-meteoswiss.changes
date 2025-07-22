@@ -6,6 +6,33 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Jul 22 2025 Mirian Margiani <mixosaurus+ichthyo@pm.me> 2.0.0-1
+- Added a fancy new table view that shows all available data, accessible from the pulley menu (try scrolling sideways to see everything)
+- Added a new wind gusts graph, showing the range of expected gusts per hour
+- Added a new sunshine duration graph, showing minutes of sunshine per hour
+- Added expected chance of precipitation (percentage) in 3h intervals
+- Added wind direction display to wind speed graph
+- Improved logging of data conversion errors and database errors
+- Improved error handling for cases when locations are no longer supported, or data loading fails
+- Updated data refresh interval from 60min to 30min for forecasts, and to 15min for week overviews
+- Updated wind speed graph to show data in 1h intervals
+- Updated graph colors and spacing to be more legible
+- Fixed precipitation display in multiple places
+- Fixed precipitation calculation: expected amount, minimum, and maximum are visible again in charts
+- Fixed broken locations showing up on the cover screen
+- Fixed no longer supported locations breaking data loading: if a location is detected as broken, it will be disabled automatically now
+- Fixed charts breaking when some data points are missing
+- Fixed blurry weather icons on low resolution screens like the C2
+- Fixed precipitation charts seemingly starting at negative values (#10)
+- Large changes under the hood:
+- > switched to Opal.LocalStorage for database handling
+- > improved the charting library
+- > removed a lot of dead code
+- > updated Opal modules bringing in translation updates and bug fixes
+- > backported fixes from Dashboard, Expenditure, and Captain's Log
+- > and much more
+- Note: switching to an older version after this update is not possible due to changes to the database schema
+
 * Sun Oct 13 2024 Mirian Margiani <mixosaurus+ichthyo@pm.me> 1.4.0-1
 - This is mainly a maintenance release to bring the app back into shape for future development
 - Fixed overflowing text in day summaries
