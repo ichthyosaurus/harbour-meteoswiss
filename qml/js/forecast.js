@@ -7,6 +7,8 @@
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
 function mayRefresh(lastRefreshed, maxAgeMins) {
+    return false; // DEBUG
+
     if (!lastRefreshed) {
         return true
     }
@@ -202,6 +204,12 @@ function convertRaw(raw) {
                 dayData.rainfall.datasets[1].data.push(raw.graph.precipitationMin1h[hour] || null); // minimum
                 dayData.rainfall.datasets[2].data.push(raw.graph.precipitationMax1h[hour] || null); // maximum
                 dayData.rainfall.haveData = true;
+
+                if ((hour)%3 === 1) {
+                    dayData.rainfall.datasets[0].symbols.push("%1%".arg(raw.graph.precipitationProbability3h[(hour-1)/3]));
+                } else {
+                    dayData.rainfall.datasets[0].symbols.push("");
+                }
             } else {
                 // dayData.isSane = false;
                 // dayData.rainfall.haveData = false;
@@ -314,12 +322,12 @@ function fallbackToArchive(archived, errorMessage) {
     fullData = JSON.parse(archived.data);
 
     // vvv DEBUG
-    /*try {
+    try {
         fullData = convertRaw(JSON.parse(archived.rawData));
     } catch (e) {
         console.error("failed to convert raw data | exception:", e)
         return
-    }*/
+    }
     // ^^^ DEBUG
 
     WorkerScript.sendMessage({

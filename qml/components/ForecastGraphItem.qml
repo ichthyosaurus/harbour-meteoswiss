@@ -40,7 +40,7 @@ Item {
             Column {
                 id: chart
                 property int calcWidth: (Screen.height - 4*(Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium))
-                height: 7*spacing + tempTitle.height + tempHeight + rainTitle.height + rainHeight + sunTitle.height + sunHeight + windTitle.height + windHeight
+                height: 7*spacing + tempTitle.height + tempHeight + rainTitle.height + rainColumn.height + sunTitle.height + sunHeight + windTitle.height + windHeight
                 width: calcWidth < 1840 ? 1840 : calcWidth
 
                 spacing: Theme.paddingLarge
@@ -73,11 +73,39 @@ Item {
                     width: parent.width
                 }
 
-                Loader {
-                    id: rainLoader
-                    asynchronous: true
-                    // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
+                Column {
+                    id: rainColumn
+                    width: parent.width
+                    height: childrenRect.height
+                    spacing: Theme.paddingSmall
+
+                    Row {
+                        id: rainPercentage
+                        width: parent.width - 2*x
+                        x: !!rainLoader.item ? rainLoader.item.chartStartX : 0
+
+                        Repeater {
+                            model: !!rain ? rain.datasets[0].symbols : 0
+
+                            Label {
+                                width: !!rainLoader.item ? rainLoader.item.chartValueHop : 10
+                                text: modelData
+                                font.pixelSize: Theme.fontSizeExtraSmall
+                                horizontalAlignment: Text.AlignHCenter
+                                color: Theme.secondaryColor
+                            }
+                        }
+                    }
+
+                    Loader {
+                        id: rainLoader
+                        asynchronous: true
+                        width: parent.width
+                        height: chart.rainHeight
+                        // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
+                    }
                 }
+
 
                 Item { // placeholder
                     id: sunTitlePlace
@@ -164,8 +192,8 @@ Item {
 
     Loader {
         id: rainScaleLoader
-        x: rainLoader.x
-        y: rainLoader.y
+        x: rainColumn.x + rainLoader.x
+        y: rainColumn.y + rainLoader.y
         asynchronous: true
 
         visible: forecast.loaded
