@@ -28,7 +28,7 @@ DB.dbDescription = "Swiss Meteo Offline Cache"
 DB.dbSize = 2000000
 DB.enableAutoMaintenance = true
 DB.maintenanceCallback = function(){
-    pruneOldData(0, true)
+    pruneOldData(-1)
 }
 
 DB.dbMigrations = [
@@ -132,40 +132,45 @@ function simpleQuery(query, values, getSelectedCount) {
     }
 }
 
-function pruneOldData(locationId, allAtOnce) {
-    if (!locationId && !allAtOnce) return;
-    var res;
+function pruneOldData(locationId) {
+    var q
 
-    if (allAtOnce === true) {
-        var res1 = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
-            (timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
-            (location_id NOT IN (SELECT location_id FROM locations))\
-            ORDER BY rowid ASC\
-        );');
+    if (locationId < 0) {
+        q = DB.simpleQuery('\
+            DELETE FROM data
+            WHERE (
+                (timestamp <= strftime("%s", "now", "-14 day")*1000)
+                OR (location_id NOT IN (SELECT location_id FROM locations))
+            )
+        ;')
+        console.log("pruned %1 data entries for all locations".arg(q.rowsAffected))
 
-        var res2 = simpleQuery('DELETE FROM data_overview WHERE rowid IN (SELECT rowid FROM data_overview WHERE\
-            (datestring <= date("now", "-14 day")) OR\
-            (location_id NOT IN (SELECT location_id FROM locations))\
-            ORDER BY rowid ASC\
-        );');
+        DB.simpleQuery('\
+            DELETE FROM data_overview
+            WHERE (
+                (datestring <= date("now", "-14 day"))
+                OR (location_id NOT IN (SELECT location_id FROM locations))
+            )
+        ;')
+        console.log("pruned %1 overview entries for all locations".arg(q.rowsAffected))
+    } else if (!!locationId) {
+        q = DB.simpleQuery('\
+            DELETE FROM data
+            WHERE (
+                (location_id = ? AND timestamp <= strftime("%s", "now", "-14 day")*1000)
+                OR (location_id NOT IN (SELECT location_id FROM locations))
+            )
+        ;', [locationId])
+        console.log("pruned %1 data entries for %2".arg(q.rowsAffected).arg(locationId))
 
-        if (res1 === undefined && res2 === undefined) res = undefined;
-        else if (res1 === undefined) res1 = 0;
-        else if (res2 === undefined) res2 = 0;
-        if (res !== undefined) res = res1 + res2;
-    } else {
-        res = simpleQuery('DELETE FROM data WHERE rowid IN (SELECT rowid FROM data WHERE\
-            (location_id=? AND timestamp <= strftime("%s", "now", "-14 day")*1000) OR\
-            (location_id NOT IN (SELECT location_id FROM locations))\
-            ORDER BY rowid ASC\
-            LIMIT 100\
-        );', [locationId]);
-    }
-
-    if (res === undefined) {
-        console.log("error: failed to prune old data for " + locationId);
-    } else if (res > 0) {
-        console.log("pruned " + res + " old entries for " + locationId);
+        DB.simpleQuery('\
+            DELETE FROM data_overview
+            WHERE (
+                (location_id = ? AND datestring <= date("now", "-14 day"))
+                OR (location_id NOT IN (SELECT location_id FROM locations))
+            )
+        ;', [locationId])
+        console.log("pruned %1 overview entries for %2".arg(q.rowsAffected).arg(locationId))
     }
 }
 
