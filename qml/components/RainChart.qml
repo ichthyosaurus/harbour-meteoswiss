@@ -38,7 +38,7 @@ QChart {
         scaleStartValue: 0.0,
         barOverlay: true,
 
-        fillColor: [getFillColor(), "rgba(151,187,205,0.1)", "rgba(151,187,205,0.1)"],
+        fillColor: [getFillColor(), "rgba(151,187,205,0.8)", "rgba(151,187,205,0.05)"],
         strokeColor: [getStrokeColor(), "rgba(151,187,205,0.6)", "rgba(151,187,205,0.6)"],
     })
 
