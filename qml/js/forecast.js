@@ -6,6 +6,20 @@
 
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
+function mayRefresh(lastRefreshed) {
+    if (!lastRefreshed) {
+        return true
+    }
+
+    console.log("check refresh:", new Date() - new Date(lastRefreshed), 30*60*1000)
+    if (new Date() - new Date(lastRefreshed) > 30*60*1000) {
+        console.log("may refresh")
+        return true
+    }
+
+    return false
+}
+
 function date_diff(a, b) {
     var d1 = new Date();
     var d2 = new Date();
@@ -55,7 +69,7 @@ var emptyDummyDay = {
     },
 };
 
-function convert_raw(raw) {
+function convertRaw(raw) {
     var data = [];
 
     console.log("converting...")
@@ -156,7 +170,7 @@ function convert_raw(raw) {
             if (hour < raw.graph.temperatureMean1h.length
                     && hour < raw.graph.temperatureMin1h.length
                     && hour < raw.graph.temperatureMax1h.length) {
-                dayData.temperature.datasets[0].data.push(raw.graph.temperatureMean1h[hour]); // estimate
+                dayData.temperature.datasets[0].data.push(raw.graph.temperatureMean1h[hour]); // mean
                 dayData.temperature.datasets[1].data.push(raw.graph.temperatureMin1h[hour]); // minimum
                 dayData.temperature.datasets[2].data.push(raw.graph.temperatureMax1h[hour]); // maximum
 
@@ -235,7 +249,7 @@ function fallbackToArchive(archived, errorMessage) {
 
     // vvv DEBUG
     /*try {
-        fullData = convert_raw(JSON.parse(archived.rawData));
+        fullData = convertRaw(JSON.parse(archived.rawData));
     } catch (e) {
         console.error("failed to convert raw data | exception:", e)
         return
@@ -259,9 +273,18 @@ function fallbackToArchive(archived, errorMessage) {
 WorkerScript.onMessage = function(message) {
     // sleep(2000) // DEBUG
 
-    if (message && message.type === "weekOverview") {
+    if (!message || !message.hasOwnProperty('type')) {
+        return
+    }
+
+    if (message.type === "weekOverview") {
         if (!message.locations || message.locations.length === 0) {
             console.log("note: no locations - week overview not updated");
+            return
+        }
+
+        if (!mayRefresh(message.lastRefreshed)) {
+            console.log("no update needed for week overviews")
             return
         }
 
@@ -298,141 +321,62 @@ WorkerScript.onMessage = function(message) {
             }
         }
 
-        console.log("UPDATED updated week overviews")
-        WorkerScript.sendMessage({ type: 'weekOverview', age: new Date(), data: ret });
-        return;
-    }
+        console.log("updated week overviews")
+        WorkerScript.sendMessage({
+            type: 'weekOverview',
+            timestamp: (new Date()).getTime(),
+            data: ret
+        })
+    } else if (message.type === 'forecast') {
+        var archived = message.data
+        var lastRefreshed = message.lastRefreshed
+        var locationId = message.locationId
 
-
-    var locationId;
-    var archived = null;
-
-    if (message && message.locationId) {
-        locationId = message.locationId;
-    } else {
-        console.log("error: failed to load data: missing location id");
-        return;
-    }
-
-    if (message && message.data) {
-        archived = message.data;
-    }
-
-    // if (message && message.dummy) {
-    //     fallbackToArchive(message.dummy, "using dummy archive")
-    //     return
-    // }
-
-    var now = new Date();
-    if (archived) {
-        var ts = new Date(archived.timestamp);
-
-        if (ts.toDateString() === now.toDateString() && (now.getTime() - ts.getTime()) < 60*60*1000) {
-            fallbackToArchive(archived, "already refreshed less than an hour ago");
-
-            // Notify of the unchanged path to make sure refreshing continues.
-            //
-            // When refreshing all locations, the first is refreshed and the
-            // rest waits for the updated path. If the path stays unchanged,
-            // the main thread has to be notified nonetheless, else the process
-            // would not continue.
-            // This is only needed if the first location was already refreshed
-            // less than an hour ago. If the path is invalid later on, we don't
-            // want to ensure a cached path is used. It will be renewed if necessary.
-            // All this is only important when refreshing all locations. When
-            // refreshing a single location, the path gets extracted and stored.
-            // If two locations are refreshed separately with less than a certain
-            // threshold of difference, the cached path will be used correctly.
-            // This work-around is only necessary to make sure the threads stay
-            // in sync when looping quickly over all locations.
-            if (message.notifyUnchangedPath) {
-                WorkerScript.sendMessage({ type: 'path', source: message.source, age: message.sourceAge });
-            }
-
-            return;
+        if (!!archived && !mayRefresh(message.lastRefreshed)) {
+            fallbackToArchive(archived, "no update needed for location %1".arg(locationId))
+            return
         }
-    }
 
-    var sourcePath = message.source;
-    var sourceAge = message.sourceAge;
+        var loaded = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=' + locationId);
+        // var loaded = httpGet('/home/%1/Devel/meteoswiss/plzDetail-3001.json'.arg('defaultuser')); // -- for debugging
+        var rawData = {}
 
-    function getSourcePath() {
-        /*var xml = httpGet('https://www.meteoschweiz.admin.ch/home.html?tab=overview', false).responseText;
-        var chartReg = /\/product\/output\/forecast-chart\/version__[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]\/de/g;
-        var retPath = chartReg.exec(xml);
-
-        if (!retPath) {
-            fallbackToArchive(archived, "could not extract JSON data path");
-            return [undefined, undefined];
+        if (loaded.status === 200) {
+            try {
+                rawData = JSON.parse(loaded.responseText)
+            } catch (e) {
+                fallbackToArchive(archived, "could not parse data JSON")
+                return
+            }
         } else {
-            console.log("extracted data path:", retPath);
-        }*/
-
-        var retPath = '[unused]';
-        var retAge = now;
-
-        WorkerScript.sendMessage({ type: 'path', source: retPath, age: retAge });
-
-        return [retPath, retAge];
-    }
-
-    if (!sourcePath || (now - sourceAge) > 60*10*1000) {
-        var source = getSourcePath();
-        sourcePath = source[0];
-        sourceAge = source[1];
-    } else {
-        console.log("using cached data path:", sourcePath);
-    }
-
-    function getJSON(sourcePath) {
-        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=' + locationId);
-        // var json = httpGet('/home/%1/Devel/meteoswiss/plzDetail-3001.json'.arg('defaultuser')); // -- for debugging
-
-        if (json.status !== 200) {
-            return 'FAILED';
+            fallbackToArchive(archived, "failed to retrieve data (status %1)".arg(loaded.status))
+            return
         }
 
         try {
-            var ret = JSON.parse(json.responseText);
-            return ret;
+            fullData = convertRaw(rawData);
         } catch (e) {
-            return undefined;
+            console.error("failed to convert raw data | exception:", e)
+            return
         }
-    }
 
-    var raw_data = getJSON(sourcePath);
+        var dateHeader = loaded.getResponseHeader('date')
+        var timestamp = new Date()
 
-    if (!raw_data) {
-        /*console.log("retrying with new source path...");
-        var source = getSourcePath();
-        sourcePath = source[0];
-        sourceAge = source[1];
-        raw_data = getJSON(sourcePath);
+        if (!!dateHeader) {
+            timestamp = new Date(dateHeader)
+            console.log("received data date header:", dateHeader, timestamp)
+        }
 
-        if (!raw_data) {
-            fallbackToArchive(archived, "could not parse data JSON");
-            return;
-        }*/
-
-        fallbackToArchive(archived, "could not parse data JSON");
-        return;
-    } else if (raw_data === 'FAILED') {
-        fallbackToArchive(archived, "failed to retrieve data (invalid response)");
-        return;
-    }
-
-    try {
-        fullData = convert_raw(raw_data);
-    } catch (e) {
-        console.error("failed to convert raw data | exception:", e)
+        WorkerScript.sendMessage({
+            'type': 'data',
+            'locationId': locationId,
+            'timestamp': timestamp.getTime(),
+            'data': fullData,
+            'rawData': JSON.stringify(rawData),
+        })
+    } else {
+        console.error("received an invalid worker request:", JSON.stringify(message))
         return
     }
-
-    WorkerScript.sendMessage({
-        'type': 'data',
-        'locationId': locationId,
-        'timestamp': raw_data.currentWeather.time,
-        'data': fullData,
-        'rawData': JSON.stringify(raw_data),
-    });
 }
