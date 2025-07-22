@@ -561,7 +561,6 @@ var Chart = function(canvas, context) {
         // /////////////////////////////////////////////////////////////////
 
         this.draw = function (progress) {
-
             clear(ctx);
 
             if(config.scaleOverlay) {
@@ -585,6 +584,9 @@ var Chart = function(canvas, context) {
                 for (var j=0; j<data.datasets[i].data.length; j++) {
                     var barHeight = calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)
 
+                    if (data.datasets[i].data[j] === null || barHeight === 0) {
+                        continue
+                    }
 
                     if (config.barOverlay) {
                         var barOffset = yAxisLeftPosX + config.barValueSpacing + valueHop*j + config.barStrokeWidth;
