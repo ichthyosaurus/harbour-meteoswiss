@@ -110,8 +110,6 @@ function convertRaw(raw) {
                 _highResSums.push(_currentSum)
             }
 
-            console.log("SUMMED", _highResSums)
-
             var endOfSummedRange = raw.graph.start + (_highResSums.length*3600*1000)
 
             if (endOfSummedRange > raw.graph.startLowResolution) {
