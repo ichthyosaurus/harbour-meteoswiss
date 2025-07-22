@@ -43,9 +43,9 @@ QChart {
         pointDotRadius: 6,
         pointDot: false,
 
-        fillColor: ["rgba(255,255,0,0.2)"],
-        strokeColor: ["rgba(255,255,0,1)"],
-        pointColor: ["rgba(255,255,0,1)"],
-        pointStrokeColor: ["rgba(255,255,0,1)"],
+        fillColor: ["rgba(255,255,0,0.2)", "rgba(0,0,0,0)"],
+        strokeColor: ["rgba(255,255,0,1)", "rgba(0,0,0,0)"],
+        pointColor: ["rgba(255,255,0,1)", "rgba(0,0,0,0)"],
+        pointStrokeColor: ["rgba(255,255,0,1)", "rgba(0,0,0,0)"],
     })
 }

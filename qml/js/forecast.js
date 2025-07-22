@@ -175,7 +175,6 @@ function convertRaw(raw) {
                                1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                1.0, 0, 0, 0]
                     }
-
                 ],
             },
             sun: {
@@ -184,6 +183,14 @@ function convertRaw(raw) {
                     { // expected
                         data: [],
                         symbols: []
+                    },
+
+                    { // invisible placeholder dataset
+                      // to make sure the scale always
+                      // goes up to 60
+                        data: [60, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                               0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                               0, 0, 0, 0]
                     }
                 ],
             },
