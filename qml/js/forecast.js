@@ -361,6 +361,15 @@ function fallbackToArchive(archived, errorMessage) {
     console.log("warning (" + archived.locationId + "): " + errorMessage);
     fullData = JSON.parse(archived.data);
 
+    // vvv DEBUG
+    /*try {
+        fullData = convert_raw(JSON.parse(archived.rawData));
+    } catch (e) {
+        console.error("failed to convert raw data | exception:", e)
+        return
+    }*/
+    // ^^^ DEBUG
+
     WorkerScript.sendMessage({
         'type': 'data',
         'locationId': archived.locationId,
@@ -384,7 +393,8 @@ WorkerScript.onMessage = function(message) {
             return
         }
 
-        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzOverview?plz=&small=' + message.locations.join(',') + '&large=', false);
+        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzOverview?plz=&small=' + message.locations.join(',') + '&large=');
+        // var json = httpGet('/home/%1/Devel/meteoswiss/plzOverview.json'.arg('defaultuser')); // -- for debugging
 
         try {
             var week = JSON.parse(json.responseText);
@@ -503,8 +513,8 @@ WorkerScript.onMessage = function(message) {
     }
 
     function getJSON(sourcePath) {
-        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=' + locationId, true);
-        // var json = httpGet('/home/<user>/Devel/meteoswiss/forecast_plzDetail.json', true); -- use for debugging
+        var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=' + locationId);
+        // var json = httpGet('/home/%1/Devel/meteoswiss/plzDetail-3001.json'.arg('defaultuser')); // -- for debugging
 
         if (json.status !== 200) {
             return 'FAILED';
