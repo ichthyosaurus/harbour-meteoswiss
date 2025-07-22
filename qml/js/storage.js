@@ -77,12 +77,13 @@ DB.dbMigrations = [
         );')
     }],
     [3, function(tx){
+        // Store raw data
         tx.executeSql('\
             ALTER TABLE data
             ADD COLUMN raw_data TEXT DEFAULT ""
         ;')
-    }],
-    [4, function(tx){
+
+        // Mark broken locations as disabled
         tx.executeSql('\
             ALTER TABLE locations
             ADD COLUMN active BOOLEAN DEFAULT TRUE
@@ -91,8 +92,8 @@ DB.dbMigrations = [
             UPDATE locations
             SET active = TRUE
         ')
-    }],
-    [5, function(tx){
+
+        // Handle settings through Opal.LocalStorage
         tx.executeSql('\
             CREATE TABLE IF NOT EXISTS settings(
                 setting TEXT UNIQUE, value TEXT
