@@ -18,7 +18,16 @@ QChart {
     property bool asOverview: false
 
     chartAnimated: false
-    chartData: rain ? rain : { labels: [], datasets: [{ fillColor: getFillColor(), strokeColor: getStrokeColor(), pointColor: "rgba(0,0,0,0)", data: [] }]}
+    chartData: rain ? rain : {
+        haveData: false,
+        labels: [],
+        datasets: [{
+            fillColor: getFillColor(),
+            strokeColor: getStrokeColor(),
+            pointColor: "rgba(0,0,0,0)",
+            data: []
+        }]
+    }
     chartType: Charts.ChartType.BAR
     chartOptions: ({
         // common chart options
@@ -38,25 +47,9 @@ QChart {
         scaleStartValue: 0.0,
         barOverlay: true,
 
-        fillColor: [getFillColor(), "rgba(151,187,205,0.8)", "rgba(151,187,205,0.05)"],
-        strokeColor: [getStrokeColor(), "rgba(151,187,205,0.6)", "rgba(151,187,205,0.6)"],
+        fillColor: ["rgba(151,187,205,0.5)", "rgba(151,187,205,1.0)", "rgba(151,187,205,0.05)",
+                    "rgba(0,0,0,0)"],
+        strokeColor: ["rgba(151,187,205,0.6)", "rgba(151,187,205,0.9)", "rgba(151,187,205,0.3)",
+                      "rgba(0,0,0,0)"],
     })
-
-    function getFillColor() {
-        if (rain) {
-            if (rain.haveData) return "rgba(151,187,205,0.5)";
-            else return "rgba(0,0,0,0)";
-        } else {
-            return "rgba(0,0,0,0)";
-        }
-    }
-
-    function getStrokeColor() {
-        if (rain) {
-            if (rain.haveData) return "rgba(151,187,205,1)";
-            else return "rgba(0,0,0,0)";
-        } else {
-            return "rgba(0,0,0,0)";
-        }
-    }
 }

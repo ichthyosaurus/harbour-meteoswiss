@@ -132,7 +132,7 @@ function convertRaw(raw) {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
-                    { // mean
+                    { // expected
                         data: [],
                         symbols: []
                     },{ // minimum
@@ -146,7 +146,7 @@ function convertRaw(raw) {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
-                    { // mean
+                    { // expected
                         data: [],
                         symbols: []
                     },{ // minimum
@@ -154,13 +154,22 @@ function convertRaw(raw) {
                     },{ // maximum
                         data: [],
                     },
+
+                    { // invisible placeholder dataset
+                      // to make sure the scale is always visible
+                      // even if there is no precipitation
+                        data: [1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                               1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                               1.0, 0, 0, 0]
+                    }
+
                 ],
             },
             sun: {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
-                    { // mean
+                    { // expected
                         data: [],
                         symbols: []
                     }
@@ -287,16 +296,6 @@ function convertRaw(raw) {
                 // dayData.sun.haveData = false
                 console.log("warning: missing data at the end: sunshine,", hour, raw.graph.sunshine1h.length);
             }
-        }
-
-        // check if there is any precipitation
-        var minRain = Math.min.apply(Math, dayData.rainfall.datasets[1].data); // minimum of minimum
-
-        // @disable-check M126
-        if (minRain == 0.0) {
-            // workaround to make sure chart scale is being shown
-            dayData.rainfall.haveData = false;
-            dayData.rainfall.datasets[0].data[0] = 0.3;
         }
 
         dayData.isSane = true;
