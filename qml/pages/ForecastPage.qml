@@ -37,6 +37,20 @@ Page {
                     meteoApp.refreshData(locationId, true)
                 }
             }
+            MenuItem {
+                text: qsTr("Table view")
+                onClicked: {
+                    if (meteoApp.dataIsReady[locationId]) {
+                        meteoApp.refreshTableModel(locationId)
+                        pageStack.push(Qt.resolvedUrl("TablePage.qml"), {
+                            locationId: locationId,
+                            day: 0
+                        })
+                    } else {
+                        console.log("table locked")
+                    }
+                }
+            }
         }
 
         Column {
