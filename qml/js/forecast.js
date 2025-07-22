@@ -209,24 +209,12 @@ function convert_raw(raw) {
 
 var fullData = [emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay, emptyDummyDay];
 
-function httpGet(url, enableSpoofing) {
-    enableSpoofing = defaultFor(enableSpoofing, false);
-    console.log("getting", url, "| spoofed:", enableSpoofing);
+function httpGet(url) {
+    console.log("getting", url);
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false); // 'false' for synchronous request
     xmlHttp.setRequestHeader("User-Agent", "MeteoSwissApp-3.0.6-Android");
-
-    if (enableSpoofing === true) {
-        // FIXME Setting Host and Referer is not possible via XHR.
-        // See: https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name
-        // And: https://doc.qt.io/qt-5/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
-        // As of 2020-06-10, the app can no longer receive data due to this.
-
-        // xmlHttp.setRequestHeader('Host', 'www.meteoschweiz.admin.ch');
-        // xmlHttp.setRequestHeader('Referer', 'https://www.meteoschweiz.admin.ch/home.html?tab=overview');
-    }
-
     xmlHttp.send(null);
 
     console.log("XHR response:", xmlHttp.status, xmlHttp.statusText);
