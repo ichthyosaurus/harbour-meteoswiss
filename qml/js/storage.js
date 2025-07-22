@@ -105,6 +105,12 @@ DB.dbMigrations = [
         tx.executeSql('INSERT INTO %1(key, value) \
             SELECT setting, value FROM settings;'.arg(DB.settingsTable))
         tx.executeSql('DROP TABLE settings;')
+
+        // Drop all cached data to force a full refresh
+        // because the internal data structure has changed
+        tx.executeSql('DELETE FROM data;')
+        tx.executeSql('DELETE FROM data_overview;')
+        tx.executeSql('DELETE FROM %1 WHERE key = "last_maintenance";'.arg(DB.settingsTable))
     }],
 
     // add new versions here...
