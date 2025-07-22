@@ -44,7 +44,6 @@ var emptyDummyDay = {
     isSane: false,
     date: '',
     temperature: {
-        haveData: false,
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{ // estimate
                 data: [],
@@ -57,7 +56,6 @@ var emptyDummyDay = {
         ],
     },
     rainfall: {
-        haveData: false,
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{ // estimate
                 data: [],
@@ -69,7 +67,6 @@ var emptyDummyDay = {
         ],
     },
     wind: {
-        haveData: false,
         labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
         datasets: [{
                 data: [],
@@ -149,7 +146,6 @@ function convertRaw(raw) {
             isSane: false,
             date: '',
             temperature: {
-                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
                     { // expected
@@ -163,7 +159,6 @@ function convertRaw(raw) {
                 ],
             },
             rainfall: {
-                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
                     { // expected
@@ -186,7 +181,6 @@ function convertRaw(raw) {
                 ],
             },
             sun: {
-                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
                     { // expected
@@ -196,7 +190,6 @@ function convertRaw(raw) {
                 ],
             },
             wind: {
-                haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                 datasets: [
                     // WIND
@@ -238,7 +231,6 @@ function convertRaw(raw) {
                 dayData.rainfall.datasets[0].data.push(raw.graph.precipitation1h[hour] || null); // mean
                 dayData.rainfall.datasets[1].data.push(raw.graph.precipitationMin1h[hour] || null); // minimum
                 dayData.rainfall.datasets[2].data.push(raw.graph.precipitationMax1h[hour] || null); // maximum
-                dayData.rainfall.haveData = true;
 
                 if (isThird) {
                     dayData.rainfall.datasets[0].symbols.push(raw.graph.precipitationProbability3h[third]);
@@ -247,7 +239,6 @@ function convertRaw(raw) {
                 }
             } else {
                 // dayData.isSane = false;
-                // dayData.rainfall.haveData = false;
                 console.log("warning: missing data at the end: precipitation,", hour, raw.graph.precipitation1h.length);
             }
 
@@ -268,11 +259,8 @@ function convertRaw(raw) {
                 } else {
                     dayData.temperature.datasets[0].symbols.push(0);
                 }
-
-                dayData.temperature.haveData = true;
             } else {
                 // dayData.isSane = false;
-                // dayData.temperature.haveData = false;
                 console.log("warning: missing data at the end: temperature,", hour, raw.graph.temperatureMean1h.length);
             }
 
@@ -282,7 +270,6 @@ function convertRaw(raw) {
                 dayData.wind.datasets[0].data.push(raw.graph.windSpeed1h[hour]) // mean
                 dayData.wind.datasets[1].data.push(raw.graph.windSpeed1hq10[hour]) // minimum
                 dayData.wind.datasets[2].data.push(raw.graph.windSpeed1hq90[hour]) // maximum
-                dayData.wind.haveData = true
 
                 if (isThird) {
                     dayData.wind.datasets[0].symbols.push(raw.graph.windDirection3h[third]);
@@ -291,7 +278,6 @@ function convertRaw(raw) {
                 }
             } else {
                 // dayData.isSane = false
-                // dayData.wind.haveData = false
                 console.log("warning: missing data at the end: wind,", hour, raw.graph.windSpeed1h.length);
             }
 
@@ -301,19 +287,15 @@ function convertRaw(raw) {
                 dayData.wind.datasets[3].data.push(raw.graph.gustSpeed1h[hour]) // mean
                 dayData.wind.datasets[4].data.push(raw.graph.gustSpeed1hq10[hour]) // minimum
                 dayData.wind.datasets[5].data.push(raw.graph.gustSpeed1hq90[hour]) // maximum
-                dayData.wind.haveData = true
             } else {
                 // dayData.isSane = false
-                // dayData.wind.haveData = false
                 console.log("warning: missing data at the end: gust,", hour, raw.graph.gustSpeed1h.length);
             }
 
             if (hour < raw.graph.sunshine1h.length) {
                 dayData.sun.datasets[0].data.push(raw.graph.sunshine1h[hour]) // expected
-                dayData.sun.haveData = true
             } else {
                 // dayData.isSane = false
-                // dayData.sun.haveData = false
                 console.log("warning: missing data at the end: sunshine,", hour, raw.graph.sunshine1h.length);
             }
         }

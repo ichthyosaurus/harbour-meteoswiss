@@ -19,7 +19,6 @@ QChart {
 
     chartAnimated: false
     chartData: rain ? rain : {
-        haveData: false,
         labels: [],
         datasets: [{
             fillColor: getFillColor(),
