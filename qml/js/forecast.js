@@ -6,15 +6,23 @@
 
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
-function mayRefresh(lastRefreshed) {
+function mayRefresh(lastRefreshed, maxAgeMins) {
     if (!lastRefreshed) {
         return true
     }
 
-    console.log("check refresh:", new Date() - new Date(lastRefreshed), 30*60*1000)
-    if (new Date() - new Date(lastRefreshed) > 30*60*1000) {
-        console.log("may refresh")
+    maxAgeMins = defaultFor(maxAgeMins, 30)
+    var maxAgeMillis = maxAgeMins * 60 * 1000
+    var lastRefreshedDate = new Date(lastRefreshed)
+    var now = new Date()
+
+    console.log("check refresh: got age", now - lastRefreshedDate, ", max.", maxAgeMillis)
+
+    if (now - lastRefreshedDate > maxAgeMillis) {
+        console.log("> may refresh")
         return true
+    } else {
+        console.log("> no refresh needed")
     }
 
     return false
@@ -287,7 +295,7 @@ WorkerScript.onMessage = function(message) {
             return
         }
 
-        if (!mayRefresh(message.lastRefreshed)) {
+        if (!mayRefresh(message.lastRefreshed, 15)) {
             console.log("no update needed for week overviews")
             return
         }
@@ -336,7 +344,7 @@ WorkerScript.onMessage = function(message) {
         var lastRefreshed = message.lastRefreshed
         var locationId = message.locationId
 
-        if (!!archived && !mayRefresh(message.lastRefreshed)) {
+        if (!!archived && !mayRefresh(message.lastRefreshed, 30)) {
             fallbackToArchive(archived, "no update needed for location %1".arg(locationId))
             return
         }
