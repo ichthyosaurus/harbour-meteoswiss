@@ -22,18 +22,25 @@ QChart {
     chartData: temp ? temp : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.LINE
     chartOptions: ({
+        // common chart options
+        // changes must be applied to all charts!
         scaleFontSize: Theme.fontSizeExtraSmall * (asOverview ? (4/5) : 1),
         scaleFontFamily: 'Sail Sans Pro',
         scaleFontColor: Theme.secondaryColor,
-        scaleLineColor: Theme.secondaryColor,
+        scaleLineColor: Theme.rgba(Theme.secondaryColor, 0.4),
+        scaleLineWidth: 0.5,
         scaleOverlay: scaleOnly,
+        currentHourLine: isToday,
+        currentHourLineColor: Theme.rgba(Theme.secondaryColor, 1.0),
+        currentHourLineWidth: 2,
+        asOverview: asOverview,
+
+        // custom chart options
         bezierCurve: false,
         datasetStrokeWidth: 2,
         datasetFill: false,
         datasetFillDiff23: true,
         pointDotRadius: 6,
-        currentHourLine: isToday,
-        asOverview: asOverview,
 
         fillColor: ["rgba(234,77,79,0)", "rgba(234,77,79,0.2)", "rgba(234,77,79,0.2)"],
         strokeColor: ["rgba(234,77,79,1)", "rgba(234,77,79,0.6)", "rgba(234,77,79,0.6)"],

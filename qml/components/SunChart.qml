@@ -15,16 +15,26 @@ QChart {
     id: root
     property bool scaleOnly: false
     property bool isToday: false
+    readonly property bool asOverview: false
 
     chartAnimated: false
     chartData: sun ? sun : { labels: [], datasets: [{ fillColor: "rgba(0,0,0,0)", strokeColor: "rgba(0,0,0,0)", pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.LINE
     chartOptions: ({
-        scaleFontSize: Theme.fontSizeExtraSmall,
+        // common chart options
+        // changes must be applied to all charts!
+        scaleFontSize: Theme.fontSizeExtraSmall * (asOverview ? (4/5) : 1),
         scaleFontFamily: 'Sail Sans Pro',
         scaleFontColor: Theme.secondaryColor,
-        scaleLineColor: Theme.secondaryColor,
+        scaleLineColor: Theme.rgba(Theme.secondaryColor, 0.4),
+        scaleLineWidth: 0.5,
         scaleOverlay: scaleOnly,
+        currentHourLine: isToday,
+        currentHourLineColor: Theme.rgba(Theme.secondaryColor, 1.0),
+        currentHourLineWidth: 2,
+        asOverview: asOverview,
+
+        // custom chart options
         bezierCurve: true,
         scaleStartValue: 0,
         datasetStrokeWidth: 2,
@@ -32,7 +42,6 @@ QChart {
         datasetFillDiff23: false,
         pointDotRadius: 6,
         pointDot: false,
-        currentHourLine: isToday,
 
         fillColor: ["rgba(255,255,0,0.2)"],
         strokeColor: ["rgba(255,255,0,1)"],

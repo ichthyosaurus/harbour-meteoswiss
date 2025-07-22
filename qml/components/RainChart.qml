@@ -21,16 +21,22 @@ QChart {
     chartData: rain ? rain : { labels: [], datasets: [{ fillColor: getFillColor(), strokeColor: getStrokeColor(), pointColor: "rgba(0,0,0,0)", data: [] }]}
     chartType: Charts.ChartType.BAR
     chartOptions: ({
+        // common chart options
+        // changes must be applied to all charts!
         scaleFontSize: Theme.fontSizeExtraSmall * (asOverview ? (4/5) : 1),
         scaleFontFamily: 'Sail Sans Pro',
         scaleFontColor: Theme.secondaryColor,
-        scaleLineColor: Theme.secondaryColor,
-        scaleShowLabels: true,
-        scaleStartValue: 0.0,
+        scaleLineColor: Theme.rgba(Theme.secondaryColor, 0.4),
+        scaleLineWidth: 0.5,
         scaleOverlay: scaleOnly,
         currentHourLine: isToday,
-        barOverlay: true,
+        currentHourLineColor: Theme.rgba(Theme.secondaryColor, 1.0),
+        currentHourLineWidth: 2,
         asOverview: asOverview,
+
+        // custom chart options
+        scaleStartValue: 0.0,
+        barOverlay: true,
 
         fillColor: [getFillColor(), "rgba(151,187,205,0.1)", "rgba(151,187,205,0.1)"],
         strokeColor: [getStrokeColor(), "rgba(151,187,205,0.6)", "rgba(151,187,205,0.6)"],

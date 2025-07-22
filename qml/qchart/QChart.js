@@ -69,6 +69,8 @@ var Chart = function(canvas, context) {
             scaleGridLineColor: "rgba(0,0,0,.05)",
             scaleGridLineWidth: 1,
             currentHourLine: false,
+            currentHourLineColor: "rgba(0,0,0,1)",
+            currentHourLineWidth: 1,
             currentHourPosition: null,
             bezierCurve: true,
             pointDot: true,
@@ -119,6 +121,8 @@ var Chart = function(canvas, context) {
             scaleGridLineColor: "rgba(0,0,0,.05)",
             scaleGridLineWidth: 1,
             currentHourLine: false,
+            currentHourLineColor: "rgba(0,0,0,1)",
+            currentHourLineWidth: 1,
             currentHourPosition: null,
             barShowStroke: true,
             barStrokeWidth: 2,
@@ -310,6 +314,9 @@ var Chart = function(canvas, context) {
             }
 
             if (config.currentHourLine && !config.scaleOverlay) {
+                ctx.lineWidth = config.currentHourLineWidth;
+                ctx.strokeStyle = config.currentHourLineColor;
+
                 if (config.currentHourPosition === null) {
                     var now = new Date();
                     var hour = now.getHours();
@@ -327,6 +334,9 @@ var Chart = function(canvas, context) {
                     ctx.lineTo(yAxisLeftPosX + valueHop/2 + offset, 5);
                     ctx.stroke();
                 }
+
+                ctx.lineWidth = config.scaleLineWidth;
+                ctx.strokeStyle = config.scaleLineColor;
             }
 
             if (rotateLabels > 0) {
@@ -612,6 +622,9 @@ var Chart = function(canvas, context) {
             }
 
             if (config.currentHourLine && !config.scaleOverlay) {
+                ctx.lineWidth = config.currentHourLineWidth;
+                ctx.strokeStyle = config.currentHourLineColor;
+
                 if (config.currentHourPosition === null) {
                     var now = new Date();
                     var hour = now.getHours();
@@ -629,6 +642,9 @@ var Chart = function(canvas, context) {
                     ctx.lineTo(yAxisLeftPosX + valueHop/2 + offset, 5);
                     ctx.stroke();
                 }
+
+                ctx.lineWidth = config.scaleLineWidth;
+                ctx.strokeStyle = config.scaleLineColor;
             }
 
             if (rotateLabels > 0) {
