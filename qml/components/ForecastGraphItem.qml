@@ -16,6 +16,7 @@ Item {
     property int day
     property var rain
     property var temp
+    property var sun
     property var wind
     property bool loaded: false
 
@@ -39,7 +40,7 @@ Item {
             Column {
                 id: chart
                 property int calcWidth: (Screen.height - 4*(Screen.sizeCategory > Screen.Medium ? Theme.horizontalPageMargin : Theme.paddingMedium))
-                height: 5*spacing + tempTitle.height + tempHeight + rainTitle.height + rainHeight + windTitle.height + windHeight
+                height: 7*spacing + tempTitle.height + tempHeight + rainTitle.height + rainHeight + sunTitle.height + sunHeight + windTitle.height + windHeight
                 width: calcWidth < 1840 ? 1840 : calcWidth
 
                 spacing: Theme.paddingLarge
@@ -48,8 +49,10 @@ Item {
                 Behavior on opacity { NumberAnimation { duration: 50 } }
                 opacity: forecast.loaded ? 1 : 0
 
-                property int tempHeight: 500
-                property int rainHeight: 290
+                // TODO add some space for symbols above the charts
+                property int tempHeight: 300
+                property int rainHeight: 200
+                property int sunHeight: 200
                 property int windHeight: 200
 
                 Item { // placeholder
@@ -74,6 +77,18 @@ Item {
                     id: rainLoader
                     asynchronous: true
                     // onLoaded: forecast.loaded = true // ignore because the others have to be finished first
+                }
+
+                Item { // placeholder
+                    id: sunTitlePlace
+                    height: sunTitle.height
+                    width: parent.width
+                }
+
+                Loader {
+                    id: sunLoader
+                    onLoaded: forecast.loaded = true
+                    asynchronous: true
                 }
 
                 Item { // placeholder
@@ -123,6 +138,13 @@ Item {
     }
 
     ForecastGraphTitle {
+        id: sunTitle
+        place: sunTitlePlace
+        text: qsTr("Sunshine")
+        unit: meteoApp.sunUnit
+    }
+
+    ForecastGraphTitle {
         id: windTitle
         place: windTitlePlace
         text: qsTr("Wind")
@@ -144,6 +166,17 @@ Item {
         id: rainScaleLoader
         x: rainLoader.x
         y: rainLoader.y
+        asynchronous: true
+
+        visible: forecast.loaded
+        Behavior on opacity { NumberAnimation { duration: 50 } }
+        opacity: forecast.loaded ? 1 : 0
+    }
+
+    Loader {
+        id: sunScaleLoader
+        x: sunLoader.x
+        y: sunLoader.y
         asynchronous: true
 
         visible: forecast.loaded
@@ -174,6 +207,7 @@ Item {
 
             temp = meteoApp.forecastData[day].temperature
             rain = meteoApp.forecastData[day].rainfall
+            sun = meteoApp.forecastData[day].sun
             wind = meteoApp.forecastData[day].wind
 
             var isToday = (new Date(meteoApp.forecastData[day].date).toDateString() == new Date().toDateString());
@@ -183,6 +217,9 @@ Item {
 
             rainLoader.setSource("RainChart.qml",      { height: chart.rainHeight, width: chart.width,  scaleOnly: false, isToday: isToday })
             rainScaleLoader.setSource("RainChart.qml", { height: chart.rainHeight, width: Screen.width, scaleOnly: true,  isToday: isToday })
+
+            sunLoader.setSource("SunChart.qml",      { height: chart.sunHeight, width: chart.width,  scaleOnly: false, isToday: isToday })
+            sunScaleLoader.setSource("SunChart.qml", { height: chart.sunHeight, width: Screen.width, scaleOnly: true,  isToday: isToday })
 
             windLoader.setSource("WindChart.qml",      { height: chart.windHeight, width: chart.width,  scaleOnly: false, isToday: isToday })
             windScaleLoader.setSource("WindChart.qml", { height: chart.windHeight, width: Screen.width, scaleOnly: true,  isToday: isToday })

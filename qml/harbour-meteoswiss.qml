@@ -43,6 +43,7 @@ ApplicationWindow {
     property string tempUnit: "°C"
     property string rainUnit: "mm/h"
     property string rainUnitShort: "mm"
+    property string sunUnit: "min/h"
     property string windUnit: "km/h"
 
     property bool haveWallClock: wallClock != null

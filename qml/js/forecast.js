@@ -123,7 +123,8 @@ function convertRaw(raw) {
             temperature: {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-                datasets: [{ // estimate
+                datasets: [
+                    { // mean
                         data: [],
                         symbols: []
                     },{ // minimum
@@ -136,8 +137,10 @@ function convertRaw(raw) {
             rainfall: {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-                datasets: [{ // estimate
+                datasets: [
+                    { // mean
                         data: [],
+                        symbols: []
                     },{ // minimum
                         data: [],
                     },{ // maximum
@@ -145,11 +148,13 @@ function convertRaw(raw) {
                     },
                 ],
             },
+            sun: {
                 haveData: false,
                 labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
-                datasets: [{
+                datasets: [
+                    { // mean
                         data: [],
-                        symbols: [],
+                        symbols: []
                     }
                 ],
             },
@@ -255,6 +260,13 @@ function convertRaw(raw) {
                 console.log("warning: missing data at the end: gust,", hour, raw.graph.gustSpeed1h.length);
             }
 
+            if (hour < raw.graph.sunshine1h.length) {
+                dayData.sun.datasets[0].data.push(raw.graph.sunshine1h[hour]) // expected
+                dayData.sun.haveData = true
+            } else {
+                // dayData.isSane = false
+                // dayData.sun.haveData = false
+                console.log("warning: missing data at the end: sunshine,", hour, raw.graph.sunshine1h.length);
             }
         }
 

@@ -131,7 +131,7 @@ Column {
     }
 
     Label {
-        id: sunTitle
+        id: sunTimesTitle
         text: qsTr("Sun Times")
         x: titleLabel.x
         color: Theme.highlightColor
@@ -140,7 +140,7 @@ Column {
     }
 
     Row {
-        x: sunTitle.x
+        x: sunTimesTitle.x
         width: (isPortrait ? Screen.width : Screen.height) - 2*x
         visible: active
 
@@ -228,7 +228,7 @@ Column {
 
     Label {
         id: sunDescriptionLabel
-        x: 2*sunTitle.x
+        x: 2*sunTimesTitle.x
         width: (isPortrait ? Screen.width : Screen.height) - 2*x
         text: " "
 
