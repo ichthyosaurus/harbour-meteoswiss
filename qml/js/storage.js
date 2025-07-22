@@ -216,31 +216,28 @@ function getCoverLocation() {
 }
 
 function getNextCoverLocation(locationId) {
-    var db = getDatabase();
-    var res = 0;
+    var q = DB.simpleQuery('\
+        SELECT location_id FROM locations
+        WHERE location_id > ? AND active = TRUE
+        ORDER BY location_id ASC
+        LIMIT 1
+    ;', [locationId])
 
-    try {
-        db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT * FROM locations WHERE location_id > ? ORDER BY location_id LIMIT 1;', [locationId]);
+    if (q.rows.length === 0) {
+        q = DB.simpleQuery('\
+            SELECT location_id FROM locations
+            WHERE active = TRUE
+            ORDER BY location_id ASC
+            LIMIT 1
+        ;')
 
-            if (rs.rows.length === 0) {
-                rs = tx.executeSql('SELECT * FROM locations ORDER BY location_id LIMIT 1;');
-
-                if (rs.rows.length === 0) {
-                    res = 0;
-                    console.log("failed to get next cover location: no locations available");
-                    return res;
-                }
-            }
-
-            res = rs.rows.item(0).location_id;
-        });
-    } catch(e) {
-        console.log("error while loading next cover location");
-        return 0;
+        if (q.rows.length === 0) {
+            console.log("failed to get next cover location: no locations available")
+            return 0
+        }
     }
 
-    return res;
+    return q.rows.item(0).location_id
 }
 
 function setCoverLocation(locationId) {
