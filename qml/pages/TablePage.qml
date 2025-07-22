@@ -211,6 +211,7 @@ Page {
                         x: horizontalFlick.contentX + Theme.horizontalPageMargin
                         horizontalAlignment: Text.AlignLeft
                         text: new Date(section).toLocaleString(Qt.locale(), meteoApp.fullDateFormat)
+                        truncationMode: TruncationMode.None
                     }
                 }
             }
