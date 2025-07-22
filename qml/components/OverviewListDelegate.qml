@@ -19,10 +19,23 @@ ListItem {
 
     property bool isLoading: false
     property bool initialLoadingDone: false
-    contentHeight: labelColumn.height + (overviewColumn.visible ? overviewColumn.height : 0) + vertSpace.height + labelColumn.y
+    contentHeight: labelColumn.height
+                   + (overviewColumn.visible ? overviewColumn.height : 0)
+                   + (disabledInfoColumn.visible ? disabledInfoColumn.height : 0)
+                   + vertSpace.height
+                   + labelColumn.y
 
     signal orderChanged()
     signal refreshWeekSummary()
+
+    Connections {
+        target: meteoApp
+        onLocationDisabled: {
+            if (locationId === model.locationId) {
+                model.active = false
+            }
+        }
+    }
 
     menu: Component {
         ContextMenu {
@@ -58,7 +71,7 @@ ListItem {
             verticalCenter: labelColumn.verticalCenter
         }
 
-        width: 2.5*Theme.horizontalPageMargin
+        width: 1.2 * Theme.iconSizeMedium
         height: width
         source: String("../weather-icons/%1.svg").arg(model.symbol ? model.symbol : "0")
         fillMode: Image.PreserveAspectFit
@@ -75,6 +88,19 @@ ListItem {
             visible: isLoading ? true : false
             running: visible
         }
+    }
+
+    Image {
+        id: disabledIcon
+        visible: !model.active
+        anchors {
+            left: parent.left; leftMargin: Theme.horizontalPageMargin
+            verticalCenter: labelColumn.verticalCenter
+        }
+
+        width: Theme.iconSizeMedium
+        height: width
+        source: "image://theme/icon-m-warning"
     }
 
     Column {
@@ -189,6 +215,29 @@ ListItem {
         }
     }
 
+    Column {
+        id: disabledInfoColumn
+        visible: false
+        x: Theme.horizontalPageMargin
+        width: parent.width - 2*x
+        anchors.top: vertSpace.bottom
+
+        Label {
+            width: parent.width
+            text: qsTr("No forecast available for this location. " +
+                       "Please replace it with a supported location " +
+                       "nearby.")
+            wrapMode: Text.Wrap
+            bottomPadding: Theme.paddingSmall
+            font.pixelSize: Theme.fontSizeSmall
+            highlighted: locationItem.highlighted
+            palette {
+                primaryColor: Theme.secondaryColor
+                highlightColor: Theme.secondaryHighlightColor
+            }
+        }
+    }
+
     onRefreshWeekSummary: {
         var meta = Storage.getLatestMetadata(locationId);
         var dayCount = (overviewColumn.visible && meta && meta.dayCount) ? meta.dayCount : 0
@@ -234,7 +283,11 @@ ListItem {
         chart.loadChart(index)
     }
 
-    onClicked: showForecast(summaryRepeater.currentSelection);
+    onClicked: {
+        if (model.active) {
+            showForecast(summaryRepeater.currentSelection);
+        }
+    }
 
     Timer {
         id: loadingCooldown
@@ -311,4 +364,19 @@ ListItem {
             Storage.setOverviewPositions(pairs)
         });
     }
+
+    states: [
+        State {
+            name: "disabled"
+            when: !model.active
+            PropertyChanges {
+                target: overviewColumn
+                visible: false
+            }
+            PropertyChanges {
+                target: disabledInfoColumn
+                visible: true
+            }
+        }
+    ]
 }

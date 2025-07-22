@@ -74,6 +74,10 @@ function convertRaw(raw) {
 
     console.log("converting...")
 
+    if (!raw || !raw.hasOwnProperty('graph') || !raw.hasOwnProperty('forecast')) {
+        throw new Error('no-forecast-error')
+    }
+
     if (raw.graph.hasOwnProperty('precipitation10m') && raw.graph.precipitation10m.length > 0) {
         var _currentSum = 0
         var _currentIndex = 0
@@ -356,6 +360,15 @@ WorkerScript.onMessage = function(message) {
         try {
             fullData = convertRaw(rawData);
         } catch (e) {
+            if (e.message === 'no-forecast-error') {
+                console.warn("no forecast available for location", locationId)
+                console.warn("this location will be disabled")
+
+                WorkerScript.sendMessage({
+                    'type': 'disable-location',
+                    'locationId': locationId,
+                })
+            } else {
                 console.error("failed to convert raw data for", locationId)
                 console.error("exception:", e.name);
                 console.error("message:", e.message);
@@ -363,6 +376,8 @@ WorkerScript.onMessage = function(message) {
 
                 console.log("RAW DATA:")
                 console.log(JSON.stringify(rawData))
+            }
+
             return
         }
 

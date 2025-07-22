@@ -36,6 +36,7 @@ Page {
             "cantonId": locationData.cantonId,
             "temperatureString": getTemperatureString(temperature),
             "symbol": symbol,
+            "active": locationData.active,
         })
     }
 

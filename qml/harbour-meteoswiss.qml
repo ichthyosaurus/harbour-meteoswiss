@@ -23,6 +23,7 @@ ApplicationWindow {
     signal dataIsLoading(var locationId)
     signal refreshData(var location, var force)
     signal locationAdded(var locationData)
+    signal locationDisabled(var locationId)
     signal weekSummaryUpdated()
 
     // ATTENTION set to "false" before release
@@ -83,6 +84,17 @@ ApplicationWindow {
                 Storage.setData(messageObject.timestamp, messageObject.locationId, messageObject.data, messageObject.rawData)
                 meteoApp.dataIsReady[messageObject.locationId] = true
                 dataLoaded(messageObject.data, messageObject.locationId)
+
+                if (messageObject.data[0].isSane === false) {
+                    locationDisabled(messageObject.locationId)
+                }
+            } else if (messageObject.type === 'disable-location') {
+                locationDisabled(messageObject.locationId)
+                var disabledData = [{isSane: false}]
+                Storage.disableLocation(messageObject.locationId)
+                Storage.setData((new Date()).getTime(), messageObject.locationId, disabledData, {})
+                meteoApp.dataIsReady[messageObject.locationId] = true
+                dataLoaded(disabledData, messageObject.locationId)
             } else {
                 console.error("received worker message of unknown type: %1".arg(messageObject.type))
                 console.error(JSON.stringify(messageObject))
@@ -113,7 +125,7 @@ ApplicationWindow {
             })
         }
 
-        var allLocations = Storage.getLocationsList()
+        var allLocations = Storage.getActiveLocationsList()
 
         dataLoader.sendMessage({
             type: "weekOverview",

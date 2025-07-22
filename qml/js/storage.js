@@ -70,6 +70,16 @@ DB.dbMigrations = [
             ADD COLUMN raw_data TEXT DEFAULT ""
         ;')
     }],
+    [4, function(tx){
+        tx.executeSql('\
+            ALTER TABLE locations
+            ADD COLUMN active BOOLEAN DEFAULT TRUE
+        ;')
+        tx.executeSql('\
+            UPDATE locations
+            SET active = TRUE
+        ')
+    }],
 
     // add new versions here...
     //
@@ -195,6 +205,14 @@ function removeLocation(locationId) {
     return res;
 }
 
+function disableLocation(locationId) {
+    simpleQuery('\
+        UPDATE locations
+        SET active = FALSE
+        WHERE location_id = ?
+    ;', [locationId])
+}
+
 function getCoverLocation() {
     var db = getDatabase();
     var res = 0;
@@ -271,6 +289,22 @@ function setCoverLocation(locationId) {
     return res;
 }
 
+function getActiveLocationsList() {
+    var q = DB.simpleQuery('\
+        SELECT location_id FROM locations
+        WHERE active = TRUE
+        ORDER BY view_position ASC
+    ;', [])
+
+    var ret = []
+
+    for (var i = 0; i < q.rows.length; ++i) {
+        ret.push(q.rows.item(i).location_id)
+    }
+
+    return ret
+}
+
 function getLocationsList() {
     var db = getDatabase();
     var res = [];
@@ -331,6 +365,7 @@ function getLocationData(locationId) {
                     cantonId: rs.rows.item(i).cantonId,
                     canton: rs.rows.item(i).canton,
                     viewPosition: rs.rows.item(i).view_position,
+                    active: rs.rows.item(i).active === 1,
                 });
             }
         });
@@ -541,27 +576,28 @@ function getDataSummary(locationId) {
     }
 
     var full = JSON.parse(data.data);
-    var temp = full[0].temperature.datasets[0].data[hour];
-    var rain = full[0].rainfall.datasets[0].data[hour];
 
-    var symbol = full[0].temperature.datasets[0].symbols[getCurrentSymbolHour()];
-
-    res.symbol = symbol;
-    res.temp = temp;
-    res.rain = rain;
+    if (full[0].isSane) {
+        res.temp = full[0].temperature.datasets[0].data[hour]
+        res.rain = full[0].rainfall.datasets[0].data[hour]
+        res.symbol = full[0].temperature.datasets[0].symbols[getCurrentSymbolHour()]
+    }
 
     return res;
 }
 
 function setData(timestamp, locationId, data, rawData) {
-    var times = [];
-    for (var i = 0; i < data.length; i++) {
-        times.push(data[i].date);
+    var times = []
+
+    if (data.length >= 1 && data[0].isSane === true) {
+        for (var i = 0; i < data.length; i++) {
+            times.push(data[i].date);
+        }
     }
 
     var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?,?, ?);', [
         timestamp, locationId, JSON.stringify(data),
-        data.length, JSON.stringify(times), rawData
+        times.length, JSON.stringify(times), rawData
     ]);
 
     if (!res) {
