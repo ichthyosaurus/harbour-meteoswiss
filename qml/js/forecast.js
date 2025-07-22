@@ -201,8 +201,8 @@ function convertRaw(raw) {
 
         // convert data
         for (var hour = day*24; hour < day*24+24; hour++) {
-            var isThird = (hour)%3 === 2;
-            var third = (hour-2)/3;
+            var isThird = (hour)%3 === 1;
+            var third = (hour-1)/3;
             // console.log("H", hour, day, dayCount, isThird, third)
 
             if (hour < raw.graph.precipitation1h.length) {
@@ -229,8 +229,13 @@ function convertRaw(raw) {
                 dayData.temperature.datasets[1].data.push(raw.graph.temperatureMin1h[hour]); // minimum
                 dayData.temperature.datasets[2].data.push(raw.graph.temperatureMax1h[hour]); // maximum
 
-                if (isThird) {
-                    dayData.temperature.datasets[0].symbols.push(raw.graph.weatherIcon3h[third]);
+                // weather icons are indexed at [__X] instead of [_X_]
+                // TODO change this
+                var tempIsThird = (hour)%3 === 2
+                var tempThird = (hour-2)/3
+
+                if (tempIsThird) {
+                    dayData.temperature.datasets[0].symbols.push(raw.graph.weatherIcon3h[tempThird]);
                 } else {
                     dayData.temperature.datasets[0].symbols.push(0);
                 }
