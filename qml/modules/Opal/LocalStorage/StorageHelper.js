@@ -45,6 +45,11 @@ var settingsTable = "__local_settings"
 // access the database.
 var maintenanceCallback = function() {}
 
+// These functions will be called before and after any maintenance is run.
+// Both functions take no arguments and must not modify the database.
+var maintenanceStartSignal = null
+var maintenanceEndSignal = null
+
 
 //
 // BEGIN Database handling boilerplate
@@ -482,17 +487,38 @@ function __doDatabaseMaintenance() {
 
     console.log("running regular database maintenance...")
 
+    if (maintenanceStartSignal instanceof Function) {
+        try {
+            maintenanceStartSignal()
+        } catch(e) {
+            console.error("sending the maintenance start signal failed:",
+                          "\n   ERROR  >", e,
+                          "\n   STACK  >\n", e.stack);
+        }
+    }
+
     if (maintenanceCallback instanceof Function) {
         try {
             maintenanceCallback()
         } catch(e) {
-            console.error("database maintenance failed:",
+            console.error("custom database maintenance failed:",
                           "\n   ERROR  >", e,
                           "\n   STACK  >\n", e.stack);
         }
     }
 
     __vacuumDatabase();
+
     console.log("maintenance finished")
     setSetting("last_maintenance", new Date().toISOString());
+
+    if (maintenanceEndSignal instanceof Function) {
+        try {
+            maintenanceEndSignal()
+        } catch(e) {
+            console.error("sending the maintenance end signal failed:",
+                          "\n   ERROR  >", e,
+                          "\n   STACK  >\n", e.stack);
+        }
+    }
 }

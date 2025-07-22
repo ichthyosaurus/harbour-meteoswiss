@@ -166,6 +166,11 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
+        Storage.setMaintenanceSignals(
+            function() { maintenanceOverlay.state = "visible" },
+            function() { maintenanceOverlay.state = "invisible" },
+        )
+
         // Avoid hard dependency on Nemo.Time and load it in a complicated
         // way to make Jolla's validator script happy.
         wallClock = Qt.createQmlObject("
@@ -178,12 +183,6 @@ ApplicationWindow {
 
         // TODO implement a way to detect API breakage and enable the overlay automatically
         // disableAppOverlay.state = "visible";
-
-        if (Storage.dbNeedsMaintenance()) {
-            maintenanceOverlay.state = "visible";
-            Storage.doDatabaseMaintenance();
-            maintenanceOverlay.state = "invisible";
-        }
 
         doRefreshData();
         refreshData.connect(doRefreshData);

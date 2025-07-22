@@ -8,6 +8,15 @@
 .import "../modules/Opal/LocalStorage/StorageHelper.js" as DB
 
 //
+// BEGIN Startup configuration
+//
+
+function setMaintenanceSignals(start, end) {
+    DB.maintenanceStartSignal = start
+    DB.maintenanceEndSignal = end
+}
+
+//
 // BEGIN Database configuration
 //
 
@@ -17,7 +26,11 @@ var isSameValue = DB.isSameValue
 DB.dbName = "harbour-meteoswiss"
 DB.dbDescription = "Swiss Meteo Offline Cache"
 DB.dbSize = 2000000
-DB.enableAutoMaintenance = false  // handled manually
+DB.settingsTable = "settings"
+DB.enableAutoMaintenance = true
+DB.maintenanceCallback = function(){
+    pruneOldData(0, true)
+}
 
 DB.dbMigrations = [
     // Database versions do not correspond to app versions.
@@ -144,38 +157,6 @@ function pruneOldData(locationId, allAtOnce) {
     }
 }
 
-function vacuumDatabase() {
-    var db = getDatabase();
-
-    try {
-        db.transaction(function(tx) {
-            // VACUUM cannot be executed inside a transaction, but the LocalStorage
-            // module cannot execute queries without one. Thus we have to manually
-            // end the transaction from inside the transaction...
-            var rs = tx.executeSql("END TRANSACTION;");
-            var rs2 = tx.executeSql("VACUUM;");
-        });
-    } catch(e) {
-        console.log("error in query: '"+ e);
-    }
-}
-
-function dbNeedsMaintenance() {
-    var last_maintenance = simpleQuery('SELECT * FROM settings WHERE setting="last_maintenance" AND value >= date("now", "-60 day") LIMIT 1;', [], true);
-
-    if (last_maintenance > 0) {
-        return false;
-    }
-
-    return true;
-}
-
-function doDatabaseMaintenance() {
-    pruneOldData(0, true);
-    vacuumDatabase();
-    simpleQuery('INSERT OR REPLACE INTO settings VALUES (?,?);', ["last_maintenance", new Date().toISOString()]);
-}
-
 function addLocation(locationData, viewPosition) {
     var id = defaultFor(locationData.locationId, null);
     var alt = defaultFor(locationData.altitude, 0);
@@ -214,25 +195,7 @@ function disableLocation(locationId) {
 }
 
 function getCoverLocation() {
-    var db = getDatabase();
-    var res = 0;
-
-    try {
-        db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT * FROM settings WHERE setting="cover_location" LIMIT 1;');
-
-            if (rs.rows.length > 0) {
-                res = parseInt(rs.rows.item(0).value, 10);
-            } else {
-                res = 0;
-            }
-        });
-    } catch(e) {
-        console.log("error while loading cover location data");
-        return 0;
-    }
-
-    return res;
+    return DB.getSetting("cover_location", 0)
 }
 
 function getNextCoverLocation(locationId) {
@@ -264,29 +227,7 @@ function getNextCoverLocation(locationId) {
 }
 
 function setCoverLocation(locationId) {
-    var db = getDatabase();
-    var res = undefined;
-
-    try {
-        db.transaction(function(tx) {
-            var rs = tx.executeSql('INSERT OR REPLACE INTO settings VALUES (?,?);', ['cover_location', locationId]);
-
-            if (rs.rowsAffected > 0) {
-                res = rs.rowsAffected;
-            } else {
-                res = 0;
-            }
-        });
-    } catch(e) {
-        console.log("error in query:", values)
-        res = undefined;
-    }
-
-    if (res !== 0 && !res) {
-        console.log("error: failed to save cover settings")
-    }
-
-    return res;
+    DB.setSetting("cover_location", locationId)
 }
 
 function getActiveLocationsList() {
