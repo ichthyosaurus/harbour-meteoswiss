@@ -33,9 +33,12 @@ SilicaListView {
             // This is here to enforce the correct types.
             // It will be removed when the real data is loaded.
             hour: 1
-            image: 1; description: ''
-            temp: ''; rain: '';
-            wind: ''; windSym: ''
+            image: 1
+            description: ''
+            temp: ''
+            rain: 0.0
+            wind: ''
+            windSym: ''
         }
     }
 
@@ -92,7 +95,7 @@ SilicaListView {
 
             TableListValueElement {
                 base: rainTitle
-                text: (rain > 0.0) ? rain : ''
+                text: rain > 0.0 ? _rounded(rain) : ''
                 unit: meteoApp.rainUnit
             }
 
@@ -148,7 +151,7 @@ SilicaListView {
                 "hour": i,
                 "image": temp.datasets[0].symbols[i],
                 "temp": _rounded(temp.datasets[0].data[i]),
-                "rain": _rounded(rain.datasets[0].data[i]),
+                "rain": rain.datasets[0].data[i],
                 "wind": _rounded(wind.datasets[0].data[i]),
                 "windSym": wind.datasets[0].symbols[i],
                 "description": Strings.weatherSymbolDescription[temp.datasets[0].symbols[i]],
