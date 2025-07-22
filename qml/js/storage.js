@@ -184,7 +184,7 @@ function addLocation(locationData, viewPosition) {
     var can = defaultFor(locationData.canton, null);
     var name = defaultFor(locationData.name, null);
 
-    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?,?,?,?);', [id, zip, name, canId, can, lat, long, alt, viewPosition]);
+    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?,?,?,?, ?);', [id, zip, name, canId, can, lat, long, alt, viewPosition, true]);
 
     if (res !== 0 && !res) {
         console.log("error: failed to save location " + id + " to db");
