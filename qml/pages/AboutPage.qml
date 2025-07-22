@@ -97,21 +97,48 @@ A.AboutPageBase {
             title: qsTr("Translations")
             groups: [
                 A.ContributionGroup {
+                    title: qsTr("Turkish")
+                    entries: [
+                        "Burak Hüseyin Ekseli"
+                    ]
+                },
+                A.ContributionGroup {
+                    title: qsTr("Tamil")
+                    entries: [
+                        "தமிழ்நேரம்"
+                    ]
+                },
+                A.ContributionGroup {
                     title: qsTr("Spanish")
                     entries: [
+                        "Kamborio",
                         "gallegonovato"
+                    ]
+                },
+                A.ContributionGroup {
+                    title: qsTr("Italian")
+                    entries: [
+                        "J. Lavoie"
                     ]
                 },
                 A.ContributionGroup {
                     title: qsTr("German")
                     entries: [
+                        "J. Lavoie",
                         "Mirian Margiani"
                     ]
                 },
                 A.ContributionGroup {
                     title: qsTr("French")
                     entries: [
+                        "J. Lavoie",
                         "Robin Grenet"
+                    ]
+                },
+                A.ContributionGroup {
+                    title: qsTr("Estonian")
+                    entries: [
+                        "Priit Jõerüüt"
                     ]
                 },
                 A.ContributionGroup {
