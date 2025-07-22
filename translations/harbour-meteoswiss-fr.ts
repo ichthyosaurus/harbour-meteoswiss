@@ -101,7 +101,7 @@
     <message>
         <location filename="../qml/pages/components/DaySummaryItem.qml" line="95"/>
         <source>Today</source>
-        <translation>Aujourd&apos;hui</translation>
+        <translation>Auj.</translation>
     </message>
 </context>
 <context>
