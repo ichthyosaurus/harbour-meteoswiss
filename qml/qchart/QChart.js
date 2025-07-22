@@ -583,6 +583,8 @@ var Chart = function(canvas, context) {
                 ctx.strokeStyle = (config.strokeColor[i] ? config.strokeColor[i] : data.datasets[i].strokeColor);
 
                 for (var j=0; j<data.datasets[i].data.length; j++) {
+                    var barHeight = calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)
+
 
                     if (config.barOverlay) {
                         var barOffset = yAxisLeftPosX + config.barValueSpacing + valueHop*j + config.barStrokeWidth;
@@ -592,8 +594,8 @@ var Chart = function(canvas, context) {
 
                     ctx.beginPath();
                     ctx.moveTo(barOffset, xAxisPosY);
-                    ctx.lineTo(barOffset, xAxisPosY - animPc*calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)+(config.barStrokeWidth/2));
-                    ctx.lineTo(barOffset + barWidth, xAxisPosY - animPc*calculateOffset(data.datasets[i].data[j],calculatedScale,scaleHop)+(config.barStrokeWidth/2));
+                    ctx.lineTo(barOffset, xAxisPosY - animPc*barHeight);
+                    ctx.lineTo(barOffset + barWidth, xAxisPosY - animPc*barHeight);
                     ctx.lineTo(barOffset + barWidth, xAxisPosY);
                     if(config.barShowStroke) {
                         ctx.stroke();
