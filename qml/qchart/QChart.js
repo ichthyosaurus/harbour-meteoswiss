@@ -167,7 +167,7 @@ var Chart = function(canvas, context) {
         // /////////////////////////////////////////////////////////////////
 
         this.init = function () {
-            if (config.datasetFillDiff23 && data.datasets.length != 3) {
+            if (config.datasetFillDiff23 && data.datasets.length < 3) {
                 config.datasetFillDiff23 = false;
             }
 
@@ -248,15 +248,15 @@ var Chart = function(canvas, context) {
 
                 ctx.stroke();
 
-                if (config.datasetFill && (i == 0 || !config.datasetFillDiff23)) {
+                if (config.datasetFill && (!config.datasetFillDiff23 || (i+1) % 3 == 1)) {
                     ctx.lineTo(xPos(data.datasets[i].data.length-1),xAxisPosY);
                     ctx.lineTo(xPos(0),xAxisPosY);
                     ctx.closePath();
                     ctx.fillStyle = (config.fillColor[i] ? config.fillColor[i] : data.datasets[i].fillColor);
                     ctx.fill();
-                } else if (i == 2 && config.datasetFillDiff23) {
-                    for (var k=data.datasets[1].data.length; k>=0; k--) {
-                        ctx.lineTo(xPos(k),yPos(1,k));
+                } else if (config.datasetFillDiff23 && (i+1) % 3 == 0) {
+                    for (var k=data.datasets[i-1].data.length; k>=0; k--) {
+                        ctx.lineTo(xPos(k),yPos(i-1,k));
                     }
 
                     ctx.closePath();
@@ -266,7 +266,7 @@ var Chart = function(canvas, context) {
                     ctx.closePath();
                 }
 
-                if (config.pointDot && (i == 0 || !config.datasetFillDiff23)) {
+                if (config.pointDot && (!config.datasetFillDiff23 || (i+1) % 3 == 1)) {
                     ctx.fillStyle = (config.pointColor[i] ? config.pointColor[i] : data.datasets[i].pointColor);
                     ctx.strokeStyle = (config.pointStrokeColor[i] ? config.pointStrokeColor[i] : data.datasets[i].pointStrokeColor);
                     ctx.lineWidth = config.pointDotStrokeWidth;
