@@ -26,7 +26,6 @@ var isSameValue = DB.isSameValue
 DB.dbName = "harbour-meteoswiss"
 DB.dbDescription = "Swiss Meteo Offline Cache"
 DB.dbSize = 2000000
-DB.settingsTable = "settings"
 DB.enableAutoMaintenance = true
 DB.maintenanceCallback = function(){
     pruneOldData(0, true)
@@ -92,6 +91,19 @@ DB.dbMigrations = [
             UPDATE locations
             SET active = TRUE
         ')
+    }],
+    [5, function(tx){
+        tx.executeSql('\
+            CREATE TABLE IF NOT EXISTS settings(
+                setting TEXT UNIQUE, value TEXT
+        );')
+
+        tx.executeSql('DROP TABLE IF EXISTS %1;'.arg(DB.settingsTable))
+        DB.createSettingsTable(tx)
+
+        tx.executeSql('INSERT INTO %1(key, value) \
+            SELECT setting, value FROM settings;'.arg(DB.settingsTable))
+        tx.executeSql('DROP TABLE settings;')
     }],
 
     // add new versions here...
