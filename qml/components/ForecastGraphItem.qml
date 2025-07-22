@@ -150,7 +150,7 @@ Item {
                                     font.family: "monospace"
                                     text: "↑"
                                     color: Theme.secondaryColor
-                                    rotation: modelData || 0.0
+                                    rotation: 180+(modelData || 0.0)
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
                                 }
