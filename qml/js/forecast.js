@@ -7,7 +7,7 @@
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
 function mayRefresh(lastRefreshed, maxAgeMins) {
-    return false; // DEBUG
+//    return false; // DEBUG
 
     if (!lastRefreshed) {
         return true
@@ -334,12 +334,12 @@ function fallbackToArchive(archived, errorMessage) {
     fullData = JSON.parse(archived.data);
 
     // vvv DEBUG
-    try {
-        fullData = convertRaw(JSON.parse(archived.rawData));
-    } catch (e) {
-        console.error("failed to convert raw data | exception:", e)
-        return
-    }
+//    try {
+//        fullData = convertRaw(JSON.parse(archived.rawData));
+//    } catch (e) {
+//        console.error("failed to convert raw data | exception:", e)
+//        return
+//    }
     // ^^^ DEBUG
 
     WorkerScript.sendMessage({
