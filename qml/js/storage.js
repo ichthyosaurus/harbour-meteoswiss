@@ -64,42 +64,12 @@ DB.dbMigrations = [
                 value TEXT
         );')
     }],
-//    [3, function(tx){
-
-//        tx.executeSql('\
-//            CREATE TABLE _accounts(
-//                rowid INTEGER PRIMARY KEY,
-//                title TEXT,
-//                currency TEXT,
-//                last_payer TEXT,
-//                precision INTEGER,
-//                color TEXT,
-//                interval TEXT,
-//                auto_topup REAL,
-//                seq INTEGER
-//            );
-//        ')
-//        DB.makeTableSortable(tx, '_accounts', 'seq')
-
-//        tx.executeSql('\
-//            CREATE TABLE transactions(
-//                rowid INTEGER PRIMARY KEY,
-//                project INTEGER NOT NULL,
-//                utc_time TEXT NOT NULL,
-//                local_time TEXT NOT NULL,
-//                local_tz TEXT NOT NULL,
-//                title TEXT DEFAULT "",
-//                info TEXT DEFAULT "",
-//                sum REAL DEFAULT 0.0,
-//                payer TEXT NOT NULL,
-
-//                FOREIGN KEY (project)
-//                REFERENCES projects (rowid)
-//                    ON UPDATE CASCADE
-//                    ON DELETE NO ACTION
-//            );
-//        ')
-//    }],
+    [3, function(tx){
+        tx.executeSql('\
+            ALTER TABLE data
+            ADD COLUMN raw_data TEXT DEFAULT ""
+        ;')
+    }],
 
     // add new versions here...
     //
@@ -583,15 +553,15 @@ function getDataSummary(locationId) {
     return res;
 }
 
-function setData(timestamp, locationId, data) {
+function setData(timestamp, locationId, data, rawData) {
     var times = [];
     for (var i = 0; i < data.length; i++) {
         times.push(data[i].date);
     }
 
-    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?,?);', [
+    var res = simpleQuery('INSERT OR REPLACE INTO data VALUES (?,?,?,?,?, ?);', [
         timestamp, locationId, JSON.stringify(data),
-        data.length, JSON.stringify(times)
+        data.length, JSON.stringify(times), rawData
     ]);
 
     if (!res) {
@@ -652,6 +622,7 @@ function getData(locationId, mostRecent, newerThan) {
                     data: rs.rows.item(i).data,
                     dayCount: rs.rows.item(i).day_count,
                     dayDates: rs.rows.item(i).day_dates,
+                    rawData: rs.rows.item(i).raw_data,
                 });
 
                 if (mostRecent) break;

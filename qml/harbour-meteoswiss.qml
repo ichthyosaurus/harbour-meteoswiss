@@ -87,12 +87,15 @@ ApplicationWindow {
                 }
 
                 weekSummaryUpdated();
-            } else {
+            } else if (messageObject.type === 'data') {
                 meteoApp.dataTimestamp = new Date(messageObject.timestamp)
                 meteoApp.forecastData = messageObject.data
-                Storage.setData(messageObject.timestamp, messageObject.locationId, messageObject.data)
+                Storage.setData(messageObject.timestamp, messageObject.locationId, messageObject.data, messageObject.rawData)
                 meteoApp.dataIsReady[messageObject.locationId] = true
                 dataLoaded(messageObject.data, messageObject.locationId)
+            } else {
+                console.error("received worker message of unknown type: %1".arg(messageObject.type))
+                console.error(JSON.stringify(messageObject))
             }
         }
     }

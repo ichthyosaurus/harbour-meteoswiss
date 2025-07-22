@@ -1,7 +1,7 @@
 /*
  * This file is part of harbour-meteoswiss.
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2018-2024 Mirian Margiani
+ * SPDX-FileCopyrightText: 2018-2025 Mirian Margiani
  */
 
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
@@ -359,6 +359,7 @@ function fallbackToArchive(archived, errorMessage) {
         'locationId': archived.locationId,
         'timestamp': archived.timestamp,
         'data': fullData,
+        'rawData': archived.rawData,
     });
 }
 
@@ -531,5 +532,6 @@ WorkerScript.onMessage = function(message) {
         'locationId': locationId,
         'timestamp': raw_data.currentWeather.time,
         'data': fullData,
+        'rawData': JSON.stringify(raw_data),
     });
 }
