@@ -45,6 +45,21 @@ Canvas {
   property   int chartAnimationProgress: 0;
   property   var chartOptions: ({})
 
+  readonly property int chartStartX: __chartStartX
+  readonly property int chartEndX: __chartEndX
+  readonly property int chartValueHop: __chartValueHop
+
+  property int __chartStartX: 20
+  property int __chartEndX: width
+  property int __chartValueHop: {
+      if (chartData && chartData.hasOwnProperty('labels') &&
+              chartData.labels.length > 0) {
+          width / chartData.labels[0].length
+      } else {
+          10
+      }
+  }
+
 // /////////////////////////////////////////////////////////////////
 // Callbacks
 // /////////////////////////////////////////////////////////////////
@@ -66,7 +81,10 @@ Canvas {
           console.log('Chart type should be specified.');
       }
 
-      chart.init();
+      var metadata = chart.init();
+      __chartStartX = metadata.chartStartX
+      __chartEndX = metadata.chartEndX
+      __chartValueHop = metadata.valueHop
 
       if (chartAnimated)
           chartAnimator.start();
@@ -111,6 +129,6 @@ Canvas {
        property: "chartAnimationProgress";
              to: 100;
        duration: 500;
-    easing.type: Easing.InOutElastic;
+    easing.type: Easing.InOutQuad;
   }
 }

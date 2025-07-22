@@ -212,6 +212,12 @@ var Chart = function(canvas, context) {
 
             scaleHop = Math.floor(scaleHeight/calculatedScale.steps);
             calculateXAxisSize();
+
+            return {
+                chartStartX: yAxisLeftPosX,
+                chartEndX: yAxisRightPosX,
+                valueHop: valueHop,
+            }
         }
 
         // /////////////////////////////////////////////////////////////////
@@ -453,7 +459,7 @@ var Chart = function(canvas, context) {
                 yAxisRightPosX = width-widestXLabel/2-longestText;
             } else {
                 yAxisLeftPosX = width-widestXLabel/2-xAxisLength;
-                yAxisRightPosX = undefined
+                yAxisRightPosX = width
             }
 
             xAxisPosY = scaleHeight + config.scaleFontSize/2;
@@ -575,6 +581,12 @@ var Chart = function(canvas, context) {
 
             scaleHop = Math.floor(scaleHeight/calculatedScale.steps);
             calculateXAxisSize();
+
+            return {
+                chartStartX: yAxisLeftPosX,
+                chartEndX: yAxisRightPosX,
+                valueHop: valueHop,
+            }
         }
 
         // /////////////////////////////////////////////////////////////////
@@ -777,7 +789,7 @@ var Chart = function(canvas, context) {
                 yAxisRightPosX = width-widestXLabel/2-longestText;
             } else {
                 yAxisLeftPosX = width-widestXLabel/2-xAxisLength;
-                yAxisRightPosX = undefined
+                yAxisRightPosX = width
             }
             xAxisPosY = scaleHeight + config.scaleFontSize/2;
         }
