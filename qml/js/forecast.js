@@ -438,7 +438,7 @@ WorkerScript.onMessage = function(message) {
         }
 
         try {
-            fullData = convertRaw(rawData);
+            fullData = convertRaw(JSON.parse(JSON.stringify(rawData)));
         } catch (e) {
             if (e.message === 'no-forecast-error') {
                 console.warn("no forecast available for location", locationId)
