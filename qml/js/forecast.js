@@ -356,7 +356,13 @@ WorkerScript.onMessage = function(message) {
         try {
             fullData = convertRaw(rawData);
         } catch (e) {
-            console.error("failed to convert raw data | exception:", e)
+                console.error("failed to convert raw data for", locationId)
+                console.error("exception:", e.name);
+                console.error("message:", e.message);
+                console.error("stack:\n", e.stack);
+
+                console.log("RAW DATA:")
+                console.log(JSON.stringify(rawData))
             return
         }
 
