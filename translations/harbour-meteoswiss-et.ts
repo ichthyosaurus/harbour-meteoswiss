@@ -152,7 +152,7 @@
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
         <source>Sunshine</source>
-        <translation type="unfinished"></translation>
+        <translation>Päikesepaiste</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="41"/>
         <source>Table view</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabelivaade</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="90"/>
@@ -625,7 +625,7 @@
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="227"/>
         <source>No forecast available for this location. Please replace it with a supported location nearby.</source>
-        <translation type="unfinished"></translation>
+        <translation>Selle asukoha jaoks pole ilmaennustust saadaval. Palun otsi lähikonnast mõnu muu asukoht.</translation>
     </message>
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="258"/>
@@ -718,33 +718,33 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="108"/>
         <source>Temperature</source>
-        <translation type="unfinished">Temperatuur</translation>
+        <translation>Temperatuur</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="118"/>
         <source>Precipitation</source>
-        <translation type="unfinished">Sademed</translation>
+        <translation>Sademed</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="133"/>
         <source>Sun</source>
         <comment>short for “Sunshine” in a narrow table header</comment>
-        <translation type="unfinished"></translation>
+        <translation>Päike</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="153"/>
         <source>Gusts</source>
-        <translation type="unfinished"></translation>
+        <translation>Iilid</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="190"/>
         <source>No data available</source>
-        <translation type="unfinished"></translation>
+        <translation>Andmeid pole saadaval</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="191"/>
         <source>Check your internet connection and refresh.</source>
-        <translation type="unfinished"></translation>
+        <translation>Palun kontrolli oma nutiseadme Interneti-ühendust ja laadi andmed uuesti.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="143"/>
