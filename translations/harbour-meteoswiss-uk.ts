@@ -129,7 +129,7 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
         <source>show less</source>
-        <translation>сховати</translation>
+        <translation>показати менше</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/DetailsDrawer.qml" line="54"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="202"/>
         <source>Temperature</source>
-        <translation>температура</translation>
+        <translation>Температура</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="209"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
         <source>Sunshine</source>
-        <translation type="unfinished"></translation>
+        <translation>Сонячне світло</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
@@ -199,7 +199,7 @@
     <message>
         <location filename="../qml/components/ForecastItem.qml" line="145"/>
         <source>Sun Times</source>
-        <translation>сонце Часи</translation>
+        <translation>Сонце Часи</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastItem.qml" line="170"/>
@@ -281,7 +281,7 @@
         <location filename="../qml/components/ForecastItem.qml" line="203"/>
         <source>Night</source>
         <comment>use &apos;|&apos; to separate alternative strings of different length</comment>
-        <translation>ніч</translation>
+        <translation>Ніч</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastItem.qml" line="209"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="41"/>
         <source>Table view</source>
-        <translation type="unfinished"></translation>
+        <translation>Вигляд таблиці</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="90"/>
@@ -627,7 +627,7 @@
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="227"/>
         <source>No forecast available for this location. Please replace it with a supported location nearby.</source>
-        <translation type="unfinished"></translation>
+        <translation>Для цього місцезнаходження прогноз погоди недоступний. Будь ласка, замініть його на підтримуване місцезнаходження поблизу.</translation>
     </message>
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="258"/>
@@ -715,38 +715,38 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="95"/>
         <source>Hour</source>
-        <translation>годину</translation>
+        <translation>Годину</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="108"/>
         <source>Temperature</source>
-        <translation type="unfinished">температура</translation>
+        <translation>Температура</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="118"/>
         <source>Precipitation</source>
-        <translation type="unfinished">Опади</translation>
+        <translation>Опади</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="133"/>
         <source>Sun</source>
         <comment>short for “Sunshine” in a narrow table header</comment>
-        <translation type="unfinished"></translation>
+        <translation>Сонце</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="153"/>
         <source>Gusts</source>
-        <translation type="unfinished"></translation>
+        <translation>Пориви вітру</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="190"/>
         <source>No data available</source>
-        <translation type="unfinished"></translation>
+        <translation>Дані недоступні</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="191"/>
         <source>Check your internet connection and refresh.</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевірте підключення до Інтернету та оновіть сторінку.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="143"/>
@@ -782,7 +782,7 @@
     <message>
         <location filename="../qml/js/strings.js" line="5"/>
         <source>clear</source>
-        <translation>ясно</translation>
+        <translation>очистити</translation>
     </message>
     <message>
         <location filename="../qml/js/strings.js" line="6"/>
