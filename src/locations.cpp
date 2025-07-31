@@ -1,4 +1,5 @@
 #include <QStandardPaths>
+#include <sailfishapp.h>
 #include "locations.h"
 
 #define EXPECTED_SCHEMA_VERSION "1"
@@ -16,11 +17,15 @@ LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
 
     auto file = QStandardPaths::locate(
         QStandardPaths::StandardLocation::AppDataLocation,
-        QStringLiteral("qml/db/locations.db"),
+        QStringLiteral("db/locations.db"),
         QStandardPaths::LocateOption::LocateFile
     );
 
-    if (!file.isEmpty()) {
+    if (file.isEmpty()) {
+        file = SailfishApp::pathTo("qml/db/locations.db").toLocalFile();
+    }
+
+    if (!file.isEmpty() && QFileInfo::exists(file)) {
         m_database = QSqlDatabase::addDatabase("QSQLITE", "locations");
         m_database.setDatabaseName(file);
 
@@ -48,7 +53,8 @@ LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
         }
     } else {
         qDebug() << "[LocationsModel] could not find locations.db at" <<
-                    QStandardPaths::standardLocations(QStandardPaths::StandardLocation::AppDataLocation);
+                    QStandardPaths::standardLocations(QStandardPaths::StandardLocation::AppDataLocation) <<
+                    ", got" << file;
     }
 
     emit haveDatabaseChanged();
