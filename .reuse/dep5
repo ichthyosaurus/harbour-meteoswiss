@@ -52,11 +52,6 @@ Copyright: Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
 License: LicenseRef-Official
 Comment: These files are included as a cache to reduce load on official servers.
 
-Files: raw/locations/locations-*.json qml/js/locations-details/locations-details-*.js qml/js/cantons.js qml/js/locations-overview.js raw/locations-temp/* raw/locations-base.js raw/locations/locations-*.js raw/locations/full-list
-Copyright: Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
-License: LicenseRef-Official
-Comment: These files are directly taken from the website or converted from data from the website. They should only contain non-copyrightable facts.
-
 Files: qml/js/strings.js qml/weather-icons/descriptions raw/strings/strings-*.js
 Copyright: Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
 License: LicenseRef-Official
