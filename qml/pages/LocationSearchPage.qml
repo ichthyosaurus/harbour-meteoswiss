@@ -70,7 +70,8 @@ Page {
             id: listItem
             text: Theme.highlightText(model.name, root._queryRegex, Theme.highlightColor)
             description: model.name !== model.primaryName ?
-                model.primaryName : " "
+                Theme.highlightText(model.primaryName, root._queryRegex, Theme.highlightColor)
+                : " "
             textLabel.font.pixelSize: Theme.fontSizeLarge
             descriptionLabel.font.pixelSize: Theme.fontSizeExtraSmall
 
