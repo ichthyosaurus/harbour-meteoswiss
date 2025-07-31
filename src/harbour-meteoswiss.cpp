@@ -6,6 +6,7 @@
 
 #include <QtQuick>
 #include <sailfishapp.h>
+#include "locations.h"
 #include "requires_defines.h"
 
 int main(int argc, char *argv[])
@@ -13,6 +14,13 @@ int main(int argc, char *argv[])
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     app->setOrganizationName("harbour-meteoswiss"); // needed for Sailjail
     app->setApplicationName("harbour-meteoswiss");
+
+    qmlRegisterSingletonType<LocationsModel>("MeteoSwiss.Locations", 1, 0, "LocationsModel",
+        [](QQmlEngine* engine, QJSEngine* scriptEngine) -> QObject* {
+            Q_UNUSED(engine); Q_UNUSED(scriptEngine);
+            return new LocationsModel();
+        }
+    );
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("APP_VERSION", QString(APP_VERSION));

@@ -13,6 +13,7 @@
 TARGET = harbour-meteoswiss
 
 CONFIG += sailfishapp c++14
+QT += sql
 
 # Note: version number is configured in yaml
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
@@ -24,6 +25,10 @@ QML_IMPORT_PATH += qml/modules
 
 SOURCES += \
     src/harbour-meteoswiss.cpp \
+    src/locations.cpp \
+
+INCLUDES += \
+    src/locations.h \
 
 DISTFILES += \
     qml/*.qml \
