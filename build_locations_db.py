@@ -10,6 +10,8 @@
 # Database: https://s3-eu-central-1.amazonaws.com/app-prod-static-fra.meteoswiss-app.ch/v1/db.sqlite
 
 import sqlite3
+import re
+import unicodedata
 from pathlib import Path
 
 
@@ -39,6 +41,16 @@ def swiss2intl(swissNorth, swissEast):
     phi *= 100 / 36
 
     return {'latitude': phi, 'longitude': lam}
+
+
+def normalize_text(*args, keep=[]):
+    punctutation_cats = set(['Pc', 'Pd', 'Ps', 'Pe', 'Pi', 'Pf', 'Po'])
+    joined = ' '.join((re.sub(r'\s+', ' ', str(x).strip()) for x in args)).strip()
+
+    return ''.join(x for x in unicodedata.normalize('NFKD', joined)
+                   if not unicodedata.combining(x)
+                   and (unicodedata.category(x) not in punctutation_cats
+                        or x in keep)).lower()
 
 
 def convert(source: str) -> int:
@@ -88,6 +100,8 @@ def convert(source: str) -> int:
         locationId INTEGER,
         primaryName TEXT,
         name TEXT,
+        searchPrimary TEXT,
+        searchName TEXT,
         zip TEXT,
         latitude REAL,
         longitude REAL,
@@ -105,13 +119,15 @@ def convert(source: str) -> int:
         coords = swiss2intl(row['y'], row['x'])
 
         out_conn.execute("""INSERT INTO locations(
-            locationId, primaryName, name, zip, latitude, longitude, altitude
+            locationId, primaryName, name, searchPrimary, searchName, zip, latitude, longitude, altitude
         ) VALUES (
-            ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?
         )""", [
             row['locationId'],
             row['primaryName'],
             row['name'],
+            normalize_text(row['primaryName']),
+            normalize_text(row['name']),
             row['zip'],
             coords['latitude'],
             coords['longitude'],
