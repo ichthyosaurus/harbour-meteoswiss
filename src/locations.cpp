@@ -14,7 +14,7 @@ LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
 
     auto file = QStandardPaths::locate(
         QStandardPaths::StandardLocation::AppDataLocation,
-        QStringLiteral("locations.db"),
+        QStringLiteral("qml/db/locations.db"),
         QStandardPaths::LocateOption::LocateFile
     );
 
