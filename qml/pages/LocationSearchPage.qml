@@ -18,6 +18,8 @@ Page {
     property var _queryRegex: new RegExp(_query, 'i')
     property Item _searchField
 
+    on_QueryChanged: LocationsModel.search = _query
+
     function addLocation(token) {
         var details = {
             locationId: 0,
@@ -63,7 +65,7 @@ Page {
 
     SilicaListView {
         anchors.fill: parent
-        model: proxyModel
+        model: LocationsModel
 
         VerticalScrollDecorator {}
 

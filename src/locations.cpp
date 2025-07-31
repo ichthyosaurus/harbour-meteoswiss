@@ -1,6 +1,8 @@
 #include <QStandardPaths>
 #include "locations.h"
 
+#define EXPECTED_SCHEMA_VERSION "1"
+
 LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
     roleNamesHash.insert(Qt::UserRole,     QByteArray("locationId"));
     roleNamesHash.insert(Qt::UserRole + 1, QByteArray("primaryName"));
@@ -17,39 +19,24 @@ LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
     );
 
     if (!file.isEmpty()) {
-        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "locations");
-        db.setDatabaseName(file);
+        m_database = QSqlDatabase::addDatabase("QSQLITE", "locations");
+        m_database.setDatabaseName(file);
 
-        if (db.open()) {
+        if (m_database.open()) {
             qDebug() << "[LocationsModel] loading locations.db from" << file;
         } else {
             qDebug() << "[LocationsModel] failed to open locations.db at"
-                     << file << ":" << db.lastError();
+                     << file << ":" << m_database.lastError();
         }
 
-        QStringList tables = db.tables();
-        if (db.tables().contains("locations")) {
-            // TODO define supported schema version and main query
-            // somewhere else
-            auto version = db.exec(R"(SELECT key FROM metadata
-                WHERE key = "schema" AND value = 1)");
+        QStringList tables = m_database.tables();
+        if (m_database.tables().contains("locations")) {
+            auto version = m_database.exec(R"(SELECT key FROM metadata
+                WHERE key = "schema" AND value = )" EXPECTED_SCHEMA_VERSION);
             version.next();
 
-            qDebug() << "VERSION" << version.size() << version.record() << version.record() << version.lastError();
-
             if (!version.record().isEmpty()) {
-                setQuery(R"(
-                    SELECT
-                        locationId,
-                        primaryName,
-                        name,
-                        zip,
-                        latitude,
-                        longitude,
-                        altitude
-                    FROM locations
-                )", db);
-                qDebug() << "ERROR:" << lastError();
+                connect(this, &LocationsModel::searchChanged, this, &LocationsModel::updateQuery);
             } else {
                 qDebug() << "[LocationsModel] failed to load locations: unsupported schema";
             }
@@ -69,4 +56,67 @@ QVariant LocationsModel::data(const QModelIndex& index, int role) const {
 
     QSqlRecord r = record(index.row());
     return r.value(role - Qt::UserRole);
+}
+
+void LocationsModel::updateQuery()
+{
+    // NOTE Remember to update EXPECTED_SCHEMA_VERSION when
+    // the database schema changes.
+
+    const static QRegularExpression isNumRe(QStringLiteral("^[0-9]+$"));
+    const static QString glob = QStringLiteral("%");
+    const static QString esc = QStringLiteral(R"(\%)");
+    const static QString start(QStringLiteral(R"(
+        SELECT
+            locationId,
+            primaryName,
+            name,
+            zip,
+            latitude,
+            longitude,
+            altitude
+        FROM locations
+    )"));
+    const static QString end(QStringLiteral(R"(
+        ORDER BY zip
+        LIMIT 30;
+    )"));
+    const static QString zipQueryString(
+        start + QStringLiteral(R"(
+        WHERE (
+            zip LIKE :zipStart AND
+            name = primaryName
+        )
+    )") + end);
+    const static QString nameQueryString(
+        start + QStringLiteral(R"(
+        WHERE (
+            name LIKE :nameStart OR
+            primaryName LIKE :primaryStart OR
+            searchName LIKE :searchStart OR
+            name LIKE :nameAny OR
+            primaryName LIKE :primaryAny OR
+            searchName LIKE :searchAny
+        )
+    )") + end);
+
+    QSqlQuery query(m_database);
+
+    auto s = m_search.replace(glob, esc);
+
+    if (isNumRe.match(s).hasMatch()) {
+        query.prepare(zipQueryString);
+        query.bindValue(":zipStart", s + glob);
+    } else {
+        query.prepare(nameQueryString);
+        query.bindValue(":nameStart", s + glob);
+        query.bindValue(":primaryStart", s + glob);
+        query.bindValue(":searchStart", s + glob);
+        query.bindValue(":nameAny", glob + s + glob);
+        query.bindValue(":primaryAny", glob + s + glob);
+        query.bindValue(":searchAny", glob + s + glob);
+    }
+
+    query.exec();
+    setQuery(query);
 }

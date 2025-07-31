@@ -5,7 +5,12 @@
 #include <QModelIndex>
 #include <QVariant>
 
+#include <libs/opal/propertymacros/property_macros.h>
+
 class LocationsModel : public QSqlQueryModel {
+    Q_OBJECT
+    RW_PROPERTY(QString, search, Search, QStringLiteral(""))
+
 public:
     LocationsModel(QObject* parent = 0);
 
@@ -15,6 +20,10 @@ public:
         return roleNamesHash;
     }
 
+private slots:
+    void updateQuery();
+
 private:
     QHash<int, QByteArray> roleNamesHash;
+    QSqlDatabase m_database;
 };
