@@ -34,6 +34,8 @@ DISTFILES += \
     qml/*.qml \
     qml/*/*.qml \
     qml/*/*/*.qml \
+    qml/*/*/*/*.qml \
+    qml/*/*/*/*/*.qml \
     qml/*/*.js \
     qml/*/*.py \
     rpm/harbour-*.changes \
