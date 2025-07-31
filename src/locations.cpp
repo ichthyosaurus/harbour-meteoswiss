@@ -68,6 +68,11 @@ void LocationsModel::updateQuery()
     // NOTE Remember to update EXPECTED_SCHEMA_VERSION when
     // the database schema changes.
 
+    if (m_search.isEmpty()) {
+        setQuery("");
+        return;
+    }
+
     const static QRegularExpression isNumRe(QStringLiteral("^[0-9]+$"));
     const static QString glob = QStringLiteral("%");
     const static QString esc = QStringLiteral(R"(\%)");

@@ -184,6 +184,7 @@ Page {
 
     on_SearchFieldChanged: _searchField.forceActiveFocus()
     Component.onCompleted: {
+        LocationsModel.search = ""
         _searchField && _searchField.forceActiveFocus()
     }
 }
