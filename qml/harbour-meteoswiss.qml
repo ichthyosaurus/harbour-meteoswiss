@@ -17,8 +17,10 @@ import "js/storage.js" as Storage
 ApplicationWindow {
     id: meteoApp
 
-    initialPage: entryPage
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+    initialPage: Component {
+        OverviewPage {}
+    }
 
     signal dataLoaded(var data, var locationId)
     signal dataIsLoading(var locationId)
@@ -85,11 +87,6 @@ ApplicationWindow {
     // [as of 2021-02-17, SFOS 3.4.0.24, sailfishsilica-qt5 version 1.1.110.3-1.33.3.jolla]
     _defaultPageOrientations: Orientation.All
     allowedOrientations: Orientation.All
-
-    Component {
-        id: entryPage
-        OverviewPage { }
-    }
 
     WorkerScript {
         id: dataLoader
