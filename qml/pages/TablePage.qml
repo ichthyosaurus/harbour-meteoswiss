@@ -20,7 +20,7 @@ Page {
 
     readonly property string title: {
         var loc = Storage.getLocationData(locationId)[0]
-        String("%1 %2 (%3)").arg(loc.zip).arg(loc.name).arg(loc.cantonId)
+        String("%1 %2").arg(loc.zip).arg(loc.name)
     }
 
     readonly property bool _haveData: meteoApp.forecastTable.count > 0

@@ -115,7 +115,7 @@ ListItem {
             id: locationLabel
             width: parent.width
             color: highlighted ? Theme.highlightColor : Theme.primaryColor
-            text: String("%1 (%2)").arg(model.name).arg(model.cantonId)
+            text: model.name
             truncationMode: TruncationMode.Fade
         }
 
@@ -274,7 +274,7 @@ ListItem {
         pusher("../pages/ForecastPage.qml", {
             "activeDay": activeDay,
             "locationId": locationId,
-            "title": String("%1 %2 (%3)").arg(zip).arg(name).arg(cantonId),
+            "title": String("%1 %2").arg(zip).arg(name),
         });
     }
 

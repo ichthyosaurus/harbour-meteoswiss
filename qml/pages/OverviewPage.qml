@@ -32,8 +32,6 @@ Page {
             "locationId": locationData.locationId,
             "zip": locationData.zip,
             "name": locationData.name,
-            "canton": locationData.canton,
-            "cantonId": locationData.cantonId,
             "temperatureString": getTemperatureString(temperature),
             "symbol": symbol,
             "active": locationData.active,

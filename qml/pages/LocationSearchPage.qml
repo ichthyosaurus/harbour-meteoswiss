@@ -29,8 +29,6 @@ Page {
             latitude: coords.north,
             longitude: coords.east,
             zip: parseInt(token.substr(0, 4), 10),
-            cantonId: cantonId,
-            canton: Cantons.Cantons[cantonId],
             name: token.substr(5, token.length-10),
             active: true,
         }

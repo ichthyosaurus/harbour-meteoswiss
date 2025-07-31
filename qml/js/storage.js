@@ -112,6 +112,16 @@ DB.dbMigrations = [
         tx.executeSql('DELETE FROM data_overview;')
         tx.executeSql('DELETE FROM %1 WHERE key = "last_maintenance";'.arg(DB.settingsTable))
     }],
+    [4, function(tx){
+        tx.executeSql('\
+            ALTER TABLE locations
+            DROP COLUMN cantonId
+        ;')
+        tx.executeSql('\
+            ALTER TABLE locations
+            DROP COLUMN canton
+        ;')
+    }],
 
     // add new versions here...
     //
@@ -187,11 +197,9 @@ function addLocation(locationData, viewPosition) {
     var lat = defaultFor(locationData.latitude, 0);
     var long = defaultFor(locationData.longitude, 0);
     var zip = defaultFor(locationData.zip, null);
-    var canId = defaultFor(locationData.cantonId, null);
-    var can = defaultFor(locationData.canton, null);
     var name = defaultFor(locationData.name, null);
 
-    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?,?,?,?, ?);', [id, zip, name, canId, can, lat, long, alt, viewPosition, true]);
+    var res = simpleQuery('INSERT OR IGNORE INTO locations VALUES (?,?,?,?,?,?,?, ?);', [id, zip, name, lat, long, alt, viewPosition, true]);
 
     if (res !== 0 && !res) {
         console.log("error: failed to save location " + id + " to db");
@@ -324,8 +332,6 @@ function getLocationData(locationId) {
                     longitude: rs.rows.item(i).longitude,
                     zip: rs.rows.item(i).zip,
                     name: rs.rows.item(i).name,
-                    cantonId: rs.rows.item(i).cantonId,
-                    canton: rs.rows.item(i).canton,
                     viewPosition: rs.rows.item(i).view_position,
                     active: rs.rows.item(i).active === 1,
                 });
