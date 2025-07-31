@@ -17,7 +17,10 @@ Page {
     property var _queryRegex: new RegExp(_query, 'i')
     property Item _searchField
 
-    on_QueryChanged: LocationsModel.search = _query
+    on_QueryChanged: {
+        LocationsModel.search = _query
+        _searchField.forceActiveFocus()
+    }
 
     function addLocation(token) {
         var details = {

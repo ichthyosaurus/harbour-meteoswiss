@@ -66,7 +66,7 @@ void LocationsModel::updateQuery()
     const static QRegularExpression isNumRe(QStringLiteral("^[0-9]+$"));
     const static QString glob = QStringLiteral("%");
     const static QString esc = QStringLiteral(R"(\%)");
-    const static QString start(QStringLiteral(R"(
+    const static QString select(QStringLiteral(R"(
         SELECT
             locationId,
             primaryName,
@@ -75,30 +75,35 @@ void LocationsModel::updateQuery()
             latitude,
             longitude,
             altitude
-        FROM locations
     )"));
-    const static QString end(QStringLiteral(R"(
-        ORDER BY zip
+    const static QString limit(QStringLiteral(R"(
         LIMIT 30;
     )"));
     const static QString zipQueryString(
-        start + QStringLiteral(R"(
+        select + QStringLiteral(R"(
+        FROM locations
         WHERE (
             zip LIKE :zipStart AND
             name = primaryName
         )
-    )") + end);
+        ORDER BY zip
+    )") + limit);
     const static QString nameQueryString(
-        start + QStringLiteral(R"(
-        WHERE (
-            name LIKE :nameStart OR
-            primaryName LIKE :primaryStart OR
-            searchName LIKE :searchStart OR
-            name LIKE :nameAny OR
-            primaryName LIKE :primaryAny OR
-            searchName LIKE :searchAny
-        )
-    )") + end);
+        QStringLiteral(R"(
+        WITH cte AS (
+            SELECT *, RANK() OVER (ORDER BY
+                (name LIKE :nameStart) +
+                (searchName LIKE :searchNameStart) +
+                (primaryName LIKE :primaryNameStart) +
+                (searchPrimary LIKE :searchPrimaryStart) +
+                (searchName LIKE :searchNameAny) +
+                (searchPrimary LIKE :searchPrimaryAny) +
+                0 DESC) rn
+            FROM locations
+        ) )") + select + QStringLiteral(R"(
+        FROM cte
+        ORDER BY rn
+    )") + limit);
 
     QSqlQuery query(m_database);
 
@@ -110,11 +115,11 @@ void LocationsModel::updateQuery()
     } else {
         query.prepare(nameQueryString);
         query.bindValue(":nameStart", s + glob);
-        query.bindValue(":primaryStart", s + glob);
-        query.bindValue(":searchStart", s + glob);
-        query.bindValue(":nameAny", glob + s + glob);
-        query.bindValue(":primaryAny", glob + s + glob);
-        query.bindValue(":searchAny", glob + s + glob);
+        query.bindValue(":searchNameStart", s + glob);
+        query.bindValue(":primaryNameStart", s + glob);
+        query.bindValue(":searchPrimaryStart", s + glob);
+        query.bindValue(":searchNameAny", glob + s + glob);
+        query.bindValue(":searchPrimaryAny", glob + s + glob);
     }
 
     query.exec();
