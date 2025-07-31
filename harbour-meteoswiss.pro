@@ -12,12 +12,13 @@
 #   - translation filenames have to be changed
 TARGET = harbour-meteoswiss
 
-CONFIG += sailfishapp
+CONFIG += sailfishapp c++14
 
 # Note: version number is configured in yaml
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
 include(libs/opal-cached-defines.pri)
+include(libs/opal-include.pri)
 
 QML_IMPORT_PATH += qml/modules
 
