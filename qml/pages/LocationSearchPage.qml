@@ -8,7 +8,6 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 import MeteoSwiss.Locations 1.0
-import Opal.SortFilterProxyModel 1.0
 import Opal.Delegates 1.0
 
 Page {
@@ -33,34 +32,6 @@ Page {
             active: true,
         }
         meteoApp.locationAdded(details)
-    }
-
-    SortFilterProxyModel {
-        id: proxyModel
-        sourceModel: LocationsModel
-        delayed: true
-
-        sortRoleName: "name"
-        filters: AnyOf {
-            RegExpFilter {
-                caseSensitivity: Qt.CaseInsensitive
-                pattern: _query
-                roleName: "zip"
-                syntax: RegExpFilter.FixedString
-            }
-            RegExpFilter {
-                caseSensitivity: Qt.CaseInsensitive
-                pattern: _query
-                roleName: "primaryName"
-                syntax: RegExpFilter.FixedString
-            }
-            RegExpFilter {
-                caseSensitivity: Qt.CaseInsensitive
-                pattern: _query
-                roleName: "name"
-                syntax: RegExpFilter.FixedString
-            }
-        }
     }
 
     SilicaListView {
