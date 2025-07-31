@@ -4,6 +4,8 @@
 #define EXPECTED_SCHEMA_VERSION "1"
 
 LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
+    m_haveDatabase = false;
+
     roleNamesHash.insert(Qt::UserRole,     QByteArray("locationId"));
     roleNamesHash.insert(Qt::UserRole + 1, QByteArray("primaryName"));
     roleNamesHash.insert(Qt::UserRole + 2, QByteArray("name"));
@@ -37,6 +39,7 @@ LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
 
             if (!version.record().isEmpty()) {
                 connect(this, &LocationsModel::searchChanged, this, &LocationsModel::updateQuery);
+                m_haveDatabase = true;
             } else {
                 qDebug() << "[LocationsModel] failed to load locations: unsupported schema";
             }
@@ -47,6 +50,8 @@ LocationsModel::LocationsModel(QObject* parent) : QSqlQueryModel(parent) {
         qDebug() << "[LocationsModel] could not find locations.db at" <<
                     QStandardPaths::standardLocations(QStandardPaths::StandardLocation::AppDataLocation);
     }
+
+    emit haveDatabaseChanged();
 }
 
 QVariant LocationsModel::data(const QModelIndex& index, int role) const {

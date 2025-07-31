@@ -10,6 +10,7 @@
 class LocationsModel : public QSqlQueryModel {
     Q_OBJECT
     RW_PROPERTY(QString, search, Search, QStringLiteral(""))
+    RO_PROPERTY(bool, haveDatabase, true)
 
 public:
     LocationsModel(QObject* parent = 0);

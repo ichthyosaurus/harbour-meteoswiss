@@ -36,10 +36,24 @@ Page {
     }
 
     SilicaListView {
+        id: listView
         anchors.fill: parent
         model: LocationsModel
 
         VerticalScrollDecorator {}
+
+        ViewPlaceholder {
+           enabled: !LocationsModel.haveDatabase
+           text: qsTr("Database missing")
+           hintText: qsTr("Try reinstalling the app.")
+        }
+
+        ViewPlaceholder {
+            enabled: LocationsModel.haveDatabase &&
+                     listView.count === 0
+            hintText: qsTr("Type to find a location by " +
+                           "name or by zip code.")
+        }
 
         header: Column {
             width: root.width
@@ -51,6 +65,7 @@ Page {
             SearchField {
                 id: searchField
                 width: parent.width
+                enabled: LocationsModel.haveDatabase
                 placeholderText: qsTr("Search")
                 inputMethodHints: Qt.ImhNoPredictiveText
                 onTextChanged: root._query = text
