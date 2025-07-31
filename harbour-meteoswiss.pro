@@ -27,7 +27,7 @@ SOURCES += \
     src/harbour-meteoswiss.cpp \
     src/locations.cpp \
 
-INCLUDES += \
+HEADERS += \
     src/locations.h \
 
 DISTFILES += \
