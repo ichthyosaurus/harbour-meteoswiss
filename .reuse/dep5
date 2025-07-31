@@ -61,8 +61,3 @@ Files: qml/js/strings.js qml/weather-icons/descriptions raw/strings/strings-*.js
 Copyright: Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
 License: LicenseRef-Official
 Comment: These files contain weather descriptions, directly taken from the official website, and converted from data from the website.
-
-Files: raw/dummy.js raw/forecast.json raw/plzDetail.json raw/forecast_plzDetail.json
-Copyright: Copyright, Federal Office of Meteorology and Climatology MeteoSwiss.
-License: LicenseRef-Official
-Comment: These files contain weather forecast data as provided through the website. They are used to document the data format.

@@ -13,12 +13,12 @@ tmp*
 icon-src/raw
 TODO
 
+dev/
 databases/
 raw/strings/*.clean
 raw/strings/strings
 raw/locations-temp/
 reverse/
-deep-rename.sh
 
 libs/opal-translations
 libs/opal-docs
