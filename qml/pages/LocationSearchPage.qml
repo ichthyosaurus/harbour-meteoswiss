@@ -22,19 +22,6 @@ Page {
         _searchField.forceActiveFocus()
     }
 
-    function addLocation(token) {
-        var details = {
-            locationId: 0,
-            altitude: 0,
-            latitude: coords.north,
-            longitude: coords.east,
-            zip: parseInt(token.substr(0, 4), 10),
-            name: token.substr(5, token.length-10),
-            active: true,
-        }
-        meteoApp.locationAdded(details)
-    }
-
     SilicaListView {
         id: listView
         anchors.fill: parent
@@ -97,6 +84,19 @@ Page {
 
                 description: model.altitude + "m"
                 descriptionLabel.font.pixelSize: Theme.fontSizeExtraSmall
+            }
+
+            onClicked: {
+                meteoApp.locationAdded({
+                    locationId: model.locationId,
+                    altitude: model.altitude,
+                    latitude: model.latitude,
+                    longitude: model.longitude,
+                    zip: parseInt(model.zip, 10),
+                    name: model.name,
+                    active: true,
+                })
+                pageStack.pop()
             }
         }
     }
