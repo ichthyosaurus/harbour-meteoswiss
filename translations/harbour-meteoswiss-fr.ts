@@ -62,7 +62,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
         <source>Tamil</source>
-        <translation>Tamil</translation>
+        <translation>tamoul</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="112"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
         <source>Sunshine</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rayon de soleil</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="41"/>
         <source>Table view</source>
-        <translation type="unfinished"></translation>
+        <translation>Vue en tableau</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="90"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="97"/>
         <source>Failed to load data!</source>
-        <translation>Échec du chargement des données !</translation>
+        <translation>Échec du chargement des données&#x202f;!</translation>
     </message>
 </context>
 <context>
@@ -387,7 +387,7 @@
     <message>
         <location filename="../qml/MySupportDialog.qml" line="37"/>
         <source>Why should you care?</source>
-        <translation>En quoi ça te concerne ?</translation>
+        <translation>En quoi ça te concerne&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="40"/>
@@ -402,7 +402,7 @@
     <message>
         <location filename="../qml/MySupportDialog.qml" line="56"/>
         <source>Why donate?</source>
-        <translation>Pourquoi faire un don ?</translation>
+        <translation>Pourquoi faire un don&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="59"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="44"/>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation>Note : veuillez consulter le code source pour obtenir des informations plus précises.</translation>
+        <translation>Note&#xa0;: veuillez consulter le code source pour obtenir des informations plus précises.</translation>
     </message>
 </context>
 <context>
@@ -625,7 +625,7 @@
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="227"/>
         <source>No forecast available for this location. Please replace it with a supported location nearby.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucune prévision n&apos;est disponible pour cet emplacement. Veuillez le remplacer par un emplacement pris en charge à proximité.</translation>
     </message>
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="258"/>
@@ -680,17 +680,17 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="9"/>
         <source>Hi there!</source>
-        <translation>Salut !</translation>
+        <translation>Salut&#x202f;!</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="10"/>
         <source>Thank you for using my little app! Maybe you can contribute back?</source>
-        <translation>Merci d&apos;utiliser ma petite application ! Vous pouvez peut-être contribuer ?</translation>
+        <translation>Merci d&apos;utiliser ma petite application&#x202f;! Vous pouvez peut-être contribuer&#x202f;?</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="11"/>
         <source>Thank you for your support!</source>
-        <translation>Merci pour votre soutien !</translation>
+        <translation>Merci pour votre soutien&#x202f;!</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
@@ -718,7 +718,7 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="108"/>
         <source>Temperature</source>
-        <translation type="unfinished">Température</translation>
+        <translation>Température</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="118"/>
@@ -729,22 +729,22 @@
         <location filename="../qml/pages/TablePage.qml" line="133"/>
         <source>Sun</source>
         <comment>short for “Sunshine” in a narrow table header</comment>
-        <translation type="unfinished"></translation>
+        <translation>Soleil</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="153"/>
         <source>Gusts</source>
-        <translation type="unfinished"></translation>
+        <translation>Bourrasques</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="190"/>
         <source>No data available</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucune donnée disponible</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="191"/>
         <source>Check your internet connection and refresh.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifiez votre connexion Internet et actualisez.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="143"/>
