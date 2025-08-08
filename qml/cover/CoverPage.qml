@@ -13,19 +13,21 @@ import "../js/strings.js" as Strings
 
 CoverBackground {
     id: coverPage
-    property int locationId: undefined
-    property var summary: undefined
-    property var locationData: undefined
+
+    property bool haveLocation: locationId > 0
+    property int locationId: meteoApp.coverData.locationId
+    property var summary: meteoApp.coverData.summary
+    property var locationData: meteoApp.coverData.locationData
 
     Label {
         id: label
-        visible: !locationId
+        visible: !haveLocation
         anchors.centerIn: parent
         text: qsTr("MeteoSwiss")
     }
 
     Item {
-        visible: (locationId ? true : false)
+        visible: (haveLocation ? true : false)
         width: parent.width - 2*Theme.paddingLarge
 
         Column {
@@ -72,10 +74,7 @@ CoverBackground {
 
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
-            onTriggered: {
-                locationId = Storage.getNextCoverLocation(locationId)
-                updateData()
-            }
+            onTriggered: meteoApp.setNextCoverLocation()
         }
 
         CoverAction {
@@ -85,29 +84,5 @@ CoverBackground {
                 meteoApp.activate()
             }
         }
-    }
-
-    function updateData() {
-        Storage.setCoverLocation(locationId)
-        summary = Storage.getDataSummary(locationId)
-        locationData = Storage.getLocationData(locationId)
-
-        if (locationData) {
-            locationData = locationData[0]
-        } else {
-            console.log("error: failed to load location metadata for", locationId)
-        }
-    }
-
-    Component.onCompleted: {
-        var loc = Storage.getCoverLocation()
-        if (!loc) {
-            loc = Storage.getNextCoverLocation()
-        }
-
-        locationId = loc
-
-        updateData()
-        meteoApp.dataLoaded.connect(updateData)
     }
 }

@@ -78,6 +78,12 @@ ApplicationWindow {
     property var symbolHours: [2,5,8,11,14,17,20,23]
     property int noonHour: symbolHours[((symbolHours.length - symbolHours.length%2)/2)-1]
 
+    property QtObject coverData: QtObject {
+        property int locationId: -1
+        property var summary: null
+        property var locationData: null
+    }
+
     // We have to explicitly set the \c _defaultPageOrientations property
     // to \c Orientation.All so the page stack's default placeholder page
     // will be allowed to be in landscape mode. (The default value is
@@ -123,6 +129,38 @@ ApplicationWindow {
                 console.error(JSON.stringify(messageObject))
             }
         }
+    }
+
+    function updateCoverData() {
+        var locationId = coverData.locationId
+        Storage.setCoverLocation(locationId)
+        coverData.summary = Storage.getDataSummary(locationId)
+        coverData.locationData = Storage.getLocationData(locationId)
+
+        if (!!coverData.locationData) {
+            coverData.locationData = coverData.locationData[0]
+        } else {
+            console.log("error: failed to load cover data for", locationId)
+        }
+    }
+
+    function loadCoverData() {
+        coverData.locationId = Storage.getCoverLocation()
+
+        if (coverData.locationId <= 0) {
+            coverData.locationId = Storage.getNextCoverLocation()
+        }
+
+        if (coverData.locationId > 0) {
+            updateCoverData()
+        } else {
+            console.log("no locations for cover available")
+        }
+    }
+
+    function setNextCoverLocation() {
+        coverData.locationId = Storage.getNextCoverLocation(coverData.locationId)
+        updateCoverData()
     }
 
     function refreshTableModel(locationId) {
@@ -195,6 +233,10 @@ ApplicationWindow {
         contents: Component {
             MySupportDialog {}
         }
+    }
+
+    onDataLoaded: {
+        loadCoverData()
     }
 
     Component.onCompleted: {
