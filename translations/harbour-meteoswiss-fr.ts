@@ -315,7 +315,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="97"/>
         <source>Failed to load data!</source>
-        <translation>Échec du chargement des données&#x202f;!</translation>
+        <translation>Échec du chargement des données !</translation>
     </message>
 </context>
 <context>
@@ -389,7 +389,7 @@
     <message>
         <location filename="../qml/MySupportDialog.qml" line="37"/>
         <source>Why should you care?</source>
-        <translation>En quoi ça te concerne&#x202f;?</translation>
+        <translation>En quoi ça te concerne ?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="40"/>
@@ -404,7 +404,7 @@
     <message>
         <location filename="../qml/MySupportDialog.qml" line="56"/>
         <source>Why donate?</source>
-        <translation>Pourquoi faire un don&#x202f;?</translation>
+        <translation>Pourquoi faire un don ?</translation>
     </message>
     <message>
         <location filename="../qml/MySupportDialog.qml" line="59"/>
@@ -563,7 +563,7 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="44"/>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation>Note&#xa0;: veuillez consulter le code source pour obtenir des informations plus précises.</translation>
+        <translation>Note : veuillez consulter le code source pour obtenir des informations plus précises.</translation>
     </message>
 </context>
 <context>
@@ -731,17 +731,17 @@
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="9"/>
         <source>Hi there!</source>
-        <translation>Salut&#x202f;!</translation>
+        <translation>Salut !</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="10"/>
         <source>Thank you for using my little app! Maybe you can contribute back?</source>
-        <translation>Merci d&apos;utiliser ma petite application&#x202f;! Vous pouvez peut-être contribuer&#x202f;?</translation>
+        <translation>Merci d&apos;utiliser ma petite application ! Vous pouvez peut-être contribuer ?</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="11"/>
         <source>Thank you for your support!</source>
-        <translation>Merci pour votre soutien&#x202f;!</translation>
+        <translation>Merci pour votre soutien !</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/SupportMe/SupportDialog.qml" line="57"/>
