@@ -5,34 +5,22 @@
  */
 
 .pragma library
-.import "../modules/Opal/LocalStorage/StorageHelper.js" as DB
-
-//
-// BEGIN Startup configuration
-//
-
-function setMaintenanceSignals(start, end) {
-    DB.maintenanceStartSignal = start
-    DB.maintenanceEndSignal = end
-}
+.import "../modules/Opal/LocalStorage/LocalStorage.js" as LS
 
 //
 // BEGIN Database configuration
 //
 
-function dbOk() { return DB.dbOk }
-var isSameValue = DB.isSameValue
+var DB = new LS.Database("main", "harbour-meteoswiss", "Meteo Offline Cache")
 
-DB.dbName = "harbour-meteoswiss"
-DB.dbDescription = "Swiss Meteo Offline Cache"
-DB.dbSize = 2000000
 DB.enableAutoMaintenance = true
 DB.maintenanceCallback = function(){
     pruneOldData(-1)
 }
 
-DB.dbMigrations = [
+DB.migrations = [
     // Database versions do not correspond to app versions.
+
     [2.0, function(tx){
         // Version 2.0 is the first version. Subsequent versions use integer
         // version numbers only.
@@ -134,8 +122,8 @@ DB.dbMigrations = [
 // BEGIN App database functions
 //
 
-var defaultFor = DB.defaultFor
-var getDatabase = DB.getDatabase
+var defaultFor = LS.defaultFor
+var getDatabase = DB.getDatabase.bind(DB)
 
 function disable() {
     // mark the app as disabled and prevent loading any data

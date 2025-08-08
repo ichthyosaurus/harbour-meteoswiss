@@ -214,16 +214,17 @@ ApplicationWindow {
         }
     }
 
-    L.MaintenanceOverlay {}
+    L.MessageHandler {
+        id: storageMessageHandler
 
-    /* L.MaintenanceOverlay {
-        id: disableAppOverlay
-        text: qsTr("Currently unusable")
-        hintText: qsTr("This app is currently unusable, " +
-                       "due to a change at the data provider's side.")
-        busy: false
-        autoShowOnMaintenance: false
-    } */
+        function showAppDisabled() {
+            showOverlay("app-disabled",
+                        qsTr("Currently unusable"),
+                        qsTr("This app is currently unusable, " +
+                             "due to a change at the data provider's side."),
+                        false)
+        }
+    }
 
     A.ChangelogNews {
         changelogList: Qt.resolvedUrl("Changelog.qml")
@@ -255,7 +256,7 @@ ApplicationWindow {
         // TODO implement a way to detect API breakage and enable the overlay automatically
         /*{
             Storage.disable()
-        // disableAppOverlay.show()
+            storageMessageHandler.showAppDisabled()
             return
         }*/
 

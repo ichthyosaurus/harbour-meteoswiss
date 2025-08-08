@@ -3,3 +3,4 @@ module Opal.LocalStorage.private
 # SPDX-FileCopyrightText: 2025 Mirian Margiani
 # SPDX-License-Identifier: GPL-3.0-or-later
 ExtendedBusyLabel 1.0 ExtendedBusyLabel.qml
+BlockingOverlay 1.0 BlockingOverlay.qml

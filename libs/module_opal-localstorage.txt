@@ -4,12 +4,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Attribution using Opal.About:
-#    1. Import "../modules/Opal/Attributions" in your “About” page.
-#    2. Attribute this module by adding "OpalLocalStorageAttribution {}"
-#       to the "attributions" list property of the “About” page.
+# - since version 2.3.0: enable the "autoAddOpalAttributions" property on
+#   your "About" page.
+# - since version 3.0.0: Opal attributions are automatically added
+#
+# Manual attribution:
+# 1. Import "../modules/Opal/Attributions" in your "About" page.
+# 2. Attribute this module by adding "OpalLocalStorageAttribution {}"
+#    to the "attributions" list property of the "About" page.
 
 module: Opal.LocalStorage (opal-localstorage)
-version: 0.1.0 (git:84d85b7)
+version: 0.3.0 (git:23fc41d)
 description: This module provides a set of tools for handling local databases safely and extensibly.
 maintainers: Mirian Margiani
 attribution: 2018-2025 Mirian Margiani
