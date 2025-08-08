@@ -56,46 +56,51 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
+        <source>Ukrainian</source>
+        <translation>Українська</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
         <source>Turkish</source>
         <translation>Турецька</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>Tamil</source>
         <translation>Тамільська</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="112"/>
+        <location filename="../qml/pages/AboutPage.qml" line="118"/>
         <source>Spanish</source>
         <translation>Іспанська</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="119"/>
+        <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>Italian</source>
         <translation>Італійська</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="125"/>
+        <location filename="../qml/pages/AboutPage.qml" line="131"/>
         <source>German</source>
         <translation>Німецька</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="132"/>
+        <location filename="../qml/pages/AboutPage.qml" line="138"/>
         <source>French</source>
         <translation>Французька</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="139"/>
+        <location filename="../qml/pages/AboutPage.qml" line="145"/>
         <source>Estonian</source>
         <translation>Естонська</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="145"/>
+        <location filename="../qml/pages/AboutPage.qml" line="151"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="151"/>
+        <location filename="../qml/pages/AboutPage.qml" line="157"/>
         <source>Chinese</source>
         <translation>Китайська</translation>
     </message>
@@ -111,7 +116,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="24"/>
+        <location filename="../qml/cover/CoverPage.qml" line="29"/>
         <source>MeteoSwiss</source>
         <translation>MeteoSwiss</translation>
     </message>
@@ -324,32 +329,29 @@
 <context>
     <name>LocationSearchPage</name>
     <message>
-        <location filename="../qml/pages/LocationSearchPage.qml" line="48"/>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="34"/>
+        <source>Database missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="35"/>
+        <source>Try reinstalling the app.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="41"/>
+        <source>Type to find a location by name or by zip code.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="49"/>
         <source>Add Location</source>
         <translation>Додати місцезнаходження</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LocationSearchPage.qml" line="54"/>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="56"/>
         <source>Search</source>
         <translation>Пошук</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationSearchPage.qml" line="32"/>
-        <source>Bootstrap debug locations</source>
-        <translation>Розташування налагодження Bootstrap</translation>
-    </message>
-</context>
-<context>
-    <name>MaintenanceOverlay</name>
-    <message>
-        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="39"/>
-        <source>Database Maintenance</source>
-        <translation>Обслуговування бази даних</translation>
-    </message>
-    <message>
-        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="40"/>
-        <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation>Будь ласка, запасіться терпінням і дайте на це до 30 секунд.</translation>
     </message>
 </context>
 <context>
@@ -613,6 +615,55 @@
     </message>
 </context>
 <context>
+    <name>Opal.LocalStorage</name>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
+        <source>Database upgrade failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
+        <source>An error occurred while upgrading the database from version %1 to version %2. Please report this issue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
+        <source>Developer information:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
+        <source>Invalid database version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
+        <source>The app cannot start because the database has version %1 but only version %2 is supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
+        <source>Database Maintenance</source>
+        <translation type="unfinished">Обслуговування бази даних</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
+        <source>Please be patient and allow up to 30 seconds for this.</source>
+        <translation type="unfinished">Будь ласка, запасіться терпінням і дайте на це до 30 секунд.</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
+        <source>Database issue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
+        <source>An unexpected issue occurred in the database. Try restarting the app.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OverviewListDelegate</name>
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="54"/>
@@ -638,32 +689,32 @@
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="101"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="99"/>
         <source>About</source>
         <translation>Про застосунок</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="111"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="109"/>
         <source>Refresh</source>
         <translation>Оновити</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="67"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="65"/>
         <source>MeteoSwiss</source>
         <translation>MeteoSwiss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="106"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="104"/>
         <source>Add location</source>
         <translation>Додайте місцезнаходження</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="120"/>
         <source>Add a location first</source>
         <translation>Спочатку додайте місцезнаходження</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="123"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="121"/>
         <source>Pull down to add items</source>
         <translation>Потягніть вниз, щоб додати елементи</translation>
     </message>
@@ -757,22 +808,32 @@
 <context>
     <name>harbour-meteoswiss</name>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="62"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="64"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
         <translation>д MMM рррр &apos;(&apos;чч&apos;:&apos;мм&apos;)&apos;</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="65"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="67"/>
         <source>ddd d MMM yyyy</source>
         <translation>ддд д MMM рррр</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="64"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="222"/>
+        <source>Currently unusable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour-meteoswiss.qml" line="223"/>
+        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour-meteoswiss.qml" line="66"/>
         <source>hh&apos;:&apos;mm</source>
         <translation>чч&apos;:&apos;мм</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="63"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="65"/>
         <source>d MMM yyyy</source>
         <translation>d MMM рррр</translation>
     </message>

@@ -56,46 +56,51 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="100"/>
+        <source>Ukrainian</source>
+        <translation>ukraina keel</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
         <source>Turkish</source>
         <translation>türgi keel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <location filename="../qml/pages/AboutPage.qml" line="112"/>
         <source>Tamil</source>
         <translation>tamili keel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="112"/>
+        <location filename="../qml/pages/AboutPage.qml" line="118"/>
         <source>Spanish</source>
         <translation>hispaania keel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="119"/>
+        <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>Italian</source>
         <translation>itaalia keel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="125"/>
+        <location filename="../qml/pages/AboutPage.qml" line="131"/>
         <source>German</source>
         <translation>saksa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="132"/>
+        <location filename="../qml/pages/AboutPage.qml" line="138"/>
         <source>French</source>
         <translation>prantsuse</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="139"/>
+        <location filename="../qml/pages/AboutPage.qml" line="145"/>
         <source>Estonian</source>
         <translation>eesti keel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="145"/>
+        <location filename="../qml/pages/AboutPage.qml" line="151"/>
         <source>English</source>
         <translation>inglise</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="151"/>
+        <location filename="../qml/pages/AboutPage.qml" line="157"/>
         <source>Chinese</source>
         <translation>hiina</translation>
     </message>
@@ -111,7 +116,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="24"/>
+        <location filename="../qml/cover/CoverPage.qml" line="29"/>
         <source>MeteoSwiss</source>
         <translation>MeteoSwiss</translation>
     </message>
@@ -324,32 +329,29 @@
 <context>
     <name>LocationSearchPage</name>
     <message>
-        <location filename="../qml/pages/LocationSearchPage.qml" line="48"/>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="34"/>
+        <source>Database missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="35"/>
+        <source>Try reinstalling the app.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="41"/>
+        <source>Type to find a location by name or by zip code.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="49"/>
         <source>Add Location</source>
         <translation>Lisa asukoht</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LocationSearchPage.qml" line="54"/>
+        <location filename="../qml/pages/LocationSearchPage.qml" line="56"/>
         <source>Search</source>
         <translation>Otsi</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationSearchPage.qml" line="32"/>
-        <source>Bootstrap debug locations</source>
-        <translation>Alglaadi silumiseks mõeldud asukohad</translation>
-    </message>
-</context>
-<context>
-    <name>MaintenanceOverlay</name>
-    <message>
-        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="39"/>
-        <source>Database Maintenance</source>
-        <translation>Andmebaasi hooldus</translation>
-    </message>
-    <message>
-        <location filename="../qml/modules/Opal/LocalStorage/MaintenanceOverlay.qml" line="40"/>
-        <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation>Palun oota rahulikult kuni 30 sekundit selle tegevuse lõppemiseni.</translation>
     </message>
 </context>
 <context>
@@ -611,6 +613,55 @@
     </message>
 </context>
 <context>
+    <name>Opal.LocalStorage</name>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
+        <source>Database upgrade failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
+        <source>An error occurred while upgrading the database from version %1 to version %2. Please report this issue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
+        <source>Developer information:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
+        <source>Invalid database version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
+        <source>The app cannot start because the database has version %1 but only version %2 is supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
+        <source>Database Maintenance</source>
+        <translation type="unfinished">Andmebaasi hooldus</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
+        <source>Please be patient and allow up to 30 seconds for this.</source>
+        <translation type="unfinished">Palun oota rahulikult kuni 30 sekundit selle tegevuse lõppemiseni.</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
+        <source>Database issue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
+        <source>An unexpected issue occurred in the database. Try restarting the app.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OverviewListDelegate</name>
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="54"/>
@@ -636,32 +687,32 @@
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="101"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="99"/>
         <source>About</source>
         <translation>Rakenduse teave</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="111"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="109"/>
         <source>Refresh</source>
         <translation>Värskenda andmeid</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="67"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="65"/>
         <source>MeteoSwiss</source>
         <translation>MeteoSwiss</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="106"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="104"/>
         <source>Add location</source>
         <translation>Lisa asukoht</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="122"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="120"/>
         <source>Add a location first</source>
         <translation>Esmalt lisa asukoht</translation>
     </message>
     <message>
-        <location filename="../qml/pages/OverviewPage.qml" line="123"/>
+        <location filename="../qml/pages/OverviewPage.qml" line="121"/>
         <source>Pull down to add items</source>
         <translation>Kirjete lisamiseks viipa alla</translation>
     </message>
@@ -755,22 +806,32 @@
 <context>
     <name>harbour-meteoswiss</name>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="62"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="64"/>
         <source>d MMM yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</source>
         <translation>dd.MM.yyyy &apos;(&apos;hh&apos;:&apos;mm&apos;)&apos;</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="65"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="67"/>
         <source>ddd d MMM yyyy</source>
         <translation>ddd d MMM yyyy</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="64"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="222"/>
+        <source>Currently unusable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour-meteoswiss.qml" line="223"/>
+        <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour-meteoswiss.qml" line="66"/>
         <source>hh&apos;:&apos;mm</source>
         <translation>hh&apos;:&apos;mm</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-meteoswiss.qml" line="63"/>
+        <location filename="../qml/harbour-meteoswiss.qml" line="65"/>
         <source>d MMM yyyy</source>
         <translation>dd.MM.yyyy</translation>
     </message>
