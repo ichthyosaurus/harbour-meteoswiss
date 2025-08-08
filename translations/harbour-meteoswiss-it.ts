@@ -62,7 +62,7 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
         <source>Tamil</source>
-        <translation type="unfinished"></translation>
+        <translation>tamil</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="112"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
         <source>Sunshine</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sole</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
