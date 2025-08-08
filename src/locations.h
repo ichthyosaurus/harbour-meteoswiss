@@ -1,3 +1,9 @@
+/*
+ * This file is part of harbour-meteoswiss.
+ * SPDX-FileCopyrightText: 2025 Mirian Margiani
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include <QtSql>
 #include <QSqlQueryModel>
 #include <QHash>
