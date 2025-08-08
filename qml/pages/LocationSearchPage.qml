@@ -68,10 +68,11 @@ Page {
 
         delegate: TwoLineDelegate {
             id: listItem
+            minContentHeight:Theme.itemSizeSmall-padding.effectiveTop-padding.effectiveBottom
             text: Theme.highlightText(model.name, root._queryRegex, Theme.highlightColor)
             description: model.name !== model.primaryName ?
                 Theme.highlightText(model.primaryName, root._queryRegex, Theme.highlightColor)
-                : " "
+                : ""
             textLabel.font.pixelSize: Theme.fontSizeLarge
             descriptionLabel.font.pixelSize: Theme.fontSizeExtraSmall
 
@@ -83,7 +84,7 @@ Page {
                     highlightColor: Theme.secondaryHighlightColor
                 }
 
-                description: model.altitude + "m"
+                description: model.name !== model.primaryName ? " " : ""
                 descriptionLabel.font.pixelSize: Theme.fontSizeExtraSmall
             }
 
