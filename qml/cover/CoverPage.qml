@@ -19,10 +19,13 @@ CoverBackground {
     property var summary: meteoApp.coverData.summary
     property var locationData: meteoApp.coverData.locationData
 
-    Label {
-        id: label
+    CoverPlaceholder {
         visible: !haveLocation
-        anchors.centerIn: parent
+        icon {
+            source: Qt.resolvedUrl("../images/harbour-meteoswiss.png")
+            width: Theme.iconSizeLarge
+            height: Theme.iconSizeLarge
+        }
         text: qsTr("MeteoSwiss")
     }
 
