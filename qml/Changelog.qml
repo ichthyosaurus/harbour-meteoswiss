@@ -9,6 +9,22 @@ import "modules/Opal/About"
 
 ChangelogList {
     ChangelogItem {
+        version: "3.0.0-1"
+        date: "2025-08-08"
+        paragraphs: [
+            "- Updated translations: Estonian, French, Italian, Ukrainian<br>" +
+            "- Added a new locations database and overhauled the layout of the locations search page<br>" +
+            "- Improved locations search to give more relevant results in all Swiss national languages<br>" +
+            "- Switched the database to use Opal.LocalStorage under the hood<br>" +
+            "- Fixed disabling the complete app if the API breaks<br>" +
+            "- Fixed loading cover metadata under certain conditions<br>" +
+            "- Removed cantons from saved locations because the new data source doesn't provide canton info<br>" +
+            "- Removed lots of dead code and outdated example data<br>" +
+            "- Updated Opal modules and translations<br>" +
+            "- Note: switching to an older version after this update is not possible due to changes to the database schema"
+        ]
+    }
+    ChangelogItem {
         version: "2.0.0-1"
         date: "2025-07-22"
         paragraphs: [

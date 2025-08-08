@@ -6,6 +6,18 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Fri Aug 08 2025 Mirian Margiani <mixosaurus+ichthyo@pm.me> 3.0.0-1
+- Updated translations: Estonian, French, Italian, Ukrainian
+- Added a new locations database and overhauled the layout of the locations search page
+- Improved locations search to give more relevant results in all Swiss national languages
+- Switched the database to use Opal.LocalStorage under the hood
+- Fixed disabling the complete app if the API breaks
+- Fixed loading cover metadata under certain conditions
+- Removed cantons from saved locations because the new data source doesn't provide canton info
+- Removed lots of dead code and outdated example data
+- Updated Opal modules and translations
+- Note: switching to an older version after this update is not possible due to changes to the database schema
+
 * Tue Jul 22 2025 Mirian Margiani <mixosaurus+ichthyo@pm.me> 2.0.0-1
 - Added a fancy new table view that shows all available data, accessible from the pulley menu (try scrolling sideways to see everything)
 - Added a new wind gusts graph, showing the range of expected gusts per hour
