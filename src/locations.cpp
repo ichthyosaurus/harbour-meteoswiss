@@ -116,6 +116,15 @@ void LocationsModel::updateQuery()
                 (searchPrimary LIKE :searchPrimaryAny) +
                 0 DESC) rn
             FROM locations
+            WHERE (
+                (name LIKE :nameStart) OR
+                (searchName LIKE :searchNameStart) OR
+                (primaryName LIKE :primaryNameStart) OR
+                (searchPrimary LIKE :searchPrimaryStart) OR
+                (searchName LIKE :searchNameAny) OR
+                (searchPrimary LIKE :searchPrimaryAny) OR
+                0
+            )
         ) )") + select + QStringLiteral(R"(
         FROM cte
         ORDER BY rn
