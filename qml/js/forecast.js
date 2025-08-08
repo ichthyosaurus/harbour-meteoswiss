@@ -4,10 +4,15 @@
  * SPDX-FileCopyrightText: 2018-2025 Mirian Margiani
  */
 
+// Set this to true if the API breaks to prevent any requests.
+var DISABLE_NETWORK = false
+
 function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 
 function mayRefresh(lastRefreshed, maxAgeMins) {
-//    return false; // DEBUG
+    if (DISABLE_NETWORK) {
+        return false
+    }
 
     if (!lastRefreshed) {
         return true
@@ -323,6 +328,11 @@ function updateTableModel(data, tableModel) {
 }
 
 function httpGet(url) {
+    if (DISABLE_NETWORK) {
+        console.log("[broken API] not getting", url)
+        return null
+    }
+
     console.log("getting", url);
 
     var xmlHttp = new XMLHttpRequest();
@@ -390,11 +400,16 @@ WorkerScript.onMessage = function(message) {
         var json = httpGet('https://app-prod-ws.meteoswiss-app.ch/v1/plzOverview?plz=&small=' + message.locations.join(',') + '&large=');
         // var json = httpGet('/home/%1/Devel/meteoswiss/plzOverview.json'.arg('defaultuser')); // -- for debugging
 
-        try {
-            var week = JSON.parse(json.responseText);
-        } catch (e) {
-            console.log("error: failed to parse week overview json");
-            return;
+        if (!!json) {
+            try {
+                var week = JSON.parse(json.responseText);
+            } catch (e) {
+                console.log("error: failed to parse week overview json");
+                return;
+            }
+        } else {
+            console.log("error: failed to retrieve week overview json")
+            return
         }
 
         var ret = [];

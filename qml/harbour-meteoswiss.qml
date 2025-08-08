@@ -250,9 +250,14 @@ ApplicationWindow {
                 updateFrequency: WallClock.Minute
             }".arg("Nemo.Time"), meteoApp, 'WallClock')
 
+        // IMPORTANT Uncomment the code below if the API breaks.
+        //           ALSO: set DISABLE_NETWORK to true in forecast.js.
         // TODO implement a way to detect API breakage and enable the overlay automatically
+        /*{
+            Storage.disable()
         // disableAppOverlay.show()
-        // return
+            return
+        }*/
 
         overviewTimestamp = Storage.getDaySummaryAge()
         doRefreshData();

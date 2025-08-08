@@ -137,6 +137,12 @@ DB.dbMigrations = [
 var defaultFor = DB.defaultFor
 var getDatabase = DB.getDatabase
 
+function disable() {
+    // mark the app as disabled and prevent loading any data
+    DB.enableAutoMaintenance = false
+    DB.isOk = false
+}
+
 function simpleQuery(query, values, getSelectedCount) {
     var res = DB.simpleQuery(query, values, false)
 
