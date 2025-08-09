@@ -331,17 +331,17 @@
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="34"/>
         <source>Database missing</source>
-        <translation type="unfinished"></translation>
+        <translation>Відсутня база даних</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="35"/>
         <source>Try reinstalling the app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Спробуйте перевстановити програму.</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="41"/>
         <source>Type to find a location by name or by zip code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть запит, щоб знайти місцезнаходження за назвою або поштовим індексом.</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="49"/>
@@ -619,48 +619,48 @@
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
         <source>Database upgrade failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося оновити базу даних</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
         <source>An error occurred while upgrading the database from version %1 to version %2. Please report this issue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Під час оновлення бази даних з версії %1 до версії %2 сталася помилка. Будь ласка, повідомте про цю проблему.</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
         <source>Developer information:</source>
-        <translation type="unfinished"></translation>
+        <translation>Інформація про розробника:</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
         <source>Invalid database version</source>
-        <translation type="unfinished"></translation>
+        <translation>Недійсна версія бази даних</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
         <source>The app cannot start because the database has version %1 but only version %2 is supported.</source>
-        <translation type="unfinished"></translation>
+        <translation>Програму неможливо запустити, оскільки база даних має версію %1, але підтримується лише версія %2.</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
         <source>Database Maintenance</source>
-        <translation type="unfinished">Обслуговування бази даних</translation>
+        <translation>Обслуговування бази даних</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
         <source>Please be patient and allow up to 30 seconds for this.</source>
-        <translation type="unfinished">Будь ласка, запасіться терпінням і дайте на це до 30 секунд.</translation>
+        <translation>Будь ласка, будьте терплячими та виділіть для цього до 30 секунд.</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
         <source>Database issue</source>
-        <translation type="unfinished"></translation>
+        <translation>Проблема з базою даних</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
         <source>An unexpected issue occurred in the database. Try restarting the app.</source>
-        <translation type="unfinished"></translation>
+        <translation>У базі даних виникла неочікувана проблема. Спробуйте перезапустити програму.</translation>
     </message>
 </context>
 <context>
@@ -820,12 +820,12 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="222"/>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Наразі непридатний для використання</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="223"/>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цей додаток наразі не працює через зміни з боку постачальника даних.</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="66"/>
