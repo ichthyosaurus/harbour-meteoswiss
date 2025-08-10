@@ -4,17 +4,16 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Attribution using Opal.About:
-# - since version 2.3.0: enable the "autoAddOpalAttributions" property on
-#   your "About" page.
-# - since version 3.0.0: Opal attributions are automatically added
+#   Opal attributions are automatically added since version 3.0.0.
+#   Check the "autoAddOpalAttributions" property on your About page.
 #
 # Manual attribution:
-# 1. Import "../modules/Opal/Attributions" in your "About" page.
-# 2. Attribute this module by adding "OpalPropertyMacrosAttribution {}"
-#    to the "attributions" list property of the "About" page.
+#   1. Import "../modules/Opal/Attributions" in your "About" page.
+#   2. Attribute this module by adding "OpalPropertyMacrosAttribution {}"
+#      to the "attributions" list property of the "About" page.
 
 module: Opal.PropertyMacros (opal-propertymacros)
-version: 0.2.0 (git:0791c2a)
+version: 0.2.0 (git:cb46226)
 description: This module provides C++ macros that simplify adding properties to Qt objects.
 maintainers: Mirian Margiani
 attribution: 2025 Mirian Margiani
