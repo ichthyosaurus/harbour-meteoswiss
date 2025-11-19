@@ -157,7 +157,7 @@
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="216"/>
         <source>Sunshine</source>
-        <translation type="unfinished"></translation>
+        <translation>Luz solar</translation>
     </message>
     <message>
         <location filename="../qml/components/ForecastGraphItem.qml" line="223"/>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="41"/>
         <source>Table view</source>
-        <translation type="unfinished"></translation>
+        <translation>Vista de tabla</translation>
     </message>
     <message>
         <location filename="../qml/pages/ForecastPage.qml" line="90"/>
@@ -331,17 +331,17 @@
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="34"/>
         <source>Database missing</source>
-        <translation type="unfinished"></translation>
+        <translation>Falta la base de datos</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="35"/>
         <source>Try reinstalling the app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Trata reinstalar la apl.</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="41"/>
         <source>Type to find a location by name or by zip code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Teclee para encontrar un lugar por nombre o por código postal.</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationSearchPage.qml" line="49"/>
@@ -612,33 +612,33 @@
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
         <source>Database upgrade failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Modernización incorrecta de base de datos</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
         <source>An error occurred while upgrading the database from version %1 to version %2. Please report this issue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sucedió un error mientras modernizaba la base de datos desde la versión %1 a la versión %2. Informe este problema.</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="36"/>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
         <source>Developer information:</source>
-        <translation type="unfinished"></translation>
+        <translation>Información del desarrollador:</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
         <source>Invalid database version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión no válida de base de datos</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="38"/>
         <source>The app cannot start because the database has version %1 but only version %2 is supported.</source>
-        <translation type="unfinished"></translation>
+        <translation>La apl no puede iniciar porque la base de datos tiene versión %1 pero solo la versión %2 está mantenida.</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
         <source>Database Maintenance</source>
-        <translation type="unfinished">Mantenimiento de la base de datos</translation>
+        <translation>Mantenimiento de base de datos</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="40"/>
@@ -648,12 +648,12 @@
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
         <source>Database issue</source>
-        <translation type="unfinished"></translation>
+        <translation>Asunto de base de datos</translation>
     </message>
     <message>
         <location filename="../qml/modules/Opal/LocalStorage/MessageHandler.qml" line="42"/>
         <source>An unexpected issue occurred in the database. Try restarting the app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocurrió un asunto inesperado en la base de datos. Intente reiniciar la apl.</translation>
     </message>
 </context>
 <context>
@@ -671,7 +671,7 @@
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="227"/>
         <source>No forecast available for this location. Please replace it with a supported location nearby.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ninguna predicción disponible para este lugar. Remplácelo con un lugar admitido más cercano.</translation>
     </message>
     <message>
         <location filename="../qml/components/OverviewListDelegate.qml" line="258"/>
@@ -764,33 +764,33 @@
     <message>
         <location filename="../qml/pages/TablePage.qml" line="108"/>
         <source>Temperature</source>
-        <translation type="unfinished">Temperatura</translation>
+        <translation>Temperatura</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="118"/>
         <source>Precipitation</source>
-        <translation type="unfinished">Precipitación</translation>
+        <translation>Precipitación</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="133"/>
         <source>Sun</source>
         <comment>short for “Sunshine” in a narrow table header</comment>
-        <translation type="unfinished"></translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="153"/>
         <source>Gusts</source>
-        <translation type="unfinished"></translation>
+        <translation>Ráfagas</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="190"/>
         <source>No data available</source>
-        <translation type="unfinished"></translation>
+        <translation>Ningún dato disponible</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="191"/>
         <source>Check your internet connection and refresh.</source>
-        <translation type="unfinished"></translation>
+        <translation>Compruebe su conexión de internet y refresque.</translation>
     </message>
     <message>
         <location filename="../qml/pages/TablePage.qml" line="143"/>
@@ -813,12 +813,12 @@
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="222"/>
         <source>Currently unusable</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualmente inutilizable</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="223"/>
         <source>This app is currently unusable, due to a change at the data provider&apos;s side.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta apl actualmente no está disponible, debido a un cambio en el lado del proveedor de datos.</translation>
     </message>
     <message>
         <location filename="../qml/harbour-meteoswiss.qml" line="66"/>
