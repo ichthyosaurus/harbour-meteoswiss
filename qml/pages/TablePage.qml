@@ -24,7 +24,7 @@ Page {
     }
 
     readonly property bool _haveData: meteoApp.forecastTable.count > 0
-    readonly property QtObject _cw: QtObject {
+    readonly property QtObject _cw: QtObject {  // "cw" stands for "content width"
         readonly property int spacing: Theme.paddingSmall
         readonly property int hour: 5 * _em
         readonly property int icon: Theme.iconSizeMedium
