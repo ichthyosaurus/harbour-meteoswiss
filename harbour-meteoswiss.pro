@@ -19,9 +19,8 @@ QT += sql
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
 include(libs/opal-cached-defines.pri)
-include(libs/opal-include.pri)
 
-QML_IMPORT_PATH += qml/modules
+include(libs/opal.pri)
 
 SOURCES += \
     src/harbour-meteoswiss.cpp \

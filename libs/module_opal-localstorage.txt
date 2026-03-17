@@ -1,20 +1,20 @@
 # Store this file to keep track of packaged module versions.
 # It is not necessary to ship this in your app's final RPM package.
-# SPDX-FileCopyrightText: 2018-2025 Mirian Margiani
 # SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2018-2025 Mirian Margiani
 
 # Attribution using Opal.About:
-#   Opal attributions are automatically added since version 3.0.0.
-#   Check the "autoAddOpalAttributions" property on your About page.
+#   Opal attributions are automatically added to the About page.
+#   Make sure to use the latest version of Opal.About:
+#   https://github.com/Pretty-SFOS/opal-about/releases/latest
 #
 # Manual attribution:
-#   1. Import "../modules/Opal/Attributions" in your "About" page.
-#   2. Attribute this module by adding "OpalLocalStorageAttribution {}"
-#      to the "attributions" list property of the "About" page.
+#   Mention at least name, license, and the attribution text
+#   on the About page of your app. Use the information below.
 
 module: Opal.LocalStorage (opal-localstorage)
-version: 0.3.1 (git:1dc2e94)
-description: This module provides a set of tools for handling local databases safely and extensibly.
+version: 0.3.1 (git:bece4b3)
+description: This module provides a set of tools for handling local databases safely and extensibly in JavaScript and Python.
 maintainers: Mirian Margiani
 attribution: 2018-2025 Mirian Margiani
 license: GPL-3.0-or-later
