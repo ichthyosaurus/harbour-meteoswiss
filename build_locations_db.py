@@ -15,7 +15,7 @@ import unicodedata
 from pathlib import Path
 
 
-EXPECTED_DATA_VERSION = "171"
+EXPECTED_DATA_VERSION = "179"
 
 
 # convert LV03 coordinates to international WGS84 coordinates
